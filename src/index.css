@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-paper: #ffffff;
+  --color-ink: #09090b;
+  --color-muted: #71717a;
+  --color-border: #e4e4e7;
+  --color-accent: #18181b;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-950 antialiased;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-300;
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20;
+}
+
+/* Document feel */
+.document-shadow {
+  box-shadow: 0 0 50px -12px rgb(0 0 0 / 0.05);
+}
+
+/* Step transition animation */
+.step-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+.step-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 300ms ease-out;
+}
+.step-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.step-exit-active {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 300ms ease-in;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

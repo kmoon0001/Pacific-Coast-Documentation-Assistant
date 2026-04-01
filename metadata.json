@@ -1,0 +1,5 @@
+{
+  "name": "SNF Therapy DocGen",
+  "description": "A sophisticated, choice-driven document generator for SNF therapists (PT, OT, ST) based on Medicare standards and CPT/ICD codes.",
+  "requestFramePermissions": []
+}
