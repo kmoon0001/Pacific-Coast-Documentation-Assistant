@@ -79,6 +79,19 @@ npm run preview
 npm run deploy:prod
 ```
 
+### Desktop Build (Electron)
+
+```bash
+# Run web + Electron app together for local testing
+npm run electron:dev
+
+# Build production web bundle and wrap it in Electron
+npm run electron:build
+
+# Windows installers/.exe (and Linux packages) will be placed in dist/
+```
+The web bundle is also archived as `release.zip` when you run the launch packaging step (see DEPLOYMENT.md).
+
 ## Architecture
 
 ### Technology Stack
@@ -158,6 +171,17 @@ TheraDoc is designed for production deployment with security, compliance, and re
 - [ ] All tests passing (>95% coverage)
 - [ ] Security audit completed
 - [ ] HIPAA compliance verified
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for end-to-end deployment instructions, including how to use the packaged `release.zip` for web distribution and the Electron artifacts in `dist/` for desktop rollout.
+
+## Continuous Integration
+
+Every push and pull request to `main` automatically triggers the workflow in [`.github/workflows/ci.yml`](./.github/workflows/ci.yml). The pipeline:
+
+1. Installs dependencies and runs `npm run lint`, `npm run test:run`, and `npm run build`.
+2. Builds the Electron desktop binaries with `npm run electron:build` after tests pass.
+
+Build artifacts can be uploaded to releases or used directly from the `dist/` directory.
 - [ ] Monitoring and alerting configured
 - [ ] Backup and disaster recovery plan in place
 
