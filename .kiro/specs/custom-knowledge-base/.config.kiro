@@ -1,0 +1,31 @@
+{
+  "specType": "feature",
+  "workflowType": "requirements-first",
+  "featureName": "custom-knowledge-base",
+  "displayName": "Custom Knowledge Base Management",
+  "description": "Allow users to upload, manage, and customize policies/procedures that the AI uses to tailor note generation",
+  "createdAt": "2024-01-01T00:00:00Z",
+  "status": "phase-2-complete",
+  "phases": {
+    "phase1": {
+      "status": "complete",
+      "completedAt": "2026-04-01T00:00:00Z",
+      "testsPass": 30,
+      "coverage": "100%"
+    },
+    "phase2": {
+      "status": "complete",
+      "completedAt": "2026-04-01T00:00:00Z",
+      "testsPass": 47,
+      "coverage": "100%"
+    },
+    "phase3": {
+      "status": "ready",
+      "estimatedHours": "20-30"
+    },
+    "phase4": {
+      "status": "pending",
+      "estimatedHours": "15-20"
+    }
+  }
+}

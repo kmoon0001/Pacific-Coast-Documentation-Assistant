@@ -25,7 +25,7 @@ export function scrubPII(text: string): { scrubbed: string; hasPII: boolean } {
 const ENCRYPTION_KEY_NAME = 'theradoc_encryption_key';
 
 async function getEncryptionKey(): Promise<CryptoKey> {
-  let key = sessionStorage.getItem(ENCRYPTION_KEY_NAME);
+  const key = sessionStorage.getItem(ENCRYPTION_KEY_NAME);
   if (key) {
     // In a real app, you'd securely store/retrieve this.
     // For this client-side demo, we'll derive it from a fixed secret or store it in memory.

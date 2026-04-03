@@ -6,7 +6,7 @@ export interface Template {
 }
 
 export const TemplateService = {
-  getTemplates: (discipline: string, documentType: string): Template[] => {
+  getTemplates: (_discipline: string, _documentType: string): Template[] => {
     const defaultTemplates: Template[] = [
       {
         name: 'Standard Daily Note',

@@ -1,0 +1,1133 @@
+
+> react-example@0.0.0 test
+> vitest
+
+
+ RUN  v4.1.2 D:/Pacific-Coast-Documentation-Assistant-main
+
+ Γ¥» src/__tests__/components/PreviewPanel.test.tsx (0 test)
+ Γ¥» src/__tests__/components/Header.test.tsx (0 test)
+ Γ¥» src/__tests__/accessibility/accessibility.test.tsx (0 test)
+ Γ¥» src/services/clinicalKnowledgeBase.test.ts (0 test)
+ Γ¥» src/services/exportService.test.ts (18 tests | 1 failed) 89ms
+       ├ù should record failed exports 5ms
+ Γ¥» src/__tests__/components/ClipboardModal.test.tsx (0 test)
+ Γ¥» src/__tests__/components/MainContent.test.tsx (0 test)
+ Γ¥» src/services/analyticsService.test.ts (18 tests | 2 failed) 85ms
+       ├ù should record usage metric 48ms
+       ├ù should record compliance metric 3ms
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx (0 test)
+ Γ¥» src/lib/validation.test.ts (0 test)
+ Γ¥» src/services/gemini.test.ts (0 test)
+ Γ¥» src/__tests__/components/Sidebar.test.tsx (0 test)
+ Γ¥» src/__tests__/integration/workflows.test.ts (0 test)
+ Γ¥» src/__tests__/components/steps/DisciplineStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/CPTCodeStep.test.tsx (0 test)
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should register a new user
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:64343/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ Γ¥» src/__tests__/hooks/useTherapySession.test.ts (0 test)
+ Γ¥» src/__tests__/components/steps/ModeStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/ActivityStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/GenerateStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DetailsStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/ICD10Step.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DocumentTypeStep.test.tsx (0 test)
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should reject invalid email
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:64347/api/auth/register
+
+  ΓÇó Request body: {"email":"invalid-email","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should reject short password
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:64358/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"short"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should login user with valid credentials
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:64363/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should reject invalid credentials
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:50268/api/auth/login
+
+  ΓÇó Request body: {"email":"nonexistent@example.com","password":"wrongpassword"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should create a note
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:50271/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should reject note creation without authentication
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:53553/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should retrieve a note
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:53558/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should update a note
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:53568/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should delete a note
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:54160/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should list user notes
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:64457/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should validate note data
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:54708/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Audit Log Endpoints > should retrieve audit logs
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:54724/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Audit Log Endpoints > should generate audit report
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:54731/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Audit Log Endpoints > should include compliance metrics in report
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:54742/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Health Check > should return health status
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó GET http://127.0.0.1:54783/api/health
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Error Handling > should handle missing required fields
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:60845/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Error Handling > should handle invalid JSON
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:60850/api/auth/register
+
+  ΓÇó Request body: invalid json
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Error Handling > should handle not found errors
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:60857/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Data Encryption > should encrypt note content
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:60863/api/auth/register
+
+  ΓÇó Request body: {"email":"test@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Rate Limiting > should handle multiple requests
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:63000/api/auth/register
+
+  ΓÇó Request body: {"email":"test0@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:63001/api/auth/register
+
+  ΓÇó Request body: {"email":"test1@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:63002/api/auth/register
+
+  ΓÇó Request body: {"email":"test2@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:63003/api/auth/register
+
+  ΓÇó Request body: {"email":"test3@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+[MSW] Error: intercepted a request without a matching request handler:
+
+  ΓÇó POST http://127.0.0.1:63004/api/auth/register
+
+  ΓÇó Request body: {"email":"test4@example.com","password":"password123"}
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ Γ¥» src/__tests__/backend/backend.test.ts (21 tests | 21 failed) 160353ms
+       ├ù should register a new user 5033ms
+       ├ù should reject invalid email 5004ms
+       ├ù should reject short password 5009ms
+       ├ù should login user with valid credentials 5004ms
+       ├ù should reject invalid credentials 5020ms
+       ├ù should create a note 10006ms
+       ├ù should reject note creation without authentication 10008ms
+       ├ù should retrieve a note 10005ms
+       ├ù should update a note 10021ms
+       ├ù should delete a note 10003ms
+       ├ù should list user notes 10009ms
+       ├ù should validate note data 10010ms
+       ├ù should retrieve audit logs 10015ms
+       ├ù should generate audit report 10016ms
+       ├ù should include compliance metrics in report 10024ms
+       ├ù should return health status 5050ms
+       ├ù should handle missing required fields 5016ms
+       ├ù should handle invalid JSON 5019ms
+       ├ù should handle not found errors 5006ms
+       ├ù should encrypt note content 10026ms
+       ├ù should handle multiple requests 5033ms
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Suites 20 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/lib/validation.test.ts [ src/lib/validation.test.ts ]
+ FAIL  src/services/clinicalKnowledgeBase.test.ts [ src/services/clinicalKnowledgeBase.test.ts ]
+ FAIL  src/services/gemini.test.ts [ src/services/gemini.test.ts ]
+ FAIL  src/__tests__/components/ClipboardModal.test.tsx [ src/__tests__/components/ClipboardModal.test.tsx ]
+ FAIL  src/__tests__/components/Sidebar.test.tsx [ src/__tests__/components/Sidebar.test.tsx ]
+ FAIL  src/__tests__/hooks/useTherapySession.test.ts [ src/__tests__/hooks/useTherapySession.test.ts ]
+ FAIL  src/__tests__/integration/workflows.test.ts [ src/__tests__/integration/workflows.test.ts ]
+ FAIL  src/__tests__/components/steps/ActivityStep.test.tsx [ src/__tests__/components/steps/ActivityStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/CPTCodeStep.test.tsx [ src/__tests__/components/steps/CPTCodeStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/DetailsStep.test.tsx [ src/__tests__/components/steps/DetailsStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/DisciplineStep.test.tsx [ src/__tests__/components/steps/DisciplineStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/DocumentTypeStep.test.tsx [ src/__tests__/components/steps/DocumentTypeStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/GenerateStep.test.tsx [ src/__tests__/components/steps/GenerateStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/ICD10Step.test.tsx [ src/__tests__/components/steps/ICD10Step.test.tsx ]
+ FAIL  src/__tests__/components/steps/ModeStep.test.tsx [ src/__tests__/components/steps/ModeStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/fixtures.ts:264:29: ERROR: Unterminated regular expression
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/fixtures.ts:264:29
+  
+  Unterminated regular expression
+  262|      <TherapySessionProvider>
+  263|        {children}
+  264|      </TherapySessionProvider>
+     |                               ^
+  265|    );
+  266|    
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/44]ΓÄ»
+
+ FAIL  src/__tests__/accessibility/accessibility.test.tsx [ src/__tests__/accessibility/accessibility.test.tsx ]
+Error: Failed to resolve import "jest-axe" from "src/__tests__/accessibility/accessibility.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/accessibility/accessibility.test.tsx:3:40
+  2  |  import { describe, it, expect, beforeEach } from "vitest";
+  3  |  import { render } from "@testing-library/react";
+  4  |  import { axe, toHaveNoViolations } from "jest-axe";
+     |                                           ^
+  5  |  import { MainContent } from "../../components/TherapyApp/MainContent";
+  6  |  import { PreviewPanel } from "../../components/TherapyApp/PreviewPanel";
+ Γ¥» TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41
+ Γ¥» TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16
+ Γ¥» normalizeUrl node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23
+ Γ¥» node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+ Γ¥» TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7
+ Γ¥» EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18
+ Γ¥» loadAndTransform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[2/44]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx [ src/__tests__/components/GuidedTour.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/GuidedTour.test.tsx:118:2: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/GuidedTour.test.tsx:118:2
+  
+  Unexpected "}"
+  116|      const prevButton = screen.queryByRole('button', { name: /previous|back/i });
+  117|      expect(prevButton || screen.getByTestId('guided-tour')).toBeInTheDocument();
+  118|    });
+     |    ^
+  119|  
+  120|    it('should navigate to next step', async () => {
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[3/44]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx [ src/__tests__/components/Header.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/Header.test.tsx:77:2: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/Header.test.tsx:77:2
+  
+  Unexpected "}"
+  75 |    });
+  76 |  });
+  77 |    });
+     |    ^
+  78 |  
+  79 |    it('should call onTour when tour button is clicked', async () => {
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[4/44]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx [ src/__tests__/components/MainContent.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/MainContent.test.tsx:121:0: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/MainContent.test.tsx:121:0
+  
+  Unexpected "}"
+  119|      });
+  120|    });
+  121|  });
+     |  ^
+  122|  
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[5/44]ΓÄ»
+
+ FAIL  src/__tests__/components/PreviewPanel.test.tsx [ src/__tests__/components/PreviewPanel.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/PreviewPanel.test.tsx:91:2: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/PreviewPanel.test.tsx:91:2
+  
+  Unexpected "}"
+  89 |  });
+  90 |      expect(mockProps.onCopy).toHaveBeenCalled();
+  91 |    });
+     |    ^
+  92 |  
+  93 |    it('should call onDownload when download button is clicked', async () => {
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[6/44]ΓÄ»
+
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 24 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/services/analyticsService.test.ts > AnalyticsService > recordUsage > should record usage metric
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ Γ¥» src/services/analyticsService.test.ts:28:23
+     26|       );
+     27|
+     28|       expect(metrics).toHaveLength(1);
+       |                       ^
+     29|       expect(metrics[0]).toEqual(metric);
+     30|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[7/44]ΓÄ»
+
+ FAIL  src/services/analyticsService.test.ts > AnalyticsService > recordCompliance > should record compliance metric
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ Γ¥» src/services/analyticsService.test.ts:79:23
+     77|       );
+     78|
+     79|       expect(metrics).toHaveLength(1);
+       |                       ^
+     80|       expect(metrics[0]).toEqual(metric);
+     81|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[8/44]ΓÄ»
+
+ FAIL  src/services/exportService.test.ts > ExportService > error handling > should record failed exports
+AssertionError: expected undefined to be defined
+ Γ¥» src/services/exportService.test.ts:160:28
+    158|       const exports = service.listExports();
+    159|       const failedExport = exports.find(e => e.status === 'failed');
+    160|       expect(failedExport).toBeDefined();
+       |                            ^
+    161|     });
+    162|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[9/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should register a new user
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:13:5
+     11|
+     12|   describe('Authentication Endpoints', () => {
+     13|     it('should register a new user', async () => {
+       |     ^
+     14|       const response = await app.post('/api/auth/register').send({
+     15|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[10/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should reject invalid email
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:25:5
+     23|     });
+     24|
+     25|     it('should reject invalid email', async () => {
+       |     ^
+     26|       const response = await app.post('/api/auth/register').send({
+     27|         email: 'invalid-email',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[11/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should reject short password
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:34:5
+     32|     });
+     33|
+     34|     it('should reject short password', async () => {
+       |     ^
+     35|       const response = await app.post('/api/auth/register').send({
+     36|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[12/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should login user with valid credentials
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:43:5
+     41|     });
+     42|
+     43|     it('should login user with valid credentials', async () => {
+       |     ^
+     44|       // First register
+     45|       await app.post('/api/auth/register').send({
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[13/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Authentication Endpoints > should reject invalid credentials
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:61:5
+     59|     });
+     60|
+     61|     it('should reject invalid credentials', async () => {
+       |     ^
+     62|       const response = await app.post('/api/auth/login').send({
+     63|         email: 'nonexistent@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[14/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should create a note
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should reject note creation without authentication
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should retrieve a note
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should update a note
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should delete a note
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should list user notes
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Note CRUD Endpoints > should validate note data
+Error: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:74:5
+     72|     let token: string;
+     73|
+     74|     beforeEach(async () => {
+       |     ^
+     75|       const registerResponse = await app.post('/api/auth/register').seΓÇª
+     76|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[15/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Audit Log Endpoints > should retrieve audit logs
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Audit Log Endpoints > should generate audit report
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Audit Log Endpoints > should include compliance metrics in report
+Error: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:225:5
+    223|     let token: string;
+    224|
+    225|     beforeEach(async () => {
+       |     ^
+    226|       const registerResponse = await app.post('/api/auth/register').seΓÇª
+    227|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[16/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Health Check > should return health status
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:265:5
+    263|
+    264|   describe('Health Check', () => {
+    265|     it('should return health status', async () => {
+       |     ^
+    266|       const response = await app.get('/api/health');
+    267|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[17/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Error Handling > should handle missing required fields
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:275:5
+    273|
+    274|   describe('Error Handling', () => {
+    275|     it('should handle missing required fields', async () => {
+       |     ^
+    276|       const response = await app.post('/api/auth/register').send({
+    277|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[18/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Error Handling > should handle invalid JSON
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:283:5
+    281|     });
+    282|
+    283|     it('should handle invalid JSON', async () => {
+       |     ^
+    284|       const response = await app
+    285|         .post('/api/auth/register')
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[19/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Error Handling > should handle not found errors
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:292:5
+    290|     });
+    291|
+    292|     it('should handle not found errors', async () => {
+       |     ^
+    293|       const registerResponse = await app.post('/api/auth/register').seΓÇª
+    294|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[20/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Data Encryption > should encrypt note content
+Error: Hook timed out in 10000ms.
+If this is a long-running hook, pass a timeout value as the last argument or configure it globally with "hookTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:310:5
+    308|     let token: string;
+    309|
+    310|     beforeEach(async () => {
+       |     ^
+    311|       const registerResponse = await app.post('/api/auth/register').seΓÇª
+    312|         email: 'test@example.com',
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[21/44]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts > Backend Persistence Layer > Rate Limiting > should handle multiple requests
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ Γ¥» src/__tests__/backend/backend.test.ts:336:5
+    334|
+    335|   describe('Rate Limiting', () => {
+    336|     it('should handle multiple requests', async () => {
+       |     ^
+    337|       const requests = [];
+    338|       for (let i = 0; i < 5; i++) {
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[22/44]ΓÄ»
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Errors ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+Vitest caught 25 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should register a new user". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should reject invalid email". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should reject short password". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should login user with valid credentials". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should reject invalid credentials". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should create a note". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should reject note creation without authentication". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should retrieve a note". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should update a note". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should delete a note". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should list user notes". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should validate note data". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should retrieve audit logs". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should generate audit report". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should include compliance metrics in report". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:11
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should return health status". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle missing required fields". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle invalid JSON". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle not found errors". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should encrypt note content". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle multiple requests". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle multiple requests". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle multiple requests". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle multiple requests". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ» Unhandled Rejection ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+InternalError: [MSW] Cannot bypass a request when using the "error" strategy for the "onUnhandledRequest" option.
+ Γ¥» applyStrategy node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:21:15
+ Γ¥» onUnhandledRequest node_modules/msw/lib/core/utils/request/onUnhandledRequest.mjs:50:5
+ Γ¥» processTicksAndRejections node:internal/process/task_queues:105:5
+ Γ¥» handleRequest node_modules/msw/lib/core/utils/handleRequest.mjs:31:5
+ Γ¥» _Emitter.<anonymous> node_modules/msw/lib/node/index.mjs:41:26
+ Γ¥» emitAsync node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:33:36
+ Γ¥» node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:144:3
+ Γ¥» until node_modules/@open-draft/until/lib/index.mjs:4:18
+ Γ¥» handleRequest node_modules/@mswjs/interceptors/lib/node/handleRequest-Y97UwBbF.mjs:138:17
+ Γ¥» ClientRequestInterceptor.onRequest node_modules/@mswjs/interceptors/lib/node/ClientRequest-Ca8Qykuv.mjs:934:4
+
+This error originated in "src/__tests__/backend/backend.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "should handle multiple requests". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+
+ Test Files  23 failed | 21 passed (44)
+      Tests  24 failed | 487 passed (511)
+     Errors  25 errors
+   Start at  16:16:27
+   Duration  169.62s (transform 9.53s, setup 56.39s, import 8.77s, tests 165.81s, environment 190.71s)
+

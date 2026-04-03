@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ChevronRight, ChevronLeft } from 'lucide-react';
+import { X } from 'lucide-react';
 
 interface GuidedTourProps {
   isActive: boolean;
@@ -35,7 +35,7 @@ export function GuidedTour({ isActive, onClose }: GuidedTourProps) {
         >
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-black">{steps[step].title}</h2>
-            <button onClick={onClose} className="p-2 hover:bg-zinc-100 rounded-full"><X className="w-5 h-5" /></button>
+            <button onClick={onClose} aria-label="Close guided tour" className="p-2 hover:bg-zinc-100 rounded-full"><X className="w-5 h-5" /></button>
           </div>
           <p className="text-zinc-600 mb-8">{steps[step].content}</p>
           <div className="flex justify-between items-center">

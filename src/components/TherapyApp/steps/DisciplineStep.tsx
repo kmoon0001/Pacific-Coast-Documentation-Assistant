@@ -1,23 +1,22 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { Stethoscope, Activity, User, ChevronRight, Star, Trash2, Wand2, Sparkles, Mic } from 'lucide-react';
-import { Discipline, StepContentProps } from '../../../types';
+import { Stethoscope, Activity, User, Star, Trash2, Wand2, Sparkles, Mic } from 'lucide-react';
+import { Discipline } from '../../../types';
+import { useSession } from '../../../contexts/TherapySessionContext';
 import { cn } from '../../../lib/utils';
 import { useVoiceDictation } from '../../../hooks/useVoiceDictation';
 
-export const DisciplineStep: React.FC<StepContentProps> = ({ 
-  state, 
-  setState, 
-  handleNext,
-  customTemplates,
-  handleDeleteTemplate,
-  brainDump,
-  setBrainDump,
-  brainDumpMode,
-  setBrainDumpMode,
-  isParsingBrainDump,
-  handleBrainDump
-}) => {
+export const DisciplineStep: React.FC = () => {
+  const {
+    state,
+    setState,
+    handleNext,
+    customTemplates,
+    handleDeleteTemplate,
+    brainDump,
+    setBrainDump,
+    isParsingBrainDump,
+    handleBrainDump
+  } = useSession();
   const { isListening, toggleListening } = useVoiceDictation((transcript) => {
     setBrainDump(brainDump + ' ' + transcript);
   });
@@ -86,7 +85,7 @@ export const DisciplineStep: React.FC<StepContentProps> = ({
         <h2 className="text-4xl font-black tracking-tight text-zinc-950 uppercase italic">Select <span className="text-zinc-300 not-italic">Discipline</span></h2>
         <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">Clinical specialization context</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6" data-testid="discipline-grid">
         {disciplines.map((d) => (
           <button
             key={d.id}

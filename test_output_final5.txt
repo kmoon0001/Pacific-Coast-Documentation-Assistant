@@ -1,0 +1,320 @@
+
+> react-example@0.0.0 test
+> vitest
+
+
+ RUN  v4.1.2 D:/Pacific-Coast-Documentation-Assistant-main
+
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx (0 test)
+ Γ¥» src/__tests__/components/MainContent.test.tsx (0 test)
+ Γ¥» src/__tests__/accessibility/accessibility.test.tsx (0 test)
+ Γ¥» src/services/clinicalKnowledgeBase.test.ts (0 test)
+ Γ¥» src/services/analyticsService.test.ts (18 tests | 2 failed) 244ms
+       ├ù should record usage metric 80ms
+       ├ù should record compliance metric 7ms
+ Γ¥» src/__tests__/components/Sidebar.test.tsx (0 test)
+ Γ¥» src/__tests__/components/Header.test.tsx (0 test)
+ Γ¥» src/lib/validation.test.ts (0 test)
+ Γ¥» src/__tests__/components/PreviewPanel.test.tsx (0 test)
+ Γ¥» src/services/exportService.test.ts (18 tests | 1 failed) 215ms
+       ├ù should record failed exports 11ms
+ Γ¥» src/services/gemini.test.ts (0 test)
+ Γ¥» src/__tests__/hooks/useTherapySession.test.ts (0 test)
+ Γ¥» src/__tests__/components/ClipboardModal.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/CPTCodeStep.test.tsx (0 test)
+ Γ¥» src/__tests__/integration/workflows.test.ts (0 test)
+ Γ¥» src/__tests__/backend/backend.test.ts (0 test)
+ Γ¥» src/__tests__/components/steps/DetailsStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/ActivityStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DisciplineStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/ModeStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/ICD10Step.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/GenerateStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DocumentTypeStep.test.tsx (0 test)
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Suites 21 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/lib/validation.test.ts [ src/lib/validation.test.ts ]
+ FAIL  src/services/clinicalKnowledgeBase.test.ts [ src/services/clinicalKnowledgeBase.test.ts ]
+ FAIL  src/services/gemini.test.ts [ src/services/gemini.test.ts ]
+ FAIL  src/__tests__/components/ClipboardModal.test.tsx [ src/__tests__/components/ClipboardModal.test.tsx ]
+ FAIL  src/__tests__/components/Sidebar.test.tsx [ src/__tests__/components/Sidebar.test.tsx ]
+ FAIL  src/__tests__/hooks/useTherapySession.test.ts [ src/__tests__/hooks/useTherapySession.test.ts ]
+ FAIL  src/__tests__/integration/workflows.test.ts [ src/__tests__/integration/workflows.test.ts ]
+ FAIL  src/__tests__/components/steps/DisciplineStep.test.tsx [ src/__tests__/components/steps/DisciplineStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/DocumentTypeStep.test.tsx [ src/__tests__/components/steps/DocumentTypeStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/GenerateStep.test.tsx [ src/__tests__/components/steps/GenerateStep.test.tsx ]
+ FAIL  src/__tests__/components/steps/ICD10Step.test.tsx [ src/__tests__/components/steps/ICD10Step.test.tsx ]
+ FAIL  src/__tests__/components/steps/ModeStep.test.tsx [ src/__tests__/components/steps/ModeStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/fixtures.ts:264:29: ERROR: Unterminated regular expression
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/fixtures.ts:264:29
+  
+  Unterminated regular expression
+  262|      <TherapySessionProvider>
+  263|        {children}
+  264|      </TherapySessionProvider>
+     |                               ^
+  265|    );
+  266|    
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/24]ΓÄ»
+
+ FAIL  src/__tests__/accessibility/accessibility.test.tsx [ src/__tests__/accessibility/accessibility.test.tsx ]
+Error: Failed to resolve import "jest-axe" from "src/__tests__/accessibility/accessibility.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/accessibility/accessibility.test.tsx:3:40
+  2  |  import { describe, it, expect, beforeEach } from "vitest";
+  3  |  import { render } from "@testing-library/react";
+  4  |  import { axe, toHaveNoViolations } from "jest-axe";
+     |                                           ^
+  5  |  import { MainContent } from "../../components/TherapyApp/MainContent";
+  6  |  import { PreviewPanel } from "../../components/TherapyApp/PreviewPanel";
+ Γ¥» TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41
+ Γ¥» TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16
+ Γ¥» normalizeUrl node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23
+ Γ¥» node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+ Γ¥» TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7
+ Γ¥» EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18
+ Γ¥» loadAndTransform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[2/24]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx [ src/__tests__/components/GuidedTour.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/GuidedTour.test.tsx:118:2: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/GuidedTour.test.tsx:118:2
+  
+  Unexpected "}"
+  116|      const prevButton = screen.queryByRole('button', { name: /previous|back/i });
+  117|      expect(prevButton || screen.getByTestId('guided-tour')).toBeInTheDocument();
+  118|    });
+     |    ^
+  119|  
+  120|    it('should navigate to next step', async () => {
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[3/24]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx [ src/__tests__/components/Header.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/Header.test.tsx:77:2: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/Header.test.tsx:77:2
+  
+  Unexpected "}"
+  75 |    });
+  76 |  });
+  77 |    });
+     |    ^
+  78 |  
+  79 |    it('should call onTour when tour button is clicked', async () => {
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[4/24]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx [ src/__tests__/components/MainContent.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/MainContent.test.tsx:121:0: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/MainContent.test.tsx:121:0
+  
+  Unexpected "}"
+  119|      });
+  120|    });
+  121|  });
+     |  ^
+  122|  
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[5/24]ΓÄ»
+
+ FAIL  src/__tests__/components/PreviewPanel.test.tsx [ src/__tests__/components/PreviewPanel.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/PreviewPanel.test.tsx:91:2: ERROR: Unexpected "}"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/PreviewPanel.test.tsx:91:2
+  
+  Unexpected "}"
+  89 |  });
+  90 |      expect(mockProps.onCopy).toHaveBeenCalled();
+  91 |    });
+     |    ^
+  92 |  
+  93 |    it('should call onDownload when download button is clicked', async () => {
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[6/24]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts [ src/__tests__/backend/backend.test.ts ]
+Error: Failed to resolve import "supertest" from "src/__tests__/backend/backend.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/backend/backend.test.ts:2:20
+  1  |  import { describe, it, expect, beforeEach } from "vitest";
+  2  |  import request from "supertest";
+     |                       ^
+  3  |  import createBackendServer from "../../services/backend";
+  4  |  describe("Backend Persistence Layer", () => {
+ Γ¥» TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41
+ Γ¥» TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16
+ Γ¥» normalizeUrl node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23
+ Γ¥» node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+ Γ¥» TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7
+ Γ¥» EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18
+ Γ¥» loadAndTransform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[7/24]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/ActivityStep.test.tsx [ src/__tests__/components/steps/ActivityStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/ActivityStep.test.tsx:13:46: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/ActivityStep.test.tsx:13:46
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render activity selection', () => {
+  13 |      renderWithTherapySession(<ActivityStep />));
+     |                                                ^
+  14 |      
+  15 |      expect(screen.getByText(/activity|exercise/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[8/24]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/CPTCodeStep.test.tsx [ src/__tests__/components/steps/CPTCodeStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/CPTCodeStep.test.tsx:62:45: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/CPTCodeStep.test.tsx:62:45
+  
+  Expected ";" but found ")"
+  60 |  
+  61 |    it('should render with proper accessibility', () => {
+  62 |      renderWithTherapySession(<CPTCodeStep />));
+     |                                               ^
+  63 |      
+  64 |      const buttons = screen.getAllByRole('button');
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[9/24]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/DetailsStep.test.tsx [ src/__tests__/components/steps/DetailsStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DetailsStep.test.tsx:26:45: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DetailsStep.test.tsx:26:45
+  
+  Expected ";" but found ")"
+  24 |  
+  25 |    it('should handle text input', async () => {
+  26 |      renderWithTherapySession(<DetailsStep />));
+     |                                               ^
+  27 |      
+  28 |      const inputs = screen.queryAllByRole('textbox');
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[10/24]ΓÄ»
+
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 3 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/services/analyticsService.test.ts > AnalyticsService > recordUsage > should record usage metric
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ Γ¥» src/services/analyticsService.test.ts:28:23
+     26|       );
+     27|
+     28|       expect(metrics).toHaveLength(1);
+       |                       ^
+     29|       expect(metrics[0]).toEqual(metric);
+     30|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[11/24]ΓÄ»
+
+ FAIL  src/services/analyticsService.test.ts > AnalyticsService > recordCompliance > should record compliance metric
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ Γ¥» src/services/analyticsService.test.ts:79:23
+     77|       );
+     78|
+     79|       expect(metrics).toHaveLength(1);
+       |                       ^
+     80|       expect(metrics[0]).toEqual(metric);
+     81|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[12/24]ΓÄ»
+
+ FAIL  src/services/exportService.test.ts > ExportService > error handling > should record failed exports
+AssertionError: expected undefined to be defined
+ Γ¥» src/services/exportService.test.ts:160:28
+    158|       const exports = service.listExports();
+    159|       const failedExport = exports.find(e => e.status === 'failed');
+    160|       expect(failedExport).toBeDefined();
+       |                            ^
+    161|     });
+    162|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[13/24]ΓÄ»
+
+
+ Test Files  23 failed | 21 passed (44)
+      Tests  3 failed | 487 passed (490)
+   Start at  15:28:27
+   Duration  54.07s (transform 9.87s, setup 161.71s, import 14.36s, tests 15.80s, environment 385.04s)
+

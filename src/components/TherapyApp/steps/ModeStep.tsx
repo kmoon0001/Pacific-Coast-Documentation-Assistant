@@ -1,10 +1,12 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { ChevronRight, Clock } from 'lucide-react';
-import { StepContentProps } from '../../../types';
+import { Clock } from 'lucide-react';
+import { useSession } from '../../../contexts/TherapySessionContext';
+import { ST_DATA, OT_DATA, PT_DATA } from '../../../data/therapyData';
 import { cn } from '../../../lib/utils';
 
-export const ModeStep: React.FC<Pick<StepContentProps, 'state' | 'setState' | 'handleNext' | 'currentData'>> = ({ state, setState, handleNext, currentData }) => {
+export const ModeStep: React.FC = () => {
+  const { state, setState, handleNext } = useSession();
+  const currentData = { cptCodes: state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA };
   const currentCpt = currentData.cptCodes.find((c: any) => c.code === state.cptCode);
   
   return (

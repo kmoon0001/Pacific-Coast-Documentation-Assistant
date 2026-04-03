@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
-import { useTherapySession } from './hooks/useTherapySession';
 import { Sidebar } from './components/TherapyApp/Sidebar';
 import { MainContent } from './components/TherapyApp/MainContent';
 import { PreviewPanel } from './components/TherapyApp/PreviewPanel';
@@ -9,17 +8,20 @@ import { ClipboardModal } from './components/TherapyApp/ClipboardModal';
 import { GuidedTour } from './components/TherapyApp/GuidedTour';
 import { Menu, FileText, X } from 'lucide-react';
 import { cn } from './lib/utils';
+import { TherapySessionProvider, useSession } from './contexts/TherapySessionContext';
 
 export default function App() {
   return (
     <ErrorBoundary>
-      <TheraDocApp />
+      <TherapySessionProvider>
+        <TheraDocApp />
+      </TherapySessionProvider>
     </ErrorBoundary>
   );
 }
 
 function TheraDocApp() {
-  const session = useTherapySession();
+  const session = useSession();
   const {
     state, setState,
     history,
@@ -34,7 +36,7 @@ function TheraDocApp() {
     isClipboardOpen, setIsClipboardOpen,
     isTourActive, setIsTourActive,
     modelDownloadProgress, setModelDownloadProgress,
-    generatedNote, setGeneratedNote,
+    generatedNote,
     editedNote, setEditedNote,
     isGenerating,
     isTumbling,
@@ -94,7 +96,7 @@ function TheraDocApp() {
     <div className="flex flex-col md:flex-row h-screen bg-white text-zinc-950 font-sans selection:bg-zinc-950 selection:text-white overflow-hidden">
       {/* Mobile Header */}
       <div className="md:hidden flex items-center justify-between p-4 border-b border-zinc-100 bg-white z-20">
-        <button onClick={() => setIsMobileSidebarOpen(true)} className="p-2 -ml-2 text-zinc-600">
+        <button onClick={() => setIsMobileSidebarOpen(true)} className="p-2 -ml-2 text-zinc-600" title="Open menu" aria-label="Open menu">
           <Menu className="w-6 h-6" />
         </button>
         <div className="flex items-center gap-2">
@@ -103,7 +105,7 @@ function TheraDocApp() {
           </div>
           <h1 className="text-lg font-black tracking-tighter text-zinc-950">TheraDoc</h1>
         </div>
-        <button onClick={() => setIsMobilePreviewOpen(true)} className="p-2 -mr-2 text-zinc-600 relative">
+        <button onClick={() => setIsMobilePreviewOpen(true)} className="p-2 -mr-2 text-zinc-600 relative" title="Open preview" aria-label="Open preview">
           <FileText className="w-6 h-6" />
           {(generatedNote || isGenerating) && (
             <span className="absolute top-2 right-2 w-2 h-2 bg-emerald-500 rounded-full" />
@@ -142,6 +144,8 @@ function TheraDocApp() {
         <button 
           onClick={() => setIsMobileSidebarOpen(false)}
           className="md:hidden absolute top-4 right-4 p-2 bg-zinc-100 rounded-full text-zinc-600"
+          title="Close menu"
+          aria-label="Close menu"
         >
           <X className="w-5 h-5" />
         </button>
@@ -156,7 +160,7 @@ function TheraDocApp() {
       )}
 
       {/* Main Content */}
-      <MainContent session={session} />
+      <MainContent />
 
       {/* Preview Panel (Desktop & Mobile Drawer) */}
       <div className={cn(
@@ -195,6 +199,8 @@ function TheraDocApp() {
         <button 
           onClick={() => setIsMobilePreviewOpen(false)}
           className="md:hidden absolute top-4 left-4 p-2 bg-zinc-100 rounded-full text-zinc-600 z-50"
+          title="Close preview"
+          aria-label="Close preview"
         >
           <X className="w-5 h-5" />
         </button>
@@ -252,4 +258,3 @@ function TheraDocApp() {
     </div>
   );
 }
-

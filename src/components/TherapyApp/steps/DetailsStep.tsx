@@ -1,20 +1,21 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { ChevronRight, ChevronLeft, Plus, X, Sparkles } from 'lucide-react';
-import { StepContentProps } from '../../../types';
+import { ChevronLeft, Plus, X, Sparkles } from 'lucide-react';
+import { useSession } from '../../../contexts/TherapySessionContext';
+import { ST_DATA, OT_DATA, PT_DATA } from '../../../data/therapyData';
 import { cn } from '../../../lib/utils';
 import { VoiceInput } from '../VoiceInput';
 
-export const DetailsStep: React.FC<StepContentProps> = ({ 
-  state, 
-  setState, 
-  handleNext, 
-  handleBack, 
-  currentData, 
-  customTemplates, 
-  handleDeleteTemplate,
-  handleSaveTemplate
-}) => {
+export const DetailsStep: React.FC = () => {
+  const {
+    state,
+    setState,
+    handleNext,
+    handleBack,
+    customTemplates,
+    handleDeleteTemplate,
+    handleSaveTemplate
+  } = useSession();
+  const currentData = { cptCodes: state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA };
   const currentCpt = currentData.cptCodes.find((c: any) => c.code === state.cptCode);
   const currentMode = currentCpt?.modes.find((m: any) => m.name === state.mode);
   const currentActivity = currentMode?.activities.find((a: any) => a.name === state.activity);

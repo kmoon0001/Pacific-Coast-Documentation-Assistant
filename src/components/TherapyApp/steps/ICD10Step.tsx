@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import { Search, Plus, X, ChevronRight } from 'lucide-react';
-import { StepContentProps } from '../../../types';
+import { useSession } from '../../../contexts/TherapySessionContext';
 import { cn } from '../../../lib/utils';
 import { ICD10_LIBRARY } from '../../../data/icd10Data';
 
-export const ICD10Step: React.FC<Pick<StepContentProps, 'state' | 'setState' | 'handleNext'>> = ({ state, setState, handleNext }) => {
+export const ICD10Step: React.FC = () => {
+  const { state, setState, handleNext } = useSession();
   const [searchTerm, setSearchTerm] = useState('');
   
   const selectedCodes = state.icd10Codes || [];
@@ -45,6 +45,7 @@ export const ICD10Step: React.FC<Pick<StepContentProps, 'state' | 'setState' | '
           {filteredCodes.map((c) => (
             <button
               key={c.code}
+              aria-pressed={selectedCodes.includes(c.code)}
               onClick={() => toggleCode(c.code)}
               className={cn(
                 "p-6 rounded-2xl border-2 transition-all duration-300 text-left flex items-center justify-between group",
@@ -88,17 +89,14 @@ export const ICD10Step: React.FC<Pick<StepContentProps, 'state' | 'setState' | '
               </button>
             </div>
             <div className="flex flex-wrap gap-3">
-              {selectedCodes.map((code) => {
-                const data = ICD10_LIBRARY.find(c => c.code === code);
-                return (
-                  <div key={code} className="flex items-center gap-3 px-4 py-2 bg-zinc-950 text-white rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-zinc-200">
-                    <span>{code}</span>
-                    <button onClick={() => toggleCode(code)} className="hover:text-red-400 transition-colors">
-                      <X className="w-3 h-3" />
-                    </button>
-                  </div>
-                );
-              })}
+              {selectedCodes.map((code) => (
+                <div key={code} className="flex items-center gap-3 px-4 py-2 bg-zinc-950 text-white rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-zinc-200">
+                  <span>{code}</span>
+                  <button onClick={() => toggleCode(code)} className="hover:text-red-400 transition-colors" title="Remove code" aria-label="Remove code">
+                    <X className="w-3 h-3" />
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -116,3 +114,4 @@ export const ICD10Step: React.FC<Pick<StepContentProps, 'state' | 'setState' | '
     </div>
   );
 };
+

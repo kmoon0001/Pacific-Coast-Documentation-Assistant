@@ -1,19 +1,25 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { Discipline, TherapyState, GeneratedNote, AuditResult } from '../types';
+import { TherapyState, GeneratedNote, AuditResult } from '../types';
 import { STEPS, DEFAULT_STATE } from '../constants';
 import { generateTherapyNote, auditNoteWithAI, analyzeGaps, parseBrainDump, tumbleNote, summarizeProgress } from '../services/gemini';
 import { ClinicalKnowledgeBase } from '../services/clinicalKnowledgeBase';
-import { TemplateService } from '../services/templateService';
 import { SNFTemplates } from '../services/snfTemplates';
 import { generateNursingHandOff } from '../services/nursingHandOff';
 
-export function useTherapySession() {
+export function useTherapySession(initialStateOverride?: TherapyState) {
   const [step, setStep] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [state, setState] = useState<TherapyState>(() => {
+    if (initialStateOverride) {
+      return initialStateOverride;
+    }
     const saved = sessionStorage.getItem('therapy_draft');
     if (saved) {
-      try { return JSON.parse(saved); } catch (e) {}
+      try {
+        return JSON.parse(saved);
+      } catch {
+        // ignore corrupted drafts
+      }
     }
     return DEFAULT_STATE;
   });
@@ -336,7 +342,7 @@ export function useTherapySession() {
   const handleSaveTemplate = () => {
     const name = prompt("Enter a name for this custom template:");
     if (name) {
-      const { customNote, previousNotesToSummarize, ...stateToSave } = state;
+      const { customNote: _customNote, previousNotesToSummarize: _previousNotesToSummarize, ...stateToSave } = state;
       const newTemplates = [...customTemplates, { name, state: stateToSave as TherapyState }];
       setCustomTemplates(newTemplates);
       localStorage.setItem('customTemplates', JSON.stringify(newTemplates));

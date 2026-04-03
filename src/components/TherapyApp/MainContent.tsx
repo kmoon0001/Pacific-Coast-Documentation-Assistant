@@ -1,57 +1,21 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, Wand2, RefreshCw } from 'lucide-react';
-import { TherapyState } from '../../types';
 import { StepRail } from './StepRail';
 import { StepContent } from './StepContent';
-import { ST_DATA, OT_DATA, PT_DATA } from '../../data/therapyData';
+import { useSession } from '../../contexts/TherapySessionContext';
 
-interface MainContentProps {
-  session: any; // The result of useTherapySession hook
-}
-
-export function MainContent({ session }: MainContentProps) {
+export function MainContent() {
+  const session = useSession();
   const {
-    step, setStep,
+    step,
+    setStep,
     currentSteps,
-    state, setState,
-    selectedId,
-    delayedNext,
-    handleNext, handleBack,
+    handleNext,
+    handleBack,
     handleGenerate,
     isGenerating,
-    brainDump, setBrainDump,
-    brainDumpMode, setBrainDumpMode,
-    isParsingBrainDump,
-    handleBrainDump,
-    handleQuickGenerate,
-    icdSearch, setIcdSearch,
-    icdCat, setIcdCat,
-    customGapInputs, setCustomGapInputs,
-    customTemplates, setCustomTemplates,
-    handleDeleteTemplate,
-    generatedNote, setGeneratedNote,
-    editedNote, setEditedNote,
-    isTumbling,
-    isAuditing,
-    auditResult,
-    handleAudit,
-    previousNote, setPreviousNote,
-    history,
-    clipboard, setClipboard,
-    finalizeSession,
-    sanitizeHistory,
-    isLocalMode,
-    modelDownloadProgress,
-    handleTumble,
-    handleSaveTemplate,
-    handleSummarizeProgress,
-    isSummarizingProgress,
-    handleAnalyzeGaps,
-    isAnalyzingGaps
   } = session;
-
-  const currentData = state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA;
 
   return (
     <div className="flex-1 flex flex-col bg-white overflow-hidden relative">
@@ -77,59 +41,7 @@ export function MainContent({ session }: MainContentProps) {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
-                <StepContent 
-                  step={step}
-                  currentSteps={currentSteps}
-                  state={state}
-                  setState={setState}
-                  selectedId={selectedId}
-                  delayedNext={delayedNext}
-                  handleNext={handleNext}
-                  handleBack={handleBack}
-                  handleGenerate={handleGenerate}
-                  setStep={setStep}
-                  generatedNote={generatedNote}
-                  setGeneratedNote={setGeneratedNote}
-                  editedNote={editedNote}
-                  setEditedNote={setEditedNote}
-                  isGenerating={isGenerating}
-                  isTumbling={isTumbling}
-                  isAuditing={isAuditing}
-                  auditResult={auditResult}
-                  handleAudit={handleAudit}
-                  previousNote={previousNote}
-                  setPreviousNote={setPreviousNote}
-                  history={history}
-                  clipboard={clipboard}
-                  setClipboard={setClipboard}
-                  brainDump={brainDump}
-                  setBrainDump={setBrainDump}
-                  brainDumpMode={brainDumpMode}
-                  setBrainDumpMode={setBrainDumpMode}
-                  isParsingBrainDump={isParsingBrainDump}
-                  handleBrainDump={handleBrainDump}
-                  customTemplates={customTemplates}
-                  setCustomTemplates={setCustomTemplates}
-                  finalizeSession={finalizeSession}
-                  sanitizeHistory={sanitizeHistory}
-                  isLocalMode={isLocalMode}
-                  modelDownloadProgress={modelDownloadProgress}
-                  handleDeleteTemplate={handleDeleteTemplate}
-                  handleSaveTemplate={handleSaveTemplate}
-                  handleQuickGenerate={handleQuickGenerate}
-                  icdSearch={icdSearch}
-                  setIcdSearch={setIcdSearch}
-                  icdCat={icdCat}
-                  setIcdCat={setIcdCat}
-                  handleSummarizeProgress={handleSummarizeProgress}
-                  isSummarizingProgress={isSummarizingProgress}
-                  handleAnalyzeGaps={handleAnalyzeGaps}
-                  isAnalyzingGaps={isAnalyzingGaps}
-                  customGapInputs={customGapInputs}
-                  setCustomGapInputs={setCustomGapInputs}
-                  currentData={currentData}
-                  handleTumble={handleTumble}
-                />
+                <StepContent />
               </motion.div>
             </AnimatePresence>
           </div>

@@ -9,13 +9,17 @@ import { TherapyState } from "../types";
 export function generateNursingHandOff(note: string, state: TherapyState): string {
   // This is a simplified SBAR generation based on the note.
   // In a production app, this would be a dedicated LLM prompt.
+  const discipline = state.discipline ?? 'therapy';
+  const activity = state.activity ?? 'skilled intervention';
+  const trimmedNote = note?.trim() || 'No additional assessment provided.';
+  const assessment = trimmedNote.length > 150 ? `${trimmedNote.substring(0, 150)}...` : trimmedNote;
   
   return `
 [NURSING HAND-OFF SUMMARY (SBAR)]
 
-S: Patient ${state.discipline} session completed.
-B: Patient is receiving skilled therapy for ${state.activity}.
-A: ${note.substring(0, 150)}...
+S: Patient ${discipline} session completed.
+B: Patient is receiving skilled therapy for ${activity}.
+A: ${assessment}
 R: Please ensure the patient follows the recommended precautions/strategies discussed in the full note.
 `;
 }

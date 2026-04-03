@@ -6,7 +6,6 @@ import {
   AlertCircle, 
   Copy, 
   Save, 
-  Trash2, 
   ChevronRight, 
   X,
   ShieldCheck,
@@ -111,16 +110,29 @@ export function PreviewPanel({
             <button 
               onClick={onCopy}
               className="p-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
-              title="Copy to clipboard"
+              title="Copy to clipboard" aria-label="Copy to clipboard"
             >
               <Copy className="w-4 h-4" />
             </button>
             <button 
               onClick={onSaveTemplate}
               className="p-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
-              title="Save as template"
+              title="Save as template" aria-label="Save as template"
             >
               <Save className="w-4 h-4" />
+            </button>
+            <button
+              onClick={onAudit}
+              disabled={isAuditing}
+              className="p-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 disabled:opacity-50"
+              title="Run compliance audit"
+              aria-label="Run compliance audit"
+            >
+              {isAuditing ? (
+                <RefreshCw className="w-4 h-4 animate-spin" />
+              ) : (
+                <ShieldCheck className="w-4 h-4" />
+              )}
             </button>
             <button 
               onClick={() => {
@@ -248,6 +260,8 @@ export function PreviewPanel({
                 onKeyDown={(e) => e.key === 'Enter' && onTumble()}
               />
               <button 
+                aria-label="Apply refinement"
+                title="Apply refinement"
                 onClick={() => onTumble()}
                 disabled={isTumbling || !tumbleInstructions.trim()}
                 className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-zinc-400 hover:text-zinc-950 disabled:opacity-30 transition-all"
@@ -256,6 +270,8 @@ export function PreviewPanel({
               </button>
             </div>
             <button 
+              aria-label="Toggle refinement presets"
+              title="Toggle refinement presets"
               onClick={() => onToggleTumbleOptions(!showTumbleOptions)}
               className="p-3 md:p-4 bg-zinc-50 text-zinc-600 rounded-2xl hover:bg-zinc-100 transition-all shrink-0"
             >
@@ -298,7 +314,7 @@ export function PreviewPanel({
             <AlertCircle className="w-4 h-4 text-red-400" />
             <span className="text-xs font-bold">{error}</span>
           </div>
-          <button onClick={() => {}} className="p-1 hover:bg-white/10 rounded-lg">
+          <button onClick={() => {}} aria-label="Dismiss alert" className="p-1 hover:bg-white/10 rounded-lg">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -309,3 +325,7 @@ export function PreviewPanel({
 
 // Add missing imports
 import { Send } from 'lucide-react';
+
+
+
+

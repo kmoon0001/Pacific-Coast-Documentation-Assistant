@@ -1,6 +1,5 @@
 import React from 'react';
 import { X, ClipboardList, Trash2, Copy, Clock } from 'lucide-react';
-import { cn } from '../../lib/utils';
 
 interface ClipboardModalProps {
   clipboard: {id: string, title: string, content: string, date: string}[];

@@ -1,0 +1,2962 @@
+
+> react-example@0.0.0 test
+> vitest
+
+
+ RUN  v4.1.2 D:/Pacific-Coast-Documentation-Assistant-main
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should initialize with default state
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should toggle listening
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+ Γ¥» src/services/clinicalKnowledgeBase.test.ts (0 test)
+ Γ¥» src/__tests__/accessibility/accessibility.test.tsx (0 test)
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should toggle listening off
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should call onTranscript callback
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should handle multiple toggle cycles
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should track listening state
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should provide toggleListening function
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should handle continuous listening
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should handle interim results
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+stderr | src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should call onTranscript with transcript data
+[vitest] The vi.fn() mock did not use 'function' or 'class' in its implementation, see https://vitest.dev/api/vi#vi-spyon for examples.
+
+ Γ¥» src/__tests__/hooks/useVoiceDictation.test.ts (11 tests | 10 failed) 181ms
+     ├ù should initialize with default state 70ms
+     ├ù should toggle listening 9ms
+     ├ù should toggle listening off 12ms
+     ├ù should call onTranscript callback 6ms
+     ├ù should handle multiple toggle cycles 11ms
+     ├ù should track listening state 8ms
+     ├ù should provide toggleListening function 5ms
+     ├ù should handle continuous listening 10ms
+     ├ù should handle interim results 18ms
+     ├ù should call onTranscript with transcript data 6ms
+ Γ¥» src/__tests__/backend/backend.test.ts (0 test)
+ Γ¥» src/services/analyticsService.test.ts (18 tests | 2 failed) 62ms
+       ├ù should record usage metric 19ms
+       ├ù should record compliance metric 3ms
+ Γ¥» src/lib/validation.test.ts (0 test)
+ Γ¥» src/__tests__/components/ClipboardModal.test.tsx (0 test)
+ Γ¥» src/services/exportService.test.ts (18 tests | 1 failed) 99ms
+       ├ù should record failed exports 5ms
+ Γ¥» src/services/gemini.test.ts (0 test)
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx (15 tests | 13 failed) 814ms
+     ├ù should render style settings modal when open 109ms
+     ├ù should display modal title 31ms
+     ├ù should display style samples 9ms
+     ├ù should display add style sample button 387ms
+     ├ù should call onAddStyleSample when add button is clicked 29ms
+     ├ù should display remove button for each style sample 35ms
+     ├ù should call onRemoveStyleSample when remove button is clicked 45ms
+     ├ù should display apply style button 39ms
+     ├ù should call onApplyStyle when apply button is clicked 26ms
+     ├ù should display close button 18ms
+     ├ù should call onClose when close button is clicked 24ms
+     ├ù should display empty state when no style samples 12ms
+     ├ù should render with proper accessibility 16ms
+ Γ¥» src/__tests__/components/Header.test.tsx (11 tests | 7 failed) 2322ms
+     ├ù should render header 152ms
+     ├ù should display tour button 508ms
+     ├ù should call onSettings when settings button is clicked 129ms
+     ├ù should call onTour when tour button is clicked 498ms
+     ├ù should display local mode indicator when enabled 29ms
+     ├ù should display model download progress 21ms
+     ├ù should display keyboard shortcuts info 26ms
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx (15 tests | 14 failed) 1267ms
+     ├ù should render guided tour when open 234ms
+     ├ù should display tour title 61ms
+     ├ù should display tour steps 15ms
+     ├ù should display next button 605ms
+     ├ù should display previous button 15ms
+     ├ù should navigate to next step 89ms
+     ├ù should navigate to previous step 47ms
+     ├ù should display complete button on last step 44ms
+     ├ù should call onComplete when complete button is clicked 33ms
+     ├ù should display close button 39ms
+     ├ù should call onClose when close button is clicked 28ms
+     ├ù should display step counter 6ms
+     ├ù should display tour content 5ms
+     ├ù should render with proper accessibility 20ms
+ Γ¥» src/__tests__/components/PreviewPanel.test.tsx (0 test)
+ Γ¥» src/__tests__/components/MainContent.test.tsx (9 tests | 2 failed) 4029ms
+     ├ù should show Generate Note button on last step 1347ms
+     ├ù should disable generate button while generating 1243ms
+ Γ¥» src/__tests__/components/steps/ActivityStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DetailsStep.test.tsx (0 test)
+ Γ¥» src/__tests__/hooks/useTherapySession.test.ts (0 test)
+ Γ¥» src/__tests__/components/Sidebar.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/GenerateStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/CPTCodeStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DisciplineStep.test.tsx (0 test)
+ Γ¥» src/__tests__/integration/workflows.test.ts (0 test)
+ Γ¥» src/__tests__/components/steps/ICD10Step.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/DocumentTypeStep.test.tsx (0 test)
+ Γ¥» src/__tests__/components/steps/ModeStep.test.tsx (0 test)
+[2026-04-01 15:17:10.777 -0700] [32mINFO[39m: [36mUser created[39m
+    userId: "usr_1775081830768_exi6kkfk8"
+    email: "test@example.com"
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Suites 18 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/lib/validation.test.ts [ src/lib/validation.test.ts ]
+ FAIL  src/services/clinicalKnowledgeBase.test.ts [ src/services/clinicalKnowledgeBase.test.ts ]
+ FAIL  src/services/gemini.test.ts [ src/services/gemini.test.ts ]
+ FAIL  src/__tests__/components/ClipboardModal.test.tsx [ src/__tests__/components/ClipboardModal.test.tsx ]
+ FAIL  src/__tests__/components/PreviewPanel.test.tsx [ src/__tests__/components/PreviewPanel.test.tsx ]
+ FAIL  src/__tests__/components/Sidebar.test.tsx [ src/__tests__/components/Sidebar.test.tsx ]
+ FAIL  src/__tests__/hooks/useTherapySession.test.ts [ src/__tests__/hooks/useTherapySession.test.ts ]
+ FAIL  src/__tests__/integration/workflows.test.ts [ src/__tests__/integration/workflows.test.ts ]
+ FAIL  src/__tests__/components/steps/ModeStep.test.tsx [ src/__tests__/components/steps/ModeStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/fixtures.ts:264:29: ERROR: Unterminated regular expression
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/fixtures.ts:264:29
+  
+  Unterminated regular expression
+  262|      <TherapySessionProvider>
+  263|        {children}
+  264|      </TherapySessionProvider>
+     |                               ^
+  265|    );
+  266|    
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/67]ΓÄ»
+
+ FAIL  src/__tests__/accessibility/accessibility.test.tsx [ src/__tests__/accessibility/accessibility.test.tsx ]
+Error: Failed to resolve import "jest-axe" from "src/__tests__/accessibility/accessibility.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/accessibility/accessibility.test.tsx:3:40
+  2  |  import { describe, it, expect, beforeEach } from "vitest";
+  3  |  import { render } from "@testing-library/react";
+  4  |  import { axe, toHaveNoViolations } from "jest-axe";
+     |                                           ^
+  5  |  import { MainContent } from "../../components/TherapyApp/MainContent";
+  6  |  import { PreviewPanel } from "../../components/TherapyApp/PreviewPanel";
+ Γ¥» TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41
+ Γ¥» TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16
+ Γ¥» normalizeUrl node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23
+ Γ¥» node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+ Γ¥» TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7
+ Γ¥» EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18
+ Γ¥» loadAndTransform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[2/67]ΓÄ»
+
+ FAIL  src/__tests__/backend/backend.test.ts [ src/__tests__/backend/backend.test.ts ]
+Error: Failed to resolve import "supertest" from "src/__tests__/backend/backend.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/backend/backend.test.ts:2:20
+  1  |  import { describe, it, expect, beforeEach } from "vitest";
+  2  |  import request from "supertest";
+     |                       ^
+  3  |  import createBackendServer from "../../services/backend";
+  4  |  describe("Backend Persistence Layer", () => {
+ Γ¥» TransformPluginContext._formatLog node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41
+ Γ¥» TransformPluginContext.error node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16
+ Γ¥» normalizeUrl node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23
+ Γ¥» node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+ Γ¥» TransformPluginContext.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7
+ Γ¥» EnvironmentPluginContainer.transform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18
+ Γ¥» loadAndTransform node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[3/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/ActivityStep.test.tsx [ src/__tests__/components/steps/ActivityStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/ActivityStep.test.tsx:13:46: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/ActivityStep.test.tsx:13:46
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render activity selection', () => {
+  13 |      renderWithTherapySession(<ActivityStep />));
+     |                                                ^
+  14 |      
+  15 |      expect(screen.getByText(/activity|exercise/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[4/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/CPTCodeStep.test.tsx [ src/__tests__/components/steps/CPTCodeStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/CPTCodeStep.test.tsx:13:45: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/CPTCodeStep.test.tsx:13:45
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render CPT code selection', () => {
+  13 |      renderWithTherapySession(<CPTCodeStep />));
+     |                                               ^
+  14 |      
+  15 |      expect(screen.getByText(/cpt code/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[5/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/DetailsStep.test.tsx [ src/__tests__/components/steps/DetailsStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DetailsStep.test.tsx:13:45: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DetailsStep.test.tsx:13:45
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render details form', () => {
+  13 |      renderWithTherapySession(<DetailsStep />));
+     |                                               ^
+  14 |      
+  15 |      expect(screen.getByText(/details|information|clinical/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[6/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/DisciplineStep.test.tsx [ src/__tests__/components/steps/DisciplineStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DisciplineStep.test.tsx:13:48: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DisciplineStep.test.tsx:13:48
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render discipline options', () => {
+  13 |      renderWithTherapySession(<DisciplineStep />));
+     |                                                  ^
+  14 |      
+  15 |      expect(screen.getByText(/physical therapy|pt/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[7/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/DocumentTypeStep.test.tsx [ src/__tests__/components/steps/DocumentTypeStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DocumentTypeStep.test.tsx:13:50: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/DocumentTypeStep.test.tsx:13:50
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render document type options', () => {
+  13 |      renderWithTherapySession(<DocumentTypeStep />));
+     |                                                    ^
+  14 |      
+  15 |      expect(screen.getByText(/daily/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[8/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/GenerateStep.test.tsx [ src/__tests__/components/steps/GenerateStep.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/GenerateStep.test.tsx:13:46: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/GenerateStep.test.tsx:13:46
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render generate step', () => {
+  13 |      renderWithTherapySession(<GenerateStep />));
+     |                                                ^
+  14 |      
+  15 |      expect(screen.getByText(/generate|review|note/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[9/67]ΓÄ»
+
+ FAIL  src/__tests__/components/steps/ICD10Step.test.tsx [ src/__tests__/components/steps/ICD10Step.test.tsx ]
+Error: Transform failed with 1 error:
+D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/ICD10Step.test.tsx:13:43: ERROR: Expected ";" but found ")"
+  Plugin: vite:esbuild
+  File: D:/Pacific-Coast-Documentation-Assistant-main/src/__tests__/components/steps/ICD10Step.test.tsx:13:43
+  
+  Expected ";" but found ")"
+  11 |  
+  12 |    it('should render ICD-10 code selection', () => {
+  13 |      renderWithTherapySession(<ICD10Step />));
+     |                                             ^
+  14 |      
+  15 |      expect(screen.getByText(/icd-10|diagnosis/i)).toBeInTheDocument();
+  
+ Γ¥» failureErrorWithLog node_modules/vite/node_modules/esbuild/lib/main.js:1467:15
+ Γ¥» node_modules/vite/node_modules/esbuild/lib/main.js:736:50
+ Γ¥» responseCallbacks.<computed> node_modules/vite/node_modules/esbuild/lib/main.js:603:9
+ Γ¥» handleIncomingPacket node_modules/vite/node_modules/esbuild/lib/main.js:658:12
+ Γ¥» Socket.readFromStdout node_modules/vite/node_modules/esbuild/lib/main.js:581:7
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[10/67]ΓÄ»
+
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 49 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/services/analyticsService.test.ts > AnalyticsService > recordUsage > should record usage metric
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ Γ¥» src/services/analyticsService.test.ts:28:23
+     26|       );
+     27|
+     28|       expect(metrics).toHaveLength(1);
+       |                       ^
+     29|       expect(metrics[0]).toEqual(metric);
+     30|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[11/67]ΓÄ»
+
+ FAIL  src/services/analyticsService.test.ts > AnalyticsService > recordCompliance > should record compliance metric
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ Γ¥» src/services/analyticsService.test.ts:79:23
+     77|       );
+     78|
+     79|       expect(metrics).toHaveLength(1);
+       |                       ^
+     80|       expect(metrics[0]).toEqual(metric);
+     81|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[12/67]ΓÄ»
+
+ FAIL  src/services/exportService.test.ts > ExportService > error handling > should record failed exports
+AssertionError: expected undefined to be defined
+ Γ¥» src/services/exportService.test.ts:160:28
+    158|       const exports = service.listExports();
+    159|       const failedExport = exports.find(e => e.status === 'failed');
+    160|       expect(failedExport).toBeDefined();
+       |                            ^
+    161|     });
+    162|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[13/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should render guided tour when open
+TestingLibraryElementError: Unable to find an element by: [data-testid="guided-tour"]
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:20:19
+     18|     render(<GuidedTour {...mockProps} />);
+     19|
+     20|     expect(screen.getByTestId('guided-tour')).toBeInTheDocument();
+       |                   ^
+     21|   });
+     22|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[14/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display tour title
+TestingLibraryElementError: Unable to find an element with the text: /tour|guide|help|welcome/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:32:19
+     30|     render(<GuidedTour {...mockProps} />);
+     31|
+     32|     expect(screen.getByText(/tour|guide|help|welcome/i)).toBeInTheDocuΓÇª
+       |                   ^
+     33|   });
+     34|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[15/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display tour steps
+TestingLibraryElementError: Unable to find an element with the text: /step|introduction|overview/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:38:26
+     36|     render(<GuidedTour {...mockProps} />);
+     37|
+     38|     const steps = screen.getAllByText(/step|introduction|overview/i);
+       |                          ^
+     39|     expect(steps.length).toBeGreaterThan(0);
+     40|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[16/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display next button
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/next/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:45:31
+     43|     render(<GuidedTour {...mockProps} />);
+     44|
+     45|     const nextButton = screen.getByRole('button', { name: /next/i });
+       |                               ^
+     46|     expect(nextButton).toBeInTheDocument();
+     47|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[17/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display previous button
+TestingLibraryElementError: Unable to find an element by: [data-testid="guided-tour"]
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:53:33
+     51|
+     52|     const prevButton = screen.queryByRole('button', { name: /previous|ΓÇª
+     53|     expect(prevButton || screen.getByTestId('guided-tour')).toBeInTheDΓÇª
+       |                                 ^
+     54|   });
+     55|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[18/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should navigate to next step
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/next/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:59:31
+     57|     render(<GuidedTour {...mockProps} />);
+     58|
+     59|     const nextButton = screen.getByRole('button', { name: /next/i });
+       |                               ^
+     60|     await userEvent.click(nextButton);
+     61|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[19/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should navigate to previous step
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/next/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:68:31
+     66|     render(<GuidedTour {...mockProps} />);
+     67|
+     68|     const nextButton = screen.getByRole('button', { name: /next/i });
+       |                               ^
+     69|     await userEvent.click(nextButton);
+     70|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[20/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display complete button on last step
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/next/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:81:32
+     79|
+     80|     // Navigate to last step
+     81|     const nextButtons = screen.getAllByRole('button', { name: /next/i ΓÇª
+       |                                ^
+     82|     for (let i = 0; i < nextButtons.length - 1; i++) {
+     83|       await userEvent.click(nextButtons[i]);
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[21/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should call onComplete when complete button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/complete|finish|done/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:93:35
+     91|     render(<GuidedTour {...mockProps} />);
+     92|
+     93|     const completeButton = screen.getByRole('button', { name: /completΓÇª
+       |                                   ^
+     94|     await userEvent.click(completeButton);
+     95|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[22/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display close button
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/close|x|skip/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:102:32
+    100|     render(<GuidedTour {...mockProps} />);
+    101|
+    102|     const closeButton = screen.getByRole('button', { name: /close|x|skΓÇª
+       |                                ^
+    103|     expect(closeButton).toBeInTheDocument();
+    104|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[23/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should call onClose when close button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/close|x|skip/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:109:32
+    107|     render(<GuidedTour {...mockProps} />);
+    108|
+    109|     const closeButton = screen.getByRole('button', { name: /close|x|skΓÇª
+       |                                ^
+    110|     await userEvent.click(closeButton);
+    111|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[24/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display step counter
+TestingLibraryElementError: Unable to find an element with the text: /step \d+ of \d+/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:118:19
+    116|     render(<GuidedTour {...mockProps} />);
+    117|
+    118|     expect(screen.getByText(/step \d+ of \d+/i)).toBeInTheDocument();
+       |                   ^
+    119|   });
+    120|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[25/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should display tour content
+TestingLibraryElementError: Unable to find an element with the text: /introduction|overview|feature|how to/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:124:28
+    122|     render(<GuidedTour {...mockProps} />);
+    123|
+    124|     const content = screen.getAllByText(/introduction|overview|featureΓÇª
+       |                            ^
+    125|     expect(content.length).toBeGreaterThan(0);
+    126|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[26/67]ΓÄ»
+
+ FAIL  src/__tests__/components/GuidedTour.test.tsx > GuidedTour Component > should render with proper accessibility
+TestingLibraryElementError: Unable to find an accessible element with the role "button"
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/GuidedTour.test.tsx:131:28
+    129|     render(<GuidedTour {...mockProps} />);
+    130|
+    131|     const buttons = screen.getAllByRole('button');
+       |                            ^
+    132|     expect(buttons.length).toBeGreaterThan(0);
+    133|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[27/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should render header
+TestingLibraryElementError: Unable to find an element by: [data-testid="header"]
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <header
+      class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+    >
+      <div
+        class="max-w-[100rem] mx-auto px-8 h-full flex items-center justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center shadow-lg shadow-zinc-200"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-activity text-white w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1
+              class="font-black text-xl tracking-tighter uppercase"
+            >
+              TheraDoc 
+              <span
+                class="text-emerald-500"
+              >
+                AI
+              </span>
+            </h1>
+            <div
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-1.5 h-1.5 bg-emerald-500 rounded-full"
+              />
+              <span
+                class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest"
+              >
+                v2026.1 Clinical AI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+            title="HIPAA Sanitization (Clear History)"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-shield-check w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              />
+              <path
+                d="m9 12 2 2 4-4"
+              />
+            </svg>
+            <span
+              class="absolute -bottom-8 right-0 bg-zinc-900 text-white text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              HIPAA CLEAN
+            </span>
+          </button>
+          <button
+            class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+            title="Multi-Note Clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-clipboard-list w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <path
+                d="M12 11h4"
+              />
+              <path
+                d="M12 16h4"
+              />
+              <path
+                d="M8 11h.01"
+              />
+              <path
+                d="M8 16h.01"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+            title="Reset Form"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2 w-5 h-5 transition-transform group-hover:rotate-12"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+            title="Style Settings"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-settings w-5 h-5 transition-transform group-hover:rotate-90 text-zinc-600"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/Header.test.tsx:21:19
+     19|     render(<Header {...mockProps} />);
+     20|
+     21|     expect(screen.getByTestId('header')).toBeInTheDocument();
+       |                   ^
+     22|   });
+     23|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[28/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should display tour button
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/tour|help|guide/i`
+
+Here are the accessible roles:
+
+  banner:
+
+  Name "":
+  <header
+    class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+  />
+
+  --------------------------------------------------
+  heading:
+
+  Name "TheraDoc AI":
+  <h1
+    class="font-black text-xl tracking-tighter uppercase"
+  />
+
+  --------------------------------------------------
+  button:
+
+  Name "HIPAA CLEAN":
+  <button
+    class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+    title="HIPAA Sanitization (Clear History)"
+  />
+
+  Name "Multi-Note Clipboard":
+  <button
+    class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+    title="Multi-Note Clipboard"
+  />
+
+  Name "Reset Form":
+  <button
+    class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+    title="Reset Form"
+  />
+
+  Name "Style Settings":
+  <button
+    class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+    title="Style Settings"
+  />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <header
+      class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+    >
+      <div
+        class="max-w-[100rem] mx-auto px-8 h-full flex items-center justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center shadow-lg shadow-zinc-200"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-activity text-white w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1
+              class="font-black text-xl tracking-tighter uppercase"
+            >
+              TheraDoc 
+              <span
+                class="text-emerald-500"
+              >
+                AI
+              </span>
+            </h1>
+            <div
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-1.5 h-1.5 bg-emerald-500 rounded-full"
+              />
+              <span
+                class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest"
+              >
+                v2026.1 Clinical AI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+            title="HIPAA Sanitization (Clear History)"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-shield-check w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              />
+              <path
+                d="m9 12 2 2 4-4"
+              />
+            </svg>
+            <span
+              class="absolute -bottom-8 right-0 bg-zinc-900 text-white text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              HIPAA CLEAN
+            </span>
+          </button>
+          <button
+            class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+            title="Multi-Note Clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-clipboard-list w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <path
+                d="M12 11h4"
+              />
+              <path
+                d="M12 16h4"
+              />
+              <path
+                d="M8 11h.01"
+              />
+              <path
+                d="M8 16h.01"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+            title="Reset Form"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2 w-5 h-5 transition-transform group-hover:rotate-12"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+            title="Style Settings"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-settings w-5 h-5 transition-transform group-hover:rotate-90 text-zinc-600"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/Header.test.tsx:40:31
+     38|     render(<Header {...mockProps} />);
+     39|
+     40|     const tourButton = screen.getByRole('button', { name: /tour|help|gΓÇª
+       |                               ^
+     41|     expect(tourButton).toBeInTheDocument();
+     42|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[29/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should call onSettings when settings button is clicked
+AssertionError: expected "vi.fn()" to be called at least once
+ Γ¥» src/__tests__/components/Header.test.tsx:50:34
+     48|     await userEvent.click(settingsButton);
+     49|
+     50|     expect(mockProps.onSettings).toHaveBeenCalled();
+       |                                  ^
+     51|   });
+     52|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[30/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should call onTour when tour button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/tour|help|guide/i`
+
+Here are the accessible roles:
+
+  banner:
+
+  Name "":
+  <header
+    class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+  />
+
+  --------------------------------------------------
+  heading:
+
+  Name "TheraDoc AI":
+  <h1
+    class="font-black text-xl tracking-tighter uppercase"
+  />
+
+  --------------------------------------------------
+  button:
+
+  Name "HIPAA CLEAN":
+  <button
+    class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+    title="HIPAA Sanitization (Clear History)"
+  />
+
+  Name "Multi-Note Clipboard":
+  <button
+    class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+    title="Multi-Note Clipboard"
+  />
+
+  Name "Reset Form":
+  <button
+    class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+    title="Reset Form"
+  />
+
+  Name "Style Settings":
+  <button
+    class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+    title="Style Settings"
+  />
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <header
+      class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+    >
+      <div
+        class="max-w-[100rem] mx-auto px-8 h-full flex items-center justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center shadow-lg shadow-zinc-200"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-activity text-white w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1
+              class="font-black text-xl tracking-tighter uppercase"
+            >
+              TheraDoc 
+              <span
+                class="text-emerald-500"
+              >
+                AI
+              </span>
+            </h1>
+            <div
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-1.5 h-1.5 bg-emerald-500 rounded-full"
+              />
+              <span
+                class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest"
+              >
+                v2026.1 Clinical AI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+            title="HIPAA Sanitization (Clear History)"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-shield-check w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              />
+              <path
+                d="m9 12 2 2 4-4"
+              />
+            </svg>
+            <span
+              class="absolute -bottom-8 right-0 bg-zinc-900 text-white text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              HIPAA CLEAN
+            </span>
+          </button>
+          <button
+            class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+            title="Multi-Note Clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-clipboard-list w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <path
+                d="M12 11h4"
+              />
+              <path
+                d="M12 16h4"
+              />
+              <path
+                d="M8 11h.01"
+              />
+              <path
+                d="M8 16h.01"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+            title="Reset Form"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2 w-5 h-5 transition-transform group-hover:rotate-12"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+            title="Style Settings"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-settings w-5 h-5 transition-transform group-hover:rotate-90 text-zinc-600"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/Header.test.tsx:56:31
+     54|     render(<Header {...mockProps} />);
+     55|
+     56|     const tourButton = screen.getByRole('button', { name: /tour|help|gΓÇª
+       |                               ^
+     57|     await userEvent.click(tourButton);
+     58|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[31/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should display local mode indicator when enabled
+TestingLibraryElementError: Unable to find an element with the text: /local mode|offline/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <header
+      class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+    >
+      <div
+        class="max-w-[100rem] mx-auto px-8 h-full flex items-center justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center shadow-lg shadow-zinc-200"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-activity text-white w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1
+              class="font-black text-xl tracking-tighter uppercase"
+            >
+              TheraDoc 
+              <span
+                class="text-emerald-500"
+              >
+                AI
+              </span>
+            </h1>
+            <div
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-1.5 h-1.5 bg-emerald-500 rounded-full"
+              />
+              <span
+                class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest"
+              >
+                v2026.1 Clinical AI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+            title="HIPAA Sanitization (Clear History)"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-shield-check w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              />
+              <path
+                d="m9 12 2 2 4-4"
+              />
+            </svg>
+            <span
+              class="absolute -bottom-8 right-0 bg-zinc-900 text-white text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              HIPAA CLEAN
+            </span>
+          </button>
+          <button
+            class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+            title="Multi-Note Clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-clipboard-list w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <path
+                d="M12 11h4"
+              />
+              <path
+                d="M12 16h4"
+              />
+              <path
+                d="M8 11h.01"
+              />
+              <path
+                d="M8 16h.01"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+            title="Reset Form"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2 w-5 h-5 transition-transform group-hover:rotate-12"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+            title="Style Settings"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-settings w-5 h-5 transition-transform group-hover:rotate-90 text-zinc-600"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/Header.test.tsx:65:19
+     63|     render(<Header {...mockProps} isLocalMode={true} />);
+     64|
+     65|     expect(screen.getByText(/local mode|offline/i)).toBeInTheDocument(ΓÇª
+       |                   ^
+     66|   });
+     67|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[32/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should display model download progress
+TestingLibraryElementError: Unable to find an element with the text: /50%|downloading/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <header
+      class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+    >
+      <div
+        class="max-w-[100rem] mx-auto px-8 h-full flex items-center justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center shadow-lg shadow-zinc-200"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-activity text-white w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1
+              class="font-black text-xl tracking-tighter uppercase"
+            >
+              TheraDoc 
+              <span
+                class="text-emerald-500"
+              >
+                AI
+              </span>
+            </h1>
+            <div
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-1.5 h-1.5 bg-emerald-500 rounded-full"
+              />
+              <span
+                class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest"
+              >
+                v2026.1 Clinical AI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+            title="HIPAA Sanitization (Clear History)"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-shield-check w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              />
+              <path
+                d="m9 12 2 2 4-4"
+              />
+            </svg>
+            <span
+              class="absolute -bottom-8 right-0 bg-zinc-900 text-white text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              HIPAA CLEAN
+            </span>
+          </button>
+          <button
+            class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+            title="Multi-Note Clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-clipboard-list w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <path
+                d="M12 11h4"
+              />
+              <path
+                d="M12 16h4"
+              />
+              <path
+                d="M8 11h.01"
+              />
+              <path
+                d="M8 16h.01"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+            title="Reset Form"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2 w-5 h-5 transition-transform group-hover:rotate-12"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+            title="Style Settings"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-settings w-5 h-5 transition-transform group-hover:rotate-90 text-zinc-600"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/Header.test.tsx:71:19
+     69|     render(<Header {...mockProps} modelDownloadProgress={50} />);
+     70|
+     71|     expect(screen.getByText(/50%|downloading/i)).toBeInTheDocument();
+       |                   ^
+     72|   });
+     73|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[33/67]ΓÄ»
+
+ FAIL  src/__tests__/components/Header.test.tsx > Header Component > should display keyboard shortcuts info
+TestingLibraryElementError: Unable to find an element by: [data-testid="header"]
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <header
+      class="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-xl border-b border-zinc-100 z-50"
+    >
+      <div
+        class="max-w-[100rem] mx-auto px-8 h-full flex items-center justify-between"
+      >
+        <div
+          class="flex items-center gap-4"
+        >
+          <div
+            class="w-10 h-10 bg-zinc-950 rounded-xl flex items-center justify-center shadow-lg shadow-zinc-200"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-activity text-white w-5 h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1
+              class="font-black text-xl tracking-tighter uppercase"
+            >
+              TheraDoc 
+              <span
+                class="text-emerald-500"
+              >
+                AI
+              </span>
+            </h1>
+            <div
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-1.5 h-1.5 bg-emerald-500 rounded-full"
+              />
+              <span
+                class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest"
+              >
+                v2026.1 Clinical AI
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-3"
+        >
+          <button
+            class="p-3 hover:bg-red-50 rounded-xl transition-all text-zinc-400 hover:text-red-600 group relative"
+            title="HIPAA Sanitization (Clear History)"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-shield-check w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+              />
+              <path
+                d="m9 12 2 2 4-4"
+              />
+            </svg>
+            <span
+              class="absolute -bottom-8 right-0 bg-zinc-900 text-white text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              HIPAA CLEAN
+            </span>
+          </button>
+          <button
+            class="relative p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-zinc-950 group"
+            title="Multi-Note Clipboard"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-clipboard-list w-5 h-5 transition-transform group-hover:scale-110"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <path
+                d="M12 11h4"
+              />
+              <path
+                d="M12 16h4"
+              />
+              <path
+                d="M8 11h.01"
+              />
+              <path
+                d="M8 16h.01"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all text-zinc-400 hover:text-red-500 group"
+            title="Reset Form"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-trash2 lucide-trash-2 w-5 h-5 transition-transform group-hover:rotate-12"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 11v6"
+              />
+              <path
+                d="M14 11v6"
+              />
+              <path
+                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+              />
+              <path
+                d="M3 6h18"
+              />
+              <path
+                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+              />
+            </svg>
+          </button>
+          <button
+            class="p-3 hover:bg-zinc-100 rounded-xl transition-all group"
+            title="Style Settings"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-settings w-5 h-5 transition-transform group-hover:rotate-90 text-zinc-600"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle
+                cx="12"
+                cy="12"
+                r="3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/Header.test.tsx:78:32
+     76|
+     77|     const shortcuts = screen.queryByText(/keyboard|shortcut|cmd|ctrl/iΓÇª
+     78|     expect(shortcuts || screen.getByTestId('header')).toBeInTheDocumenΓÇª
+       |                                ^
+     79|   });
+     80|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[34/67]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx > MainContent Component > should show Generate Note button on last step
+TestingLibraryElementError: Unable to find role="button" and name `/generate note/i`
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="flex-1 flex flex-col bg-white overflow-hidden relative"
+    >
+      <div
+        class="flex-1 flex flex-col md:flex-row overflow-hidden"
+      >
+        <div
+          class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+        >
+          <div
+            class="min-w-max px-4 md:px-0"
+          >
+            <div
+              data-testid="step-rail"
+            >
+              <button>
+                Step 0
+              </button>
+              <button>
+                Step 1
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+        >
+          <div
+            class="max-w-4xl mx-auto"
+          >
+            <div
+              style="opacity: 1; transform: none;"
+            >
+              <div
+                data-testid="step-content"
+              >
+                Step Content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-4 md:p-8 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-12"
+      >
+        <button
+          class="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+        >
+          <div
+            class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m15 18-6-6 6-6"
+              />
+            </svg>
+          </div>
+          <span
+            class="hidden sm:inline"
+          >
+            Back
+          </span>
+        </button>
+        <div
+          class="flex items-center gap-4 md:gap-6"
+        >
+          <div
+            class="flex flex-col items-end hidden sm:flex"
+          >
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+            >
+              Step 
+              2
+               of 
+              7
+            </span>
+            <span
+              class="text-sm font-black text-zinc-950"
+            >
+              Document Type
+            </span>
+          </div>
+          <button
+            class="bg-zinc-950 text-white px-6 md:px-12 py-3 md:py-5 rounded-[2rem] font-black text-xs md:text-sm shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 md:gap-3"
+          >
+            Next Step
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-right w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div>
+      <div
+        class="flex-1 flex flex-col bg-white overflow-hidden relative"
+      >
+        <div
+          class="flex-1 flex flex-col md:flex-row overflow-hidden"
+        >
+          <div
+            class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+          >
+            <div
+              class="min-w-max px-4 md:px-0"
+            >
+              <div
+                data-testid="step-rail"
+              >
+                <button>
+                  Step 0
+                </button>
+                <button>
+                  Step 1
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+          >
+            <div
+              class="max-w-4xl mx-auto"
+            >
+              <div
+                style="opacity: 1; transform: none;"
+              >
+                <div
+                  data-testid="step-content"
+                >
+                  Step Content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-4 md:p-8 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-12"
+        >
+          <button
+            class="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+          >
+            <div
+              class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m15 18-6-6 6-6"
+                />
+              </svg>
+            </div>
+            <span
+              class="hidden sm:inline"
+            >
+              Back
+            </span>
+          </button>
+          <div
+            class="flex items-center gap-4 md:gap-6"
+          >
+            <div
+              class="flex flex-col items-end hidden sm:flex"
+            >
+              <span
+                class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+              >
+                Step 
+                2
+                 of 
+                7
+              </span>
+              <span
+                class="text-sm font-black text-zinc-950"
+              >
+                Document Type
+              </span>
+            </div>
+            <button
+              class="bg-zinc-950 text-white px-6 md:px-12 py-3 md:py-5 rounded-[2rem] font-black text-xs md:text-sm shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 md:gap-3"
+            >
+              Next Step
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-right w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m9 18 6-6-6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+ Γ¥» Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ Γ¥» src/__tests__/components/MainContent.test.tsx:64:11
+     62|     await userEvent.click(lastStepButton);
+     63|
+     64|     await waitFor(() => {
+       |           ^
+     65|       expect(screen.getByRole('button', { name: /generate note/i })).tΓÇª
+     66|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[35/67]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx > MainContent Component > should disable generate button while generating
+TestingLibraryElementError: Unable to find role="button" and name `/generate note/i`
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="flex-1 flex flex-col bg-white overflow-hidden relative"
+    >
+      <div
+        class="flex-1 flex flex-col md:flex-row overflow-hidden"
+      >
+        <div
+          class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+        >
+          <div
+            class="min-w-max px-4 md:px-0"
+          >
+            <div
+              data-testid="step-rail"
+            >
+              <button>
+                Step 0
+              </button>
+              <button>
+                Step 1
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+        >
+          <div
+            class="max-w-4xl mx-auto"
+          >
+            <div
+              style="opacity: 0.9999993760866346; transform: translateX(0.000012478267308324575px);"
+            >
+              <div
+                data-testid="step-content"
+              >
+                Step Content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-4 md:p-8 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-12"
+      >
+        <button
+          class="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+        >
+          <div
+            class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m15 18-6-6 6-6"
+              />
+            </svg>
+          </div>
+          <span
+            class="hidden sm:inline"
+          >
+            Back
+          </span>
+        </button>
+        <div
+          class="flex items-center gap-4 md:gap-6"
+        >
+          <div
+            class="flex flex-col items-end hidden sm:flex"
+          >
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+            >
+              Step 
+              2
+               of 
+              7
+            </span>
+            <span
+              class="text-sm font-black text-zinc-950"
+            >
+              Document Type
+            </span>
+          </div>
+          <button
+            class="bg-zinc-950 text-white px-6 md:px-12 py-3 md:py-5 rounded-[2rem] font-black text-xs md:text-sm shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 md:gap-3"
+          >
+            Next Step
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-right w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div>
+      <div
+        class="flex-1 flex flex-col bg-white overflow-hidden relative"
+      >
+        <div
+          class="flex-1 flex flex-col md:flex-row overflow-hidden"
+        >
+          <div
+            class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+          >
+            <div
+              class="min-w-max px-4 md:px-0"
+            >
+              <div
+                data-testid="step-rail"
+              >
+                <button>
+                  Step 0
+                </button>
+                <button>
+                  Step 1
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+          >
+            <div
+              class="max-w-4xl mx-auto"
+            >
+              <div
+                style="opacity: 0.9999993760866346; transform: translateX(0.000012478267308324575px);"
+              >
+                <div
+                  data-testid="step-content"
+                >
+                  Step Content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-4 md:p-8 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-12"
+        >
+          <button
+            class="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+          >
+            <div
+              class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m15 18-6-6 6-6"
+                />
+              </svg>
+            </div>
+            <span
+              class="hidden sm:inline"
+            >
+              Back
+            </span>
+          </button>
+          <div
+            class="flex items-center gap-4 md:gap-6"
+          >
+            <div
+              class="flex flex-col items-end hidden sm:flex"
+            >
+              <span
+                class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+              >
+                Step 
+                2
+                 of 
+                7
+              </span>
+              <span
+                class="text-sm font-black text-zinc-950"
+              >
+                Document Type
+              </span>
+            </div>
+            <button
+              class="bg-zinc-950 text-white px-6 md:px-12 py-3 md:py-5 rounded-[2rem] font-black text-xs md:text-sm shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 md:gap-3"
+            >
+              Next Step
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-right w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m9 18 6-6-6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+ Γ¥» Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ Γ¥» src/__tests__/components/MainContent.test.tsx:96:11
+     94|     await userEvent.click(lastStepButton);
+     95|
+     96|     await waitFor(() => {
+       |           ^
+     97|       const generateButton = screen.getByRole('button', { name: /generΓÇª
+     98|       expect(generateButton).toBeInTheDocument();
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[36/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should render style settings modal when open
+TestingLibraryElementError: Unable to find an element by: [data-testid="style-settings"]
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:23:19
+     21|     render(<StyleSettings {...mockProps} />);
+     22|
+     23|     expect(screen.getByTestId('style-settings')).toBeInTheDocument();
+       |                   ^
+     24|   });
+     25|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[37/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display modal title
+TestingLibraryElementError: Unable to find an element with the text: /style|settings|preferences/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:35:19
+     33|     render(<StyleSettings {...mockProps} />);
+     34|
+     35|     expect(screen.getByText(/style|settings|preferences/i)).toBeInTheDΓÇª
+       |                   ^
+     36|   });
+     37|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[38/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display style samples
+TestingLibraryElementError: Unable to find an element with the text: /sample 1|sample 2/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:41:19
+     39|     render(<StyleSettings {...mockProps} />);
+     40|
+     41|     expect(screen.getByText(/sample 1|sample 2/i)).toBeInTheDocument();
+       |                   ^
+     42|   });
+     43|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[39/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display add style sample button
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/add|new/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:47:30
+     45|     render(<StyleSettings {...mockProps} />);
+     46|
+     47|     const addButton = screen.getByRole('button', { name: /add|new/i });
+       |                              ^
+     48|     expect(addButton).toBeInTheDocument();
+     49|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[40/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should call onAddStyleSample when add button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/add|new/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:54:30
+     52|     render(<StyleSettings {...mockProps} />);
+     53|
+     54|     const addButton = screen.getByRole('button', { name: /add|new/i });
+       |                              ^
+     55|     await userEvent.click(addButton);
+     56|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[41/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display remove button for each style sample
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/remove|delete/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:63:34
+     61|     render(<StyleSettings {...mockProps} />);
+     62|
+     63|     const removeButtons = screen.getAllByRole('button', { name: /removΓÇª
+       |                                  ^
+     64|     expect(removeButtons.length).toBeGreaterThanOrEqual(2);
+     65|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[42/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should call onRemoveStyleSample when remove button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/remove|delete/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:70:34
+     68|     render(<StyleSettings {...mockProps} />);
+     69|
+     70|     const removeButtons = screen.getAllByRole('button', { name: /removΓÇª
+       |                                  ^
+     71|     await userEvent.click(removeButtons[0]);
+     72|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[43/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display apply style button
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/apply|save/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:79:32
+     77|     render(<StyleSettings {...mockProps} />);
+     78|
+     79|     const applyButton = screen.getByRole('button', { name: /apply|saveΓÇª
+       |                                ^
+     80|     expect(applyButton).toBeInTheDocument();
+     81|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[44/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should call onApplyStyle when apply button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/apply|save/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:86:32
+     84|     render(<StyleSettings {...mockProps} />);
+     85|
+     86|     const applyButton = screen.getByRole('button', { name: /apply|saveΓÇª
+       |                                ^
+     87|     await userEvent.click(applyButton);
+     88|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[45/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display close button
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/close|x/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:95:32
+     93|     render(<StyleSettings {...mockProps} />);
+     94|
+     95|     const closeButton = screen.getByRole('button', { name: /close|x/i ΓÇª
+       |                                ^
+     96|     expect(closeButton).toBeInTheDocument();
+     97|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[46/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should call onClose when close button is clicked
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/close|x/i`
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:102:32
+    100|     render(<StyleSettings {...mockProps} />);
+    101|
+    102|     const closeButton = screen.getByRole('button', { name: /close|x/i ΓÇª
+       |                                ^
+    103|     await userEvent.click(closeButton);
+    104|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[47/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should display empty state when no style samples
+TestingLibraryElementError: Unable to find an element with the text: /no samples|empty/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:111:19
+    109|     render(<StyleSettings {...mockProps} userStyleSamples={[]} />);
+    110|
+    111|     expect(screen.getByText(/no samples|empty/i)).toBeInTheDocument();
+       |                   ^
+    112|   });
+    113|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[48/67]ΓÄ»
+
+ FAIL  src/__tests__/components/StyleSettings.test.tsx > StyleSettings Component > should render with proper accessibility
+TestingLibraryElementError: Unable to find an accessible element with the role "button"
+
+There are no accessible roles. But there might be some inaccessible roles. If you wish to access them, then set the `hidden` option to `true`. Learn more about this here: https://testing-library.com/docs/dom-testing-library/api-queries#byrole
+
+Ignored nodes: comments, script, style
+<body>
+  <div />
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:109:15
+ Γ¥» src/__tests__/components/StyleSettings.test.tsx:117:28
+    115|     render(<StyleSettings {...mockProps} />);
+    116|
+    117|     const buttons = screen.getAllByRole('button');
+       |                            ^
+    118|     expect(buttons.length).toBeGreaterThan(0);
+    119|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[49/67]ΓÄ»
+
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should initialize with default state
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should toggle listening
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should toggle listening off
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should call onTranscript callback
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should handle multiple toggle cycles
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should track listening state
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should provide toggleListening function
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should handle continuous listening
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should handle interim results
+ FAIL  src/__tests__/hooks/useVoiceDictation.test.ts > useVoiceDictation Hook > should call onTranscript with transcript data
+TypeError: () => ({
+      start: mockStart,
+      stop: mockStop,
+      abort: mockAbort,
+      addEventListener: __vite_s...<omitted>...}) is not a constructor
+ Γ¥» src/hooks/useVoiceDictation.ts:10:29
+      8|     const SpeechRecognition = (window as any).SpeechRecognition || (wiΓÇª
+      9|     if (SpeechRecognition) {
+     10|       recognition.current = new SpeechRecognition();
+       |                             ^
+     11|       recognition.current.continuous = true;
+     12|       recognition.current.interimResults = true;
+ Γ¥» Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ Γ¥» runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ Γ¥» commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ Γ¥» commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ Γ¥» commitPassiveMountOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ Γ¥» recursivelyTraversePassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ Γ¥» commitPassiveMountOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:15519:11
+ Γ¥» flushPassiveEffects node_modules/react-dom/cjs/react-dom-client.development.js:18432:9
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[50/67]ΓÄ»
+
+
+ Test Files  25 failed | 19 passed (44)
+      Tests  49 failed | 479 passed (528)
+   Start at  15:16:47
+   Duration  27.08s (transform 10.90s, setup 57.01s, import 17.30s, tests 11.40s, environment 187.39s)
+

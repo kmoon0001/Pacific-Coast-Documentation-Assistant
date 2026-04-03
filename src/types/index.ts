@@ -1,5 +1,135 @@
 export type Discipline = 'PT' | 'OT' | 'ST';
 
+// Knowledge Base Types
+export type DocumentCategory = 'Policy' | 'Procedure' | 'Guidance' | 'Regulation';
+export type DocumentFileType = 'pdf' | 'docx' | 'txt' | 'md';
+export type DocumentPriority = 'high' | 'medium' | 'low';
+
+export interface Document {
+  id: string;
+  userId: string;
+  organizationId?: string;
+  title: string;
+  description: string;
+  category: DocumentCategory;
+  content: string;
+  contentHash: string;
+  fileType: DocumentFileType;
+  fileSize: number;
+  uploadedAt: Date;
+  updatedAt: Date;
+  effectiveDate?: Date;
+  expiryDate?: Date;
+  version: number;
+  tags: string[];
+  isActive: boolean;
+  metadata: Record<string, any>;
+  encryptionKeyId?: string;
+}
+
+export interface DocumentSearchResult {
+  documents: Document[];
+  total: number;
+  page: number;
+  pageSize: number;
+}
+
+export interface DocumentFilters {
+  category?: DocumentCategory;
+  tags?: string[];
+  isActive?: boolean;
+  dateRange?: {
+    start: Date;
+    end: Date;
+  };
+  search?: string;
+  page?: number;
+  pageSize?: number;
+  sortBy?: 'name' | 'date' | 'relevance' | 'usage';
+  sortOrder?: 'asc' | 'desc';
+}
+
+export interface PolicyRequirement {
+  id: string;
+  documentId: string;
+  requirement: string;
+  priority: DocumentPriority;
+  applicableTo: string[];
+  complianceChecks: string[];
+  createdAt: Date;
+}
+
+export interface DocumentMetadata {
+  title: string;
+  description: string;
+  category: DocumentCategory;
+  effectiveDate?: Date;
+  expiryDate?: Date;
+  tags?: string[];
+}
+
+export interface DocumentStructure {
+  title: string;
+  sections: Section[];
+  keyPoints: string[];
+  summary: string;
+}
+
+export interface Section {
+  heading: string;
+  content: string;
+  subsections: Section[];
+  keyPoints: string[];
+}
+
+export interface PolicyContext {
+  policies: Document[];
+  requirements: PolicyRequirement[];
+  styleGuides: Document[];
+  complianceRules: string[];
+}
+
+export interface PromptEnhancement {
+  originalPrompt: string;
+  enhancedPrompt: string;
+  injectedPolicies: string[];
+  injectedRequirements: string[];
+}
+
+export interface ComplianceValidation {
+  complianceScore: number;
+  violations: string[];
+  appliedPolicies: string[];
+  recommendations: string[];
+}
+
+export interface UsageStats {
+  documentId: string;
+  totalUsages: number;
+  lastUsed?: Date;
+  usageByDiscipline: Record<string, number>;
+  usageByDocumentType: Record<string, number>;
+  recentNotes: string[];
+}
+
+export interface DocumentUsageEntry {
+  id: string;
+  documentId: string;
+  noteId: string;
+  userId: string;
+  usedAt: Date;
+  context: Record<string, any>;
+}
+
+export interface DocumentAuditEntry {
+  id: string;
+  documentId: string;
+  userId: string;
+  action: 'upload' | 'update' | 'delete' | 'view' | 'search';
+  details: Record<string, any>;
+  createdAt: Date;
+}
+
 export interface ValidationResult {
   isValid: boolean;
   message?: string;
@@ -138,4 +268,154 @@ export interface StepContentProps {
   isAnalyzingGaps: boolean;
   customGapInputs: Record<string, boolean>;
   setCustomGapInputs: (inputs: Record<string, boolean>) => void;
+}
+
+// Document Versioning Types
+export interface DocumentVersion {
+  id: string;
+  documentId: string;
+  versionNumber: number;
+  content: string;
+  metadata: Record<string, any>;
+  title: string;
+  description: string;
+  createdAt: Date;
+  createdBy: string;
+  changeDescription: string;
+  contentHash: string;
+}
+
+export interface VersionDiff {
+  documentId: string;
+  fromVersion: number;
+  toVersion: number;
+  titleChanged: boolean;
+  titleOld: string;
+  titleNew: string;
+  descriptionChanged: boolean;
+  descriptionOld: string;
+  descriptionNew: string;
+  contentChanged: boolean;
+  contentLengthOld: number;
+  contentLengthNew: number;
+  metadataChanged: boolean;
+  metadataOld: Record<string, any>;
+  metadataNew: Record<string, any>;
+  createdAt: Date;
+}
+
+export interface VersionStats {
+  totalVersions: number;
+  latestVersion: number;
+  oldestVersion: DocumentVersion | null;
+  newestVersion: DocumentVersion | null;
+  averageChangeSize: number;
+}
+
+// Document Relationship Types
+export interface DocumentRelationship {
+  id: string;
+  sourceDocumentId: string;
+  targetDocumentId: string;
+  type: 'supersedes' | 'related_to' | 'depends_on';
+  description?: string;
+  createdAt: Date;
+  createdBy: string;
+  isActive: boolean;
+}
+
+export interface RelationshipConflict {
+  type: 'circular_dependency' | 'conflicting_supersedes' | 'multiple_supersedes';
+  severity: 'high' | 'medium' | 'low';
+  description: string;
+  affectedDocuments: string[];
+}
+
+export interface RelationshipGraph {
+  nodes: Array<{ id: string; type: string }>;
+  edges: Array<{ source: string; target: string; type: string }>;
+}
+
+export interface RelationshipStats {
+  totalRelationships: number;
+  outgoing: number;
+  incoming: number;
+  byType: Record<string, number>;
+  conflicts: number;
+}
+
+// Semantic Search & Embeddings Types
+export interface DocumentEmbedding {
+  id: string;
+  documentId: string;
+  embedding: number[];
+  contentHash: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface SemanticSearchResult {
+  documentId: string;
+  document: Document;
+  similarityScore: number;
+  matchType: 'semantic' | 'keyword' | 'hybrid';
+}
+
+export interface HybridSearchResults {
+  results: SemanticSearchResult[];
+  keywordMatches: number;
+  semanticMatches: number;
+  totalResults: number;
+  searchTime: number;
+}
+
+export interface EmbeddingStats {
+  totalDocuments: number;
+  documentsWithEmbeddings: number;
+  embeddingCoverage: number;
+  lastGeneratedAt?: Date;
+  averageEmbeddingTime: number;
+}
+
+// Caching Types
+export interface CacheEntry<T> {
+  key: string;
+  value: T;
+  createdAt: Date;
+  expiresAt: Date;
+  hits: number;
+}
+
+export interface CacheStats {
+  totalEntries: number;
+  hits: number;
+  misses: number;
+  hitRate: number;
+  averageEntrySize: number;
+  totalSize: number;
+}
+
+// Performance Monitoring Types
+export interface PerformanceMetric {
+  name: string;
+  value: number;
+  unit: string;
+  timestamp: Date;
+}
+
+export interface PerformanceStats {
+  p50: number;
+  p95: number;
+  p99: number;
+  min: number;
+  max: number;
+  average: number;
+  count: number;
+}
+
+export interface HealthCheckResult {
+  status: 'healthy' | 'degraded' | 'unhealthy';
+  timestamp: Date;
+  metrics: Record<string, PerformanceStats>;
+  issues: string[];
 }

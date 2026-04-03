@@ -1,23 +1,23 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { FileText, Wand2, ChevronRight, Sparkles, Star, Trash2, Mic } from 'lucide-react';
-import { StepContentProps } from '../../../types';
+import { FileText, Wand2, Sparkles, Star, Trash2, Mic } from 'lucide-react';
+import { useSession } from '../../../contexts/TherapySessionContext';
 import { cn } from '../../../lib/utils';
 import { useVoiceDictation } from '../../../hooks/useVoiceDictation';
 
-export const DocumentTypeStep: React.FC<StepContentProps> = ({ 
-  state, 
-  setState, 
-  handleNext, 
-  brainDump, 
-  setBrainDump, 
-  brainDumpMode,
-  setBrainDumpMode,
-  isParsingBrainDump, 
-  handleBrainDump,
-  customTemplates,
-  handleDeleteTemplate
-}) => {
+export const DocumentTypeStep: React.FC = () => {
+  const {
+    state,
+    setState,
+    handleNext,
+    brainDump,
+    setBrainDump,
+    brainDumpMode,
+    setBrainDumpMode,
+    isParsingBrainDump,
+    handleBrainDump,
+    customTemplates,
+    handleDeleteTemplate
+  } = useSession();
   const { isListening, toggleListening } = useVoiceDictation((transcript) => {
     setBrainDump(brainDump + ' ' + transcript);
   });
@@ -114,7 +114,7 @@ export const DocumentTypeStep: React.FC<StepContentProps> = ({
 
       <div className="space-y-8">
         <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Standard Templates</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-testid="doc-type-grid">
           {docTypes.map((t) => (
             <button
               key={t.id}
@@ -185,4 +185,5 @@ export const DocumentTypeStep: React.FC<StepContentProps> = ({
     </div>
   );
 };
+
 

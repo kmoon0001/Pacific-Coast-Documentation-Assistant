@@ -154,7 +154,7 @@ export const ClinicalKnowledgeBase = {
     const content = DISCIPLINE_CONTENT[discipline as Discipline];
     
     // Discipline-specific suggestions from centralized content
-    let suggestions = [...content.narrativeSuggestions];
+    const suggestions = [...content.narrativeSuggestions];
     
     // Authoritative phrases from CMS/Noridian
     suggestions.push('Skilled intervention is medically necessary to prevent functional decline.');
@@ -183,4 +183,3 @@ export const ClinicalKnowledgeBase = {
     return [...new Set(suggestions)];
   }
 };
-

@@ -5,14 +5,13 @@ import {
   ShieldCheck, 
   Clock, 
   ClipboardList, 
-  AlertCircle,
   FileText,
   HelpCircle,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
-import { GeneratedNote, TherapyState } from '../../types';
+import { GeneratedNote } from '../../types';
 
 interface SidebarProps {
   history: GeneratedNote[];
@@ -145,7 +144,8 @@ export function Sidebar({
             <ShieldCheck className={cn("w-4 h-4", isLocalMode ? "text-emerald-500" : "text-zinc-300")} />
             {(!isMinimized || window.innerWidth < 768) && <span className="text-[10px] font-black uppercase tracking-widest text-zinc-900">Local Mode</span>}
           </div>
-          <button 
+          <button
+            aria-label="Toggle local mode"
             onClick={() => onToggleLocalMode(!isLocalMode)}
             className={cn(
               "w-10 h-5 rounded-full transition-all relative shrink-0",
@@ -185,3 +185,4 @@ export function Sidebar({
     </div>
   );
 }
+

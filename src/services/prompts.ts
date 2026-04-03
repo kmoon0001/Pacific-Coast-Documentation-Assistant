@@ -1,4 +1,4 @@
-import { TherapyState } from "../types";
+import { TherapyState, PolicyContext } from "../types";
 import { ClinicalKnowledgeBase } from "./clinicalKnowledgeBase";
 
 export const getBrainDumpPrompt = (text: string, currentState: TherapyState, modeInstructions: string) => `
@@ -34,7 +34,7 @@ const getDocumentTypeInstructions = (type: string) => {
   }
 };
 
-export const getGenerateNotePrompt = (state: TherapyState, userStyle?: string) => `
+export const getGenerateNotePrompt = (state: TherapyState, userStyle?: string, policyContext?: PolicyContext) => `
     You are an elite, meticulous Skilled Nursing Facility (SNF) therapist and clinical documentation specialist. 
     Generate a professional, narrative-form medical note that is short, succinct, highly detailed, and defensible against Medicare audits.
     
@@ -57,6 +57,18 @@ export const getGenerateNotePrompt = (state: TherapyState, userStyle?: string) =
     
     AUTHORITATIVE KNOWLEDGE CONTEXT:
     ${JSON.stringify(ClinicalKnowledgeBase.knowledge, null, 2)}
+    
+    ${policyContext && policyContext.policies.length > 0 ? `
+    CUSTOM ORGANIZATIONAL POLICIES:
+    ${policyContext.policies.map(p => `- ${p.title}: ${p.description}`).join('\n')}
+    
+    POLICY COMPLIANCE REQUIREMENTS:
+    ${policyContext.requirements.map(r => `- [${r.priority.toUpperCase()}] ${r.requirement}`).join('\n')}
+    
+    POLICY COMPLIANCE INSTRUCTIONS:
+    Ensure the generated note complies with all uploaded organizational policies listed above.
+    Reference applicable policies in the note where relevant.
+    ` : ''}
     
     Use standard medical abbreviations (e.g., Pt, SBA, Min A, Mod A, c/o, s/p).
     
@@ -113,15 +125,24 @@ export const getGenerateNotePrompt = (state: TherapyState, userStyle?: string) =
     }
 `;
 
-export const getAnalyzeGapsPrompt = (state: TherapyState) => `
+export const getAnalyzeGapsPrompt = (state: TherapyState, policyContext?: PolicyContext) => `
     You are a world-class ${state.discipline} therapist. 
     Review the following provided records for a ${state.documentType} report:
     
     Records: ${state.previousNotesToSummarize || 'None provided.'}
     
+    ${policyContext && policyContext.policies.length > 0 ? `
+    ORGANIZATIONAL POLICIES TO CONSIDER:
+    ${policyContext.policies.map(p => `- ${p.title}: ${p.description}`).join('\n')}
+    
+    POLICY-SPECIFIC REQUIREMENTS:
+    ${policyContext.requirements.map(r => `- [${r.priority.toUpperCase()}] ${r.requirement}`).join('\n')}
+    ` : ''}
+    
     Identify 3 to 5 specific, critical gaps in information needed to complete a comprehensive, Medicare-compliant ${state.documentType} report.
     For an Assessment, this might be prior level of function, home setup, or specific deficits.
     For a Progress/Recertification, this might be current pain levels, specific goal progress, or barriers to progress.
+    ${policyContext && policyContext.policies.length > 0 ? 'Also consider gaps related to organizational policy compliance.' : ''}
     
     For each gap, provide the question and 3-4 likely, common clinical answers that a therapist might select.
 `;
@@ -147,7 +168,7 @@ export const getTumbleNotePrompt = (currentNote: string, instructions: string) =
     ${currentNote}
 `;
 
-export const getAuditNotePrompt = (note: string, documentType: string) => `
+export const getAuditNotePrompt = (note: string, documentType: string, policyContext?: PolicyContext) => `
     You are a world-class clinical compliance auditor for SNF (Skilled Nursing Facility) therapy documentation.
     Audit the following ${documentType} note for compliance with:
     - Medicare Benefits Policy Manual
@@ -157,6 +178,17 @@ export const getAuditNotePrompt = (note: string, documentType: string) => `
     
     AUTHORITATIVE KNOWLEDGE CONTEXT:
     ${JSON.stringify(ClinicalKnowledgeBase.knowledge, null, 2)}
+    
+    ${policyContext && policyContext.policies.length > 0 ? `
+    CUSTOM ORGANIZATIONAL POLICIES:
+    ${policyContext.policies.map(p => `- ${p.title}: ${p.description}`).join('\n')}
+    
+    POLICY COMPLIANCE REQUIREMENTS:
+    ${policyContext.requirements.map(r => `- [${r.priority.toUpperCase()}] ${r.requirement}`).join('\n')}
+    
+    POLICY COMPLIANCE INSTRUCTIONS:
+    In addition to standard Medicare compliance, verify that the note complies with all organizational policies listed above.
+    ` : ''}
     
     Return the result as a JSON object with:
     - complianceScore (number 0-100)
@@ -172,6 +204,7 @@ export const getAuditNotePrompt = (note: string, documentType: string) => `
     6. "ICD-10 & CPT Alignment"
     7. "Succinct Narrative Form"
     8. "Professional Terminology"
+    ${policyContext && policyContext.policies.length > 0 ? '9. "Organizational Policy Compliance"' : ''}
     
     Note to audit:
     ${note}

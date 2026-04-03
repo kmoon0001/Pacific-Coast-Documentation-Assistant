@@ -1,8 +1,9 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { TherapyState } from "../types";
+import { TherapyState, Document, PolicyContext } from "../types";
 import { generateLocalNote } from "./localLLM";
 import { getBrainDumpPrompt, getGenerateNotePrompt, getAnalyzeGapsPrompt, getSummarizeProgressPrompt, getTumbleNotePrompt, getAuditNotePrompt } from "./prompts";
 import { scrubPII } from "../lib/security";
+import { policyIntegrationService } from "./policyIntegrationService";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
@@ -73,7 +74,7 @@ export async function parseBrainDump(text: string, currentState: TherapyState): 
   }
 }
 
-export async function generateTherapyNote(state: TherapyState, userStyle?: string) {
+export async function generateTherapyNote(state: TherapyState, userStyle?: string, customPolicies?: Document[]) {
   if (state.isLocalMode) {
     try {
       const prompt = `Generate a ${state.discipline} ${state.documentType} note. 
@@ -83,16 +84,36 @@ export async function generateTherapyNote(state: TherapyState, userStyle?: strin
       User Style: ${userStyle || 'Clinical and concise'}.
       Provide two paragraphs: Intervention and Response.`;
       
-      return { text: await generateLocalNote(prompt) };
+      return { text: await generateLocalNote(prompt), appliedPolicies: [] };
     } catch (e) {
       console.warn("Local LLM failed, falling back to simplified local logic", e);
-      return { text: `[LOCAL MODE - FALLBACK] ${state.discipline} ${state.documentType} Note\n\nIntervention: Patient performed ${state.activity}. CPT Code: ${state.cptCode}.\n\nResponse: Patient demonstrated progress in functional mobility. Safety was maintained throughout the session.` };
+      return { text: `[LOCAL MODE - FALLBACK] ${state.discipline} ${state.documentType} Note\n\nIntervention: Patient performed ${state.activity}. CPT Code: ${state.cptCode}.\n\nResponse: Patient demonstrated progress in functional mobility. Safety was maintained throughout the session.`, appliedPolicies: [] };
     }
   }
 
   const model = "gemini-3-flash-preview";
   const { scrubbed } = scrubPII(JSON.stringify(state));
-  const prompt = getGenerateNotePrompt({ ...state, details: JSON.parse(scrubbed) }, userStyle);
+  
+  // Build policy context if policies provided
+  let policyContext: PolicyContext | null = null;
+  let appliedPolicies: string[] = [];
+  
+  if (customPolicies && customPolicies.length > 0) {
+    try {
+      
+      policyContext = await policyIntegrationService.buildPolicyContext(
+        state.discipline,
+        state.documentType,
+        '',
+        customPolicies
+      );
+      appliedPolicies = policyContext.policies.map(p => p.id);
+    } catch (e) {
+      console.warn("Failed to build policy context, continuing without policies", e);
+    }
+  }
+  
+  const prompt = getGenerateNotePrompt({ ...state, details: JSON.parse(scrubbed) }, userStyle, policyContext);
 
   try {
     const response = await ai.models.generateContent({
@@ -106,7 +127,8 @@ export async function generateTherapyNote(state: TherapyState, userStyle?: strin
 
     return {
       text: response.text,
-      groundingMetadata: response.candidates?.[0]?.groundingMetadata
+      groundingMetadata: response.candidates?.[0]?.groundingMetadata,
+      appliedPolicies
     };
   } catch (e) {
     const isQuota = e?.message?.includes("quota");
@@ -116,7 +138,7 @@ export async function generateTherapyNote(state: TherapyState, userStyle?: strin
        console.warn(`AI error (${isQuota ? 'Quota' : 'Safety'}), attempting fallback to local...`, e);
        try {
          const localText = await generateLocalNote(prompt);
-         return { text: `[AI ERROR - FALLBACK] ${localText}` };
+         return { text: `[AI ERROR - FALLBACK] ${localText}`, appliedPolicies };
        } catch (localE) {
          console.error("Local fallback failed", localE);
          throw new Error(`AI Error (${isQuota ? 'Quota' : 'Safety'}): ${e.message}. Fallback to local also failed.`);
@@ -127,7 +149,7 @@ export async function generateTherapyNote(state: TherapyState, userStyle?: strin
   }
 }
 
-export async function analyzeGaps(state: TherapyState, isLocalMode?: boolean) {
+export async function analyzeGaps(state: TherapyState, isLocalMode?: boolean, customPolicies?: Document[]) {
   if (isLocalMode) {
     return {
       data: [
@@ -136,12 +158,33 @@ export async function analyzeGaps(state: TherapyState, isLocalMode?: boolean) {
           question: "Local mode cannot perform complex gap analysis. Please manually provide any missing functional deficits, prior level of function, or specific evaluation findings.",
           suggestedAnswers: ["Acknowledged"]
         }
-      ]
+      ],
+      appliedPolicies: []
     };
   }
 
   const model = "gemini-3-flash-preview";
-  const prompt = getAnalyzeGapsPrompt(state);
+  
+  // Build policy context if policies provided
+  let policyContext: PolicyContext | null = null;
+  let appliedPolicies: string[] = [];
+  
+  if (customPolicies && customPolicies.length > 0) {
+    try {
+      
+      policyContext = await policyIntegrationService.buildPolicyContext(
+        state.discipline,
+        state.documentType,
+        '',
+        customPolicies
+      );
+      appliedPolicies = policyContext.policies.map(p => p.id);
+    } catch (e) {
+      console.warn("Failed to build policy context, continuing without policies", e);
+    }
+  }
+  
+  const prompt = getAnalyzeGapsPrompt(state, policyContext);
 
   try {
     const response = await ai.models.generateContent({
@@ -170,12 +213,13 @@ export async function analyzeGaps(state: TherapyState, isLocalMode?: boolean) {
 
     return {
       data: JSON.parse(response.text),
-      groundingMetadata: response.candidates?.[0]?.groundingMetadata
+      groundingMetadata: response.candidates?.[0]?.groundingMetadata,
+      appliedPolicies
     };
   } catch (e) {
     if (e instanceof SyntaxError) {
       console.error("Failed to parse gap analysis JSON", e);
-      return { data: [] };
+      return { data: [], appliedPolicies };
     }
     return handleAIError(e, "analyzeGaps");
   }
@@ -229,7 +273,7 @@ export async function tumbleNote(currentNote: string, instructions: string, isLo
   }
 }
 
-export async function auditNoteWithAI(note: string, documentType: string, isLocalMode?: boolean) {
+export async function auditNoteWithAI(note: string, documentType: string, isLocalMode?: boolean, customPolicies?: Document[]) {
   if (isLocalMode) {
     return {
       data: {
@@ -245,13 +289,34 @@ export async function auditNoteWithAI(note: string, documentType: string, isLoca
           "Succinct Narrative Form": true,
           "Professional Terminology": true
         }
-      }
+      },
+      appliedPolicies: []
     };
   }
 
   const model = "gemini-3-flash-preview";
   const { scrubbed } = scrubPII(note);
-  const prompt = getAuditNotePrompt(scrubbed, documentType);
+  
+  // Build policy context if policies provided
+  let policyContext: PolicyContext | null = null;
+  let appliedPolicies: string[] = [];
+  
+  if (customPolicies && customPolicies.length > 0) {
+    try {
+      
+      policyContext = await policyIntegrationService.buildPolicyContext(
+        undefined,
+        documentType,
+        '',
+        customPolicies
+      );
+      appliedPolicies = policyContext.policies.map(p => p.id);
+    } catch (e) {
+      console.warn("Failed to build policy context, continuing without policies", e);
+    }
+  }
+  
+  const prompt = getAuditNotePrompt(scrubbed, documentType, policyContext);
 
   try {
     const response = await ai.models.generateContent({
@@ -265,7 +330,8 @@ export async function auditNoteWithAI(note: string, documentType: string, isLoca
 
     return {
       data: JSON.parse(response.text || "{}"),
-      groundingMetadata: response.candidates?.[0]?.groundingMetadata
+      groundingMetadata: response.candidates?.[0]?.groundingMetadata,
+      appliedPolicies
     };
   } catch (e) {
     if (e instanceof SyntaxError) {
@@ -275,7 +341,8 @@ export async function auditNoteWithAI(note: string, documentType: string, isLoca
           complianceScore: 0, 
           findings: ["Failed to audit note due to response format error."],
           checklist: {}
-        }
+        },
+        appliedPolicies
       };
     }
     return handleAIError(e, "auditNoteWithAI");

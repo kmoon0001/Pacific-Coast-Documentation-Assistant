@@ -9,36 +9,31 @@ import {
   ShieldCheck, 
   Save, 
   Clock, 
-  Trash2, 
-  Wand2, 
-  ChevronRight, 
-  ChevronLeft,
-  X
+  Trash2
 } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import { StepContentProps } from '../../../types';
+import { useSession } from '../../../contexts/TherapySessionContext';
 import { cn } from '../../../lib/utils';
 
-export const GenerateStep: React.FC<StepContentProps> = ({ 
-  state, 
-  setState, 
-  handleGenerate, 
-  handleTumble, 
-  generatedNote, 
-  setGeneratedNote, 
-  editedNote, 
-  setEditedNote, 
-  isGenerating, 
-  isTumbling, 
-  isAuditing, 
-  auditResult, 
-  handleAudit, 
-  history, 
-  clipboard, 
-  setClipboard, 
-  finalizeSession, 
-  sanitizeHistory 
-}) => {
+export const GenerateStep: React.FC = () => {
+  const {
+    state,
+    handleGenerate,
+    handleTumble,
+    generatedNote,
+    setGeneratedNote,
+    editedNote,
+    setEditedNote,
+    isGenerating,
+    isTumbling,
+    isAuditing,
+    auditResult,
+    handleAudit,
+    history,
+    clipboard,
+    setClipboard,
+    finalizeSession,
+    sanitizeHistory
+  } = useSession();
   return (
     <div className="space-y-12">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -105,13 +100,16 @@ export const GenerateStep: React.FC<StepContentProps> = ({
                   className="w-full bg-transparent border-none focus:ring-0 text-zinc-950 font-medium leading-relaxed min-h-[500px] resize-none p-0"
                   value={editedNote || generatedNote}
                   onChange={(e) => setEditedNote(e.target.value)}
+                  title="Edit note"
+                  aria-label="Edit clinical note"
+                  placeholder="Edit your clinical note here..."
                 />
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4">
               <button
-                onClick={handleTumble}
+                onClick={() => handleTumble()}
                 disabled={isTumbling}
                 className="px-8 py-4 bg-white border-2 border-zinc-950 text-zinc-950 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-zinc-950 hover:text-white transition-all flex items-center gap-3 group disabled:opacity-50"
               >

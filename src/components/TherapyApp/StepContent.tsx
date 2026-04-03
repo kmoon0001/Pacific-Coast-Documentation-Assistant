@@ -1,5 +1,4 @@
 import React from 'react';
-import { StepContentProps } from '../../types';
 import { DisciplineStep } from './steps/DisciplineStep';
 import { DocumentTypeStep } from './steps/DocumentTypeStep';
 import { CPTCodeStep } from './steps/CPTCodeStep';
@@ -8,28 +7,29 @@ import { ModeStep } from './steps/ModeStep';
 import { ActivityStep } from './steps/ActivityStep';
 import { DetailsStep } from './steps/DetailsStep';
 import { GenerateStep } from './steps/GenerateStep';
+import { useSession } from '../../contexts/TherapySessionContext';
 
-export const StepContent: React.FC<StepContentProps> = (props) => {
-  const { step, currentSteps } = props;
+export const StepContent: React.FC = () => {
+  const { step, currentSteps } = useSession();
   const currentStepName = currentSteps[step];
 
   switch (currentStepName) {
     case 'Discipline':
-      return <DisciplineStep {...props} />;
+      return <DisciplineStep />;
     case 'Document Type':
-      return <DocumentTypeStep {...props} />;
+      return <DocumentTypeStep />;
     case 'CPT Code':
-      return <CPTCodeStep {...props} />;
+      return <CPTCodeStep />;
     case 'ICD-10 Codes':
-      return <ICD10Step {...props} />;
+      return <ICD10Step />;
     case 'Mode':
-      return <ModeStep {...props} />;
+      return <ModeStep />;
     case 'Activity':
-      return <ActivityStep {...props} />;
+      return <ActivityStep />;
     case 'Details':
-      return <DetailsStep {...props} />;
+      return <DetailsStep />;
     case 'Generate':
-      return <GenerateStep {...props} />;
+      return <GenerateStep />;
     default:
       return null;
   }
