@@ -15,5 +15,5 @@ export const DEFAULT_STATE = {
   customNote: '',
   documentType: 'Daily' as const,
   sessionDate: new Date().toISOString().split('T')[0],
-  isLocalMode: false as const,
+  isLocalMode: true as const,
 };
