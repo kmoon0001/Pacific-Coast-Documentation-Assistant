@@ -1,0 +1,1222 @@
+
+> react-example@0.0.0 test
+> vitest
+
+
+ RUN  v4.1.2 D:/Pacific-Coast-Documentation-Assistant
+
+ Γ¥» src/lib/logger.test.ts (5 tests | 1 failed) 79ms
+     ├ù configures pino with pretty transport in non-production environments 36ms
+stderr | src/__tests__/integration/workflows.test.ts > Integration Tests - Therapy Workflows > Note Generation Workflow > should handle note generation with all required fields
+TypeError: aiAudit.findings is not iterable
+    at Object.handleGenerate (D:/Pacific-Coast-Documentation-Assistant/src/hooks/useTherapySession.ts:175:43)
+
+{"level":30,"time":1775282542284,"pid":47156,"hostname":"SpideyMoon","message":"Document deleted","documentId":"doc-1"}
+ Γ¥» src/__tests__/integration/workflows.test.ts (19 tests | 1 failed) 1019ms
+       ├ù should handle note generation with all required fields 106ms
+{"level":30,"time":1775282545689,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282545696,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"4b84720c-edc7-46ea-8089-37db5967d6b0"}
+{"level":30,"time":1775282545762,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":50,"time":1775282545785,"pid":49284,"hostname":"SpideyMoon","action":"registration_failed","error":{"issues":[{"validation":"email","code":"invalid_string","message":"Invalid email","path":["email"]}],"name":"ZodError"}}
+{"level":30,"time":1775282545906,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":50,"time":1775282545907,"pid":49284,"hostname":"SpideyMoon","action":"registration_failed","error":{"issues":[{"code":"too_small","minimum":8,"type":"string","inclusive":true,"exact":false,"message":"String must contain at least 8 character(s)","path":["password"]}],"name":"ZodError"}}
+{"level":30,"time":1775282545950,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282545953,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"5ccd819b-8a6f-42e1-b1ca-a9430226a70f"}
+{"level":30,"time":1775282545977,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/login","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282545979,"pid":49284,"hostname":"SpideyMoon","action":"user_login","userId":"5ccd819b-8a6f-42e1-b1ca-a9430226a70f"}
+{"level":30,"time":1775282546025,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/login","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546078,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546092,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"a4f2ae76-1477-41e8-ab24-a0c0cc90225a"}
+{"level":30,"time":1775282546119,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546128,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"9346dc7b-c4fc-4e20-8832-afa596bd2320","userId":"a4f2ae76-1477-41e8-ab24-a0c0cc90225a","action":"note_created","resourceType":"note","resourceId":"b053d613-3892-457d-9bff-33989e8ba715","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.127Z","status":"success"}}
+{"level":30,"time":1775282546200,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546220,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"b8dd2a89-c3e8-4b3d-83b5-afd04e54d6f1"}
+{"level":30,"time":1775282546352,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546374,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546377,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"73058a83-20d6-494e-94c6-1410e827367a"}
+{"level":30,"time":1775282546394,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546395,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"4a3c3108-9c1b-48f1-bf19-87f683e4fcb1","userId":"73058a83-20d6-494e-94c6-1410e827367a","action":"note_created","resourceType":"note","resourceId":"e146d50c-317e-422c-b1bf-6698a85db051","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.395Z","status":"success"}}
+{"level":30,"time":1775282546484,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/notes/e146d50c-317e-422c-b1bf-6698a85db051","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546488,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"c8cbd188-db95-48b7-8f6e-da1b45ff46a7","userId":"73058a83-20d6-494e-94c6-1410e827367a","action":"note_retrieved","resourceType":"note","resourceId":"e146d50c-317e-422c-b1bf-6698a85db051","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.488Z","status":"success"}}
+{"level":30,"time":1775282546517,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546519,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"91ca451c-d416-46c2-9007-22e4dc420813"}
+{"level":30,"time":1775282546534,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546539,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"1e296a7e-8f51-4bf0-9504-5500ca292679","userId":"91ca451c-d416-46c2-9007-22e4dc420813","action":"note_created","resourceType":"note","resourceId":"bddbad77-85c8-46aa-8036-9be0a0ddaf97","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.538Z","status":"success"}}
+{"level":30,"time":1775282546568,"pid":49284,"hostname":"SpideyMoon","method":"PUT","path":"/api/notes/bddbad77-85c8-46aa-8036-9be0a0ddaf97","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546571,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"c26e2ee3-d15a-4fab-9a3d-5c8215a032af","userId":"91ca451c-d416-46c2-9007-22e4dc420813","action":"note_updated","resourceType":"note","resourceId":"bddbad77-85c8-46aa-8036-9be0a0ddaf97","changes":{"content":"Updated note content"},"ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.571Z","status":"success"}}
+{"level":30,"time":1775282546602,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546603,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"6fa1918d-3174-4d75-8262-7af0f4516542"}
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+{"level":30,"time":1775282546626,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546628,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"fc1b4cb9-88cd-408f-aa14-bbf917e135e9","userId":"6fa1918d-3174-4d75-8262-7af0f4516542","action":"note_created","resourceType":"note","resourceId":"f85b189f-afb8-420d-ab83-84a2e7e3058a","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.628Z","status":"success"}}
+{"level":30,"time":1775282546650,"pid":49284,"hostname":"SpideyMoon","method":"DELETE","path":"/api/notes/f85b189f-afb8-420d-ab83-84a2e7e3058a","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546651,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"b29e57d0-7658-47f7-9ec4-e3b35b65b325","userId":"6fa1918d-3174-4d75-8262-7af0f4516542","action":"note_deleted","resourceType":"note","resourceId":"f85b189f-afb8-420d-ab83-84a2e7e3058a","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.651Z","status":"success"}}
+{"level":30,"time":1775282546670,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546672,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"877ad0f0-6df2-4f21-ae0f-f9ca9bf99e05"}
+{"level":30,"time":1775282546690,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546692,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"c9198f6c-41b1-4e96-a44e-b734f57920d6","userId":"877ad0f0-6df2-4f21-ae0f-f9ca9bf99e05","action":"note_created","resourceType":"note","resourceId":"4c99de7d-087c-4efa-ba3e-08951fb02989","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.692Z","status":"success"}}
+{"level":30,"time":1775282546709,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546711,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"5507ae78-c916-43a2-926d-d408255df5f6","userId":"877ad0f0-6df2-4f21-ae0f-f9ca9bf99e05","action":"note_created","resourceType":"note","resourceId":"32b84cee-ac50-4195-b5f8-38af7d4793af","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.711Z","status":"success"}}
+{"level":30,"time":1775282546737,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546740,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"28c5f29f-bb3a-421e-abcd-35d6bef2aee6","userId":"877ad0f0-6df2-4f21-ae0f-f9ca9bf99e05","action":"notes_listed","resourceType":"note","resourceId":"all","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:26.740Z","status":"success"}}
+{"level":30,"time":1775282546762,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546765,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"a0feef5e-d9a6-4ea9-8d3e-d1526c75de39"}
+{"level":30,"time":1775282546787,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":50,"time":1775282546788,"pid":49284,"hostname":"SpideyMoon","action":"note_creation_failed","error":{"issues":[{"received":"INVALID","code":"invalid_enum_value","options":["PT","OT","ST"],"path":["discipline"],"message":"Invalid enum value. Expected 'PT' | 'OT' | 'ST', received 'INVALID'"}],"name":"ZodError"}}
+{"level":30,"time":1775282546865,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546871,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"f648e150-7d5d-4729-957a-540295ea9549"}
+{"level":30,"time":1775282546921,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/audit-logs","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546951,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282546954,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"4adb27df-7a5e-4b3a-b864-6babee317c88"}
+{"level":30,"time":1775282546973,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/audit-logs/report","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547002,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547004,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"7cb1a38e-a2b1-4b99-b06e-7eb7aa7a214b"}
+{"level":30,"time":1775282547022,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/audit-logs/report","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547053,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/health","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547085,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":50,"time":1775282547085,"pid":49284,"hostname":"SpideyMoon","action":"registration_failed","error":{"issues":[{"code":"invalid_type","expected":"string","received":"undefined","path":["password"],"message":"Required"}],"name":"ZodError"}}
+{"level":30,"time":1775282547179,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547185,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"d37be056-8349-406f-b64c-63a42a97b7f8"}
+{"level":30,"time":1775282547211,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/notes/nonexistent","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547232,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547234,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"87e40d20-70a9-48e0-b568-4ec05577dab1"}
+{"level":30,"time":1775282547268,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/notes","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547269,"pid":49284,"hostname":"SpideyMoon","auditLog":{"id":"03b726c3-8ad3-4ffa-87a6-e90fc4691b26","userId":"87e40d20-70a9-48e0-b568-4ec05577dab1","action":"note_created","resourceType":"note","resourceId":"6ab71155-4ac2-4915-adb1-0c94c648e43a","ipAddress":"::ffff:127.0.0.1","userAgent":"unknown","timestamp":"2026-04-04T06:02:27.269Z","status":"success"}}
+{"level":30,"time":1775282547293,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547296,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"76d3a875-92fa-4321-9f3b-f757a5a7746d"}
+{"level":30,"time":1775282547320,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/documents/upload","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547331,"pid":49284,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"fc60f5ce-248b-4f4f-8b56-ba500b9202ec","userId":"76d3a875-92fa-4321-9f3b-f757a5a7746d","fileName":"policy.txt"}
+{"level":30,"time":1775282547369,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547412,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547413,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"d258b4a2-32b2-44d9-9eb5-04e9981f6ff0"}
+{"level":30,"time":1775282547455,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547484,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/search","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547517,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/fc60f5ce-248b-4f4f-8b56-ba500b9202ec","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547541,"pid":49284,"hostname":"SpideyMoon","method":"PATCH","path":"/api/knowledge-base/documents/fc60f5ce-248b-4f4f-8b56-ba500b9202ec","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547545,"pid":49284,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"fc60f5ce-248b-4f4f-8b56-ba500b9202ec","userId":"76d3a875-92fa-4321-9f3b-f757a5a7746d"}
+{"level":30,"time":1775282547562,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/fc60f5ce-248b-4f4f-8b56-ba500b9202ec/usage","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547579,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/fc60f5ce-248b-4f4f-8b56-ba500b9202ec/audit","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547610,"pid":49284,"hostname":"SpideyMoon","method":"DELETE","path":"/api/knowledge-base/documents/fc60f5ce-248b-4f4f-8b56-ba500b9202ec","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547611,"pid":49284,"hostname":"SpideyMoon","message":"Document deleted","documentId":"fc60f5ce-248b-4f4f-8b56-ba500b9202ec","userId":"76d3a875-92fa-4321-9f3b-f757a5a7746d"}
+Not implemented: HTMLCanvasElement's getContext() method: without installing the canvas npm package
+{"level":30,"time":1775282547646,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547650,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83"}
+{"level":30,"time":1775282547689,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/documents/upload","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547694,"pid":49284,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","fileName":"policy.txt"}
+{"level":30,"time":1775282547722,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/documents/upload","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547727,"pid":49284,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"782df1da-94a6-43ee-964f-16df29042110","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","fileName":"ot-guide.txt"}
+{"level":30,"time":1775282547740,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282547737_0.06125654829354121","timestamp":"2026-04-04T06:02:27.737Z","action":"CREATE_VERSION","resourceType":"Document","resourceId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"versionNumber":1,"changeDescription":"Initial baseline"}}}
+{"level":30,"time":1775282547741,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282547741_0.3777281110404309","timestamp":"2026-04-04T06:02:27.741Z","action":"CREATE_VERSION","resourceType":"Document","resourceId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"versionNumber":2,"changeDescription":"Added new balance cues"}}}
+{"level":30,"time":1775282547757,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/versions","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547785,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/versions/1","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547806,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/versions/compare","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547822,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/versions/1/restore","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547824,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282547824_0.16482120192750038","timestamp":"2026-04-04T06:02:27.824Z","action":"CREATE_VERSION","resourceType":"Document","resourceId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"versionNumber":3,"changeDescription":"Restored from version 1. Reason: Compliance rollback"}}}
+{"level":30,"time":1775282547824,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282547824_0.6938749837601439","timestamp":"2026-04-04T06:02:27.824Z","action":"RESTORE_VERSION","resourceType":"Document","resourceId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"restoredFromVersion":1,"reason":"Compliance rollback"}}}
+{"level":30,"time":1775282547836,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/versions/stats","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547847,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/relationships","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547849,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282547848_0.12258044439818949","timestamp":"2026-04-04T06:02:27.848Z","action":"CREATE_RELATIONSHIP","resourceType":"DocumentRelationship","resourceId":"rel_1","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"sourceDocId":"8a699249-743d-45a8-8e01-99c32a4cc027","targetDocId":"782df1da-94a6-43ee-964f-16df29042110","type":"related_to","description":"OT guidance references PT guardrails"}}}
+{"level":30,"time":1775282547867,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/relationships","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547886,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/relationships/detect-conflicts","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547896,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/relationships/graph","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547907,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/documents/8a699249-743d-45a8-8e01-99c32a4cc027/relationships/stats","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547943,"pid":49284,"hostname":"SpideyMoon","method":"DELETE","path":"/api/knowledge-base/relationships/rel_1","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282547945,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282547945_0.42193278858568983","timestamp":"2026-04-04T06:02:27.945Z","action":"DELETE_RELATIONSHIP","resourceType":"DocumentRelationship","resourceId":"rel_1","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{}}}
+{"level":30,"time":1775282547978,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/bulk/upload","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548011,"pid":49284,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"8df70455-607a-496b-9e30-3ef66cb9d3a4","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","fileName":"bulk-policy.txt"}
+{"level":30,"time":1775282548012,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282548012_0.26006140782741505","timestamp":"2026-04-04T06:02:28.012Z","action":"BULK_UPLOAD","resourceType":"Document","resourceId":"bulk","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"successful":1,"failed":0,"total":1}}}
+{"level":30,"time":1775282548079,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/bulk/update-tags","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548094,"pid":49284,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83"}
+{"level":30,"time":1775282548094,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282548094_0.30081622845631806","timestamp":"2026-04-04T06:02:28.094Z","action":"BULK_UPDATE_TAGS","resourceType":"Document","resourceId":"bulk","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"successful":1,"failed":0,"total":1,"operation":"replace","tags":["Balance","Falls"]}}}
+{"level":30,"time":1775282548175,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/bulk/update-category","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548179,"pid":49284,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"8a699249-743d-45a8-8e01-99c32a4cc027","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83"}
+{"level":30,"time":1775282548180,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282548180_0.2250279454032511","timestamp":"2026-04-04T06:02:28.180Z","action":"BULK_UPDATE_CATEGORY","resourceType":"Document","resourceId":"bulk","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"successful":1,"failed":0,"total":1,"category":"Guidance"}}}
+{"level":30,"time":1775282548221,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/knowledge-base/bulk/delete","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548225,"pid":49284,"hostname":"SpideyMoon","message":"Document deleted","documentId":"782df1da-94a6-43ee-964f-16df29042110","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83"}
+{"level":30,"time":1775282548226,"pid":49284,"hostname":"SpideyMoon","message":"Audit event recorded","auditEvent":{"id":"audit_1775282548226_0.3820739493097707","timestamp":"2026-04-04T06:02:28.226Z","action":"BULK_DELETE","resourceType":"Document","resourceId":"bulk","userId":"4c1ab83b-8b3f-431b-9398-8e40d6958a83","details":{"successful":1,"failed":0,"total":1,"reason":"Merged"}}}
+{"level":30,"time":1775282548246,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/analytics/adoption","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548377,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/analytics/compliance","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548423,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/analytics/trends","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548438,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/analytics/usage-by-discipline","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548457,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/analytics/usage-by-type","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548493,"pid":49284,"hostname":"SpideyMoon","method":"GET","path":"/api/knowledge-base/analytics/report","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548549,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548550,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"a5e4434a-762a-42d5-8794-2e9060013d4e"}
+{"level":30,"time":1775282548554,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548555,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"f7ef7c82-429d-430f-bf41-a8625df76adf"}
+{"level":30,"time":1775282548558,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548562,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"d2f00fe4-a572-46c9-a03a-07aafd673312"}
+{"level":30,"time":1775282548572,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548579,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"348eb3cd-9559-4c6f-a6ce-b975b648a224"}
+{"level":30,"time":1775282548584,"pid":49284,"hostname":"SpideyMoon","method":"POST","path":"/api/auth/register","ip":"::ffff:127.0.0.1"}
+{"level":30,"time":1775282548587,"pid":49284,"hostname":"SpideyMoon","action":"user_registered","userId":"7b619934-3f97-41a7-8182-3f3634612153"}
+ Γ¥» src/__tests__/components/MainContent.test.tsx (7 tests | 3 failed) 6259ms
+     ├ù shows the current step summary 214ms
+     ├ù moves forward when the Next Step button is clicked 1455ms
+     ├ù allows direct navigation through the mocked step rail 1364ms
+{"level":50,"time":1775282553155,"pid":50612,"hostname":"SpideyMoon","message":"File selection error","error":{}}
+{"level":30,"time":1775282555261,"pid":50612,"hostname":"SpideyMoon","message":"Document uploaded successfully","documentId":"doc-25"}
+{"level":30,"time":1775282559152,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559151_0.4081816560051734","timestamp":"2026-04-04T06:02:39.151Z","userId":"user123","action":"note_generated","resourceType":"note","resourceId":"note456","details":{"discipline":"PT","documentType":"Daily","cptCode":"97110","mode":"Therapeutic Exercise"},"status":"success"}}
+{"level":30,"time":1775282559160,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559160_0.12199546542257744","timestamp":"2026-04-04T06:02:39.160Z","userId":"user123","action":"note_generated","resourceType":"note","resourceId":"note456","details":{"discipline":"OT","documentType":"Assessment"},"status":"success"}}
+{"level":30,"time":1775282559162,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559162_0.2609187613964412","timestamp":"2026-04-04T06:02:39.162Z","userId":"user123","action":"note_generated","resourceType":"note","resourceId":"note456","details":{"discipline":"PT","documentType":"Daily","cptCode":"97110","mode":"Therapeutic Exercise","activity":"Gait Training"},"status":"success"}}
+{"level":30,"time":1775282559165,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559164_0.6038089853976771","timestamp":"2026-04-04T06:02:39.165Z","userId":"user123","action":"note_modified","resourceType":"note","resourceId":"note456","details":{"changes":{"content":"Updated content"},"reason":"Compliance fix"},"status":"success"}}
+{"level":30,"time":1775282559168,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559167_0.7497653768317971","timestamp":"2026-04-04T06:02:39.167Z","userId":"user123","action":"note_modified","resourceType":"note","resourceId":"note456","details":{"changes":{"content":"v1"}},"status":"success"}}
+{"level":30,"time":1775282559168,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559168_0.9743442368001871","timestamp":"2026-04-04T06:02:39.168Z","userId":"user123","action":"note_modified","resourceType":"note","resourceId":"note456","details":{"changes":{"content":"v2"}},"status":"success"}}
+{"level":30,"time":1775282559168,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559168_0.6965327210815853","timestamp":"2026-04-04T06:02:39.168Z","userId":"user123","action":"note_modified","resourceType":"note","resourceId":"note456","details":{"changes":{"content":"v3"}},"status":"success"}}
+{"level":30,"time":1775282559169,"pid":38796,"hostname":"SpideyMoon","message":"Note deleted","auditEvent":{"id":"audit_1775282559169_0.574897270673733","timestamp":"2026-04-04T06:02:39.169Z","userId":"user123","action":"note_deleted","resourceType":"note","resourceId":"note456","details":{"reason":"User requested deletion"},"status":"success"}}
+{"level":30,"time":1775282559170,"pid":38796,"hostname":"SpideyMoon","message":"User login","auditEvent":{"id":"audit_1775282559170_0.7628786425040277","timestamp":"2026-04-04T06:02:39.170Z","userId":"user123","action":"user_login","resourceType":"user","resourceId":"user123","details":{"action":"login"},"ipAddress":"192.168.1.1","status":"success"}}
+{"level":30,"time":1775282559172,"pid":38796,"hostname":"SpideyMoon","message":"User logout","auditEvent":{"id":"audit_1775282559172_0.42109921373312886","timestamp":"2026-04-04T06:02:39.172Z","userId":"user123","action":"user_logout","resourceType":"user","resourceId":"user123","details":{"action":"logout"},"status":"success"}}
+{"level":30,"time":1775282559174,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559174_0.4687161294218094","timestamp":"2026-04-04T06:02:39.174Z","userId":"user123","action":"audit_run","resourceType":"note","resourceId":"note456","details":{"complianceScore":95,"findings":[]},"status":"success"}}
+{"level":30,"time":1775282559179,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559179_0.18118133503781775","timestamp":"2026-04-04T06:02:39.179Z","userId":"user123","action":"audit_run","resourceType":"note","resourceId":"note456","details":{"complianceScore":45,"findings":["Finding 1","Finding 2"]},"status":"failure"}}
+{"level":30,"time":1775282559184,"pid":38796,"hostname":"SpideyMoon","message":"Note exported","auditEvent":{"id":"audit_1775282559184_0.715252510517109","timestamp":"2026-04-04T06:02:39.184Z","userId":"user123","action":"export","resourceType":"note","resourceId":"note456","details":{"format":"PDF"},"status":"success"}}
+{"level":30,"time":1775282559185,"pid":38796,"hostname":"SpideyMoon","message":"Note exported","auditEvent":{"id":"audit_1775282559185_0.11891097158434238","timestamp":"2026-04-04T06:02:39.185Z","userId":"user123","action":"export","resourceType":"note","resourceId":"note456","details":{"format":"PDF"},"status":"success"}}
+{"level":30,"time":1775282559185,"pid":38796,"hostname":"SpideyMoon","message":"Note exported","auditEvent":{"id":"audit_1775282559185_0.9292714915042304","timestamp":"2026-04-04T06:02:39.185Z","userId":"user123","action":"export","resourceType":"note","resourceId":"note456","details":{"format":"DOCX"},"status":"success"}}
+{"level":30,"time":1775282559185,"pid":38796,"hostname":"SpideyMoon","message":"Note exported","auditEvent":{"id":"audit_1775282559185_0.6662978348436521","timestamp":"2026-04-04T06:02:39.185Z","userId":"user123","action":"export","resourceType":"note","resourceId":"note456","details":{"format":"HL7"},"status":"success"}}
+{"level":30,"time":1775282559188,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559188_0.21874039645217125","timestamp":"2026-04-04T06:02:39.188Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559188,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559188_0.790638487338855","timestamp":"2026-04-04T06:02:39.188Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559188,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559188_0.6101372696750533","timestamp":"2026-04-04T06:02:39.188Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559189,"pid":38796,"hostname":"SpideyMoon","message":"User login","auditEvent":{"id":"audit_1775282559189_0.5650870534575241","timestamp":"2026-04-04T06:02:39.189Z","userId":"user1","action":"user_login","resourceType":"user","resourceId":"user1","details":{"action":"login"},"status":"success"}}
+{"level":30,"time":1775282559190,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559190_0.7476769331837563","timestamp":"2026-04-04T06:02:39.190Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559190,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559190_0.6282125185768181","timestamp":"2026-04-04T06:02:39.190Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559190,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559190_0.12128210101422732","timestamp":"2026-04-04T06:02:39.190Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559190,"pid":38796,"hostname":"SpideyMoon","message":"User login","auditEvent":{"id":"audit_1775282559190_0.40098879927561804","timestamp":"2026-04-04T06:02:39.190Z","userId":"user1","action":"user_login","resourceType":"user","resourceId":"user1","details":{"action":"login"},"status":"success"}}
+{"level":30,"time":1775282559192,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559192_0.41669536523087447","timestamp":"2026-04-04T06:02:39.192Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559192,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559192_0.4553783501470823","timestamp":"2026-04-04T06:02:39.192Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559192,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559192_0.6089192060118112","timestamp":"2026-04-04T06:02:39.192Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559192,"pid":38796,"hostname":"SpideyMoon","message":"User login","auditEvent":{"id":"audit_1775282559192_0.5555875754417245","timestamp":"2026-04-04T06:02:39.192Z","userId":"user1","action":"user_login","resourceType":"user","resourceId":"user1","details":{"action":"login"},"status":"success"}}
+{"level":30,"time":1775282559193,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559193_0.7486420471683908","timestamp":"2026-04-04T06:02:39.193Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559193,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559193_0.04357197635258814","timestamp":"2026-04-04T06:02:39.193Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559193,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559193_0.30955135624039487","timestamp":"2026-04-04T06:02:39.193Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559193,"pid":38796,"hostname":"SpideyMoon","message":"User login","auditEvent":{"id":"audit_1775282559193_0.9401766903283781","timestamp":"2026-04-04T06:02:39.193Z","userId":"user1","action":"user_login","resourceType":"user","resourceId":"user1","details":{"action":"login"},"status":"success"}}
+{"level":30,"time":1775282559195,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559195_0.8297434355988977","timestamp":"2026-04-04T06:02:39.195Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559195,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559195_0.3711503128413163","timestamp":"2026-04-04T06:02:39.195Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559195,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559195_0.23914810564234945","timestamp":"2026-04-04T06:02:39.195Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559195,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559195_0.06312578267949509","timestamp":"2026-04-04T06:02:39.195Z","userId":"user1","action":"audit_run","resourceType":"note","resourceId":"note1","details":{"complianceScore":95,"findings":[]},"status":"success"}}
+{"level":30,"time":1775282559195,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559195_0.2979562735836776","timestamp":"2026-04-04T06:02:39.195Z","userId":"user2","action":"audit_run","resourceType":"note","resourceId":"note2","details":{"complianceScore":45,"findings":["Finding"]},"status":"failure"}}
+{"level":30,"time":1775282559201,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559201_0.03329686304247059","timestamp":"2026-04-04T06:02:39.201Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559201,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559201_0.6030244671839404","timestamp":"2026-04-04T06:02:39.201Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559202,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559202_0.11297304099286443","timestamp":"2026-04-04T06:02:39.202Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559202,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559202_0.35225282451117046","timestamp":"2026-04-04T06:02:39.202Z","userId":"user1","action":"audit_run","resourceType":"note","resourceId":"note1","details":{"complianceScore":95,"findings":[]},"status":"success"}}
+{"level":30,"time":1775282559202,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559202_0.8759967864161851","timestamp":"2026-04-04T06:02:39.202Z","userId":"user2","action":"audit_run","resourceType":"note","resourceId":"note2","details":{"complianceScore":45,"findings":["Finding"]},"status":"failure"}}
+{"level":30,"time":1775282559203,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559203_0.34875653830414577","timestamp":"2026-04-04T06:02:39.203Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559203,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559203_0.4166675599475249","timestamp":"2026-04-04T06:02:39.203Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559203,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559203_0.9480712121993522","timestamp":"2026-04-04T06:02:39.203Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559203,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559203_0.23215098839137704","timestamp":"2026-04-04T06:02:39.203Z","userId":"user1","action":"audit_run","resourceType":"note","resourceId":"note1","details":{"complianceScore":95,"findings":[]},"status":"success"}}
+{"level":30,"time":1775282559203,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559203_0.47562309359090627","timestamp":"2026-04-04T06:02:39.203Z","userId":"user2","action":"audit_run","resourceType":"note","resourceId":"note2","details":{"complianceScore":45,"findings":["Finding"]},"status":"failure"}}
+{"level":30,"time":1775282559204,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559204_0.8572097541153336","timestamp":"2026-04-04T06:02:39.204Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559204,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559204_0.5392148684365694","timestamp":"2026-04-04T06:02:39.204Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559204,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559204_0.2785605295584035","timestamp":"2026-04-04T06:02:39.204Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559204,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559204_0.9289479407192156","timestamp":"2026-04-04T06:02:39.204Z","userId":"user1","action":"audit_run","resourceType":"note","resourceId":"note1","details":{"complianceScore":95,"findings":[]},"status":"success"}}
+{"level":30,"time":1775282559205,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559204_0.8015447145779422","timestamp":"2026-04-04T06:02:39.204Z","userId":"user2","action":"audit_run","resourceType":"note","resourceId":"note2","details":{"complianceScore":45,"findings":["Finding"]},"status":"failure"}}
+{"level":30,"time":1775282559206,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559206_0.0950569178243561","timestamp":"2026-04-04T06:02:39.206Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559206,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559206_0.4769124609614104","timestamp":"2026-04-04T06:02:39.206Z","userId":"user2","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"OT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559206,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559206_0.48963905829353505","timestamp":"2026-04-04T06:02:39.206Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559206,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559206_0.01672113083218707","timestamp":"2026-04-04T06:02:39.206Z","userId":"user1","action":"audit_run","resourceType":"note","resourceId":"note1","details":{"complianceScore":95,"findings":[]},"status":"success"}}
+{"level":30,"time":1775282559206,"pid":38796,"hostname":"SpideyMoon","message":"Audit run completed","auditEvent":{"id":"audit_1775282559206_0.9295389153582334","timestamp":"2026-04-04T06:02:39.206Z","userId":"user2","action":"audit_run","resourceType":"note","resourceId":"note2","details":{"complianceScore":45,"findings":["Finding"]},"status":"failure"}}
+{"level":30,"time":1775282559207,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559207_0.07999861137642617","timestamp":"2026-04-04T06:02:39.207Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559208,"pid":38796,"hostname":"SpideyMoon","message":"Audit retention policy updated","retentionDays":0}
+{"level":30,"time":1775282559208,"pid":38796,"hostname":"SpideyMoon","message":"Audit logs cleaned up","deletedCount":1,"retentionDays":0}
+{"level":30,"time":1775282559209,"pid":38796,"hostname":"SpideyMoon","message":"Audit retention policy updated","retentionDays":90}
+{"level":30,"time":1775282559209,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559209_0.6204580549867902","timestamp":"2026-04-04T06:02:39.209Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559210,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559210_0.18520410627629524","timestamp":"2026-04-04T06:02:39.210Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559211,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559211_0.2544413733350459","timestamp":"2026-04-04T06:02:39.211Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559212,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559212_0.5846014003668671","timestamp":"2026-04-04T06:02:39.212Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559212,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559212_0.7473689819899407","timestamp":"2026-04-04T06:02:39.212Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559215,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559215_0.06546786158543227","timestamp":"2026-04-04T06:02:39.215Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559215,"pid":38796,"hostname":"SpideyMoon","message":"Note modified","auditEvent":{"id":"audit_1775282559215_0.650426868849802","timestamp":"2026-04-04T06:02:39.215Z","userId":"user1","action":"note_modified","resourceType":"note","resourceId":"note1","details":{"changes":{}},"status":"success"}}
+{"level":30,"time":1775282559218,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559218_0.2818623773793729","timestamp":"2026-04-04T06:02:39.218Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559219,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559219_0.43102878378307463","timestamp":"2026-04-04T06:02:39.219Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note1","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559219,"pid":38796,"hostname":"SpideyMoon","message":"Note generated","auditEvent":{"id":"audit_1775282559219_0.2612954255889868","timestamp":"2026-04-04T06:02:39.219Z","userId":"user1","action":"note_generated","resourceType":"note","resourceId":"note2","details":{"discipline":"PT","documentType":"Daily"},"status":"success"}}
+{"level":30,"time":1775282559954,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"a7ea8ee9-4169-4021-832b-05e358ddfef3","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282559987,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"95a15d17-9472-49c0-94a0-6dc95225d23f","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560000,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"a7bab5d8-badd-458c-a9a6-365ef9ce1d21","userId":"test-user-123","fileName":"test.md"}
+{"level":30,"time":1775282560001,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"c00f43fe-c559-4e37-91e7-91b9d3cd30d3","userId":"test-user-123","fileName":"test.pdf"}
+{"level":30,"time":1775282560006,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e3db97cc-5393-415f-a313-ce00473bf51f","userId":"test-user-123","fileName":"test.docx"}
+{"level":30,"time":1775282560019,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"97788aba-5ced-4824-bae3-83dd89d6d693","userId":"test-user-123","fileName":"policy.txt"}
+{"level":30,"time":1775282560033,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"198be53c-04fc-497e-9983-60d0e400911f","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560042,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"b4099920-3ef0-4299-a358-6d2316512cff","userId":"test-user-123","fileName":"test.txt"}
+{"level":50,"time":1775282560052,"pid":34844,"hostname":"SpideyMoon","message":"Document upload failed","error":{}}
+{"level":30,"time":1775282560060,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e404380a-8016-4d3d-9c73-38b48bca5673","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560060,"pid":34844,"hostname":"SpideyMoon","message":"Document deleted","documentId":"e404380a-8016-4d3d-9c73-38b48bca5673","userId":"test-user-123"}
+{"level":50,"time":1775282560069,"pid":34844,"hostname":"SpideyMoon","message":"Document deletion failed","error":{}}
+{"level":30,"time":1775282560077,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"caa2088b-8763-468c-b785-d409bb5bb44b","userId":"test-user-123","fileName":"test.txt"}
+{"level":50,"time":1775282560077,"pid":34844,"hostname":"SpideyMoon","message":"Document deletion failed","error":{}}
+{"level":30,"time":1775282560102,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"d3ecf8a2-9032-4efc-a428-c9ee9160e1be","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560126,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"f3508999-e2e3-4155-b024-7f9413a06ae6","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560126,"pid":34844,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"f3508999-e2e3-4155-b024-7f9413a06ae6","userId":"test-user-123"}
+{"level":30,"time":1775282560142,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"61038950-e7f6-4f46-b58e-efdc4a527cf3","userId":"test-user-123","fileName":"test.txt"}
+{"level":50,"time":1775282560142,"pid":34844,"hostname":"SpideyMoon","message":"Document metadata update failed","error":{}}
+{"level":30,"time":1775282560155,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"ada0eda4-13ac-4f3a-a3a6-30f9d8a2c621","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560155,"pid":34844,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"ada0eda4-13ac-4f3a-a3a6-30f9d8a2c621","userId":"test-user-123"}
+{"level":30,"time":1775282560155,"pid":34844,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"ada0eda4-13ac-4f3a-a3a6-30f9d8a2c621","userId":"test-user-123"}
+{"level":30,"time":1775282560166,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"cbbb1021-d3ba-4f80-b7ea-17e2a7fd9456","userId":"test-user-123","fileName":"test0.txt"}
+{"level":30,"time":1775282560175,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e5028834-768d-4e23-b9c8-7919adda8116","userId":"test-user-123","fileName":"test1.txt"}
+{"level":30,"time":1775282560176,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"d2d44ae7-97de-4ac0-95ef-de74e2f207cb","userId":"test-user-123","fileName":"test2.txt"}
+{"level":30,"time":1775282560176,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e3f56521-76b8-43c3-9d40-cd4c3b1854f1","userId":"test-user-123","fileName":"test3.txt"}
+{"level":30,"time":1775282560177,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"889a1552-f6cf-4d82-82bd-0b896fd69acc","userId":"test-user-123","fileName":"test4.txt"}
+{"level":30,"time":1775282560189,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"531d07f2-da6e-4d5e-adaa-38370ee49c74","userId":"test-user-123","fileName":"test0.txt"}
+{"level":30,"time":1775282560189,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"2d470887-904f-47d6-8773-774d3e1095d1","userId":"test-user-123","fileName":"test1.txt"}
+{"level":30,"time":1775282560202,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"3c3d5944-5ffd-4195-a092-80d248e4c9ef","userId":"test-user-123","fileName":"test2.txt"}
+{"level":30,"time":1775282560202,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"0a8de6fc-0ccf-4f3a-a1e6-6f61694d1a39","userId":"test-user-123","fileName":"test3.txt"}
+{"level":30,"time":1775282560203,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"0fdcea83-91df-487d-a8e5-82d8da5b910f","userId":"test-user-123","fileName":"test4.txt"}
+{"level":30,"time":1775282560209,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"efe3b486-78de-4cbe-bcee-bf10bedca267","userId":"test-user-123","fileName":"test0.txt"}
+{"level":30,"time":1775282560209,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"829f5ad9-7a71-4c9d-9915-d737e9201d85","userId":"test-user-123","fileName":"test1.txt"}
+{"level":30,"time":1775282560209,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"ba7cb342-2d5c-4423-8368-16a571b3e5c5","userId":"test-user-123","fileName":"test2.txt"}
+{"level":30,"time":1775282560210,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"1ca9b8d0-510e-4f04-b0e9-f41de57b6394","userId":"test-user-123","fileName":"test3.txt"}
+{"level":30,"time":1775282560216,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"05d2ef34-088b-44ff-8df0-d1654611a0e3","userId":"test-user-123","fileName":"test4.txt"}
+{"level":30,"time":1775282560220,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"2a70fd02-43d0-4426-899a-44fef0b49d9e","userId":"test-user-123","fileName":"test0.txt"}
+{"level":30,"time":1775282560230,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"754c93b0-321e-4d6e-9ac6-3fa9bbe526c9","userId":"test-user-123","fileName":"test1.txt"}
+{"level":30,"time":1775282560231,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"12a47ddc-00ea-4564-beb2-5566a5c6b038","userId":"test-user-123","fileName":"test2.txt"}
+{"level":30,"time":1775282560233,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"b70ae05e-94b5-40ec-acac-8d369076e9aa","userId":"test-user-123","fileName":"test3.txt"}
+{"level":30,"time":1775282560234,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"0d2c77e5-1169-4703-be00-666a5ec3b32d","userId":"test-user-123","fileName":"test4.txt"}
+{"level":30,"time":1775282560246,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"5a0c35c0-49cd-4c76-9bbf-1aa66b444380","userId":"test-user-123","fileName":"test0.txt"}
+{"level":30,"time":1775282560270,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"eec056ea-8fa7-4957-a1ec-7fe91901b4ae","userId":"test-user-123","fileName":"test1.txt"}
+{"level":30,"time":1775282560270,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"403ed1e5-2f7d-4693-85a9-9e8110a029d1","userId":"test-user-123","fileName":"test2.txt"}
+{"level":30,"time":1775282560270,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"0bc3dc25-7458-44d0-9933-3c0286bd8f1d","userId":"test-user-123","fileName":"test3.txt"}
+{"level":30,"time":1775282560270,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"0ba472ec-3534-40c4-a2ce-68df127e432e","userId":"test-user-123","fileName":"test4.txt"}
+{"level":30,"time":1775282560328,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e1f00ad1-42a1-4c4c-be88-f176b7de699c","userId":"test-user-123","fileName":"test0.txt"}
+{"level":30,"time":1775282560329,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"49938d37-d406-4b2b-b7f0-1aeb5b3fdbc0","userId":"test-user-123","fileName":"test1.txt"}
+{"level":30,"time":1775282560332,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e3103196-aad9-4e76-a766-012b42397b1f","userId":"test-user-123","fileName":"test2.txt"}
+{"level":30,"time":1775282560332,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"a806904e-4696-4055-bc7b-e35ced19130b","userId":"test-user-123","fileName":"test3.txt"}
+{"level":30,"time":1775282560333,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"96299b72-4972-4b24-8c12-08e98291a72f","userId":"test-user-123","fileName":"test4.txt"}
+{"level":30,"time":1775282560339,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e0388954-5c0c-4e0e-bd8c-9063e45d96cc","userId":"test-user-123","fileName":"Patient Privacy Policy.txt"}
+{"level":30,"time":1775282560339,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"53756984-dce9-409b-941d-6a67ac5a698e","userId":"test-user-123","fileName":"Therapy Procedures Manual.txt"}
+{"level":30,"time":1775282560341,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"6a4488bd-48d7-40ca-a7b2-d9dfbd77e32d","userId":"test-user-123","fileName":"Clinical Guidelines.txt"}
+{"level":30,"time":1775282560344,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"fcf55ee8-e5e1-461b-8fe6-886197073e14","userId":"test-user-123","fileName":"Patient Privacy Policy.txt"}
+{"level":30,"time":1775282560344,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"e2077983-c65e-444f-a905-82097187612a","userId":"test-user-123","fileName":"Therapy Procedures Manual.txt"}
+{"level":30,"time":1775282560344,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"de6e5665-9b55-4cb5-b390-12ecee4ff845","userId":"test-user-123","fileName":"Clinical Guidelines.txt"}
+{"level":30,"time":1775282560346,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"a59470ed-e8d1-4368-97b8-222d8a4351d3","userId":"test-user-123","fileName":"Patient Privacy Policy.txt"}
+{"level":30,"time":1775282560347,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"81c2bc5f-959a-4a5b-a0e6-bb24790426d1","userId":"test-user-123","fileName":"Therapy Procedures Manual.txt"}
+{"level":30,"time":1775282560359,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"13ec4967-aee1-4e77-b2a4-04fe241a5136","userId":"test-user-123","fileName":"Clinical Guidelines.txt"}
+{"level":30,"time":1775282560360,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"098eb5c1-5573-43ae-8805-8c3a60b412f6","userId":"test-user-123","fileName":"Patient Privacy Policy.txt"}
+{"level":30,"time":1775282560361,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"a461a475-d726-4d12-b30a-e9947b8463ba","userId":"test-user-123","fileName":"Therapy Procedures Manual.txt"}
+{"level":30,"time":1775282560366,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"993b84c6-5bbf-4c3f-a4b0-263b5e23d064","userId":"test-user-123","fileName":"Clinical Guidelines.txt"}
+{"level":30,"time":1775282560373,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"8c7e2adf-5dbf-44e8-ab53-4a68150da321","userId":"test-user-123","fileName":"Patient Privacy Policy.txt"}
+{"level":30,"time":1775282560373,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"fe60f2a3-1d28-4133-bb43-28fb4a2a4b0d","userId":"test-user-123","fileName":"Therapy Procedures Manual.txt"}
+{"level":30,"time":1775282560374,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"088f0596-8793-4505-bb67-2d49e2285ffb","userId":"test-user-123","fileName":"Clinical Guidelines.txt"}
+{"level":30,"time":1775282560376,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"9d733278-c28e-46d8-810d-09a351e96716","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560381,"pid":34844,"hostname":"SpideyMoon","message":"Document usage tracked","documentId":"9d733278-c28e-46d8-810d-09a351e96716","noteId":"note-123","userId":"test-user-123"}
+{"level":30,"time":1775282560387,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"9ddeb0a5-0143-4a9d-88c2-0ef0f892b18b","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560387,"pid":34844,"hostname":"SpideyMoon","message":"Document usage tracked","documentId":"9ddeb0a5-0143-4a9d-88c2-0ef0f892b18b","noteId":"note-1","userId":"test-user-123"}
+{"level":30,"time":1775282560387,"pid":34844,"hostname":"SpideyMoon","message":"Document usage tracked","documentId":"9ddeb0a5-0143-4a9d-88c2-0ef0f892b18b","noteId":"note-2","userId":"test-user-123"}
+{"level":30,"time":1775282560389,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"0269a182-f1a0-4857-9466-2ff4a14e253f","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560391,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"acddf236-d9ef-47fe-a25b-8c02ef920f76","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282560391,"pid":34844,"hostname":"SpideyMoon","message":"Document metadata updated","documentId":"acddf236-d9ef-47fe-a25b-8c02ef920f76","userId":"test-user-123"}
+{"level":30,"time":1775282560404,"pid":34844,"hostname":"SpideyMoon","message":"Document uploaded","documentId":"ac26a4d9-bbec-4a64-ac4f-9064ee714697","userId":"test-user-123","fileName":"test.txt"}
+{"level":30,"time":1775282561023,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561022_83m77htps","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561024,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561022_83m77htps","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561032,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561031_zvk5zt138","format":"pdf","filename":"test1.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561032,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561031_zvk5zt138","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561032,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561032_wdg8sr4hu","format":"pdf","filename":"test2.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561032,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561032_wdg8sr4hu","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561036,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561036_vs723lqbi","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561036,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561036_vs723lqbi","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561038,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561038_p6pwiqyry","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561038,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561038_p6pwiqyry","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561041,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561041_o47saifvx","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561044,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561041_o47saifvx","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561044,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561044_eiyjiv8wb","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561044,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561044_eiyjiv8wb","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561045,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561045_n1yx2t2al","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561045,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561045_n1yx2t2al","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561052,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561052_nhm4qj63d","format":"docx","filename":"test.docx","msg":"Starting DOCX import"}
+{"level":30,"time":1775282561052,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561052_nhm4qj63d","recordsProcessed":0,"msg":"DOCX import completed"}
+{"level":30,"time":1775282561057,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561056_ctxfhlr2p","format":"docx","filename":"test.docx","msg":"Starting DOCX import"}
+{"level":30,"time":1775282561057,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561056_ctxfhlr2p","recordsProcessed":0,"msg":"DOCX import completed"}
+{"level":30,"time":1775282561066,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561066_hpc6bejmt","format":"hl7","filename":"test.hl7","msg":"Starting HL7 import"}
+{"level":30,"time":1775282561066,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561066_hpc6bejmt","recordsProcessed":0,"msg":"HL7 import completed"}
+{"level":30,"time":1775282561068,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561068_z26bqdmfg","format":"hl7","filename":"test.hl7","msg":"Starting HL7 import"}
+{"level":30,"time":1775282561068,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561068_z26bqdmfg","recordsProcessed":0,"msg":"HL7 import completed"}
+{"level":30,"time":1775282561072,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561072_v28z8uqn5","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561073,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561072_v28z8uqn5","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561077,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561077_0d5bg5wiw","format":"pdf","filename":"test1.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561077,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561077_0d5bg5wiw","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561078,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561078_00ldub9wt","format":"pdf","filename":"test2.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561078,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561078_00ldub9wt","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561086,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561086_3dfkpuypg","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561086,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561086_3dfkpuypg","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561086,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561086_j2b2iad96","format":"docx","filename":"test.docx","msg":"Starting DOCX import"}
+{"level":30,"time":1775282561086,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561086_j2b2iad96","recordsProcessed":0,"msg":"DOCX import completed"}
+{"level":30,"time":1775282561086,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561086_98ozh025x","format":"hl7","filename":"test.hl7","msg":"Starting HL7 import"}
+{"level":30,"time":1775282561086,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561086_98ozh025x","recordsProcessed":0,"msg":"HL7 import completed"}
+{"level":30,"time":1775282561104,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561104_hnd487d8b","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561104,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561104_hnd487d8b","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561105,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561105_jcpf3aqhd","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561106,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561105_jcpf3aqhd","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561108,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561108_u1u3krleb","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561108,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561108_u1u3krleb","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":30,"time":1775282561110,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561109_f8op9n68d","format":"pdf","filename":"test.pdf","msg":"Starting PDF import"}
+{"level":30,"time":1775282561110,"pid":46876,"hostname":"SpideyMoon","id":"imp_1775282561109_f8op9n68d","recordsProcessed":0,"msg":"PDF import completed"}
+{"level":40,"time":1775282563077,"pid":11184,"hostname":"SpideyMoon","role":"therapist","permission":"manage:users","msg":"Authorization denied"}
+{"level":40,"time":1775282563080,"pid":11184,"hostname":"SpideyMoon","role":"viewer","permission":"create:notes","msg":"Authorization denied"}
+{"level":30,"time":1775282564951,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564944_vliq3wtcz","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282564952,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564944_vliq3wtcz","msg":"PDF export completed"}
+{"level":30,"time":1775282564967,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564967_5o18c19bx","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282564967,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564967_5o18c19bx","msg":"PDF export completed"}
+{"level":30,"time":1775282564968,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564967_x6m20yilb","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282564968,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564967_x6m20yilb","msg":"PDF export completed"}
+{"level":30,"time":1775282564976,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564975_xd1on25vc","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282564976,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564975_xd1on25vc","msg":"PDF export completed"}
+{"level":30,"time":1775282564980,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564980_ahhyns4sh","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282564984,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564980_ahhyns4sh","msg":"PDF export completed"}
+{"level":30,"time":1775282564992,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564988_481nlf35q","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282564992,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282564988_481nlf35q","msg":"PDF export completed"}
+{"level":30,"time":1775282565004,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565004_34knejqeq","format":"docx","msg":"Starting DOCX export"}
+{"level":30,"time":1775282565004,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565004_34knejqeq","msg":"DOCX export completed"}
+{"level":30,"time":1775282565008,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565008_ochj44v9q","format":"docx","msg":"Starting DOCX export"}
+{"level":30,"time":1775282565008,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565008_ochj44v9q","msg":"DOCX export completed"}
+{"level":30,"time":1775282565018,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565017_kfkt1qk0y","format":"hl7","msg":"Starting HL7 export"}
+{"level":30,"time":1775282565018,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565017_kfkt1qk0y","msg":"HL7 export completed"}
+{"level":30,"time":1775282565019,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565019_dm22lq1ol","format":"hl7","msg":"Starting HL7 export"}
+{"level":30,"time":1775282565019,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565019_dm22lq1ol","msg":"HL7 export completed"}
+{"level":30,"time":1775282565026,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565025_djbn8y0ex","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282565026,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565025_djbn8y0ex","msg":"PDF export completed"}
+{"level":30,"time":1775282565030,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565030_362w5h9cp","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282565030,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565030_362w5h9cp","msg":"PDF export completed"}
+{"level":30,"time":1775282565030,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565030_ywnqo13wz","format":"docx","msg":"Starting DOCX export"}
+{"level":30,"time":1775282565030,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565030_ywnqo13wz","msg":"DOCX export completed"}
+{"level":30,"time":1775282565030,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565030_zg0k03f57","format":"hl7","msg":"Starting HL7 export"}
+{"level":30,"time":1775282565030,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565030_zg0k03f57","msg":"HL7 export completed"}
+{"level":30,"time":1775282565038,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565038_33x8tdf53","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282565038,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565038_33x8tdf53","msg":"PDF export completed"}
+{"level":30,"time":1775282565038,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565038_4dz0ayf8n","format":"docx","msg":"Starting DOCX export"}
+{"level":30,"time":1775282565038,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565038_4dz0ayf8n","msg":"DOCX export completed"}
+{"level":30,"time":1775282565039,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565039_i7ftkx0qa","format":"hl7","msg":"Starting HL7 export"}
+{"level":30,"time":1775282565039,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565039_i7ftkx0qa","msg":"HL7 export completed"}
+{"level":50,"time":1775282565049,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565044_kc38bt1d4","error":{"issues":[{"received":"invalid","code":"invalid_enum_value","options":["pdf","docx","hl7"],"path":["format"],"message":"Invalid enum value. Expected 'pdf' | 'docx' | 'hl7', received 'invalid'"}],"name":"ZodError"},"msg":"PDF export failed"}
+{"level":50,"time":1775282565060,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565060_omly4qike","error":{},"msg":"PDF export failed"}
+{"level":30,"time":1775282565062,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565062_mktdu9v95","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282565067,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565062_mktdu9v95","msg":"PDF export completed"}
+{"level":30,"time":1775282565068,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565068_9mka8o7w5","format":"pdf","msg":"Starting PDF export"}
+{"level":30,"time":1775282565068,"pid":48204,"hostname":"SpideyMoon","id":"exp_1775282565068_9mka8o7w5","msg":"PDF export completed"}
+{"level":30,"time":1775282566910,"pid":50572,"hostname":"SpideyMoon","auditLog":{"id":"849b9825-67c8-416c-b5a4-29c8fc3edf0f","userId":"1fa19bec-beb9-4de7-b620-2e2da30a69b9","action":"note_created","resourceType":"note","resourceId":"28fa974a-f48c-47be-85b5-a042baf55116","ipAddress":"127.0.0.1","userAgent":"vitest-agent","timestamp":"2026-04-04T06:02:46.909Z","status":"success"}}
+{"level":30,"time":1775282566911,"pid":50572,"hostname":"SpideyMoon","auditLog":{"id":"82e9f0ad-4d72-44e4-9195-299494bf5487","userId":"1fa19bec-beb9-4de7-b620-2e2da30a69b9","action":"note_updated","resourceType":"note","resourceId":"28fa974a-f48c-47be-85b5-a042baf55116","changes":{"content":"Updated"},"ipAddress":"127.0.0.1","userAgent":"vitest-agent","timestamp":"2026-04-04T06:02:46.911Z","status":"success"}}
+{"level":30,"time":1775282567504,"pid":48588,"hostname":"SpideyMoon","date":"2024-02-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567574,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567574,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-02T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567584,"pid":48588,"hostname":"SpideyMoon","date":"2024-02-01T00:00:00.000Z","complianceRate":0.95,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567604,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","complianceRate":0.95,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567604,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-02T00:00:00.000Z","complianceRate":0.98,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567616,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567616,"pid":48588,"hostname":"SpideyMoon","date":"2024-06-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567623,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567634,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","complianceRate":0.95,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567634,"pid":48588,"hostname":"SpideyMoon","date":"2024-06-01T00:00:00.000Z","complianceRate":0.98,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567641,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","complianceRate":0.9,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567641,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-02T00:00:00.000Z","complianceRate":1,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567655,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567655,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-02T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567658,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567658,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-02T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567660,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-15T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567660,"pid":48588,"hostname":"SpideyMoon","period":{"start":"2024-01-01T00:00:00.000Z","end":"2024-01-31T00:00:00.000Z"},"msg":"Analytics report generated"}
+{"level":30,"time":1775282567663,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-15T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567663,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-15T00:00:00.000Z","complianceRate":0.95,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567663,"pid":48588,"hostname":"SpideyMoon","period":{"start":"2024-01-01T00:00:00.000Z","end":"2024-01-31T00:00:00.000Z"},"msg":"Analytics report generated"}
+{"level":30,"time":1775282567668,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567668,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-15T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567671,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-01T00:00:00.000Z","complianceRate":0.8,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567671,"pid":48588,"hostname":"SpideyMoon","date":"2024-01-15T00:00:00.000Z","complianceRate":0.95,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567674,"pid":48588,"hostname":"SpideyMoon","date":"2024-02-01T00:00:00.000Z","msg":"Usage metric recorded"}
+{"level":30,"time":1775282567674,"pid":48588,"hostname":"SpideyMoon","date":"2024-02-01T00:00:00.000Z","complianceRate":0.95,"msg":"Compliance metric recorded"}
+{"level":30,"time":1775282567676,"pid":48588,"hostname":"SpideyMoon","msg":"All metrics cleared"}
+{"level":30,"time":1775282567737,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567737_429h2dcih","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567745,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567745_rdsxr8k9y","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567751,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567751_leo2rhg53","email":"admin@example.com","msg":"User created"}
+{"level":30,"time":1775282567752,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567752_fd9rkqe2g","email":"manager@example.com","msg":"User created"}
+{"level":30,"time":1775282567752,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567752_x27r71als","email":"therapist@example.com","msg":"User created"}
+{"level":30,"time":1775282567752,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567752_4esw8uq0b","email":"viewer@example.com","msg":"User created"}
+{"level":30,"time":1775282567753,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567753_4e17dw7q3","email":"auditor@example.com","msg":"User created"}
+{"level":30,"time":1775282567754,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567754_e5xx2q61h","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567760,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567760_7i8a9j3eu","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567768,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567768_4od8snqyw","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567772,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567772_pel707gbs","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567772,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567772_pel707gbs","msg":"User updated"}
+{"level":30,"time":1775282567774,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567774_sui29ytj3","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567774,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567774_sui29ytj3","msg":"User updated"}
+{"level":30,"time":1775282567775,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567775_zop66ncuy","email":"test1@example.com","msg":"User created"}
+{"level":30,"time":1775282567775,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567775_71ckxhtns","email":"test2@example.com","msg":"User created"}
+{"level":30,"time":1775282567778,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567778_4ir9w7ryd","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567778,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567778_4ir9w7ryd","msg":"User deleted"}
+{"level":30,"time":1775282567783,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567783_h0bqxs05q","email":"test1@example.com","msg":"User created"}
+{"level":30,"time":1775282567783,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567783_71bbylbml","email":"test2@example.com","msg":"User created"}
+{"level":30,"time":1775282567787,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567787_wv9jjfh7s","email":"therapist1@example.com","msg":"User created"}
+{"level":30,"time":1775282567787,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567787_mg7f142id","email":"therapist2@example.com","msg":"User created"}
+{"level":30,"time":1775282567787,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567787_5d86b3eqz","email":"manager@example.com","msg":"User created"}
+{"level":30,"time":1775282567789,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567789_5d2ry8kpa","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567789,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567789_5d2ry8kpa","msg":"User deactivated"}
+{"level":30,"time":1775282567792,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567792_akadc456w","email":"test@example.com","msg":"User created"}
+{"level":30,"time":1775282567793,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567792_akadc456w","msg":"User deactivated"}
+{"level":30,"time":1775282567793,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567792_akadc456w","msg":"User activated"}
+{"level":30,"time":1775282567795,"pid":50428,"hostname":"SpideyMoon","userId":"usr_1775282567795_tdn7qk8g5","email":"test@example.com","msg":"User created"}
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 5 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  src/lib/logger.test.ts > logger > configures pino with pretty transport in non-production environments
+AssertionError: expected undefined to be 'pino-pretty' // Object.is equality
+
+- Expected:
+"pino-pretty"
+
++ Received:
+undefined
+
+ Γ¥» src/lib/logger.test.ts:54:38
+     52|     const config = mockPino.mock.calls[0][0];
+     53|     expect(config.level).toBe('debug');
+     54|     expect(config.transport?.target).toBe('pino-pretty');
+       |                                      ^
+     55|     expect(mockDestination).toHaveBeenCalled();
+     56|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/5]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx > MainContent > shows the current step summary
+TestingLibraryElementError: Unable to find an element with the text: /Step 1 of/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="flex-1 flex flex-col bg-white overflow-hidden relative"
+    >
+      <div
+        class="flex-1 flex flex-col md:flex-row overflow-hidden"
+      >
+        <div
+          class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+        >
+          <div
+            class="min-w-max px-4 md:px-0"
+          >
+            <div
+              data-testid="step-rail"
+            >
+              <button>
+                Step 0
+              </button>
+              <button>
+                Step 1
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+        >
+          <div
+            class="max-w-4xl mx-auto"
+          >
+            <div
+              style="opacity: 0; transform: translateX(20px);"
+            >
+              <div
+                data-testid="step-content"
+              >
+                Step Content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-3 md:p-6 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-8"
+      >
+        <button
+          class="flex items-center gap-2 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+          disabled=""
+        >
+          <div
+            class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m15 18-6-6 6-6"
+              />
+            </svg>
+          </div>
+          <span
+            class="hidden sm:inline"
+          >
+            Back
+          </span>
+        </button>
+        <div
+          class="flex items-center gap-3 md:gap-4"
+        >
+          <div
+            class="flex flex-col items-end hidden sm:flex"
+          >
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+            >
+              Step 
+              1
+              /
+              7
+            </span>
+            <span
+              class="text-xs md:text-sm font-black text-zinc-950 truncate max-w-[120px]"
+            >
+              Discipline
+            </span>
+          </div>
+          <button
+            class="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+          >
+            <span
+              class="hidden sm:inline"
+            >
+              Next Step
+            </span>
+            <span
+              class="sm:hidden"
+            >
+              Next
+            </span>
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-right w-4 h-4"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+ Γ¥» Object.getElementError node_modules/@testing-library/dom/dist/config.js:37:19
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ Γ¥» node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ Γ¥» src/__tests__/components/MainContent.test.tsx:42:19
+     40|     renderWithProvider();
+     41|
+     42|     expect(screen.getByText(/Step 1 of/i)).toBeInTheDocument();
+       |                   ^
+     43|   });
+     44|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[2/5]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx > MainContent > moves forward when the Next Step button is clicked
+TestingLibraryElementError: Unable to find an element with the text: /Step 2 of/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="flex-1 flex flex-col bg-white overflow-hidden relative"
+    >
+      <div
+        class="flex-1 flex flex-col md:flex-row overflow-hidden"
+      >
+        <div
+          class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+        >
+          <div
+            class="min-w-max px-4 md:px-0"
+          >
+            <div
+              data-testid="step-rail"
+            >
+              <button>
+                Step 0
+              </button>
+              <button>
+                Step 1
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+        >
+          <div
+            class="max-w-4xl mx-auto"
+          >
+            <div
+              style="opacity: 1; transform: none;"
+            >
+              <div
+                data-testid="step-content"
+              >
+                Step Content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-3 md:p-6 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-8"
+      >
+        <button
+          class="flex items-center gap-2 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+        >
+          <div
+            class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m15 18-6-6 6-6"
+              />
+            </svg>
+          </div>
+          <span
+            class="hidden sm:inline"
+          >
+            Back
+          </span>
+        </button>
+        <div
+          class="flex items-center gap-3 md:gap-4"
+        >
+          <div
+            class="flex flex-col items-end hidden sm:flex"
+          >
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+            >
+              Step 
+              2
+              /
+              7
+            </span>
+            <span
+              class="text-xs md:text-sm font-black text-zinc-950 truncate max-w-[120px]"
+            >
+              Document Type
+            </span>
+          </div>
+          <button
+            class="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+          >
+            <span
+              class="hidden sm:inline"
+            >
+              Next Step
+            </span>
+            <span
+              class="sm:hidden"
+            >
+              Next
+            </span>
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-right w-4 h-4"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div>
+      <div
+        class="flex-1 flex flex-col bg-white overflow-hidden relative"
+      >
+        <div
+          class="flex-1 flex flex-col md:flex-row overflow-hidden"
+        >
+          <div
+            class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+          >
+            <div
+              class="min-w-max px-4 md:px-0"
+            >
+              <div
+                data-testid="step-rail"
+              >
+                <button>
+                  Step 0
+                </button>
+                <button>
+                  Step 1
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+          >
+            <div
+              class="max-w-4xl mx-auto"
+            >
+              <div
+                style="opacity: 1; transform: none;"
+              >
+                <div
+                  data-testid="step-content"
+                >
+                  Step Content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-3 md:p-6 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-8"
+        >
+          <button
+            class="flex items-center gap-2 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+          >
+            <div
+              class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m15 18-6-6 6-6"
+                />
+              </svg>
+            </div>
+            <span
+              class="hidden sm:inline"
+            >
+              Back
+            </span>
+          </button>
+          <div
+            class="flex items-center gap-3 md:gap-4"
+          >
+            <div
+              class="flex flex-col items-end hidden sm:flex"
+            >
+              <span
+                class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+              >
+                Step 
+                2
+                /
+                7
+              </span>
+              <span
+                class="text-xs md:text-sm font-black text-zinc-950 truncate max-w-[120px]"
+              >
+                Document Type
+              </span>
+            </div>
+            <button
+              class="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+            >
+              <span
+                class="hidden sm:inline"
+              >
+                Next Step
+              </span>
+              <span
+                class="sm:hidden"
+              >
+                Next
+              </span>
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-right w-4 h-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m9 18 6-6-6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+ Γ¥» Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ Γ¥» src/__tests__/components/MainContent.test.tsx:57:11
+     55|     await userEvent.click(screen.getByRole('button', { name: /next steΓÇª
+     56|
+     57|     await waitFor(() => {
+       |           ^
+     58|       expect(screen.getByText(/Step 2 of/i)).toBeInTheDocument();
+     59|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[3/5]ΓÄ»
+
+ FAIL  src/__tests__/components/MainContent.test.tsx > MainContent > allows direct navigation through the mocked step rail
+TestingLibraryElementError: Unable to find an element with the text: /Step 2 of/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="flex-1 flex flex-col bg-white overflow-hidden relative"
+    >
+      <div
+        class="flex-1 flex flex-col md:flex-row overflow-hidden"
+      >
+        <div
+          class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+        >
+          <div
+            class="min-w-max px-4 md:px-0"
+          >
+            <div
+              data-testid="step-rail"
+            >
+              <button>
+                Step 0
+              </button>
+              <button>
+                Step 1
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+        >
+          <div
+            class="max-w-4xl mx-auto"
+          >
+            <div
+              style="opacity: 1; transform: none;"
+            >
+              <div
+                data-testid="step-content"
+              >
+                Step Content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-3 md:p-6 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-8"
+      >
+        <button
+          class="flex items-center gap-2 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+        >
+          <div
+            class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+          >
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m15 18-6-6 6-6"
+              />
+            </svg>
+          </div>
+          <span
+            class="hidden sm:inline"
+          >
+            Back
+          </span>
+        </button>
+        <div
+          class="flex items-center gap-3 md:gap-4"
+        >
+          <div
+            class="flex flex-col items-end hidden sm:flex"
+          >
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+            >
+              Step 
+              2
+              /
+              7
+            </span>
+            <span
+              class="text-xs md:text-sm font-black text-zinc-950 truncate max-w-[120px]"
+            >
+              Document Type
+            </span>
+          </div>
+          <button
+            class="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+          >
+            <span
+              class="hidden sm:inline"
+            >
+              Next Step
+            </span>
+            <span
+              class="sm:hidden"
+            >
+              Next
+            </span>
+            <svg
+              aria-hidden="true"
+              class="lucide lucide-chevron-right w-4 h-4"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m9 18 6-6-6-6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+Ignored nodes: comments, script, style
+<html>
+  <head />
+  <body>
+    <div>
+      <div
+        class="flex-1 flex flex-col bg-white overflow-hidden relative"
+      >
+        <div
+          class="flex-1 flex flex-col md:flex-row overflow-hidden"
+        >
+          <div
+            class="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide"
+          >
+            <div
+              class="min-w-max px-4 md:px-0"
+            >
+              <div
+                data-testid="step-rail"
+              >
+                <button>
+                  Step 0
+                </button>
+                <button>
+                  Step 1
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar"
+          >
+            <div
+              class="max-w-4xl mx-auto"
+            >
+              <div
+                style="opacity: 1; transform: none;"
+              >
+                <div
+                  data-testid="step-content"
+                >
+                  Step Content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="p-3 md:p-6 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-8"
+        >
+          <button
+            class="flex items-center gap-2 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+          >
+            <div
+              class="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all"
+            >
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-left w-4 h-4 md:w-5 md:h-5"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m15 18-6-6 6-6"
+                />
+              </svg>
+            </div>
+            <span
+              class="hidden sm:inline"
+            >
+              Back
+            </span>
+          </button>
+          <div
+            class="flex items-center gap-3 md:gap-4"
+          >
+            <div
+              class="flex flex-col items-end hidden sm:flex"
+            >
+              <span
+                class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400"
+              >
+                Step 
+                2
+                /
+                7
+              </span>
+              <span
+                class="text-xs md:text-sm font-black text-zinc-950 truncate max-w-[120px]"
+              >
+                Document Type
+              </span>
+            </div>
+            <button
+              class="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
+            >
+              <span
+                class="hidden sm:inline"
+              >
+                Next Step
+              </span>
+              <span
+                class="sm:hidden"
+              >
+                Next
+              </span>
+              <svg
+                aria-hidden="true"
+                class="lucide lucide-chevron-right w-4 h-4"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m9 18 6-6-6-6"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+ Γ¥» Proxy.waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ Γ¥» src/__tests__/components/MainContent.test.tsx:83:11
+     81|     await userEvent.click(screen.getByRole('button', { name: 'Step 1' ΓÇª
+     82|
+     83|     await waitFor(() => {
+       |           ^
+     84|       expect(screen.getByText(/Step 2 of/i)).toBeInTheDocument();
+     85|     });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[4/5]ΓÄ»
+
+ FAIL  src/__tests__/integration/workflows.test.ts > Integration Tests - Therapy Workflows > Note Generation Workflow > should handle note generation with all required fields
+AssertionError: expected null to be truthy
+
+- Expected:
+true
+
++ Received:
+null
+
+ Γ¥» src/__tests__/integration/workflows.test.ts:87:44
+     85|       });
+     86|
+     87|       expect(result.current.generatedNote).toBeTruthy();
+       |                                            ^
+     88|     });
+     89|   });
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[5/5]ΓÄ»
+
+
+ Test Files  3 failed | 48 passed (51)
+      Tests  5 failed | 711 passed (716)
+   Start at  23:02:13
+   Duration  37.19s (transform 13.48s, setup 94.51s, import 67.59s, tests 59.34s, environment 200.71s)
+

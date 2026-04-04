@@ -163,7 +163,7 @@ export function Sidebar({
             <p className="text-[9px] font-medium text-zinc-400 leading-relaxed">
               {isLocalMode 
                 ? "HIPAA Secure: All processing happens on your device. No data leaves this browser." 
-                : "Cloud Enhanced: Using Gemini 3.1 Pro for deep clinical reasoning and Medicare compliance."}
+                : "Cloud Enhanced: Using AWS Bedrock for deep clinical reasoning and Medicare compliance."}
             </p>
             {modelDownloadProgress !== null && (
               <div className="mt-4">

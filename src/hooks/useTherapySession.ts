@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { TherapyState, GeneratedNote, AuditResult } from '../types';
 import { STEPS, DEFAULT_STATE } from '../constants';
-import { generateTherapyNote, auditNoteWithAI, analyzeGaps, parseBrainDump, tumbleNote, summarizeProgress } from '../services/gemini';
+import { generateTherapyNote, auditNoteWithAI, analyzeGaps, parseBrainDump, tumbleNote, summarizeProgress } from '../services/bedrock';
 import { ClinicalKnowledgeBase } from '../services/clinicalKnowledgeBase';
 import { SNFTemplates } from '../services/snfTemplates';
 import { generateNursingHandOff } from '../services/nursingHandOff';
@@ -170,9 +170,12 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       const aiAudit = auditResultRaw.data;
       const localAudit = ClinicalKnowledgeBase.auditNote({ ...state, customNote: note });
       
+      const aiFindings = Array.isArray(aiAudit.findings) ? aiAudit.findings : [];
+      const localFindings = Array.isArray(localAudit.findings) ? localAudit.findings : [];
+      
       const auditResult: AuditResult = {
         complianceScore: Math.round((aiAudit.complianceScore + localAudit.complianceScore) / 2),
-        findings: [...new Set([...aiAudit.findings, ...localAudit.findings])],
+        findings: [...new Set([...aiFindings, ...localFindings])],
         checklist: { ...aiAudit.checklist, ...localAudit.checklist }
       };
 

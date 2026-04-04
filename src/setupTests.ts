@@ -38,7 +38,7 @@ if (typeof navigator !== 'undefined') {
 (globalThis as any).alert = vi.fn();
 (globalThis as any).prompt = vi.fn(() => 'Automation Template');
 
-const buildMockGeminiResponse = (request?: any) => {
+const buildMockBedrockResponse = (request?: any) => {
   const wantsJson = request?.config?.responseMimeType === 'application/json';
 
   if (wantsJson) {
@@ -69,25 +69,21 @@ const buildMockGeminiResponse = (request?: any) => {
 };
 
 // Create a global mock store for generateContent
-let mockGenerateContentFn = vi.fn((request?: any) => Promise.resolve(buildMockGeminiResponse(request)));
+let mockGenerateContentFn = vi.fn((request?: any) => Promise.resolve(buildMockBedrockResponse(request)));
 
-// Mock GoogleGenAI class
-vi.mock('@google/genai', () => {
-  class MockGoogleGenAI {
-    models = {
-      generateContent: (...args: any[]) => mockGenerateContentFn(...args),
-    };
+// Mock AWS Bedrock fetch
+vi.stubGlobal('fetch', vi.fn((url: string, options: any) => {
+  if (url.includes('bedrock-runtime')) {
+    return Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        content: [{ text: 'Mock AWS Bedrock response' }],
+        completion: 'Mock AWS Bedrock response'
+      })
+    });
   }
-
-  return {
-    GoogleGenAI: MockGoogleGenAI,
-    Type: {
-      ARRAY: 'array',
-      OBJECT: 'object',
-      STRING: 'string',
-    },
-  };
-});
+  return Promise.reject(new Error('Unexpected fetch call'));
+}));
 
 // Export function to update mock in tests
 export function setMockGenerateContent(fn: any) {
@@ -95,13 +91,13 @@ export function setMockGenerateContent(fn: any) {
 }
 
 // Mock Service Worker setup
-const mockGeminiHandler = http.post('*/models/gemini-3-flash-preview:generateContent', () => {
+const mockBedrockHandler = http.post('*/bedrock-runtime*', () => {
   return HttpResponse.json({
     text: 'Mock generated note content',
   });
 });
 
-export const server = setupServer(mockGeminiHandler);
+export const server = setupServer(mockBedrockHandler);
 
 beforeAll(() => {
   server.listen({ onUnhandledRequest: 'bypass' });
@@ -113,7 +109,7 @@ afterEach(() => {
   cleanup();
   server.resetHandlers();
   vi.clearAllMocks();
-  mockGenerateContentFn = vi.fn((request?: any) => Promise.resolve(buildMockGeminiResponse(request)));
+  mockGenerateContentFn = vi.fn((request?: any) => Promise.resolve(buildMockBedrockResponse(request)));
   (globalThis as any).localStorage?.clear();
   (globalThis as any).sessionStorage?.clear();
 });

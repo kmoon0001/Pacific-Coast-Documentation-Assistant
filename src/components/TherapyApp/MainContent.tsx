@@ -48,11 +48,11 @@ export function MainContent() {
         </div>
       </div>
 
-      <div className="p-4 md:p-8 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-12">
+      <div className="p-3 md:p-6 border-t border-zinc-100 bg-white flex justify-between items-center px-4 md:px-8">
         <button
           onClick={handleBack}
           disabled={step === 0}
-          className="flex items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
+          className="flex items-center gap-2 text-xs md:text-sm font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950 disabled:opacity-20 transition-all group"
         >
           <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-zinc-100 flex items-center justify-center group-hover:border-zinc-950 transition-all">
             <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
@@ -60,28 +60,30 @@ export function MainContent() {
           <span className="hidden sm:inline">Back</span>
         </button>
 
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-3 md:gap-4">
           <div className="flex flex-col items-end hidden sm:flex">
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">Step {step + 1} of {currentSteps.length}</span>
-            <span className="text-sm font-black text-zinc-950">{currentSteps[step]}</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">Step {step + 1}/{currentSteps.length}</span>
+            <span className="text-xs md:text-sm font-black text-zinc-950 truncate max-w-[120px]">{currentSteps[step]}</span>
           </div>
           
           {step === currentSteps.length - 1 ? (
             <button
               onClick={handleGenerate}
               disabled={isGenerating}
-              className="bg-zinc-950 text-white px-6 md:px-12 py-3 md:py-5 rounded-[2rem] font-black text-xs md:text-sm shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 md:gap-3"
+              className="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
             >
-              {isGenerating ? <RefreshCw className="w-4 h-4 md:w-5 md:h-5 animate-spin" /> : <Wand2 className="w-4 h-4 md:w-5 md:h-5" />}
-              Generate Note
+              {isGenerating ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Wand2 className="w-4 h-4" />}
+              <span className="hidden sm:inline">Generate Note</span>
+              <span className="sm:hidden">Generate</span>
             </button>
           ) : (
             <button
               onClick={handleNext}
-              className="bg-zinc-950 text-white px-6 md:px-12 py-3 md:py-5 rounded-[2rem] font-black text-xs md:text-sm shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 md:gap-3"
+              className="bg-zinc-950 text-white px-4 md:px-8 py-2.5 md:py-4 rounded-2xl font-black text-xs shadow-2xl shadow-zinc-200 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap"
             >
-              Next Step
-              <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">Next Step</span>
+              <span className="sm:hidden">Next</span>
+              <ChevronRight className="w-4 h-4" />
             </button>
           )}
         </div>

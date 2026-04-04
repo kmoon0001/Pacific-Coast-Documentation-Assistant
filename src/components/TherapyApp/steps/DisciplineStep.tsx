@@ -33,29 +33,29 @@ export const DisciplineStep: React.FC = () => {
       <div className="p-10 rounded-[2.5rem] bg-zinc-950 text-white shadow-2xl shadow-zinc-950/20 relative overflow-hidden group">
         <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -z-0 group-hover:scale-150 transition-all duration-1000" />
         <div className="relative z-10 space-y-8">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-xl shrink-0">
-                <Wand2 className="w-6 h-6 text-emerald-400" />
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-xl shrink-0">
+                <Wand2 className="w-5 h-5 text-emerald-400" />
               </div>
               <div>
-                <h3 className="text-lg font-black uppercase tracking-tight">Clinical Brain Dump</h3>
-                <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">AI-Powered Auto-Extraction</p>
+                <h3 className="text-sm font-black uppercase tracking-tight">Clinical Brain Dump</h3>
+                <p className="text-[9px] font-bold text-zinc-400 uppercase tracking-widest">AI Auto-Extract</p>
               </div>
             </div>
             <button 
               onClick={handleBrainDump}
               disabled={isParsingBrainDump || !brainDump.trim()}
-              className="w-full md:w-auto px-8 py-4 bg-emerald-500 hover:bg-emerald-400 disabled:bg-zinc-800 disabled:text-zinc-500 text-zinc-950 rounded-2xl font-black text-xs uppercase tracking-widest transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+              className="w-full md:w-auto px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 disabled:bg-zinc-800 disabled:text-zinc-500 text-zinc-950 rounded-xl font-black text-xs uppercase tracking-widest transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
             >
               {isParsingBrainDump ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
+                  <div className="w-3 h-3 border-2 border-zinc-950 border-t-transparent rounded-full animate-spin" />
                   Analyzing...
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles className="w-3 h-3" />
                   Auto-Extract
                 </>
               )}

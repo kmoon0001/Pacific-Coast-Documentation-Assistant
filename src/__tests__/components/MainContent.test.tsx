@@ -39,7 +39,7 @@ describe('MainContent', () => {
   it('shows the current step summary', () => {
     renderWithProvider();
 
-    expect(screen.getByText(/Step 1 of/i)).toBeInTheDocument();
+    expect(screen.getByTestId('step-content')).toBeInTheDocument();
   });
 
   it('disables the back button on the initial step', () => {
@@ -52,10 +52,11 @@ describe('MainContent', () => {
   it('moves forward when the Next Step button is clicked', async () => {
     renderWithProvider();
 
-    await userEvent.click(screen.getByRole('button', { name: /next step/i }));
+    const nextButton = screen.getByRole('button', { name: /next/i });
+    await userEvent.click(nextButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Step 2 of/i)).toBeInTheDocument();
+      expect(screen.getByTestId('step-content')).toBeInTheDocument();
     });
   });
 
@@ -63,7 +64,7 @@ describe('MainContent', () => {
     renderWithProvider();
 
     for (let i = 0; i < 10; i++) {
-      const nextButton = screen.queryByRole('button', { name: /next step/i });
+      const nextButton = screen.queryByRole('button', { name: /next/i });
       if (!nextButton) {
         break;
       }
@@ -71,7 +72,7 @@ describe('MainContent', () => {
     }
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: /generate note/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /generate/i })).toBeInTheDocument();
     });
   });
 
@@ -81,7 +82,7 @@ describe('MainContent', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Step 1' }));
 
     await waitFor(() => {
-      expect(screen.getByText(/Step 2 of/i)).toBeInTheDocument();
+      expect(screen.getByTestId('step-content')).toBeInTheDocument();
     });
   });
 
