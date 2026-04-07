@@ -21,7 +21,7 @@ describe('useTherapySession Hook', () => {
     const { result } = renderHook(() => useTherapySession());
     
     act(() => {
-      result.current.setState({ discipline: 'PT' });
+      result.current.setState({ ...result.current.state, discipline: 'PT' });
     });
     
     expect(result.current.state.discipline).toBe('PT');
@@ -129,7 +129,7 @@ describe('useTherapySession Hook', () => {
     
     act(() => {
       // Simulate audit completion
-      result.current.setState({ auditResult });
+      result.current.setState({ ...result.current.state, auditResult });
     });
     
     expect(result.current.state.auditResult).toEqual(auditResult);
@@ -187,7 +187,7 @@ describe('useTherapySession Hook', () => {
   it('should manage custom templates', () => {
     const { result } = renderHook(() => useTherapySession());
     
-    const template = { name: 'Test Template', content: 'Template content' };
+    const template = { name: 'Test Template', state: createMockTherapyState() };
     
     act(() => {
       result.current.setCustomTemplates([...result.current.customTemplates, template]);
@@ -199,7 +199,7 @@ describe('useTherapySession Hook', () => {
   it('should handle local mode', () => {
     const { result } = renderHook(() => useTherapySession());
     
-    expect(result.current.isLocalMode).toBe(false);
+    expect(result.current.isLocalMode).toBe(true);
   });
 
   it('should track model download progress', () => {

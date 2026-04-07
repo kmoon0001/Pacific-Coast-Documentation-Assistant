@@ -50,6 +50,7 @@ export class RelationshipService {
         type,
         description,
       },
+      status: 'success',
       timestamp: new Date(),
     });
 
@@ -201,6 +202,7 @@ export class RelationshipService {
           resourceId: relationshipId,
           userId,
           details: {},
+          status: 'success',
           timestamp: new Date(),
         });
 
@@ -312,6 +314,7 @@ export class RelationshipService {
           resourceId: relationshipId,
           userId,
           details: { description },
+          status: 'success',
           timestamp: new Date(),
         });
 

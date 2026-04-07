@@ -3,21 +3,22 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { DetailsStep } from '../../../components/TherapyApp/steps/DetailsStep';
 import { renderWithTherapySession, createMockTherapyState } from '../../fixtures';
+import { Discipline, TherapyState } from '../../../types';
 
-const seedTemplates = (templates: Array<{ name: string; state: ReturnType<typeof createMockTherapyState> }>) => {
+const seedTemplates = (templates: Array<{ name: string; state: TherapyState }>) => {
   localStorage.setItem('customTemplates', JSON.stringify(templates));
 };
 
-const defaultSessionState = {
-  discipline: 'PT',
-  documentType: 'Daily',
+const defaultSessionState: Partial<TherapyState> = {
+  discipline: 'PT' as Discipline,
+  documentType: 'Daily' as const,
   cptCode: '97110',
   mode: 'Lower Extremity Strengthening',
   activity: 'Closed Kinetic Chain',
   details: {},
 };
 
-const renderDetails = (overrides: Partial<ReturnType<typeof createMockTherapyState>> = {}) =>
+const renderDetails = (overrides: Partial<TherapyState> = {}) =>
   renderWithTherapySession(<DetailsStep />, {
     initialState: createMockTherapyState({ ...defaultSessionState, ...overrides }),
   });

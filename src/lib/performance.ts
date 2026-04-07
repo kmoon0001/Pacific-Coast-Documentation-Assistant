@@ -11,10 +11,10 @@ import { lazy } from 'react';
 export function lazyLoadComponent<T extends React.ComponentType<any>>(
   importFunc: () => Promise<{ default: T }>,
   displayName: string
-): T {
+): React.LazyExoticComponent<T> {
   const Component = lazy(importFunc);
-  Component.displayName = displayName;
-  return Component as T;
+  (Component as any).displayName = displayName;
+  return Component;
 }
 
 /**
@@ -375,7 +375,7 @@ export class HTTPCacheStrategy {
 /**
  * Service Worker registration
  */
-export async function registerServiceWorker(): Promise<ServiceWorkerContainer | null> {
+export async function registerServiceWorker(): Promise<ServiceWorkerRegistration | null> {
   if ('serviceWorker' in navigator) {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js');

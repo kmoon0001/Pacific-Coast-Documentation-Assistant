@@ -50,6 +50,7 @@ export class VersioningService {
         versionNumber,
         changeDescription,
       },
+      status: 'success',
       timestamp: new Date(),
     });
 
@@ -198,15 +199,17 @@ export class VersioningService {
 
     // Audit log
     await auditLog({
-      action: 'RESTORE_VERSION',
-      resourceType: 'Document',
+      action: 'access',
+      resourceType: 'system',
       resourceId: documentId,
       userId,
       details: {
+        operation: 'RESTORE_VERSION',
         restoredFromVersion: versionNumber,
         reason,
       },
       timestamp: new Date(),
+      status: 'success',
     });
 
     return restoredDocument;
@@ -220,12 +223,15 @@ export class VersioningService {
     this.versionCounter.delete(documentId);
 
     await auditLog({
-      action: 'DELETE_ALL_VERSIONS',
-      resourceType: 'Document',
+      action: 'access',
+      resourceType: 'system',
       resourceId: documentId,
       userId,
-      details: {},
+      details: {
+        operation: 'DELETE_ALL_VERSIONS',
+      },
       timestamp: new Date(),
+      status: 'success',
     });
   }
 

@@ -219,7 +219,7 @@ export async function generateTherapyNote(state: TherapyState, userStyle?: strin
       Provide two paragraphs: Intervention and Response.`;
       
       return { text: await generateLocalNote(prompt), appliedPolicies: [] };
-    } catch (e) {
+    } catch {
       return { text: `[LOCAL MODE - FALLBACK] ${state.discipline} ${state.documentType} Note\n\nIntervention: Patient performed ${state.activity}. CPT Code: ${state.cptCode}.\n\nResponse: Patient demonstrated progress in functional mobility.`, appliedPolicies: [] };
     }
   }

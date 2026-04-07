@@ -122,7 +122,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     try {
       const result = await analyzeGaps(state, state.isLocalMode);
       setState({ ...state, gapQuestions: result.data, gapAnswersMap: {} });
-      if (result.groundingMetadata) setGroundingMetadata(result.groundingMetadata);
+      if ('groundingMetadata' in result && result.groundingMetadata) setGroundingMetadata(result.groundingMetadata);
     } catch (error: any) {
       console.error(error);
       const isQuota = error.message?.includes("Quota");
@@ -164,7 +164,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
 
       const noteResult = await generateTherapyNote({ ...state, userStyleSamples }, userStyle);
       const note = noteResult.text || "";
-      if (noteResult.groundingMetadata) setGroundingMetadata(noteResult.groundingMetadata);
+      if ('groundingMetadata' in noteResult && noteResult.groundingMetadata) setGroundingMetadata(noteResult.groundingMetadata);
 
       const auditResultRaw = await auditNoteWithAI(note, state.documentType, state.isLocalMode);
       const aiAudit = auditResultRaw.data;
@@ -220,7 +220,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       const note = await tumbleNote(editedNote || generatedNote, instruction || tumbleInstructions, state.isLocalMode);
       const auditResultRaw = await auditNoteWithAI(note, state.documentType, state.isLocalMode);
       const aiAudit = auditResultRaw.data;
-      if (auditResultRaw.groundingMetadata) setGroundingMetadata(auditResultRaw.groundingMetadata);
+      if ('groundingMetadata' in auditResultRaw && auditResultRaw.groundingMetadata) setGroundingMetadata(auditResultRaw.groundingMetadata);
       
       const localAudit = ClinicalKnowledgeBase.auditNote({ ...state, customNote: note });
       
@@ -250,7 +250,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       try {
         const auditResultRaw = await auditNoteWithAI(editedNote || generatedNote!, state.documentType, state.isLocalMode);
         const aiAudit = auditResultRaw.data;
-        if (auditResultRaw.groundingMetadata) setGroundingMetadata(auditResultRaw.groundingMetadata);
+        if ('groundingMetadata' in auditResultRaw && auditResultRaw.groundingMetadata) setGroundingMetadata(auditResultRaw.groundingMetadata);
         
         const localAudit = ClinicalKnowledgeBase.auditNote({ ...state, customNote: editedNote || generatedNote! });
         
@@ -315,7 +315,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       setError(null);
       const noteResult = await generateTherapyNote(newState, userStyle);
       const note = noteResult.text || "";
-      if (noteResult.groundingMetadata) setGroundingMetadata(noteResult.groundingMetadata);
+      if ('groundingMetadata' in noteResult && noteResult.groundingMetadata) setGroundingMetadata(noteResult.groundingMetadata);
 
       setGeneratedNote(note);
       setEditedNote(note);

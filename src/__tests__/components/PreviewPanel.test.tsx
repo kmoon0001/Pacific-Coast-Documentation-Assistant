@@ -86,7 +86,7 @@ describe('PreviewPanel Component', () => {
     await user.click(screen.getByRole('button', { name: /save as template/i }));
     expect(props.onSaveTemplate).toHaveBeenCalled();
 
-    await user.click(screen.getByRole('button', { name: /nursing hand-off/i }));
+    await user.click(screen.getByTitle(/nursing hand-off/i));
     expect(props.generateNursingHandOff).toHaveBeenCalledWith(expect.any(String), expect.any(Object));
     expect(clipboardSpy).toHaveBeenCalledWith('Handoff summary');
     clipboardSpy.mockRestore();

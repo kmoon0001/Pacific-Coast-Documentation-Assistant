@@ -308,7 +308,7 @@ export function createBackendServer(): Express {
 
       const filters = {
         category: category as any,
-        tags: tags ? (Array.isArray(tags) ? tags : [tags]) : undefined,
+        tags: tags ? (Array.isArray(tags) ? (tags as string[]) : [tags as string]) : undefined,
         page: page ? parseInt(page as string) : 1,
         pageSize: pageSize ? parseInt(pageSize as string) : 20,
         sortBy: (sortBy as any) || 'date',
@@ -335,7 +335,7 @@ export function createBackendServer(): Express {
 
       const filters = {
         category: category as any,
-        tags: tags ? (Array.isArray(tags) ? tags : [tags]) : undefined,
+        tags: tags ? (Array.isArray(tags) ? (tags as string[]) : [tags as string]) : undefined,
         page: page ? parseInt(page as string) : 1,
         pageSize: pageSize ? parseInt(pageSize as string) : 20,
         sortBy: (sortBy as any) || 'relevance',

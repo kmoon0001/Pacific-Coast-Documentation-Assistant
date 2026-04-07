@@ -104,8 +104,9 @@ describe('TemplateService', () => {
         name: 'Test Template',
         state: {
           customNote: 'Test content',
-          discipline: 'PT',
-          documentType: 'Daily',
+          discipline: 'PT' as const,
+          documentType: 'Daily' as const,
+          details: {},
         },
       };
 

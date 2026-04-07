@@ -93,11 +93,12 @@ export const DetailsStep: React.FC = () => {
                       details: { ...state.details, [d.label]: opt }
                     })}
                     className={cn(
-                      "px-6 py-3 rounded-2xl border-2 transition-all duration-300 text-[11px] font-black uppercase tracking-widest",
+                      "px-4 py-2.5 rounded-xl border-2 transition-all duration-300 text-[10px] font-black uppercase tracking-widest truncate",
                       state.details[d.label] === opt
                         ? "bg-zinc-950 border-zinc-950 text-white shadow-xl scale-105"
                         : "bg-white border-zinc-100 text-zinc-400 hover:border-zinc-950 hover:text-zinc-950"
                     )}
+                    title={opt}
                   >
                     {opt}
                   </button>
@@ -121,11 +122,12 @@ export const DetailsStep: React.FC = () => {
                         });
                       }}
                       className={cn(
-                        "px-6 py-3 rounded-2xl border-2 transition-all duration-300 text-[11px] font-black uppercase tracking-widest",
+                        "px-4 py-2.5 rounded-xl border-2 transition-all duration-300 text-[10px] font-black uppercase tracking-widest truncate",
                         isSelected
                           ? "bg-zinc-950 border-zinc-950 text-white shadow-xl scale-105"
                           : "bg-white border-zinc-100 text-zinc-400 hover:border-zinc-950 hover:text-zinc-950"
                       )}
+                      title={opt}
                     >
                       {opt}
                     </button>

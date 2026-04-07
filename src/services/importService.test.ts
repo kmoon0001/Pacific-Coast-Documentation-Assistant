@@ -155,7 +155,7 @@ describe('ImportService', () => {
   describe('error handling', () => {
     it('should handle import errors', async () => {
       const file = new File(['test content'], 'test.pdf', { type: 'application/pdf' });
-      const invalidOptions = { format: 'invalid' } as ImportOptions;
+      const invalidOptions = { format: 'invalid' } as unknown as ImportOptions;
 
       await expect(service.importFromPDF(file, invalidOptions)).rejects.toThrow();
     });

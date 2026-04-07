@@ -141,7 +141,7 @@ describe('ExportService', () => {
 
   describe('error handling', () => {
     it('should handle invalid export format', async () => {
-      const invalidOptions = { format: 'invalid' } as ExportOptions;
+      const invalidOptions = { format: 'invalid' } as unknown as ExportOptions;
       await expect(service.exportToPDF({ test: 'data' }, invalidOptions)).rejects.toThrow();
     });
 

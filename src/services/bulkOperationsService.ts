@@ -1,4 +1,4 @@
-import { Document } from '../types';
+import { Document, DocumentMetadata } from '../types';
 import { knowledgeBaseService } from './knowledgeBaseService';
 import { auditLog } from '../lib/auditLogger';
 
@@ -11,7 +11,7 @@ export class BulkOperationsService {
    */
   async bulkUpload(
     files: File[],
-    metadata: Record<string, any>,
+    metadata: Record<string, any> | Partial<DocumentMetadata>,
     userId: string,
     onProgress?: (current: number, total: number) => void
   ): Promise<{
@@ -26,7 +26,7 @@ export class BulkOperationsService {
       try {
         const doc = await knowledgeBaseService.uploadDocument(
           files[i],
-          metadata,
+          metadata as DocumentMetadata,
           userId
         );
         successful.push(doc);
@@ -53,6 +53,7 @@ export class BulkOperationsService {
         failed: failed.length,
         total: files.length,
       },
+      status: 'success',
       timestamp: new Date(),
     });
 
@@ -98,6 +99,7 @@ export class BulkOperationsService {
         total: documentIds.length,
         reason,
       },
+      status: 'success',
       timestamp: new Date(),
     });
 
@@ -161,6 +163,7 @@ export class BulkOperationsService {
         operation,
         tags,
       },
+      status: 'success',
       timestamp: new Date(),
     });
 
@@ -208,6 +211,7 @@ export class BulkOperationsService {
         total: documentIds.length,
         category,
       },
+      status: 'success',
       timestamp: new Date(),
     });
 

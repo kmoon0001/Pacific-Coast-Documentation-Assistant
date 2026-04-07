@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { auditLogger } from '../../lib/auditLogger';
+import { auditLogger, auditLog } from '../../lib/auditLogger';
 
 describe('Audit Logger', () => {
   beforeEach(() => {
@@ -331,6 +331,78 @@ describe('Audit Logger', () => {
 
       const events = auditLogger.getAllEvents();
       expect(events[0].id).not.toBe(events[1].id);
+    });
+  });
+
+  describe('Compliance Rate Calculation', () => {
+    it('should calculate compliance rate when no audits exist', () => {
+      const startDate = new Date();
+      startDate.setDate(startDate.getDate() - 1);
+      const endDate = new Date();
+
+      const report = auditLogger.generateReport(startDate, endDate);
+
+      expect(report.complianceMetrics.complianceRate).toBe(0);
+      expect(report.complianceMetrics.auditsPassed).toBe(0);
+      expect(report.complianceMetrics.auditsFailed).toBe(0);
+    });
+
+    it('should handle events without userId in CSV export', () => {
+      // Create an event without userId using the auditLog function
+      const event = {
+        action: 'access' as const,
+        resourceType: 'system' as const,
+        resourceId: 'system-1',
+        details: {},
+        status: 'success' as const,
+      };
+      
+      auditLogger.logCustomEvent({
+        id: 'test-id',
+        timestamp: new Date(),
+        ...event,
+      });
+
+      const csv = auditLogger.exportLogs('csv');
+      expect(csv).toContain('""'); // Empty userId field
+    });
+  });
+
+  describe('Audit Log Function', () => {
+    it('should log event with provided id and timestamp', async () => {
+      const customId = 'custom-id-123';
+      const customTimestamp = new Date('2024-01-01');
+      
+      await auditLog({
+        id: customId,
+        timestamp: customTimestamp,
+        action: 'access',
+        resourceType: 'system',
+        resourceId: 'sys-1',
+        details: {},
+        status: 'success',
+      });
+
+      const events = auditLogger.getAllEvents();
+      const lastEvent = events[events.length - 1];
+      expect(lastEvent.id).toBe(customId);
+      expect(lastEvent.timestamp).toEqual(customTimestamp);
+    });
+
+    it('should generate id and timestamp when not provided', async () => {
+      await auditLog({
+        action: 'access',
+        resourceType: 'system',
+        resourceId: 'sys-2',
+        details: {},
+        status: 'success',
+      });
+
+      const events = auditLogger.getAllEvents();
+      const lastEvent = events[events.length - 1];
+      expect(lastEvent.id).toBeDefined();
+      expect(lastEvent.timestamp).toBeDefined();
+      expect(lastEvent.id).toMatch(/^audit_/);
     });
   });
 });

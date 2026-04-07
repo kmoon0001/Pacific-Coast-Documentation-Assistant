@@ -9,8 +9,8 @@ export interface AuditEvent {
   id: string;
   timestamp: Date;
   userId?: string;
-  action: 'note_generated' | 'note_modified' | 'note_deleted' | 'user_login' | 'user_logout' | 'audit_run' | 'export' | 'access';
-  resourceType: 'note' | 'user' | 'system';
+  action: 'note_generated' | 'note_modified' | 'note_deleted' | 'user_login' | 'user_logout' | 'audit_run' | 'export' | 'access' | 'BULK_UPLOAD' | 'BULK_DELETE' | 'BULK_UPDATE_TAGS' | 'BULK_UPDATE_CATEGORY' | 'CREATE_RELATIONSHIP' | 'DELETE_RELATIONSHIP' | 'UPDATE_RELATIONSHIP' | 'CREATE_VERSION' | 'RESTORE_VERSION';
+  resourceType: 'note' | 'user' | 'system' | 'Document' | 'DocumentRelationship' | 'DocumentVersion';
   resourceId: string;
   details: Record<string, any>;
   ipAddress?: string;

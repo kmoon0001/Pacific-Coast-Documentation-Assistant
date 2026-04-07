@@ -6,8 +6,8 @@ import { DEFAULT_STATE } from '../constants';
  */
 
 export const createMockTherapyState = (overrides?: Partial<TherapyState>): TherapyState => ({
-  discipline: 'PT',
-  documentType: 'Daily',
+  discipline: 'PT' as const,
+  documentType: 'Daily' as const,
   details: {},
   customNote: '',
   isLocalMode: false,

@@ -18,7 +18,7 @@ describe('Integration Tests - Therapy Workflows', () => {
       
       // Step 1: Select discipline
       act(() => {
-        result.current.setState({ discipline: 'PT' });
+        result.current.setState({ ...result.current.state, discipline: 'PT' });
       });
       expect(result.current.state.discipline).toBe('PT');
       
@@ -136,6 +136,7 @@ describe('Integration Tests - Therapy Workflows', () => {
       // Create incomplete state
       act(() => {
         result.current.setState({ 
+          ...result.current.state,
           discipline: 'PT',
           documentType: 'Daily',
           customNote: 'Patient did therapy'
@@ -224,7 +225,7 @@ describe('Integration Tests - Therapy Workflows', () => {
       
       const template = {
         name: 'PT Daily Template',
-        content: 'Patient participated in skilled PT for [activity]. [details]. Plan: [plan]'
+        state: createMockTherapyState()
       };
       
       act(() => {
@@ -249,7 +250,7 @@ describe('Integration Tests - Therapy Workflows', () => {
     it('should delete custom template', () => {
       const { result } = renderHook(() => useTherapySession());
       
-      const template = { name: 'Test Template', content: 'Content' };
+      const template = { name: 'Test Template', state: createMockTherapyState() };
       
       act(() => {
         result.current.setCustomTemplates([template]);

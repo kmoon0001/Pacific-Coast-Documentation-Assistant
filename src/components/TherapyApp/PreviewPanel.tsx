@@ -69,13 +69,13 @@ export function PreviewPanel({
 }: PreviewPanelProps) {
   if (isGenerating) {
     return (
-      <div className="w-full md:w-[480px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col items-center justify-center p-12 text-center">
-        <div className="relative mb-10">
-          <div className="w-24 h-24 border-4 border-zinc-200 border-t-zinc-950 rounded-full animate-spin" />
-          <Wand2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-zinc-950" />
+      <div className="w-full md:w-[420px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col items-center justify-center p-8 text-center">
+        <div className="relative mb-8">
+          <div className="w-20 h-20 border-4 border-zinc-200 border-t-zinc-950 rounded-full animate-spin" />
+          <Wand2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 text-zinc-950" />
         </div>
-        <h2 className="text-2xl font-black tracking-tighter text-zinc-950 mb-4">Drafting Clinical Note</h2>
-        <p className="text-sm font-medium text-zinc-500 leading-relaxed max-w-xs">
+        <h2 className="text-xl font-black tracking-tighter text-zinc-950 mb-3">Drafting Clinical Note</h2>
+        <p className="text-xs font-medium text-zinc-500 leading-relaxed max-w-xs">
           Our AI is synthesizing your inputs with Medicare guidelines and clinical best practices...
         </p>
       </div>
@@ -84,12 +84,12 @@ export function PreviewPanel({
 
   if (!generatedNote) {
     return (
-      <div className="w-full md:w-[480px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col items-center justify-center p-12 text-center">
-        <div className="w-20 h-20 bg-white rounded-[2rem] flex items-center justify-center shadow-xl shadow-zinc-200 mb-10">
-          <FileText className="w-8 h-8 text-zinc-200" />
+      <div className="w-full md:w-[420px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col items-center justify-center p-8 text-center">
+        <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl shadow-zinc-200 mb-8">
+          <FileText className="w-7 h-7 text-zinc-200" />
         </div>
-        <h2 className="text-xl font-black tracking-tighter text-zinc-950 mb-4">No Note Generated</h2>
-        <p className="text-xs font-bold text-zinc-400 uppercase tracking-widest leading-relaxed max-w-[200px]">
+        <h2 className="text-lg font-black tracking-tighter text-zinc-950 mb-3">No Note Generated</h2>
+        <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest leading-relaxed max-w-[200px]">
           Complete the steps to the left to generate your clinical documentation.
         </p>
       </div>
@@ -97,41 +97,41 @@ export function PreviewPanel({
   }
 
   return (
-    <div className="w-full md:w-[480px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col overflow-hidden">
-      <div className="p-4 md:p-8 border-b border-zinc-100 bg-white">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 md:mb-8 gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-zinc-950 rounded-lg flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-4 h-4 text-white" />
+    <div className="w-full md:w-[420px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col overflow-hidden">
+      <div className="p-3 md:p-5 border-b border-zinc-100 bg-white">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-3 md:mb-5 gap-3">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-7 h-7 bg-zinc-950 rounded-lg flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-3.5 h-3.5 text-white" />
             </div>
-            <h2 className="text-sm font-black tracking-tight text-zinc-950 uppercase tracking-widest">Clinical Preview</h2>
+            <h2 className="text-xs font-black tracking-tight text-zinc-950 uppercase tracking-widest truncate">Clinical Preview</h2>
           </div>
-          <div className="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
+          <div className="flex gap-1.5 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
             <button 
               onClick={onCopy}
-              className="p-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
+              className="p-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
               title="Copy to clipboard" aria-label="Copy to clipboard"
             >
-              <Copy className="w-4 h-4" />
+              <Copy className="w-3.5 h-3.5" />
             </button>
             <button 
               onClick={onSaveTemplate}
-              className="p-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
+              className="p-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
               title="Save as template" aria-label="Save as template"
             >
-              <Save className="w-4 h-4" />
+              <Save className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={onAudit}
               disabled={isAuditing}
-              className="p-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 disabled:opacity-50"
+              className="p-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 disabled:opacity-50"
               title="Run compliance audit"
               aria-label="Run compliance audit"
             >
               {isAuditing ? (
-                <RefreshCw className="w-4 h-4 animate-spin" />
+                <RefreshCw className="w-3.5 h-3.5 animate-spin" />
               ) : (
-                <ShieldCheck className="w-4 h-4" />
+                <ShieldCheck className="w-3.5 h-3.5" />
               )}
             </button>
             <button 
@@ -140,24 +140,25 @@ export function PreviewPanel({
                 navigator.clipboard.writeText(handOff);
                 alert("Nursing Hand-off (SBAR) copied to clipboard.");
               }}
-              className="px-4 py-2.5 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest"
+              className="px-3 py-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest"
               title="Nursing Hand-off (SBAR)"
             >
-              <FileText className="w-4 h-4" />
-              <span className="hidden sm:inline">Nursing Hand-off</span>
+              <FileText className="w-3.5 h-3.5" />
+              <span className="hidden lg:inline whitespace-nowrap">Hand-off</span>
             </button>
           </div>
         </div>
 
         {/* SNF Templates */}
-        <div className="mb-6">
+        <div className="mb-4">
           <h3 className="text-[8px] font-black uppercase tracking-widest text-zinc-400 mb-2">SNF Templates</h3>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-1.5">
             {SNFTemplates.map(template => (
               <button
                 key={template.id}
                 onClick={() => onEditedNoteChange((editedNote || generatedNote || "") + "\n\n" + template.content)}
-                className="text-[9px] font-bold text-zinc-600 bg-zinc-50 hover:bg-zinc-100 p-2 rounded-lg transition-all text-center"
+                className="text-[8px] font-bold text-zinc-600 bg-zinc-50 hover:bg-zinc-100 p-2 rounded-lg transition-all text-center truncate"
+                title={template.name}
               >
                 {template.name}
               </button>
@@ -166,23 +167,23 @@ export function PreviewPanel({
         </div>
 
         {auditResult && (
-          <div className="p-6 rounded-3xl bg-zinc-950 text-white shadow-2xl shadow-zinc-200 mb-2">
-            <div className="flex items-center justify-between mb-6">
+          <div className="p-4 rounded-2xl bg-zinc-950 text-white shadow-2xl shadow-zinc-200 mb-2">
+            <div className="flex items-center justify-between mb-4">
               <div className="flex flex-col">
                 <span className="text-[8px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-1">Compliance Score</span>
-                <span className="text-3xl font-black tracking-tighter">{auditResult.complianceScore}%</span>
+                <span className="text-2xl font-black tracking-tighter">{auditResult.complianceScore}%</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span className="text-[10px] font-black uppercase tracking-widest">Verified</span>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 rounded-full">
+                <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                <span className="text-[9px] font-black uppercase tracking-widest">Verified</span>
               </div>
             </div>
             
-            <div className="space-y-3">
+            <div className="space-y-2">
               {auditResult.findings.slice(0, 2).map((finding, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                <div key={idx} className="flex items-start gap-2 p-2 rounded-xl bg-white/5 border border-white/10">
                   <AlertCircle className="w-3 h-3 text-amber-400 shrink-0 mt-0.5" />
-                  <p className="text-[10px] font-medium leading-relaxed opacity-80">{finding}</p>
+                  <p className="text-[9px] font-medium leading-relaxed opacity-80">{finding}</p>
                 </div>
               ))}
             </div>
@@ -190,7 +191,7 @@ export function PreviewPanel({
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto p-8 custom-scrollbar">
+      <div className="flex-1 overflow-y-auto p-4 md:p-5 custom-scrollbar">
         <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-zinc-100 min-h-full relative group">
           <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
             <button 
@@ -247,14 +248,14 @@ export function PreviewPanel({
         )}
       </div>
 
-      <div className="p-4 md:p-8 bg-white border-t border-zinc-100">
-        <div className="flex flex-col gap-4">
+      <div className="p-3 md:p-5 bg-white border-t border-zinc-100">
+        <div className="flex flex-col gap-3">
           <div className="flex gap-2">
             <div className="relative flex-1">
               <input
                 type="text"
                 placeholder="Refine note..."
-                className="w-full pl-4 md:pl-5 pr-10 md:pr-12 py-3 md:py-4 rounded-2xl bg-zinc-50 border-2 border-transparent focus:border-zinc-950 outline-none text-[10px] md:text-xs font-bold transition-all"
+                className="w-full pl-3 md:pl-4 pr-9 md:pr-10 py-2.5 md:py-3 rounded-xl bg-zinc-50 border-2 border-transparent focus:border-zinc-950 outline-none text-[10px] md:text-xs font-bold transition-all"
                 value={tumbleInstructions}
                 onChange={(e) => onTumbleInstructionsChange(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && onTumble()}
@@ -264,23 +265,23 @@ export function PreviewPanel({
                 title="Apply refinement"
                 onClick={() => onTumble()}
                 disabled={isTumbling || !tumbleInstructions.trim()}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-zinc-400 hover:text-zinc-950 disabled:opacity-30 transition-all"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 text-zinc-400 hover:text-zinc-950 disabled:opacity-30 transition-all"
               >
-                {isTumbling ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                {isTumbling ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
               </button>
             </div>
             <button 
               aria-label="Toggle refinement presets"
               title="Toggle refinement presets"
               onClick={() => onToggleTumbleOptions(!showTumbleOptions)}
-              className="p-3 md:p-4 bg-zinc-50 text-zinc-600 rounded-2xl hover:bg-zinc-100 transition-all shrink-0"
+              className="p-2.5 md:p-3 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
             >
-              <RefreshCw className={cn("w-4 h-4", isTumbling && "animate-spin")} />
+              <RefreshCw className={cn("w-3.5 h-3.5", isTumbling && "animate-spin")} />
             </button>
           </div>
 
           {showTumbleOptions && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 gap-1.5">
               {[
                 "Make it more concise",
                 "Add more skilled terminology",
@@ -290,7 +291,8 @@ export function PreviewPanel({
                 <button
                   key={opt}
                   onClick={() => onTumble(opt)}
-                  className="text-[10px] font-bold text-zinc-500 bg-zinc-50 hover:bg-zinc-100 p-3 rounded-xl transition-all text-left"
+                  className="text-[9px] font-bold text-zinc-500 bg-zinc-50 hover:bg-zinc-100 p-2.5 rounded-xl transition-all text-left truncate"
+                  title={opt}
                 >
                   {opt}
                 </button>
@@ -300,10 +302,10 @@ export function PreviewPanel({
 
           <button 
             onClick={onFinalize}
-            className="w-full py-4 md:py-5 bg-zinc-950 text-white rounded-2xl font-black text-xs md:text-sm shadow-xl shadow-zinc-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
+            className="w-full py-3.5 md:py-4 bg-zinc-950 text-white rounded-xl font-black text-[10px] md:text-xs shadow-xl shadow-zinc-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
           >
-            <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" />
-            Finalize & Start Next Session
+            <CheckCircle2 className="w-3.5 h-3.5 md:w-4 md:h-4" />
+            <span className="truncate">Finalize & Start Next Session</span>
           </button>
         </div>
       </div>

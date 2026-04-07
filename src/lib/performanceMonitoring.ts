@@ -104,7 +104,7 @@ export class PerformanceMonitor {
   private monitorAPILatency(): void {
     const originalFetch = window.fetch;
 
-    window.fetch = async (...args: any[]) => {
+    window.fetch = async (...args: Parameters<typeof fetch>) => {
       const startTime = performance.now();
       const request = args[0];
       const method = (args[1]?.method || 'GET').toUpperCase();

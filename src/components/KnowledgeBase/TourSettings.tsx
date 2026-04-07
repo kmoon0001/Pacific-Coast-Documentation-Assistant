@@ -36,7 +36,7 @@ export const TourSettings: React.FC<TourSettingsProps> = ({ onStartTour, onClose
   const handleRestartTour = () => {
     // Reset tour completion
     const settings = {
-      showOnStartup,
+      showOnStartup: showTourOnStartup,
       completed: false,
       lastUpdated: new Date().toISOString(),
     };

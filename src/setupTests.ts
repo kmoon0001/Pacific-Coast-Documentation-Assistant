@@ -32,7 +32,7 @@ const clipboardMock = {
 if (typeof navigator !== 'undefined') {
   Object.assign(navigator, { clipboard: clipboardMock });
 } else {
-  (globalThis as any).navigator = { clipboard: clipboardMock } as Navigator;
+  (globalThis as any).navigator = { clipboard: clipboardMock } as unknown as Navigator;
 }
 
 (globalThis as any).alert = vi.fn();

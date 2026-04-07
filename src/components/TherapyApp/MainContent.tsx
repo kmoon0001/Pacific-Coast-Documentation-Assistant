@@ -21,7 +21,7 @@ export function MainContent() {
     <div className="flex-1 flex flex-col bg-white overflow-hidden relative">
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
         {/* StepRail: Horizontal on mobile, vertical on desktop */}
-        <div className="md:w-24 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-12 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+        <div className="md:w-20 border-b md:border-b-0 md:border-r border-zinc-100 flex md:flex-col items-center py-4 md:py-8 bg-zinc-50/30 overflow-x-auto md:overflow-x-visible scrollbar-hide">
           <div className="min-w-max px-4 md:px-0">
             <StepRail 
               step={step} 
@@ -31,8 +31,8 @@ export function MainContent() {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-12 custom-scrollbar">
-          <div className="max-w-4xl mx-auto">
+        <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 custom-scrollbar">
+          <div className="max-w-5xl mx-auto">
             <AnimatePresence mode="wait">
               <motion.div
                 key={step}
