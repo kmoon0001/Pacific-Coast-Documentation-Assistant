@@ -6,11 +6,14 @@ import { http, HttpResponse } from 'msw';
  * Mock Service Worker setup for API mocking in tests
  */
 
-export const mockGeminiHandler = http.post('*/models/gemini-3-flash-preview:generateContent', () => {
-  return HttpResponse.json({
-    text: 'Mock generated note content',
-  });
-});
+export const mockGeminiHandler = http.post(
+  '*/models/gemini-3-flash-preview:generateContent',
+  () => {
+    return HttpResponse.json({
+      text: 'Mock generated note content',
+    });
+  }
+);
 
 export const mockGeminiErrorHandler = http.post(
   '*/models/gemini-3-flash-preview:generateContent',

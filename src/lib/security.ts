@@ -15,7 +15,7 @@ export function scrubPII(text: string): { scrubbed: string; hasPII: boolean } {
   for (const pattern of PII_PATTERNS) {
     if (pattern.test(scrubbed)) {
       hasPII = true;
-      scrubbed = scrubbed.replace(pattern, "[REDACTED]");
+      scrubbed = scrubbed.replace(pattern, '[REDACTED]');
     }
   }
   return { scrubbed, hasPII };
@@ -31,23 +31,20 @@ async function getEncryptionKey(): Promise<CryptoKey> {
     // For this client-side demo, we'll derive it from a fixed secret or store it in memory.
     // WARNING: This is a simplified approach for demonstration.
   }
-  
+
   // Generate a new key for this session if not exists
-  return await window.crypto.subtle.generateKey(
-    { name: "AES-GCM", length: 256 },
-    true,
-    ["encrypt", "decrypt"]
-  );
+  return await window.crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, [
+    'encrypt',
+    'decrypt',
+  ]);
 }
 
-export async function encryptData(data: string): Promise<{ iv: Uint8Array; encrypted: ArrayBuffer }> {
+export async function encryptData(
+  data: string
+): Promise<{ iv: Uint8Array; encrypted: ArrayBuffer }> {
   const key = await getEncryptionKey();
   const iv = window.crypto.getRandomValues(new Uint8Array(12));
   const encoded = new TextEncoder().encode(data);
-  const encrypted = await window.crypto.subtle.encrypt(
-    { name: "AES-GCM", iv },
-    key,
-    encoded
-  );
+  const encrypted = await window.crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, encoded);
   return { iv, encrypted };
 }

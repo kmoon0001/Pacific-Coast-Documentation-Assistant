@@ -67,7 +67,11 @@ describe('GenerateStep Component', () => {
 
   it('sanitizes stored history to keep disciplines fully separated', async () => {
     const history = [
-      { content: 'Prior PT note about gait training', timestamp: '2024-03-01 10:00 AM', type: 'PT Daily' },
+      {
+        content: 'Prior PT note about gait training',
+        timestamp: '2024-03-01 10:00 AM',
+        type: 'PT Daily',
+      },
     ];
     sessionStorage.setItem('noteHistory', JSON.stringify(history));
     const user = userEvent.setup();

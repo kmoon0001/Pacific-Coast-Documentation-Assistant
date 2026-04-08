@@ -75,12 +75,12 @@ export class RelationshipService {
     if (dir === 'incoming' || dir === 'both') {
       // Find all relationships pointing to this document
       for (const [, rels] of this.relationships) {
-        const incoming = rels.filter(r => r.targetDocumentId === documentId);
+        const incoming = rels.filter((r) => r.targetDocumentId === documentId);
         relationships.push(...incoming);
       }
     }
 
-    return relationships.filter(r => r.isActive);
+    return relationships.filter((r) => r.isActive);
   }
 
   /**
@@ -91,22 +91,19 @@ export class RelationshipService {
     type?: 'supersedes' | 'related_to' | 'depends_on'
   ): Promise<string[]> {
     const relationships = await this.getDocumentRelationships(documentId);
-    
+
     let filtered = relationships;
     if (type) {
-      filtered = relationships.filter(r => r.type === type);
+      filtered = relationships.filter((r) => r.type === type);
     }
 
-    return filtered.map(r => r.targetDocumentId);
+    return filtered.map((r) => r.targetDocumentId);
   }
 
   /**
    * Detect conflicts between documents
    */
-  async detectConflicts(
-    sourceDocId: string,
-    targetDocId: string
-  ): Promise<RelationshipConflict[]> {
+  async detectConflicts(sourceDocId: string, targetDocId: string): Promise<RelationshipConflict[]> {
     const conflicts: RelationshipConflict[] = [];
 
     // Check for circular dependencies - can target reach source?
@@ -125,10 +122,10 @@ export class RelationshipService {
     const targetRels = await this.getDocumentRelationships(targetDocId);
 
     const sourceSupersedesTarget = sourceRels.some(
-      r => r.type === 'supersedes' && r.targetDocumentId === targetDocId
+      (r) => r.type === 'supersedes' && r.targetDocumentId === targetDocId
     );
     const targetSupersedesSource = targetRels.some(
-      r => r.type === 'supersedes' && r.targetDocumentId === sourceDocId
+      (r) => r.type === 'supersedes' && r.targetDocumentId === sourceDocId
     );
 
     if (sourceSupersedesTarget && targetSupersedesSource) {
@@ -141,15 +138,15 @@ export class RelationshipService {
     }
 
     // Check for multiple supersedes relationships
-    const sourceSupersedesCount = sourceRels.filter(r => r.type === 'supersedes').length;
+    const sourceSupersedesCount = sourceRels.filter((r) => r.type === 'supersedes').length;
     if (sourceSupersedesCount > 0) {
       conflicts.push({
         type: 'multiple_supersedes',
         severity: 'medium',
         description: `Document already supersedes ${sourceSupersedesCount} other document(s)`,
         affectedDocuments: sourceRels
-          .filter(r => r.type === 'supersedes')
-          .map(r => r.targetDocumentId),
+          .filter((r) => r.type === 'supersedes')
+          .map((r) => r.targetDocumentId),
       });
     }
 
@@ -187,12 +184,9 @@ export class RelationshipService {
   /**
    * Remove a relationship
    */
-  async removeRelationship(
-    relationshipId: string,
-    userId: string
-  ): Promise<boolean> {
+  async removeRelationship(relationshipId: string, userId: string): Promise<boolean> {
     for (const [, rels] of this.relationships) {
-      const index = rels.findIndex(r => r.id === relationshipId);
+      const index = rels.findIndex((r) => r.id === relationshipId);
       if (index !== -1) {
         rels[index].isActive = false;
 
@@ -261,11 +255,11 @@ export class RelationshipService {
     conflicts: number;
   }> {
     const relationships = await this.getDocumentRelationships(documentId);
-    const outgoing = (this.relationships.get(documentId) || []).filter(r => r.isActive).length;
-    
+    const outgoing = (this.relationships.get(documentId) || []).filter((r) => r.isActive).length;
+
     let incoming = 0;
     for (const [, rels] of this.relationships) {
-      incoming += rels.filter(r => r.targetDocumentId === documentId && r.isActive).length;
+      incoming += rels.filter((r) => r.targetDocumentId === documentId && r.isActive).length;
     }
 
     const byType: Record<string, number> = {
@@ -304,7 +298,7 @@ export class RelationshipService {
     userId: string
   ): Promise<DocumentRelationship | null> {
     for (const [, rels] of this.relationships) {
-      const rel = rels.find(r => r.id === relationshipId);
+      const rel = rels.find((r) => r.id === relationshipId);
       if (rel) {
         rel.description = description;
 
@@ -331,7 +325,7 @@ export class RelationshipService {
   async getAllRelationships(): Promise<DocumentRelationship[]> {
     const all: DocumentRelationship[] = [];
     for (const [, rels] of this.relationships) {
-      all.push(...rels.filter(r => r.isActive));
+      all.push(...rels.filter((r) => r.isActive));
     }
     return all;
   }

@@ -17,7 +17,9 @@ describe('DisciplineStep Component', () => {
     const grid = screen.getByTestId('discipline-grid');
     const headings = within(grid).getAllByRole('heading', { level: 3 });
     const labels = headings.map((node) => node.textContent);
-    expect(labels).toEqual(expect.arrayContaining(['Physical Therapy', 'Occupational Therapy', 'Speech Therapy']));
+    expect(labels).toEqual(
+      expect.arrayContaining(['Physical Therapy', 'Occupational Therapy', 'Speech Therapy'])
+    );
     expect(screen.getByText(/mobility & function/i)).toBeInTheDocument();
   });
 

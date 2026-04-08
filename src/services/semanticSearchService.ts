@@ -1,4 +1,10 @@
-import { Document, DocumentEmbedding, SemanticSearchResult, HybridSearchResults, EmbeddingStats } from '../types';
+import {
+  Document,
+  DocumentEmbedding,
+  SemanticSearchResult,
+  HybridSearchResults,
+  EmbeddingStats,
+} from '../types';
 
 /**
  * SemanticSearchService
@@ -38,7 +44,9 @@ class SemanticSearchService {
       return documentEmbedding;
     } catch (error) {
       console.error(`Failed to generate embedding for document ${document.id}:`, error);
-      throw new Error(`Embedding generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Embedding generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
@@ -62,14 +70,20 @@ class SemanticSearchService {
       return embedding;
     } catch (error) {
       console.error('Failed to get embedding vector:', error);
-      throw new Error(`Embedding vector generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Embedding vector generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
   /**
    * Perform semantic search on documents
    */
-  async semanticSearch(query: string, documents: Document[], threshold: number = 0.5): Promise<SemanticSearchResult[]> {
+  async semanticSearch(
+    query: string,
+    documents: Document[],
+    threshold: number = 0.5
+  ): Promise<SemanticSearchResult[]> {
     try {
       const queryEmbedding = await this.getEmbeddingVector(query);
       const results: SemanticSearchResult[] = [];
@@ -100,7 +114,9 @@ class SemanticSearchService {
       return results;
     } catch (error) {
       console.error('Semantic search failed:', error);
-      throw new Error(`Semantic search failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Semantic search failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
@@ -109,7 +125,10 @@ class SemanticSearchService {
    */
   keywordSearch(query: string, documents: Document[]): SemanticSearchResult[] {
     try {
-      const queryTerms = query.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+      const queryTerms = query
+        .toLowerCase()
+        .split(/\s+/)
+        .filter((t) => t.length > 0);
       const results: SemanticSearchResult[] = [];
 
       for (const doc of documents) {
@@ -139,7 +158,9 @@ class SemanticSearchService {
       return results;
     } catch (error) {
       console.error('Keyword search failed:', error);
-      throw new Error(`Keyword search failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Keyword search failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
@@ -187,7 +208,9 @@ class SemanticSearchService {
       }
 
       // Convert to array and sort
-      const results = Array.from(resultMap.values()).sort((a, b) => b.similarityScore - a.similarityScore);
+      const results = Array.from(resultMap.values()).sort(
+        (a, b) => b.similarityScore - a.similarityScore
+      );
 
       const searchTime = Date.now() - startTime;
 
@@ -200,7 +223,9 @@ class SemanticSearchService {
       };
     } catch (error) {
       console.error('Hybrid search failed:', error);
-      throw new Error(`Hybrid search failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Hybrid search failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
@@ -250,7 +275,8 @@ class SemanticSearchService {
    */
   getEmbeddingStats(totalDocuments: number): EmbeddingStats {
     const documentsWithEmbeddings = this.embeddings.size;
-    const embeddingCoverage = totalDocuments > 0 ? (documentsWithEmbeddings / totalDocuments) * 100 : 0;
+    const embeddingCoverage =
+      totalDocuments > 0 ? (documentsWithEmbeddings / totalDocuments) * 100 : 0;
 
     // Calculate average embedding time (mock for now)
     const averageEmbeddingTime = 150; // ms
@@ -284,7 +310,9 @@ class SemanticSearchService {
       return results;
     } catch (error) {
       console.error('Batch embedding generation failed:', error);
-      throw new Error(`Batch embedding generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Batch embedding generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 

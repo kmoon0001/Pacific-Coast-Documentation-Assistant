@@ -6,7 +6,8 @@ import { cn } from '../../../lib/utils';
 
 export const CPTCodeStep: React.FC = () => {
   const { state, setState, handleNext } = useSession();
-  const cptCodes = state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA;
+  const cptCodes =
+    state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA;
 
   return (
     <div className="space-y-12">
@@ -18,7 +19,7 @@ export const CPTCodeStep: React.FC = () => {
           Billing & intervention category
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6" data-tour="cpt-code">
         {cptCodes.map((c: any) => {
           const isSelected = state.cptCode === c.code;
           return (
@@ -49,7 +50,9 @@ export const CPTCodeStep: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-zinc-400" />
-                  <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">15 Min Unit</span>
+                  <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+                    15 Min Unit
+                  </span>
                 </div>
               </div>
               <h3 className="text-lg font-black uppercase tracking-tight mb-2">{c.description}</h3>

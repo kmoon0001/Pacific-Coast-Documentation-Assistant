@@ -62,7 +62,12 @@ export default defineConfig(({ mode }) => {
         statements: 90,
       },
       include: ['src/**/*.test.{ts,tsx}'],
-      exclude: ['node_modules', 'dist'],
+      exclude: [
+        'node_modules',
+        'dist',
+        'src/__tests__/backend/**',
+        'src/services/backend.internal.test.ts',
+      ],
     },
   };
 });

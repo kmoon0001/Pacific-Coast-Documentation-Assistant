@@ -1,15 +1,15 @@
 import React from 'react';
-import { 
-  RefreshCw, 
-  Wand2, 
-  CheckCircle2, 
-  AlertCircle, 
-  Copy, 
-  Save, 
-  ChevronRight, 
+import {
+  RefreshCw,
+  Wand2,
+  CheckCircle2,
+  AlertCircle,
+  Copy,
+  Save,
+  ChevronRight,
   X,
   ShieldCheck,
-  FileText
+  FileText,
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { AuditResult, TherapyState } from '../../types';
@@ -65,7 +65,7 @@ export function PreviewPanel({
   groundingMetadata,
   SNFTemplates,
   generateNursingHandOff,
-  state
+  state,
 }: PreviewPanelProps) {
   if (isGenerating) {
     return (
@@ -74,7 +74,9 @@ export function PreviewPanel({
           <div className="w-20 h-20 border-4 border-zinc-200 border-t-zinc-950 rounded-full animate-spin" />
           <Wand2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 text-zinc-950" />
         </div>
-        <h2 className="text-xl font-black tracking-tighter text-zinc-950 mb-3">Drafting Clinical Note</h2>
+        <h2 className="text-xl font-black tracking-tighter text-zinc-950 mb-3">
+          Drafting Clinical Note
+        </h2>
         <p className="text-xs font-medium text-zinc-500 leading-relaxed max-w-xs">
           Our AI is synthesizing your inputs with Medicare guidelines and clinical best practices...
         </p>
@@ -88,7 +90,9 @@ export function PreviewPanel({
         <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-xl shadow-zinc-200 mb-8">
           <FileText className="w-7 h-7 text-zinc-200" />
         </div>
-        <h2 className="text-lg font-black tracking-tighter text-zinc-950 mb-3">No Note Generated</h2>
+        <h2 className="text-lg font-black tracking-tighter text-zinc-950 mb-3">
+          No Note Generated
+        </h2>
         <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest leading-relaxed max-w-[200px]">
           Complete the steps to the left to generate your clinical documentation.
         </p>
@@ -97,27 +101,35 @@ export function PreviewPanel({
   }
 
   return (
-    <div className="w-full md:w-[420px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col overflow-hidden">
+    <div
+      className="w-full md:w-[420px] h-full bg-zinc-50 border-l border-zinc-100 flex flex-col overflow-hidden"
+      data-tour="preview"
+    >
       <div className="p-3 md:p-5 border-b border-zinc-100 bg-white">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-3 md:mb-5 gap-3">
           <div className="flex items-center gap-2 min-w-0">
             <div className="w-7 h-7 bg-zinc-950 rounded-lg flex items-center justify-center shrink-0">
               <ShieldCheck className="w-3.5 h-3.5 text-white" />
             </div>
-            <h2 className="text-xs font-black tracking-tight text-zinc-950 uppercase tracking-widest truncate">Clinical Preview</h2>
+            <h2 className="text-xs font-black tracking-tight text-zinc-950 uppercase tracking-widest truncate">
+              Clinical Preview
+            </h2>
           </div>
           <div className="flex gap-1.5 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
-            <button 
+            <button
               onClick={onCopy}
               className="p-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
-              title="Copy to clipboard" aria-label="Copy to clipboard"
+              title="Copy to clipboard"
+              aria-label="Copy to clipboard"
+              data-tour="copy"
             >
               <Copy className="w-3.5 h-3.5" />
             </button>
-            <button 
+            <button
               onClick={onSaveTemplate}
               className="p-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
-              title="Save as template" aria-label="Save as template"
+              title="Save as template"
+              aria-label="Save as template"
             >
               <Save className="w-3.5 h-3.5" />
             </button>
@@ -127,6 +139,7 @@ export function PreviewPanel({
               className="p-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 disabled:opacity-50"
               title="Run compliance audit"
               aria-label="Run compliance audit"
+              data-tour="audit"
             >
               {isAuditing ? (
                 <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -134,11 +147,11 @@ export function PreviewPanel({
                 <ShieldCheck className="w-3.5 h-3.5" />
               )}
             </button>
-            <button 
+            <button
               onClick={() => {
-                const handOff = generateNursingHandOff(editedNote || generatedNote || "", state);
+                const handOff = generateNursingHandOff(editedNote || generatedNote || '', state);
                 navigator.clipboard.writeText(handOff);
-                alert("Nursing Hand-off (SBAR) copied to clipboard.");
+                alert('Nursing Hand-off (SBAR) copied to clipboard.');
               }}
               className="px-3 py-2 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0 flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-widest"
               title="Nursing Hand-off (SBAR)"
@@ -151,12 +164,18 @@ export function PreviewPanel({
 
         {/* SNF Templates */}
         <div className="mb-4">
-          <h3 className="text-[8px] font-black uppercase tracking-widest text-zinc-400 mb-2">SNF Templates</h3>
+          <h3 className="text-[8px] font-black uppercase tracking-widest text-zinc-400 mb-2">
+            SNF Templates
+          </h3>
           <div className="grid grid-cols-3 gap-1.5">
-            {SNFTemplates.map(template => (
+            {SNFTemplates.map((template) => (
               <button
                 key={template.id}
-                onClick={() => onEditedNoteChange((editedNote || generatedNote || "") + "\n\n" + template.content)}
+                onClick={() =>
+                  onEditedNoteChange(
+                    (editedNote || generatedNote || '') + '\n\n' + template.content
+                  )
+                }
                 className="text-[8px] font-bold text-zinc-600 bg-zinc-50 hover:bg-zinc-100 p-2 rounded-lg transition-all text-center truncate"
                 title={template.name}
               >
@@ -170,18 +189,25 @@ export function PreviewPanel({
           <div className="p-4 rounded-2xl bg-zinc-950 text-white shadow-2xl shadow-zinc-200 mb-2">
             <div className="flex items-center justify-between mb-4">
               <div className="flex flex-col">
-                <span className="text-[8px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-1">Compliance Score</span>
-                <span className="text-2xl font-black tracking-tighter">{auditResult.complianceScore}%</span>
+                <span className="text-[8px] font-black uppercase tracking-[0.2em] text-zinc-400 mb-1">
+                  Compliance Score
+                </span>
+                <span className="text-2xl font-black tracking-tighter">
+                  {auditResult.complianceScore}%
+                </span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 rounded-full">
                 <ShieldCheck className="w-3 h-3 text-emerald-400" />
                 <span className="text-[9px] font-black uppercase tracking-widest">Verified</span>
               </div>
             </div>
-            
+
             <div className="space-y-2">
               {auditResult.findings.slice(0, 2).map((finding, idx) => (
-                <div key={idx} className="flex items-start gap-2 p-2 rounded-xl bg-white/5 border border-white/10">
+                <div
+                  key={idx}
+                  className="flex items-start gap-2 p-2 rounded-xl bg-white/5 border border-white/10"
+                >
                   <AlertCircle className="w-3 h-3 text-amber-400 shrink-0 mt-0.5" />
                   <p className="text-[9px] font-medium leading-relaxed opacity-80">{finding}</p>
                 </div>
@@ -194,9 +220,10 @@ export function PreviewPanel({
       <div className="flex-1 overflow-y-auto p-4 md:p-5 custom-scrollbar">
         <div className="bg-white rounded-[2.5rem] p-10 shadow-sm border border-zinc-100 min-h-full relative group">
           <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
-            <button 
+            <button
               onClick={() => onEdit(!isEditing)}
               className="text-[10px] font-black uppercase tracking-widest text-zinc-400 hover:text-zinc-950"
+              data-tour="edit"
             >
               {isEditing ? 'Save View' : 'Edit Text'}
             </button>
@@ -210,7 +237,7 @@ export function PreviewPanel({
             />
           ) : (
             <div className="prose prose-zinc prose-sm max-w-none">
-              <ReactMarkdown>{DOMPurify.sanitize(editedNote || generatedNote || "")}</ReactMarkdown>
+              <ReactMarkdown>{DOMPurify.sanitize(editedNote || generatedNote || '')}</ReactMarkdown>
             </div>
           )}
         </div>
@@ -219,14 +246,16 @@ export function PreviewPanel({
           <div className="mt-8 p-6 rounded-3xl bg-zinc-50 border border-zinc-100">
             <div className="flex items-center gap-2 mb-4">
               <ShieldCheck className="w-4 h-4 text-zinc-400" />
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Sources & Clinical Knowledge</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-500">
+                Sources & Clinical Knowledge
+              </h3>
             </div>
             <div className="space-y-2">
               {groundingMetadata.groundingChunks.map((chunk: any, idx: number) => {
                 const source = chunk.web || chunk.maps;
                 if (!source) return null;
                 return (
-                  <a 
+                  <a
                     key={idx}
                     href={source.uri}
                     target="_blank"
@@ -237,8 +266,12 @@ export function PreviewPanel({
                       <ChevronRight className="w-3 h-3 text-zinc-400 group-hover:text-white transition-all" />
                     </div>
                     <div className="flex flex-col overflow-hidden">
-                      <span className="text-[10px] font-bold text-zinc-950 truncate">{source.title || 'Clinical Reference'}</span>
-                      <span className="text-[8px] font-medium text-zinc-400 truncate">{source.uri}</span>
+                      <span className="text-[10px] font-bold text-zinc-950 truncate">
+                        {source.title || 'Clinical Reference'}
+                      </span>
+                      <span className="text-[8px] font-medium text-zinc-400 truncate">
+                        {source.uri}
+                      </span>
                     </div>
                   </a>
                 );
@@ -250,7 +283,7 @@ export function PreviewPanel({
 
       <div className="p-3 md:p-5 bg-white border-t border-zinc-100">
         <div className="flex flex-col gap-3">
-          <div className="flex gap-2">
+          <div className="flex gap-2" data-tour="tumble">
             <div className="relative flex-1">
               <input
                 type="text"
@@ -260,34 +293,38 @@ export function PreviewPanel({
                 onChange={(e) => onTumbleInstructionsChange(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && onTumble()}
               />
-              <button 
+              <button
                 aria-label="Apply refinement"
                 title="Apply refinement"
                 onClick={() => onTumble()}
                 disabled={isTumbling || !tumbleInstructions.trim()}
                 className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 text-zinc-400 hover:text-zinc-950 disabled:opacity-30 transition-all"
               >
-                {isTumbling ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
+                {isTumbling ? (
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                ) : (
+                  <Send className="w-3.5 h-3.5" />
+                )}
               </button>
             </div>
-            <button 
+            <button
               aria-label="Toggle refinement presets"
               title="Toggle refinement presets"
               onClick={() => onToggleTumbleOptions(!showTumbleOptions)}
               className="p-2.5 md:p-3 bg-zinc-50 text-zinc-600 rounded-xl hover:bg-zinc-100 transition-all shrink-0"
             >
-              <RefreshCw className={cn("w-3.5 h-3.5", isTumbling && "animate-spin")} />
+              <RefreshCw className={cn('w-3.5 h-3.5', isTumbling && 'animate-spin')} />
             </button>
           </div>
 
           {showTumbleOptions && (
             <div className="grid grid-cols-1 gap-1.5">
               {[
-                "Make it more concise",
-                "Add more skilled terminology",
-                "Focus more on safety",
-                "Expand on functional impact"
-              ].map(opt => (
+                'Make it more concise',
+                'Add more skilled terminology',
+                'Focus more on safety',
+                'Expand on functional impact',
+              ].map((opt) => (
                 <button
                   key={opt}
                   onClick={() => onTumble(opt)}
@@ -300,7 +337,7 @@ export function PreviewPanel({
             </div>
           )}
 
-          <button 
+          <button
             onClick={onFinalize}
             className="w-full py-3.5 md:py-4 bg-zinc-950 text-white rounded-xl font-black text-[10px] md:text-xs shadow-xl shadow-zinc-200 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
           >
@@ -309,14 +346,18 @@ export function PreviewPanel({
           </button>
         </div>
       </div>
-      
+
       {error && (
         <div className="absolute bottom-8 left-8 right-8 p-4 bg-zinc-950 text-white rounded-2xl shadow-2xl flex items-center justify-between animate-in fade-in slide-in-from-bottom-4">
           <div className="flex items-center gap-3">
             <AlertCircle className="w-4 h-4 text-red-400" />
             <span className="text-xs font-bold">{error}</span>
           </div>
-          <button onClick={() => {}} aria-label="Dismiss alert" className="p-1 hover:bg-white/10 rounded-lg">
+          <button
+            onClick={() => {}}
+            aria-label="Dismiss alert"
+            className="p-1 hover:bg-white/10 rounded-lg"
+          >
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -327,7 +368,3 @@ export function PreviewPanel({
 
 // Add missing imports
 import { Send } from 'lucide-react';
-
-
-
-

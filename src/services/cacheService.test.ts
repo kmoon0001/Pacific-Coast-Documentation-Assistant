@@ -63,7 +63,7 @@ describe('CacheService', () => {
       cacheService.set('key1', 'value1', 100); // 100ms TTL
       expect(cacheService.get('key1')).toBe('value1');
 
-      await new Promise(resolve => setTimeout(resolve, 150));
+      await new Promise((resolve) => setTimeout(resolve, 150));
       expect(cacheService.get('key1')).toBeNull();
     });
 
@@ -101,7 +101,7 @@ describe('CacheService', () => {
       cacheService.set('key1', 'value1', 100);
       expect(cacheService.has('key1')).toBe(true);
 
-      await new Promise(resolve => setTimeout(resolve, 150));
+      await new Promise((resolve) => setTimeout(resolve, 150));
       expect(cacheService.has('key1')).toBe(false);
     });
   });

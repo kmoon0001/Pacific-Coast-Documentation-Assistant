@@ -54,9 +54,7 @@ describe('BulkOperationsService', () => {
     });
 
     it('should call progress callback', async () => {
-      const mockFiles = [
-        new File(['content1'], 'file1.txt', { type: 'text/plain' }),
-      ];
+      const mockFiles = [new File(['content1'], 'file1.txt', { type: 'text/plain' })];
 
       vi.mocked(knowledgeBaseService.uploadDocument).mockResolvedValue({ id: '123' } as any);
 
@@ -72,9 +70,7 @@ describe('BulkOperationsService', () => {
     });
 
     it('should handle errors without message', async () => {
-      const mockFiles = [
-        new File(['content1'], 'file1.txt', { type: 'text/plain' }),
-      ];
+      const mockFiles = [new File(['content1'], 'file1.txt', { type: 'text/plain' })];
 
       vi.mocked(knowledgeBaseService.uploadDocument).mockRejectedValueOnce({});
 
@@ -92,10 +88,7 @@ describe('BulkOperationsService', () => {
     it('should delete multiple documents successfully', async () => {
       vi.mocked(knowledgeBaseService.deleteDocument).mockResolvedValue(undefined);
 
-      const result = await bulkOperationsService.bulkDelete(
-        ['doc1', 'doc2'],
-        'user123'
-      );
+      const result = await bulkOperationsService.bulkDelete(['doc1', 'doc2'], 'user123');
 
       expect(result.successful.length).toBe(2);
       expect(result.failed.length).toBe(0);
@@ -107,10 +100,7 @@ describe('BulkOperationsService', () => {
         .mockResolvedValueOnce(undefined)
         .mockRejectedValueOnce(new Error('Delete failed'));
 
-      const result = await bulkOperationsService.bulkDelete(
-        ['doc1', 'doc2'],
-        'user123'
-      );
+      const result = await bulkOperationsService.bulkDelete(['doc1', 'doc2'], 'user123');
 
       expect(result.successful.length).toBe(1);
       expect(result.failed.length).toBe(1);
@@ -120,11 +110,7 @@ describe('BulkOperationsService', () => {
     it('should include reason in audit log', async () => {
       vi.mocked(knowledgeBaseService.deleteDocument).mockResolvedValue(undefined);
 
-      await bulkOperationsService.bulkDelete(
-        ['doc1'],
-        'user123',
-        'Outdated content'
-      );
+      await bulkOperationsService.bulkDelete(['doc1'], 'user123', 'Outdated content');
 
       expect(knowledgeBaseService.deleteDocument).toHaveBeenCalled();
     });
@@ -132,10 +118,7 @@ describe('BulkOperationsService', () => {
     it('should handle errors without message', async () => {
       vi.mocked(knowledgeBaseService.deleteDocument).mockRejectedValueOnce({});
 
-      const result = await bulkOperationsService.bulkDelete(
-        ['doc1'],
-        'user123'
-      );
+      const result = await bulkOperationsService.bulkDelete(['doc1'], 'user123');
 
       expect(result.failed[0].error).toBe('Delete failed');
     });
@@ -155,11 +138,9 @@ describe('BulkOperationsService', () => {
       );
 
       expect(result.successful.length).toBe(1);
-      expect(knowledgeBaseService.updateDocumentMetadata).toHaveBeenCalledWith(
-        'doc1',
-        'user123',
-        { tags: ['existing', 'new-tag'] }
-      );
+      expect(knowledgeBaseService.updateDocumentMetadata).toHaveBeenCalledWith('doc1', 'user123', {
+        tags: ['existing', 'new-tag'],
+      });
     });
 
     it('should remove tags from documents', async () => {
@@ -175,11 +156,9 @@ describe('BulkOperationsService', () => {
       );
 
       expect(result.successful.length).toBe(1);
-      expect(knowledgeBaseService.updateDocumentMetadata).toHaveBeenCalledWith(
-        'doc1',
-        'user123',
-        { tags: ['tag1', 'tag3'] }
-      );
+      expect(knowledgeBaseService.updateDocumentMetadata).toHaveBeenCalledWith('doc1', 'user123', {
+        tags: ['tag1', 'tag3'],
+      });
     });
 
     it('should replace tags on documents', async () => {
@@ -195,11 +174,9 @@ describe('BulkOperationsService', () => {
       );
 
       expect(result.successful.length).toBe(1);
-      expect(knowledgeBaseService.updateDocumentMetadata).toHaveBeenCalledWith(
-        'doc1',
-        'user123',
-        { tags: ['new1', 'new2'] }
-      );
+      expect(knowledgeBaseService.updateDocumentMetadata).toHaveBeenCalledWith('doc1', 'user123', {
+        tags: ['new1', 'new2'],
+      });
     });
 
     it('should handle documents without tags', async () => {
@@ -220,11 +197,7 @@ describe('BulkOperationsService', () => {
     it('should handle document not found', async () => {
       vi.mocked(knowledgeBaseService.getDocument).mockResolvedValue(null);
 
-      const result = await bulkOperationsService.bulkUpdateTags(
-        ['doc1'],
-        ['new-tag'],
-        'user123'
-      );
+      const result = await bulkOperationsService.bulkUpdateTags(['doc1'], ['new-tag'], 'user123');
 
       expect(result.failed.length).toBe(1);
       expect(result.failed[0].error).toBe('Document not found');
@@ -237,11 +210,7 @@ describe('BulkOperationsService', () => {
         new Error('Update failed')
       );
 
-      const result = await bulkOperationsService.bulkUpdateTags(
-        ['doc1'],
-        ['new-tag'],
-        'user123'
-      );
+      const result = await bulkOperationsService.bulkUpdateTags(['doc1'], ['new-tag'], 'user123');
 
       expect(result.failed.length).toBe(1);
     });
@@ -249,11 +218,7 @@ describe('BulkOperationsService', () => {
     it('should handle errors without message', async () => {
       vi.mocked(knowledgeBaseService.getDocument).mockRejectedValueOnce({});
 
-      const result = await bulkOperationsService.bulkUpdateTags(
-        ['doc1'],
-        ['new-tag'],
-        'user123'
-      );
+      const result = await bulkOperationsService.bulkUpdateTags(['doc1'], ['new-tag'], 'user123');
 
       expect(result.failed[0].error).toBe('Update failed');
     });

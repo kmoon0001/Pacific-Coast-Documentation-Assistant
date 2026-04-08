@@ -13,7 +13,10 @@ describe('backendInternals', () => {
 
   it('hashes passwords and validates credentials', async () => {
     const user = await backendInternals.createUser('internals@example.com', 'supersecret1');
-    const authUser = await backendInternals.authenticateUser('internals@example.com', 'supersecret1');
+    const authUser = await backendInternals.authenticateUser(
+      'internals@example.com',
+      'supersecret1'
+    );
     expect(authUser?.id).toBe(user.id);
     expect(await backendInternals.authenticateUser('internals@example.com', 'wrong')).toBeNull();
 
@@ -51,7 +54,9 @@ describe('backendInternals', () => {
 
     const req = { ip: '127.0.0.1', get: () => 'vitest-agent' } as any;
     await backendInternals.logAuditEvent(user.id, 'note_created', 'note', note.id, req);
-    await backendInternals.logAuditEvent(user.id, 'note_updated', 'note', note.id, req, { content: 'Updated' });
+    await backendInternals.logAuditEvent(user.id, 'note_updated', 'note', note.id, req, {
+      content: 'Updated',
+    });
 
     const logs = await backendInternals.getAuditLogs(user.id);
     expect(logs).toHaveLength(2);

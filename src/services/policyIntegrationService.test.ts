@@ -33,12 +33,9 @@ describe('PolicyIntegrationService', () => {
 
   describe('buildPolicyContext', () => {
     it('should build policy context from documents', async () => {
-      const context = await policyIntegrationService.buildPolicyContext(
-        'PT',
-        'Daily',
-        'user-1',
-        [mockPolicy]
-      );
+      const context = await policyIntegrationService.buildPolicyContext('PT', 'Daily', 'user-1', [
+        mockPolicy,
+      ]);
 
       expect(context.policies.length).toBe(1);
       expect(context.requirements.length).toBeGreaterThan(0);
@@ -53,23 +50,17 @@ describe('PolicyIntegrationService', () => {
         tags: ['style', 'writing'],
       };
 
-      const context = await policyIntegrationService.buildPolicyContext(
-        'PT',
-        'Daily',
-        'user-1',
-        [styleGuide]
-      );
+      const context = await policyIntegrationService.buildPolicyContext('PT', 'Daily', 'user-1', [
+        styleGuide,
+      ]);
 
       expect(context.styleGuides.length).toBeGreaterThan(0);
     });
 
     it('should extract compliance rules', async () => {
-      const context = await policyIntegrationService.buildPolicyContext(
-        'PT',
-        'Daily',
-        'user-1',
-        [mockPolicy]
-      );
+      const context = await policyIntegrationService.buildPolicyContext('PT', 'Daily', 'user-1', [
+        mockPolicy,
+      ]);
 
       expect(context.complianceRules.length).toBeGreaterThan(0);
     });
@@ -157,10 +148,9 @@ describe('PolicyIntegrationService', () => {
     it('should enhance prompt with policy content', async () => {
       const originalPrompt = 'Generate a therapy note.';
 
-      const enhancement = await policyIntegrationService.enhanceGenerateNotePrompt(
-        originalPrompt,
-        [mockPolicy]
-      );
+      const enhancement = await policyIntegrationService.enhanceGenerateNotePrompt(originalPrompt, [
+        mockPolicy,
+      ]);
 
       expect(enhancement.enhancedPrompt.length).toBeGreaterThan(originalPrompt.length);
       expect(enhancement.enhancedPrompt).toContain('ORGANIZATIONAL POLICIES');
@@ -170,10 +160,9 @@ describe('PolicyIntegrationService', () => {
     it('should include policy requirements', async () => {
       const originalPrompt = 'Generate a therapy note.';
 
-      const enhancement = await policyIntegrationService.enhanceGenerateNotePrompt(
-        originalPrompt,
-        [mockPolicy]
-      );
+      const enhancement = await policyIntegrationService.enhanceGenerateNotePrompt(originalPrompt, [
+        mockPolicy,
+      ]);
 
       // Should have injected policies
       expect(enhancement.injectedPolicies.length).toBeGreaterThan(0);
@@ -212,10 +201,9 @@ describe('PolicyIntegrationService', () => {
     it('should enhance audit prompt with policies', async () => {
       const originalPrompt = 'Audit this therapy note.';
 
-      const enhancement = await policyIntegrationService.enhanceAuditPrompt(
-        originalPrompt,
-        [mockPolicy]
-      );
+      const enhancement = await policyIntegrationService.enhanceAuditPrompt(originalPrompt, [
+        mockPolicy,
+      ]);
 
       expect(enhancement.enhancedPrompt.length).toBeGreaterThan(originalPrompt.length);
       expect(enhancement.enhancedPrompt).toContain('POLICIES TO VALIDATE');
@@ -225,10 +213,9 @@ describe('PolicyIntegrationService', () => {
     it('should include compliance items', async () => {
       const originalPrompt = 'Audit this therapy note.';
 
-      const enhancement = await policyIntegrationService.enhanceAuditPrompt(
-        originalPrompt,
-        [mockPolicy]
-      );
+      const enhancement = await policyIntegrationService.enhanceAuditPrompt(originalPrompt, [
+        mockPolicy,
+      ]);
 
       expect(enhancement.injectedRequirements.length).toBeGreaterThan(0);
     });
@@ -238,10 +225,9 @@ describe('PolicyIntegrationService', () => {
     it('should enhance gap analysis prompt with policies', async () => {
       const originalPrompt = 'Analyze gaps in this note.';
 
-      const enhancement = await policyIntegrationService.enhanceGapAnalysisPrompt(
-        originalPrompt,
-        [mockPolicy]
-      );
+      const enhancement = await policyIntegrationService.enhanceGapAnalysisPrompt(originalPrompt, [
+        mockPolicy,
+      ]);
 
       expect(enhancement.enhancedPrompt.length).toBeGreaterThan(originalPrompt.length);
       expect(enhancement.enhancedPrompt).toContain('POLICY-BASED REQUIREMENTS');
@@ -253,10 +239,7 @@ describe('PolicyIntegrationService', () => {
     it('should validate compliant note', async () => {
       const note = 'Patient progress documented daily. HIPAA compliance maintained.';
 
-      const validation = await policyIntegrationService.validateNoteCompliance(
-        note,
-        [mockPolicy]
-      );
+      const validation = await policyIntegrationService.validateNoteCompliance(note, [mockPolicy]);
 
       expect(validation.complianceScore).toBeGreaterThan(0);
       expect(validation.violations).toBeDefined();
@@ -266,10 +249,7 @@ describe('PolicyIntegrationService', () => {
     it('should identify violations', async () => {
       const note = 'Patient seen today.';
 
-      const validation = await policyIntegrationService.validateNoteCompliance(
-        note,
-        [mockPolicy]
-      );
+      const validation = await policyIntegrationService.validateNoteCompliance(note, [mockPolicy]);
 
       expect(validation.violations.length).toBeGreaterThan(0);
     });
@@ -277,10 +257,7 @@ describe('PolicyIntegrationService', () => {
     it('should provide recommendations', async () => {
       const note = 'Patient progress documented.';
 
-      const validation = await policyIntegrationService.validateNoteCompliance(
-        note,
-        [mockPolicy]
-      );
+      const validation = await policyIntegrationService.validateNoteCompliance(note, [mockPolicy]);
 
       expect(validation.recommendations.length).toBeGreaterThan(0);
     });
@@ -288,10 +265,7 @@ describe('PolicyIntegrationService', () => {
     it('should track applied policies', async () => {
       const note = 'Patient progress documented daily. HIPAA compliance maintained.';
 
-      const validation = await policyIntegrationService.validateNoteCompliance(
-        note,
-        [mockPolicy]
-      );
+      const validation = await policyIntegrationService.validateNoteCompliance(note, [mockPolicy]);
 
       expect(validation.appliedPolicies.length).toBeGreaterThan(0);
     });
@@ -299,10 +273,7 @@ describe('PolicyIntegrationService', () => {
     it('should return score between 0 and 100', async () => {
       const note = 'Some note content';
 
-      const validation = await policyIntegrationService.validateNoteCompliance(
-        note,
-        [mockPolicy]
-      );
+      const validation = await policyIntegrationService.validateNoteCompliance(note, [mockPolicy]);
 
       expect(validation.complianceScore).toBeGreaterThanOrEqual(0);
       expect(validation.complianceScore).toBeLessThanOrEqual(100);
@@ -354,26 +325,20 @@ Professional and clinical.`,
 
   describe('determinePriority', () => {
     it('should identify high priority requirements', async () => {
-      const context = await policyIntegrationService.buildPolicyContext(
-        'PT',
-        'Daily',
-        'user-1',
-        [mockPolicy]
-      );
+      const context = await policyIntegrationService.buildPolicyContext('PT', 'Daily', 'user-1', [
+        mockPolicy,
+      ]);
 
-      const highPriority = context.requirements.filter(r => r.priority === 'high');
+      const highPriority = context.requirements.filter((r) => r.priority === 'high');
       expect(highPriority.length).toBeGreaterThan(0);
     });
 
     it('should identify medium priority requirements', async () => {
-      const context = await policyIntegrationService.buildPolicyContext(
-        'PT',
-        'Daily',
-        'user-1',
-        [mockPolicy]
-      );
+      const context = await policyIntegrationService.buildPolicyContext('PT', 'Daily', 'user-1', [
+        mockPolicy,
+      ]);
 
-      const mediumPriority = context.requirements.filter(r => r.priority === 'medium');
+      const mediumPriority = context.requirements.filter((r) => r.priority === 'medium');
       expect(mediumPriority.length).toBeGreaterThan(0);
     });
   });

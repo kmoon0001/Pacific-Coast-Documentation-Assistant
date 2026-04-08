@@ -20,10 +20,7 @@ describe('AnalyticsService', () => {
       };
 
       service.recordUsage(metric);
-      const metrics = service.getUsageMetrics(
-        new Date('2024-01-01'),
-        new Date('2025-12-31')
-      );
+      const metrics = service.getUsageMetrics(new Date('2024-01-01'), new Date('2025-12-31'));
 
       expect(metrics).toHaveLength(1);
       expect(metrics[0]).toEqual(metric);
@@ -51,10 +48,7 @@ describe('AnalyticsService', () => {
       service.recordUsage(metric1);
       service.recordUsage(metric2);
 
-      const metrics = service.getUsageMetrics(
-        new Date('2024-01-01'),
-        new Date('2024-12-31')
-      );
+      const metrics = service.getUsageMetrics(new Date('2024-01-01'), new Date('2024-12-31'));
 
       expect(metrics).toHaveLength(2);
     });
@@ -71,10 +65,7 @@ describe('AnalyticsService', () => {
       };
 
       service.recordCompliance(metric);
-      const metrics = service.getComplianceMetrics(
-        new Date('2024-01-01'),
-        new Date('2025-12-31')
-      );
+      const metrics = service.getComplianceMetrics(new Date('2024-01-01'), new Date('2025-12-31'));
 
       expect(metrics).toHaveLength(1);
       expect(metrics[0]).toEqual(metric);
@@ -100,10 +91,7 @@ describe('AnalyticsService', () => {
       service.recordCompliance(metric1);
       service.recordCompliance(metric2);
 
-      const metrics = service.getComplianceMetrics(
-        new Date('2024-01-01'),
-        new Date('2024-12-31')
-      );
+      const metrics = service.getComplianceMetrics(new Date('2024-01-01'), new Date('2024-12-31'));
 
       expect(metrics).toHaveLength(2);
     });
@@ -132,10 +120,7 @@ describe('AnalyticsService', () => {
       service.recordUsage(metric1);
       service.recordUsage(metric2);
 
-      const metrics = service.getUsageMetrics(
-        new Date('2024-01-01'),
-        new Date('2024-03-31')
-      );
+      const metrics = service.getUsageMetrics(new Date('2024-01-01'), new Date('2024-03-31'));
 
       expect(metrics).toHaveLength(1);
       expect(metrics[0].date).toEqual(metric1.date);
@@ -153,10 +138,7 @@ describe('AnalyticsService', () => {
 
       service.recordUsage(metric);
 
-      const metrics = service.getUsageMetrics(
-        new Date('2024-06-01'),
-        new Date('2024-12-31')
-      );
+      const metrics = service.getUsageMetrics(new Date('2024-06-01'), new Date('2024-12-31'));
 
       expect(metrics).toEqual([]);
     });
@@ -183,10 +165,7 @@ describe('AnalyticsService', () => {
       service.recordCompliance(metric1);
       service.recordCompliance(metric2);
 
-      const metrics = service.getComplianceMetrics(
-        new Date('2024-01-01'),
-        new Date('2024-03-31')
-      );
+      const metrics = service.getComplianceMetrics(new Date('2024-01-01'), new Date('2024-03-31'));
 
       expect(metrics).toHaveLength(1);
     });
@@ -248,19 +227,13 @@ describe('AnalyticsService', () => {
         activeUsers: 20,
       });
 
-      const total = service.calculateTotalNotes(
-        new Date('2024-01-01'),
-        new Date('2024-01-31')
-      );
+      const total = service.calculateTotalNotes(new Date('2024-01-01'), new Date('2024-01-31'));
 
       expect(total).toBe(25);
     });
 
     it('should return 0 for no metrics', () => {
-      const total = service.calculateTotalNotes(
-        new Date('2024-01-01'),
-        new Date('2024-01-31')
-      );
+      const total = service.calculateTotalNotes(new Date('2024-01-01'), new Date('2024-01-31'));
 
       expect(total).toBe(0);
     });
@@ -337,10 +310,7 @@ describe('AnalyticsService', () => {
         commonIssues: [],
       });
 
-      const report = service.generateReport(
-        new Date('2024-01-01'),
-        new Date('2024-01-31')
-      );
+      const report = service.generateReport(new Date('2024-01-01'), new Date('2024-01-31'));
 
       expect(report.usageMetrics.length).toBeGreaterThan(0);
       expect(report.complianceMetrics.length).toBeGreaterThan(0);
@@ -367,10 +337,7 @@ describe('AnalyticsService', () => {
         activeUsers: 20,
       });
 
-      const trend = service.getTrendAnalysis(
-        new Date('2024-01-01'),
-        new Date('2024-01-31')
-      );
+      const trend = service.getTrendAnalysis(new Date('2024-01-01'), new Date('2024-01-31'));
 
       expect(['increasing', 'decreasing', 'stable']).toContain(trend.usageTrend);
     });
@@ -392,19 +359,13 @@ describe('AnalyticsService', () => {
         commonIssues: [],
       });
 
-      const trend = service.getTrendAnalysis(
-        new Date('2024-01-01'),
-        new Date('2024-01-31')
-      );
+      const trend = service.getTrendAnalysis(new Date('2024-01-01'), new Date('2024-01-31'));
 
       expect(['improving', 'declining', 'stable']).toContain(trend.complianceTrend);
     });
 
     it('should return stable trend for insufficient data', () => {
-      const trend = service.getTrendAnalysis(
-        new Date('2024-01-01'),
-        new Date('2024-01-31')
-      );
+      const trend = service.getTrendAnalysis(new Date('2024-01-01'), new Date('2024-01-31'));
 
       expect(trend.usageTrend).toBe('stable');
       expect(trend.complianceTrend).toBe('stable');
@@ -432,10 +393,7 @@ describe('AnalyticsService', () => {
 
       service.clearMetrics();
 
-      const usageMetrics = service.getUsageMetrics(
-        new Date('2024-01-01'),
-        new Date('2025-12-31')
-      );
+      const usageMetrics = service.getUsageMetrics(new Date('2024-01-01'), new Date('2025-12-31'));
       const complianceMetrics = service.getComplianceMetrics(
         new Date('2024-01-01'),
         new Date('2025-12-31')

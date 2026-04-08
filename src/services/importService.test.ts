@@ -61,7 +61,9 @@ describe('ImportService', () => {
 
   describe('importFromDOCX', () => {
     it('should import data from DOCX file', async () => {
-      const file = new File(['test content'], 'test.docx', { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+      const file = new File(['test content'], 'test.docx', {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      });
       const options: ImportOptions = { format: 'docx' };
       const result = await service.importFromDOCX(file, options);
 
@@ -70,7 +72,9 @@ describe('ImportService', () => {
     });
 
     it('should create valid import result', async () => {
-      const file = new File(['test content'], 'test.docx', { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+      const file = new File(['test content'], 'test.docx', {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      });
       const options: ImportOptions = { format: 'docx' };
       const result = await service.importFromDOCX(file, options);
 
@@ -136,7 +140,9 @@ describe('ImportService', () => {
 
     it('should include all import formats', async () => {
       const pdfFile = new File(['content'], 'test.pdf', { type: 'application/pdf' });
-      const docxFile = new File(['content'], 'test.docx', { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+      const docxFile = new File(['content'], 'test.docx', {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      });
       const hl7File = new File(['content'], 'test.hl7', { type: 'text/plain' });
 
       await service.importFromPDF(pdfFile, { format: 'pdf' });
@@ -144,7 +150,7 @@ describe('ImportService', () => {
       await service.importFromHL7(hl7File, { format: 'hl7' });
 
       const imports = service.listImports();
-      const formats = imports.map(i => i.format);
+      const formats = imports.map((i) => i.format);
 
       expect(formats).toContain('pdf');
       expect(formats).toContain('docx');

@@ -39,4 +39,3 @@ describe('ICD10Step Component', () => {
     expect(screen.queryByText(/selected diagnoses \(1\)/i)).not.toBeInTheDocument();
   });
 });
-

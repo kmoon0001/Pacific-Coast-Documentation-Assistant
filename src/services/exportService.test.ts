@@ -131,7 +131,7 @@ describe('ExportService', () => {
       await service.exportToHL7({ test: 'data' }, { format: 'hl7' });
 
       const exports = service.listExports();
-      const formats = exports.map(e => e.format);
+      const formats = exports.map((e) => e.format);
 
       expect(formats).toContain('pdf');
       expect(formats).toContain('docx');
@@ -154,7 +154,7 @@ describe('ExportService', () => {
       }
 
       const exports = service.listExports();
-      const failedExport = exports.find(e => e.status === 'failed');
+      const failedExport = exports.find((e) => e.status === 'failed');
       expect(failedExport).toBeDefined();
     });
   });

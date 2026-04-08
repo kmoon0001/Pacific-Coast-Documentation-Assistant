@@ -14,11 +14,27 @@ export default defineConfig(({mode}) => {
       'process.env.AWS_SECRET_ACCESS_KEY': JSON.stringify(env.AWS_SECRET_ACCESS_KEY),
       'process.env.AWS_REGION': JSON.stringify(env.AWS_REGION),
       'process.env.AWS_MODEL_ID': JSON.stringify(env.AWS_MODEL_ID),
+      'import.meta.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Vendor chunks for better caching
+            'react-vendor': ['react', 'react-dom', 'react/jsx-runtime'],
+            'ui-vendor': ['lucide-react'],
+          },
+        },
+      },
+      // Optimize chunk size
+      chunkSizeWarningLimit: 1000,
+      // Enable source maps for production debugging
+      sourcemap: mode === 'production' ? 'hidden' : true,
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.

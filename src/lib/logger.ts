@@ -12,7 +12,7 @@ export const logger = pino({
   // Browser environments cannot use pino.destination() or worker_threads based transports like pino-pretty
   browser: {
     asObject: true,
-  }
+  },
 });
 
 /**

@@ -42,15 +42,15 @@ describe('DocumentManager', () => {
   });
 
   const renderManager = () =>
-    render(
-      <DocumentManager onDocumentSelect={vi.fn()} onDocumentDelete={vi.fn()} />
-    );
+    render(<DocumentManager onDocumentSelect={vi.fn()} onDocumentDelete={vi.fn()} />);
 
   it('loads documents on mount and displays their metadata', async () => {
     renderManager();
 
     expect(fetchMock).toHaveBeenCalled();
-    await waitFor(() => expect(screen.getByRole('heading', { name: /hipaa security policy/i })).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByRole('heading', { name: /hipaa security policy/i })).toBeInTheDocument()
+    );
     expect(screen.getByText(/Policy/, { selector: '.category-badge' as any })).toBeInTheDocument();
     expect(screen.getByText(/1\s+documents/i)).toBeInTheDocument();
   });
@@ -63,8 +63,8 @@ describe('DocumentManager', () => {
     await userEvent.type(searchBox, 'security');
 
     await waitFor(() => {
-      const urls = fetchMock.mock.calls.map(call => call[0].toString());
-      expect(urls.some(url => url.includes('q=security'))).toBe(true);
+      const urls = fetchMock.mock.calls.map((call) => call[0].toString());
+      expect(urls.some((url) => url.includes('q=security'))).toBe(true);
     });
   });
 

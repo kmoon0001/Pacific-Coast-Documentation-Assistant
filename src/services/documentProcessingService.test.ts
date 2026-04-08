@@ -46,7 +46,7 @@ Step 2: Do something else`;
       const structure = await documentProcessingService.parseDocumentStructure(content);
 
       expect(structure.sections.length).toBeGreaterThan(0);
-      expect(structure.sections.some(s => s.heading.includes('Requirements'))).toBe(true);
+      expect(structure.sections.some((s) => s.heading.includes('Requirements'))).toBe(true);
     });
 
     it('should extract key points from bullet lists', async () => {
@@ -76,12 +76,13 @@ This is the first sentence of the policy. It contains important information. The
 
   describe('identifyKeyRequirements', () => {
     it('should identify requirements with "must"', async () => {
-      const content = 'All therapists must document patient progress. They must follow HIPAA guidelines.';
+      const content =
+        'All therapists must document patient progress. They must follow HIPAA guidelines.';
 
       const requirements = await documentProcessingService.identifyKeyRequirements(content);
 
       expect(requirements.length).toBeGreaterThan(0);
-      expect(requirements.some(r => r.includes('document'))).toBe(true);
+      expect(requirements.some((r) => r.includes('document'))).toBe(true);
     });
 
     it('should identify requirements with "should"', async () => {
@@ -93,7 +94,8 @@ This is the first sentence of the policy. It contains important information. The
     });
 
     it('should identify requirements with "required"', async () => {
-      const content = 'It is required to maintain patient confidentiality. Certification is required.';
+      const content =
+        'It is required to maintain patient confidentiality. Certification is required.';
 
       const requirements = await documentProcessingService.identifyKeyRequirements(content);
 
@@ -142,15 +144,16 @@ This is a well-formed policy document with proper structure and content.
       const result = await documentProcessingService.validateDocument(content);
 
       expect(result.issues.length).toBeGreaterThan(0);
-      expect(result.issues.some(i => i.includes('too short'))).toBe(true);
+      expect(result.issues.some((i) => i.includes('too short'))).toBe(true);
     });
 
     it('should flag document lacking structure', async () => {
-      const content = 'This is a document without any headings or structure. It just has plain text.';
+      const content =
+        'This is a document without any headings or structure. It just has plain text.';
 
       const result = await documentProcessingService.validateDocument(content);
 
-      expect(result.issues.some(i => i.includes('structure'))).toBe(true);
+      expect(result.issues.some((i) => i.includes('structure'))).toBe(true);
     });
 
     it('should flag document lacking requirements', async () => {
@@ -160,7 +163,7 @@ This is a document about something. It talks about various topics. But it doesn'
 
       const result = await documentProcessingService.validateDocument(content);
 
-      expect(result.issues.some(i => i.includes('requirements'))).toBe(true);
+      expect(result.issues.some((i) => i.includes('requirements'))).toBe(true);
     });
 
     it('should return score between 0 and 100', async () => {
@@ -235,7 +238,8 @@ This is a document about something. It talks about various topics. But it doesn'
         {
           id: 'doc1',
           title: 'Documentation Policy',
-          content: 'All documentation must follow standards. Documentation procedures are critical.',
+          content:
+            'All documentation must follow standards. Documentation procedures are critical.',
           description: 'Policy',
           category: 'Policy' as const,
           contentHash: 'hash1',

@@ -229,31 +229,25 @@ class KnowledgeBaseService {
   /**
    * List documents with filtering and pagination
    */
-  async listDocuments(
-    userId: string,
-    filters?: DocumentFilters
-  ): Promise<DocumentSearchResult> {
+  async listDocuments(userId: string, filters?: DocumentFilters): Promise<DocumentSearchResult> {
     try {
       let results = Array.from(this.documents.values()).filter(
-        doc => doc.userId === userId && doc.isActive
+        (doc) => doc.userId === userId && doc.isActive
       );
 
       // Apply filters
       if (filters?.category) {
-        results = results.filter(doc => doc.category === filters.category);
+        results = results.filter((doc) => doc.category === filters.category);
       }
 
       if (filters?.tags && filters.tags.length > 0) {
-        results = results.filter(doc =>
-          filters.tags!.some(tag => doc.tags.includes(tag))
-        );
+        results = results.filter((doc) => filters.tags!.some((tag) => doc.tags.includes(tag)));
       }
 
       if (filters?.dateRange) {
         results = results.filter(
-          doc =>
-            doc.uploadedAt >= filters.dateRange!.start &&
-            doc.uploadedAt <= filters.dateRange!.end
+          (doc) =>
+            doc.uploadedAt >= filters.dateRange!.start && doc.uploadedAt <= filters.dateRange!.end
         );
       }
 
@@ -315,37 +309,35 @@ class KnowledgeBaseService {
   ): Promise<DocumentSearchResult> {
     try {
       let results = Array.from(this.documents.values()).filter(
-        doc => doc.userId === userId && doc.isActive
+        (doc) => doc.userId === userId && doc.isActive
       );
 
       // Full-text search
       const queryTerms = query.toLowerCase().split(/\s+/);
-      results = results.filter(doc => {
-        const searchableText = `${doc.title} ${doc.description} ${doc.tags.join(' ')}`.toLowerCase();
-        return queryTerms.some(term => searchableText.includes(term));
+      results = results.filter((doc) => {
+        const searchableText =
+          `${doc.title} ${doc.description} ${doc.tags.join(' ')}`.toLowerCase();
+        return queryTerms.some((term) => searchableText.includes(term));
       });
 
       // Apply other filters
       if (filters?.category) {
-        results = results.filter(doc => doc.category === filters.category);
+        results = results.filter((doc) => doc.category === filters.category);
       }
 
       if (filters?.tags && filters.tags.length > 0) {
-        results = results.filter(doc =>
-          filters.tags!.some(tag => doc.tags.includes(tag))
-        );
+        results = results.filter((doc) => filters.tags!.some((tag) => doc.tags.includes(tag)));
       }
 
       if (filters?.dateRange) {
         results = results.filter(
-          doc =>
-            doc.uploadedAt >= filters.dateRange!.start &&
-            doc.uploadedAt <= filters.dateRange!.end
+          (doc) =>
+            doc.uploadedAt >= filters.dateRange!.start && doc.uploadedAt <= filters.dateRange!.end
         );
       }
 
       // Log search audit event
-      results.forEach(doc => {
+      results.forEach((doc) => {
         this.logAuditEvent(doc.id, userId, 'search', { query });
       });
 
@@ -356,12 +348,8 @@ class KnowledgeBaseService {
       if (sortBy === 'relevance') {
         // Simple relevance scoring: exact matches score higher
         results.sort((a, b) => {
-          const aScore = queryTerms.filter(term =>
-            a.title.toLowerCase().includes(term)
-          ).length;
-          const bScore = queryTerms.filter(term =>
-            b.title.toLowerCase().includes(term)
-          ).length;
+          const aScore = queryTerms.filter((term) => a.title.toLowerCase().includes(term)).length;
+          const bScore = queryTerms.filter((term) => b.title.toLowerCase().includes(term)).length;
           return sortOrder === 'asc' ? aScore - bScore : bScore - aScore;
         });
       } else {
@@ -460,7 +448,7 @@ class KnowledgeBaseService {
    */
   private async indexDocument(document: Document): Promise<void> {
     const terms = this.extractSearchTerms(document);
-    terms.forEach(term => {
+    terms.forEach((term) => {
       if (!this.searchIndex.has(term)) {
         this.searchIndex.set(term, new Set());
       }
@@ -472,15 +460,16 @@ class KnowledgeBaseService {
    * Extract search terms from document
    */
   private extractSearchTerms(document: Document): string[] {
-    const text = `${document.title} ${document.description} ${document.tags.join(' ')}`.toLowerCase();
-    return text.split(/\s+/).filter(term => term.length > 2);
+    const text =
+      `${document.title} ${document.description} ${document.tags.join(' ')}`.toLowerCase();
+    return text.split(/\s+/).filter((term) => term.length > 2);
   }
 
   /**
    * Remove document from search index
    */
   private removeFromSearchIndex(documentId: string): void {
-    this.searchIndex.forEach(docIds => {
+    this.searchIndex.forEach((docIds) => {
       docIds.delete(documentId);
     });
   }
@@ -535,7 +524,7 @@ class KnowledgeBaseService {
       const usageByDocumentType: Record<string, number> = {};
       const recentNotes: string[] = [];
 
-      usageEntries.forEach(entry => {
+      usageEntries.forEach((entry) => {
         if (entry.context.discipline) {
           usageByDiscipline[entry.context.discipline] =
             (usageByDiscipline[entry.context.discipline] || 0) + 1;

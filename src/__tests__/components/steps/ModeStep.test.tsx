@@ -23,7 +23,9 @@ describe('ModeStep Component', () => {
 
     const buttons = screen.getAllByRole('button');
     expect(buttons.length).toBeGreaterThan(1);
-    expect(buttons.some((btn) => /flexibility\/stretching/i.test(btn.textContent || ''))).toBe(true);
+    expect(buttons.some((btn) => /flexibility\/stretching/i.test(btn.textContent || ''))).toBe(
+      true
+    );
   });
 
   it('highlights the currently selected mode', () => {

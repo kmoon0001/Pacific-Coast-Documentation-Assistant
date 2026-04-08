@@ -1,7 +1,14 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { TherapyState, GeneratedNote, AuditResult } from '../types';
 import { STEPS, DEFAULT_STATE } from '../constants';
-import { generateTherapyNote, auditNoteWithAI, analyzeGaps, parseBrainDump, tumbleNote, summarizeProgress } from '../services/bedrock';
+import {
+  generateTherapyNote,
+  auditNoteWithAI,
+  analyzeGaps,
+  parseBrainDump,
+  tumbleNote,
+  summarizeProgress,
+} from '../services/bedrock';
 import { ClinicalKnowledgeBase } from '../services/clinicalKnowledgeBase';
 import { SNFTemplates } from '../services/snfTemplates';
 import { generateNursingHandOff } from '../services/nursingHandOff';
@@ -25,7 +32,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
   });
 
   const currentSteps = useMemo(() => {
-    return STEPS.filter(s => {
+    return STEPS.filter((s) => {
       if (s === 'ICD-10 Codes' && state.documentType !== 'Assessment') return false;
       return true;
     });
@@ -36,11 +43,15 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
   }, [state]);
 
   const [brainDump, setBrainDump] = useState('');
-  const [brainDumpMode, setBrainDumpMode] = useState<'Daily' | 'Assessment' | 'Progress' | 'Recertification' | 'Discharge'>('Daily');
+  const [brainDumpMode, setBrainDumpMode] = useState<
+    'Daily' | 'Assessment' | 'Progress' | 'Recertification' | 'Discharge'
+  >('Daily');
   const [isParsingBrainDump, setIsParsingBrainDump] = useState(false);
 
   const [generatedNote, setGeneratedNote] = useState<string | null>(null);
-  const [history, setHistory] = useState<GeneratedNote[]>(() => JSON.parse(sessionStorage.getItem('noteHistory') || '[]'));
+  const [history, setHistory] = useState<GeneratedNote[]>(() =>
+    JSON.parse(sessionStorage.getItem('noteHistory') || '[]')
+  );
   const [isGenerating, setIsGenerating] = useState(false);
   const [isTumbling, setIsTumbling] = useState(false);
   const [isAuditing, setIsAuditing] = useState(false);
@@ -51,39 +62,51 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
   const [previousNote, setPreviousNote] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [userStyle, setUserStyle] = useState(() => localStorage.getItem('userStyle') || '');
-  const [userStyleSamples, setUserStyleSamples] = useState<string[]>(() => JSON.parse(sessionStorage.getItem('userStyleSamples') || '[]'));
+  const [userStyleSamples, setUserStyleSamples] = useState<string[]>(() =>
+    JSON.parse(sessionStorage.getItem('userStyleSamples') || '[]')
+  );
   const [tumbleInstructions, setTumbleInstructions] = useState('');
   const [showStyleSettings, setShowStyleSettings] = useState(false);
   const [showTumbleOptions, setShowTumbleOptions] = useState(false);
   const [modelDownloadProgress, setModelDownloadProgress] = useState<number | null>(null);
   const [icdSearch, setIcdSearch] = useState('');
   const [icdCat, setIcdCat] = useState<string | null>(null);
-  const [clipboard, setClipboard] = useState<{id: string, title: string, content: string, date: string}[]>(() => JSON.parse(sessionStorage.getItem('noteClipboard') || '[]'));
+  const [clipboard, setClipboard] = useState<
+    { id: string; title: string; content: string; date: string }[]
+  >(() => JSON.parse(sessionStorage.getItem('noteClipboard') || '[]'));
   const [isClipboardOpen, setIsClipboardOpen] = useState(false);
   const [isTourActive, setIsTourActive] = useState(false);
   const [customGapInputs, setCustomGapInputs] = useState<Record<string, boolean>>({});
-  const [customTemplates, setCustomTemplates] = useState<{name: string, state: TherapyState}[]>(() => JSON.parse(localStorage.getItem('customTemplates') || '[]'));
+  const [customTemplates, setCustomTemplates] = useState<{ name: string; state: TherapyState }[]>(
+    () => JSON.parse(localStorage.getItem('customTemplates') || '[]')
+  );
   const [groundingMetadata, setGroundingMetadata] = useState<any>(null);
 
-  const handleNext = useCallback(() => setStep(s => Math.min(s + 1, currentSteps.length - 1)), [currentSteps.length]);
-  const handleBack = useCallback(() => setStep(s => Math.max(s - 1, 0)), []);
+  const handleNext = useCallback(
+    () => setStep((s) => Math.min(s + 1, currentSteps.length - 1)),
+    [currentSteps.length]
+  );
+  const handleBack = useCallback(() => setStep((s) => Math.max(s - 1, 0)), []);
 
   const finalizeSession = useCallback(() => {
     if (editedNote || generatedNote) {
       const note = editedNote || generatedNote!;
-      const newHistory: GeneratedNote[] = [{
-        content: note,
-        timestamp: new Date().toLocaleString(),
-        type: `${state.discipline} ${state.documentType}`
-      }, ...history].slice(0, 10);
+      const newHistory: GeneratedNote[] = [
+        {
+          content: note,
+          timestamp: new Date().toLocaleString(),
+          type: `${state.discipline} ${state.documentType}`,
+        },
+        ...history,
+      ].slice(0, 10);
       setHistory(newHistory);
       sessionStorage.setItem('noteHistory', JSON.stringify(newHistory));
     }
-    
+
     setState({
       ...DEFAULT_STATE,
       discipline: state.discipline,
-      isLocalMode: state.isLocalMode
+      isLocalMode: state.isLocalMode,
     });
     setGeneratedNote(null);
     setEditedNote('');
@@ -91,7 +114,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     setBrainDump('');
     setStep(0);
     sessionStorage.removeItem('therapy_draft');
-    setError("Session finalized. Ready for next patient.");
+    setError('Session finalized. Ready for next patient.');
     setTimeout(() => setError(null), 3000);
   }, [editedNote, generatedNote, history, state.discipline, state.documentType, state.isLocalMode]);
 
@@ -103,18 +126,21 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     sessionStorage.removeItem('therapy_draft');
     sessionStorage.removeItem('userStyleSamples');
     setUserStyleSamples([]);
-    setError("All session history and clipboard data have been sanitized.");
+    setError('All session history and clipboard data have been sanitized.');
     setTimeout(() => setError(null), 3000);
   }, []);
 
-  const delayedNext = useCallback((id: string, updateState: () => void) => {
-    setSelectedId(id);
-    updateState();
-    setTimeout(() => {
-      handleNext();
-      setSelectedId(null);
-    }, 400);
-  }, [handleNext]);
+  const delayedNext = useCallback(
+    (id: string, updateState: () => void) => {
+      setSelectedId(id);
+      updateState();
+      setTimeout(() => {
+        handleNext();
+        setSelectedId(null);
+      }, 400);
+    },
+    [handleNext]
+  );
 
   const handleAnalyzeGaps = async () => {
     setIsAnalyzingGaps(true);
@@ -122,13 +148,17 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     try {
       const result = await analyzeGaps(state, state.isLocalMode);
       setState({ ...state, gapQuestions: result.data, gapAnswersMap: {} });
-      if ('groundingMetadata' in result && result.groundingMetadata) setGroundingMetadata(result.groundingMetadata);
+      if ('groundingMetadata' in result && result.groundingMetadata)
+        setGroundingMetadata(result.groundingMetadata);
     } catch (error: any) {
       console.error(error);
-      const isQuota = error.message?.includes("Quota");
-      setError(error.message || "Failed to analyze gaps. Please try again.");
+      const isQuota = error.message?.includes('Quota');
+      setError(error.message || 'Failed to analyze gaps. Please try again.');
       if (isQuota) {
-        setTimeout(() => setError("Tip: Try enabling 'Local Mode' in settings if AI limits are reached."), 4000);
+        setTimeout(
+          () => setError("Tip: Try enabling 'Local Mode' in settings if AI limits are reached."),
+          4000
+        );
       }
     } finally {
       setIsAnalyzingGaps(false);
@@ -143,7 +173,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       setState({ ...state, progressStatement: summary });
     } catch (error: any) {
       console.error(error);
-      setError(error.message || "Failed to summarize progress. Please try again.");
+      setError(error.message || 'Failed to summarize progress. Please try again.');
     } finally {
       setIsSummarizingProgress(false);
     }
@@ -155,54 +185,69 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     setGroundingMetadata(null);
     try {
       const missingFields = [];
-      if (!state.discipline) missingFields.push("Discipline");
-      if (!state.documentType) missingFields.push("Document Type");
-      if (!state.cptCode) missingFields.push("CPT Code");
-      if (state.documentType === 'Assessment' && (!state.icd10Codes || state.icd10Codes.length === 0)) {
-        missingFields.push("ICD-10 Codes");
+      if (!state.discipline) missingFields.push('Discipline');
+      if (!state.documentType) missingFields.push('Document Type');
+      if (!state.cptCode) missingFields.push('CPT Code');
+      if (
+        state.documentType === 'Assessment' &&
+        (!state.icd10Codes || state.icd10Codes.length === 0)
+      ) {
+        missingFields.push('ICD-10 Codes');
       }
 
       const noteResult = await generateTherapyNote({ ...state, userStyleSamples }, userStyle);
-      const note = noteResult.text || "";
-      if ('groundingMetadata' in noteResult && noteResult.groundingMetadata) setGroundingMetadata(noteResult.groundingMetadata);
+      const note = noteResult.text || '';
+      if ('groundingMetadata' in noteResult && noteResult.groundingMetadata)
+        setGroundingMetadata(noteResult.groundingMetadata);
 
       const auditResultRaw = await auditNoteWithAI(note, state.documentType, state.isLocalMode);
       const aiAudit = auditResultRaw.data;
       const localAudit = ClinicalKnowledgeBase.auditNote({ ...state, customNote: note });
-      
+
       const aiFindings = Array.isArray(aiAudit.findings) ? aiAudit.findings : [];
       const localFindings = Array.isArray(localAudit.findings) ? localAudit.findings : [];
-      
+
       const auditResult: AuditResult = {
         complianceScore: Math.round((aiAudit.complianceScore + localAudit.complianceScore) / 2),
         findings: [...new Set([...aiFindings, ...localFindings])],
-        checklist: { ...aiAudit.checklist, ...localAudit.checklist }
+        checklist: { ...aiAudit.checklist, ...localAudit.checklist },
       };
 
       if (missingFields.length > 0) {
-        auditResult.complianceScore = Math.max(0, auditResult.complianceScore - (missingFields.length * 10));
-        auditResult.findings.push(`⚠️ COMPLIANCE WARNING: You skipped critical fields (${missingFields.join(', ')}). This may lead to claim denials or audit failures.`);
+        auditResult.complianceScore = Math.max(
+          0,
+          auditResult.complianceScore - missingFields.length * 10
+        );
+        auditResult.findings.push(
+          `⚠️ COMPLIANCE WARNING: You skipped critical fields (${missingFields.join(', ')}). This may lead to claim denials or audit failures.`
+        );
       }
-      
+
       setState({ ...state, auditResult });
       setGeneratedNote(note);
       setEditedNote(note);
-      
-      const newHistory: GeneratedNote[] = [{
-        content: note,
-        timestamp: new Date().toLocaleString(),
-        type: `${state.discipline} ${state.documentType}`
-      }, ...history].slice(0, 5);
+
+      const newHistory: GeneratedNote[] = [
+        {
+          content: note,
+          timestamp: new Date().toLocaleString(),
+          type: `${state.discipline} ${state.documentType}`,
+        },
+        ...history,
+      ].slice(0, 5);
       setHistory(newHistory);
       sessionStorage.setItem('noteHistory', JSON.stringify(newHistory));
       sessionStorage.removeItem('therapy_draft');
       setStep(currentSteps.length - 1);
     } catch (error: any) {
       console.error(error);
-      const isQuota = error.message?.includes("Quota");
-      setError(error.message || "Failed to generate note. Please try again.");
+      const isQuota = error.message?.includes('Quota');
+      setError(error.message || 'Failed to generate note. Please try again.');
       if (isQuota) {
-        setTimeout(() => setError("Tip: Try enabling 'Local Mode' in settings to use on-device AI."), 4000);
+        setTimeout(
+          () => setError("Tip: Try enabling 'Local Mode' in settings to use on-device AI."),
+          4000
+        );
       }
     } finally {
       setIsGenerating(false);
@@ -217,17 +262,22 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     setShowTumbleOptions(false);
     setPreviousNote(editedNote || generatedNote);
     try {
-      const note = await tumbleNote(editedNote || generatedNote, instruction || tumbleInstructions, state.isLocalMode);
+      const note = await tumbleNote(
+        editedNote || generatedNote,
+        instruction || tumbleInstructions,
+        state.isLocalMode
+      );
       const auditResultRaw = await auditNoteWithAI(note, state.documentType, state.isLocalMode);
       const aiAudit = auditResultRaw.data;
-      if ('groundingMetadata' in auditResultRaw && auditResultRaw.groundingMetadata) setGroundingMetadata(auditResultRaw.groundingMetadata);
-      
+      if ('groundingMetadata' in auditResultRaw && auditResultRaw.groundingMetadata)
+        setGroundingMetadata(auditResultRaw.groundingMetadata);
+
       const localAudit = ClinicalKnowledgeBase.auditNote({ ...state, customNote: note });
-      
+
       const auditResult: AuditResult = {
         complianceScore: Math.round((aiAudit.complianceScore + localAudit.complianceScore) / 2),
         findings: [...new Set([...aiAudit.findings, ...localAudit.findings])],
-        checklist: { ...aiAudit.checklist, ...localAudit.checklist }
+        checklist: { ...aiAudit.checklist, ...localAudit.checklist },
       };
 
       setState({ ...state, auditResult });
@@ -237,7 +287,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       setIsEditing(false);
     } catch (error: any) {
       console.error(error);
-      setError(error.message || "Failed to refine note. Please try again.");
+      setError(error.message || 'Failed to refine note. Please try again.');
     } finally {
       setIsTumbling(false);
     }
@@ -248,21 +298,29 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
       setIsAuditing(true);
       setGroundingMetadata(null);
       try {
-        const auditResultRaw = await auditNoteWithAI(editedNote || generatedNote!, state.documentType, state.isLocalMode);
+        const auditResultRaw = await auditNoteWithAI(
+          editedNote || generatedNote!,
+          state.documentType,
+          state.isLocalMode
+        );
         const aiAudit = auditResultRaw.data;
-        if ('groundingMetadata' in auditResultRaw && auditResultRaw.groundingMetadata) setGroundingMetadata(auditResultRaw.groundingMetadata);
-        
-        const localAudit = ClinicalKnowledgeBase.auditNote({ ...state, customNote: editedNote || generatedNote! });
-        
+        if ('groundingMetadata' in auditResultRaw && auditResultRaw.groundingMetadata)
+          setGroundingMetadata(auditResultRaw.groundingMetadata);
+
+        const localAudit = ClinicalKnowledgeBase.auditNote({
+          ...state,
+          customNote: editedNote || generatedNote!,
+        });
+
         const auditResult: AuditResult = {
           complianceScore: Math.round((aiAudit.complianceScore + localAudit.complianceScore) / 2),
           findings: [...new Set([...aiAudit.findings, ...localAudit.findings])],
-          checklist: { ...aiAudit.checklist, ...localAudit.checklist }
+          checklist: { ...aiAudit.checklist, ...localAudit.checklist },
         };
         setState({ ...state, auditResult });
       } catch (e: any) {
         console.error(e);
-        setError(e.message || "Audit failed.");
+        setError(e.message || 'Audit failed.');
       } finally {
         setIsAuditing(false);
       }
@@ -275,17 +333,17 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
     setError(null);
     try {
       const parsed = await parseBrainDump(brainDump, { ...state, documentType: brainDumpMode });
-      setState(s => ({
+      setState((s) => ({
         ...s,
         ...parsed,
         documentType: brainDumpMode,
-        customNote: (s.customNote ? s.customNote + '\n\n' : '') + (parsed.customNote || '')
+        customNote: (s.customNote ? s.customNote + '\n\n' : '') + (parsed.customNote || ''),
       }));
       setBrainDump('');
-      setStep(2); 
+      setStep(2);
     } catch (e: any) {
       console.error(e);
-      const msg = e.message || "Brain dump failed.";
+      const msg = e.message || 'Brain dump failed.';
       setError(msg);
       if (msg.toLowerCase().includes('quota')) {
         setError(msg + " Tip: Enable 'Local Mode' in settings to continue without cloud services.");
@@ -305,33 +363,37 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
         ...state,
         ...parsed,
         documentType: brainDumpMode,
-        customNote: (state.customNote ? state.customNote + '\n\n' : '') + (parsed.customNote || '')
+        customNote: (state.customNote ? state.customNote + '\n\n' : '') + (parsed.customNote || ''),
       };
       setState(newState);
       setBrainDump('');
       setStep(currentSteps.length - 1);
-      
+
       setIsGenerating(true);
       setError(null);
       const noteResult = await generateTherapyNote(newState, userStyle);
-      const note = noteResult.text || "";
-      if ('groundingMetadata' in noteResult && noteResult.groundingMetadata) setGroundingMetadata(noteResult.groundingMetadata);
+      const note = noteResult.text || '';
+      if ('groundingMetadata' in noteResult && noteResult.groundingMetadata)
+        setGroundingMetadata(noteResult.groundingMetadata);
 
       setGeneratedNote(note);
       setEditedNote(note);
-      setHistory(prev => {
-        const newHistory: GeneratedNote[] = [{
-          content: note,
-          timestamp: new Date().toLocaleString(),
-          type: `${newState.discipline} ${newState.documentType}`
-        }, ...prev].slice(0, 10);
+      setHistory((prev) => {
+        const newHistory: GeneratedNote[] = [
+          {
+            content: note,
+            timestamp: new Date().toLocaleString(),
+            type: `${newState.discipline} ${newState.documentType}`,
+          },
+          ...prev,
+        ].slice(0, 10);
         sessionStorage.setItem('noteHistory', JSON.stringify(newHistory));
         return newHistory;
       });
       sessionStorage.removeItem('therapy_draft');
     } catch (e: any) {
       console.error(e);
-      const msg = e.message || "Failed to quick generate note. Please try again.";
+      const msg = e.message || 'Failed to quick generate note. Please try again.';
       setError(msg);
       if (msg.toLowerCase().includes('quota')) {
         setError(msg + " Tip: Enable 'Local Mode' in settings to continue without cloud services.");
@@ -343,9 +405,13 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
   };
 
   const handleSaveTemplate = () => {
-    const name = prompt("Enter a name for this custom template:");
+    const name = prompt('Enter a name for this custom template:');
     if (name) {
-      const { customNote: _customNote, previousNotesToSummarize: _previousNotesToSummarize, ...stateToSave } = state;
+      const {
+        customNote: _customNote,
+        previousNotesToSummarize: _previousNotesToSummarize,
+        ...stateToSave
+      } = state;
       const newTemplates = [...customTemplates, { name, state: stateToSave as TherapyState }];
       setCustomTemplates(newTemplates);
       localStorage.setItem('customTemplates', JSON.stringify(newTemplates));
@@ -353,7 +419,7 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
   };
 
   const handleDeleteTemplate = (name: string) => {
-    const newTemplates = customTemplates.filter(t => t.name !== name);
+    const newTemplates = customTemplates.filter((t) => t.name !== name);
     setCustomTemplates(newTemplates);
     localStorage.setItem('customTemplates', JSON.stringify(newTemplates));
   };
@@ -365,49 +431,80 @@ export function useTherapySession(initialStateOverride?: TherapyState) {
   };
 
   return {
-    step, setStep,
-    selectedId, setSelectedId,
-    state, setState,
+    step,
+    setStep,
+    selectedId,
+    setSelectedId,
+    state,
+    setState,
     currentSteps,
-    brainDump, setBrainDump,
-    brainDumpMode, setBrainDumpMode,
+    brainDump,
+    setBrainDump,
+    brainDumpMode,
+    setBrainDumpMode,
     isParsingBrainDump,
-    generatedNote, setGeneratedNote,
-    history, setHistory,
+    generatedNote,
+    setGeneratedNote,
+    history,
+    setHistory,
     isGenerating,
     isTumbling,
     isAuditing,
     isAnalyzingGaps,
     isSummarizingProgress,
-    isEditing, setIsEditing,
-    editedNote, setEditedNote,
-    previousNote, setPreviousNote,
-    error, setError,
-    userStyle, setUserStyle,
-    userStyleSamples, setUserStyleSamples,
+    isEditing,
+    setIsEditing,
+    editedNote,
+    setEditedNote,
+    previousNote,
+    setPreviousNote,
+    error,
+    setError,
+    userStyle,
+    setUserStyle,
+    userStyleSamples,
+    setUserStyleSamples,
     saveUserStyleSample,
-    tumbleInstructions, setTumbleInstructions,
-    showStyleSettings, setShowStyleSettings,
-    showTumbleOptions, setShowTumbleOptions,
-    modelDownloadProgress, setModelDownloadProgress,
-    icdSearch, setIcdSearch,
-    icdCat, setIcdCat,
-    clipboard, setClipboard,
-    isClipboardOpen, setIsClipboardOpen,
-    isTourActive, setIsTourActive,
-    customGapInputs, setCustomGapInputs,
-    customTemplates, setCustomTemplates,
-    handleNext, handleBack,
-    finalizeSession, sanitizeHistory,
-    delayedNext, handleAnalyzeGaps,
-    handleSummarizeProgress, handleGenerate,
-    handleTumble, handleAudit,
-    handleBrainDump, handleQuickGenerate,
-    handleSaveTemplate, handleDeleteTemplate,
+    tumbleInstructions,
+    setTumbleInstructions,
+    showStyleSettings,
+    setShowStyleSettings,
+    showTumbleOptions,
+    setShowTumbleOptions,
+    modelDownloadProgress,
+    setModelDownloadProgress,
+    icdSearch,
+    setIcdSearch,
+    icdCat,
+    setIcdCat,
+    clipboard,
+    setClipboard,
+    isClipboardOpen,
+    setIsClipboardOpen,
+    isTourActive,
+    setIsTourActive,
+    customGapInputs,
+    setCustomGapInputs,
+    customTemplates,
+    setCustomTemplates,
+    handleNext,
+    handleBack,
+    finalizeSession,
+    sanitizeHistory,
+    delayedNext,
+    handleAnalyzeGaps,
+    handleSummarizeProgress,
+    handleGenerate,
+    handleTumble,
+    handleAudit,
+    handleBrainDump,
+    handleQuickGenerate,
+    handleSaveTemplate,
+    handleDeleteTemplate,
     SNFTemplates,
     generateNursingHandOff,
     isLocalMode: state.isLocalMode,
     auditResult: state.auditResult,
-    groundingMetadata
+    groundingMetadata,
   };
 }

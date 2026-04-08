@@ -58,7 +58,9 @@ export function throttle<T extends (...args: any[]) => any>(
 /**
  * Request animation frame throttle
  */
-export function rafThrottle<T extends (...args: any[]) => any>(func: T): (...args: Parameters<T>) => void {
+export function rafThrottle<T extends (...args: any[]) => any>(
+  func: T
+): (...args: Parameters<T>) => void {
   let rafId: number | null = null;
 
   return function (...args: Parameters<T>) {
@@ -110,11 +112,7 @@ export function batchDOMUpdates(updates: (() => void)[]): void {
 /**
  * Lazy load image with intersection observer
  */
-export function lazyLoadImage(
-  element: HTMLImageElement,
-  src: string,
-  placeholder?: string
-): void {
+export function lazyLoadImage(element: HTMLImageElement, src: string, placeholder?: string): void {
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -241,7 +239,9 @@ export async function getWebVitals(): Promise<WebVitals> {
   }
 
   // TTFB (Time to First Byte)
-  const navigationTiming = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+  const navigationTiming = performance.getEntriesByType(
+    'navigation'
+  )[0] as PerformanceNavigationTiming;
   if (navigationTiming) {
     vitals.ttfb = navigationTiming.responseStart - navigationTiming.fetchStart;
   }

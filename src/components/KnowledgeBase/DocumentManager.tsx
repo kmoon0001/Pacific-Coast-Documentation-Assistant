@@ -7,10 +7,7 @@ interface DocumentManagerProps {
   onDocumentDelete: (documentId: string) => void;
 }
 
-export function DocumentManager({
-  onDocumentSelect,
-  onDocumentDelete,
-}: DocumentManagerProps) {
+export function DocumentManager({ onDocumentSelect, onDocumentDelete }: DocumentManagerProps) {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -74,7 +71,7 @@ export function DocumentManager({
         throw new Error('Failed to delete document');
       }
 
-      setDocuments(documents.filter(doc => doc.id !== documentId));
+      setDocuments(documents.filter((doc) => doc.id !== documentId));
       setDeleteConfirm(null);
       onDocumentDelete(documentId);
 
@@ -224,16 +221,10 @@ export function DocumentManager({
                   <div className="delete-confirmation">
                     <p>Are you sure you want to delete this document?</p>
                     <div className="confirmation-actions">
-                      <button
-                        onClick={() => handleDelete(doc.id)}
-                        className="confirm-btn"
-                      >
+                      <button onClick={() => handleDelete(doc.id)} className="confirm-btn">
                         Delete
                       </button>
-                      <button
-                        onClick={() => setDeleteConfirm(null)}
-                        className="cancel-btn"
-                      >
+                      <button onClick={() => setDeleteConfirm(null)} className="cancel-btn">
                         Cancel
                       </button>
                     </div>

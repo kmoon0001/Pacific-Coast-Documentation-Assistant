@@ -145,12 +145,12 @@ describe('RBACService', () => {
     it('should return role-permission mappings', () => {
       const mappings = service.getRolePermissions();
       expect(mappings.length).toBeGreaterThan(0);
-      expect(mappings.every(m => m.role && Array.isArray(m.permissions))).toBe(true);
+      expect(mappings.every((m) => m.role && Array.isArray(m.permissions))).toBe(true);
     });
 
     it('should include all roles', () => {
       const mappings = service.getRolePermissions();
-      const roles = mappings.map(m => m.role);
+      const roles = mappings.map((m) => m.role);
       expect(roles).toContain('admin');
       expect(roles).toContain('manager');
       expect(roles).toContain('therapist');
@@ -190,9 +190,9 @@ describe('RBACService', () => {
       const adminPerms = service.getPermissions('admin');
       const allRoles = service.getAllRoles();
 
-      allRoles.forEach(role => {
+      allRoles.forEach((role) => {
         const rolePerms = service.getPermissions(role);
-        rolePerms.forEach(perm => {
+        rolePerms.forEach((perm) => {
           expect(adminPerms).toContain(perm);
         });
       });
@@ -202,7 +202,7 @@ describe('RBACService', () => {
       const therapistPerms = service.getPermissions('therapist');
       const managerPerms = service.getPermissions('manager');
 
-      therapistPerms.forEach(perm => {
+      therapistPerms.forEach((perm) => {
         expect(managerPerms).toContain(perm);
       });
     });

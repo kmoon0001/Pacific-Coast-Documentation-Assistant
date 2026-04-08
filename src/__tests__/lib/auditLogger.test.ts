@@ -8,13 +8,10 @@ describe('Audit Logger', () => {
 
   describe('Note Generation Logging', () => {
     it('should log note generation event', () => {
-      auditLogger.logNoteGenerated(
-        'user123',
-        'note456',
-        'PT',
-        'Daily',
-        { cptCode: '97110', mode: 'Therapeutic Exercise' }
-      );
+      auditLogger.logNoteGenerated('user123', 'note456', 'PT', 'Daily', {
+        cptCode: '97110',
+        mode: 'Therapeutic Exercise',
+      });
 
       const events = auditLogger.getAllEvents();
       expect(events.length).toBe(1);
@@ -24,13 +21,7 @@ describe('Audit Logger', () => {
     });
 
     it('should include discipline and document type', () => {
-      auditLogger.logNoteGenerated(
-        'user123',
-        'note456',
-        'OT',
-        'Assessment',
-        {}
-      );
+      auditLogger.logNoteGenerated('user123', 'note456', 'OT', 'Assessment', {});
 
       const events = auditLogger.getAllEvents();
       expect(events[0].details.discipline).toBe('OT');
@@ -163,13 +154,13 @@ describe('Audit Logger', () => {
     it('should retrieve user events', () => {
       const userEvents = auditLogger.getUserEvents('user1');
       expect(userEvents.length).toBe(3);
-      expect(userEvents.every(e => e.userId === 'user1')).toBe(true);
+      expect(userEvents.every((e) => e.userId === 'user1')).toBe(true);
     });
 
     it('should retrieve note events', () => {
       const noteEvents = auditLogger.getNoteEvents('note1');
       expect(noteEvents.length).toBe(2);
-      expect(noteEvents.every(e => e.resourceId === 'note1')).toBe(true);
+      expect(noteEvents.every((e) => e.resourceId === 'note1')).toBe(true);
     });
 
     it('should respect limit parameter', () => {
@@ -356,7 +347,7 @@ describe('Audit Logger', () => {
         details: {},
         status: 'success' as const,
       };
-      
+
       auditLogger.logCustomEvent({
         id: 'test-id',
         timestamp: new Date(),
@@ -372,7 +363,7 @@ describe('Audit Logger', () => {
     it('should log event with provided id and timestamp', async () => {
       const customId = 'custom-id-123';
       const customTimestamp = new Date('2024-01-01');
-      
+
       await auditLog({
         id: customId,
         timestamp: customTimestamp,

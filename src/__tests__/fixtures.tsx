@@ -125,7 +125,6 @@ export const mockAuditResults = {
   }),
 };
 
-
 // Additional test data for Phase 2
 export const mockBackendResponses = {
   userRegistration: {
@@ -273,10 +272,8 @@ export const renderWithTherapySession = (
   sessionStorage.setItem('therapy_draft', JSON.stringify(baseState));
 
   const Wrapper = ({ children }: { children: React.ReactNode }) => (
-    <TherapySessionProvider initialState={baseState}>
-      {children}
-    </TherapySessionProvider>
+    <TherapySessionProvider initialState={baseState}>{children}</TherapySessionProvider>
   );
-  
+
   return rtlRender(component, { wrapper: Wrapper, ...renderOptions });
 };

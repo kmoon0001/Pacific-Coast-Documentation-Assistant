@@ -105,7 +105,7 @@ describe('TemplateService', () => {
   describe('Template Content', () => {
     it('should have correct content for Standard Daily Note', () => {
       const templates = TemplateService.getTemplates('PT', 'Daily');
-      const standardTemplate = templates.find(t => t.name === 'Standard Daily Note');
+      const standardTemplate = templates.find((t) => t.name === 'Standard Daily Note');
 
       expect(standardTemplate).toBeDefined();
       expect(standardTemplate?.state.customNote).toContain('Pt tolerated tx well');
@@ -113,7 +113,7 @@ describe('TemplateService', () => {
 
     it('should have correct content for Safety Focused', () => {
       const templates = TemplateService.getTemplates('PT', 'Daily');
-      const safetyTemplate = templates.find(t => t.name === 'Safety Focused');
+      const safetyTemplate = templates.find((t) => t.name === 'Safety Focused');
 
       expect(safetyTemplate).toBeDefined();
       expect(safetyTemplate?.state.customNote).toContain('safety awareness');
@@ -121,7 +121,7 @@ describe('TemplateService', () => {
 
     it('should have correct content for Cognitive Maintenance', () => {
       const templates = TemplateService.getTemplates('PT', 'Daily');
-      const cognitiveTemplate = templates.find(t => t.name === 'Cognitive Maintenance');
+      const cognitiveTemplate = templates.find((t) => t.name === 'Cognitive Maintenance');
 
       expect(cognitiveTemplate).toBeDefined();
       expect(cognitiveTemplate?.state.customNote).toContain('cognitive-communication');
@@ -129,7 +129,7 @@ describe('TemplateService', () => {
 
     it('should have correct content for Mobility/Transfer Focus', () => {
       const templates = TemplateService.getTemplates('PT', 'Daily');
-      const mobilityTemplate = templates.find(t => t.name === 'Mobility/Transfer Focus');
+      const mobilityTemplate = templates.find((t) => t.name === 'Mobility/Transfer Focus');
 
       expect(mobilityTemplate).toBeDefined();
       expect(mobilityTemplate?.state.customNote).toContain('transfers and functional mobility');

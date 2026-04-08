@@ -32,7 +32,7 @@ describe('SecurityHardeningService', () => {
       const result = securityHardeningService.validateFile(file, 'pdf');
 
       expect(result.valid).toBe(false);
-      expect(result.errors.some(e => e.includes('empty'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('empty'))).toBe(true);
     });
 
     it('should reject oversized file', () => {
@@ -43,7 +43,7 @@ describe('SecurityHardeningService', () => {
       const result = securityHardeningService.validateFile(file, 'pdf');
 
       expect(result.valid).toBe(false);
-      expect(result.errors.some(e => e.includes('exceeds'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('exceeds'))).toBe(true);
     });
 
     it('should reject file with invalid characters in name', () => {
@@ -52,7 +52,7 @@ describe('SecurityHardeningService', () => {
       const result = securityHardeningService.validateFile(file, 'pdf');
 
       expect(result.valid).toBe(false);
-      expect(result.errors.some(e => e.includes('invalid characters'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('invalid characters'))).toBe(true);
     });
 
     it('should accept all allowed file types', () => {
@@ -82,11 +82,13 @@ describe('SecurityHardeningService', () => {
       const result = await securityHardeningService.validateFileContent(file, 'txt');
 
       expect(result.valid).toBe(false);
-      expect(result.errors.some(e => e.includes('suspicious'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('suspicious'))).toBe(true);
     });
 
     it('should reject content with event handlers', async () => {
-      const file = new File(['<div onclick="alert()">Click me</div>'], 'test.txt', { type: 'text/plain' });
+      const file = new File(['<div onclick="alert()">Click me</div>'], 'test.txt', {
+        type: 'text/plain',
+      });
 
       const result = await securityHardeningService.validateFileContent(file, 'txt');
 
@@ -94,7 +96,9 @@ describe('SecurityHardeningService', () => {
     });
 
     it('should reject content with javascript protocol', async () => {
-      const file = new File(['<a href="javascript:alert()">Link</a>'], 'test.txt', { type: 'text/plain' });
+      const file = new File(['<a href="javascript:alert()">Link</a>'], 'test.txt', {
+        type: 'text/plain',
+      });
 
       const result = await securityHardeningService.validateFileContent(file, 'txt');
 
@@ -211,7 +215,12 @@ describe('SecurityHardeningService', () => {
 
   describe('logSecurityEvent', () => {
     it('should log security event', () => {
-      securityHardeningService.logSecurityEvent('user1', 'suspicious_upload', { filename: 'test.exe' }, 'high');
+      securityHardeningService.logSecurityEvent(
+        'user1',
+        'suspicious_upload',
+        { filename: 'test.exe' },
+        'high'
+      );
 
       const events = securityHardeningService.getSecurityEvents();
 

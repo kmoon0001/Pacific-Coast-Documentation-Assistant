@@ -25,7 +25,8 @@ describe('Security Module', () => {
     });
 
     it('should scrub multiple PII patterns', () => {
-      const text = 'Patient: John Doe, SSN: 123-45-6789, Email: john@example.com, Phone: 555-123-4567';
+      const text =
+        'Patient: John Doe, SSN: 123-45-6789, Email: john@example.com, Phone: 555-123-4567';
       const { scrubbed, hasPII } = scrubPII(text);
       expect(scrubbed).toContain('[REDACTED]');
       expect(hasPII).toBe(true);

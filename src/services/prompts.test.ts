@@ -48,7 +48,11 @@ describe('prompt builders', () => {
 
   it('builds a brain dump parsing prompt scoped to the current discipline', () => {
     const state = createMockTherapyState({ discipline: 'OT', documentType: 'Assessment' });
-    const prompt = getBrainDumpPrompt('Patient performed grooming at sink.', state, 'Focus on ADLs.');
+    const prompt = getBrainDumpPrompt(
+      'Patient performed grooming at sink.',
+      state,
+      'Focus on ADLs.'
+    );
 
     expect(prompt).toContain('expert OT therapist');
     expect(prompt).toContain('Document Type: Assessment');
@@ -83,7 +87,11 @@ describe('prompt builders', () => {
   });
 
   it('summarizes progress with clear defaults when no historical notes exist', () => {
-    const state = createMockTherapyState({ discipline: 'PT', documentType: 'Progress', reportingPeriod: undefined });
+    const state = createMockTherapyState({
+      discipline: 'PT',
+      documentType: 'Progress',
+      reportingPeriod: undefined,
+    });
     const prompt = getSummarizeProgressPrompt(state);
     expect(prompt).toContain('the past period');
     expect(prompt).toContain('None provided');

@@ -133,7 +133,7 @@ export class BulkOperationsService {
         if (operation === 'add') {
           newTags = [...new Set([...newTags, ...tags])];
         } else if (operation === 'remove') {
-          newTags = newTags.filter(t => !tags.includes(t));
+          newTags = newTags.filter((t) => !tags.includes(t));
         } else if (operation === 'replace') {
           newTags = tags;
         }

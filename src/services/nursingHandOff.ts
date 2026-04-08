@@ -1,9 +1,9 @@
-import { TherapyState } from "../types";
+import { TherapyState } from '../types';
 
 /**
- * Generates a concise SBAR (Situation, Background, Assessment, Recommendation) 
+ * Generates a concise SBAR (Situation, Background, Assessment, Recommendation)
  * hand-off summary for nursing staff based on the therapy note.
- * 
+ *
  * SBAR is the industry-standard framework for interdisciplinary communication.
  */
 export function generateNursingHandOff(note: string, state: TherapyState): string {
@@ -13,7 +13,7 @@ export function generateNursingHandOff(note: string, state: TherapyState): strin
   const activity = state.activity ?? 'skilled intervention';
   const trimmedNote = note?.trim() || 'No additional assessment provided.';
   const assessment = trimmedNote.length > 150 ? `${trimmedNote.substring(0, 150)}...` : trimmedNote;
-  
+
   return `
 [NURSING HAND-OFF SUMMARY (SBAR)]
 

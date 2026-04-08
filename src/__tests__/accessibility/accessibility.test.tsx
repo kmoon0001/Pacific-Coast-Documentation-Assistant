@@ -6,7 +6,12 @@ import { MainContent } from '../../components/TherapyApp/MainContent';
 import { PreviewPanel } from '../../components/TherapyApp/PreviewPanel';
 import { Header } from '../../components/TherapyApp/Header';
 import { Sidebar } from '../../components/TherapyApp/Sidebar';
-import { createMockTherapyState, createMockAuditResult, createMockGeneratedNote, createMockClipboardItem } from '../fixtures';
+import {
+  createMockTherapyState,
+  createMockAuditResult,
+  createMockGeneratedNote,
+  createMockClipboardItem,
+} from '../fixtures';
 
 const renderWithProvider = (component: React.ReactElement) => {
   return render(<TherapySessionProvider>{component}</TherapySessionProvider>);
@@ -20,40 +25,46 @@ describe('Accessibility smoke tests', () => {
     expect(actionable).toHaveLength(0);
   });
 
-  it('PreviewPanel exposes labelled buttons and passes an axe audit', { timeout: 20000 }, async () => {
-    const props = {
-      generatedNote: 'Generated therapy note',
-      editedNote: 'Edited therapy note',
-      isGenerating: false,
-      isTumbling: false,
-      isAuditing: false,
-      isEditing: false,
-      auditResult: createMockAuditResult(),
-      onEdit: () => {},
-      onEditedNoteChange: () => {},
-      onTumble: () => {},
-      onAudit: () => {},
-      onSaveTemplate: () => {},
-      onFinalize: () => {},
-      onCopy: () => {},
-      tumbleInstructions: '',
-      onTumbleInstructionsChange: () => {},
-      showTumbleOptions: false,
-      onToggleTumbleOptions: () => {},
-      error: null,
-      SNFTemplates: [],
-      groundingMetadata: null,
-      generateNursingHandOff: () => 'handoff',
-      state: createMockTherapyState({ discipline: 'PT' }),
-    } as React.ComponentProps<typeof PreviewPanel>;
+  it(
+    'PreviewPanel exposes labelled buttons and passes an axe audit',
+    { timeout: 20000 },
+    async () => {
+      const props = {
+        generatedNote: 'Generated therapy note',
+        editedNote: 'Edited therapy note',
+        isGenerating: false,
+        isTumbling: false,
+        isAuditing: false,
+        isEditing: false,
+        auditResult: createMockAuditResult(),
+        onEdit: () => {},
+        onEditedNoteChange: () => {},
+        onTumble: () => {},
+        onAudit: () => {},
+        onSaveTemplate: () => {},
+        onFinalize: () => {},
+        onCopy: () => {},
+        tumbleInstructions: '',
+        onTumbleInstructionsChange: () => {},
+        showTumbleOptions: false,
+        onToggleTumbleOptions: () => {},
+        error: null,
+        SNFTemplates: [],
+        groundingMetadata: null,
+        generateNursingHandOff: () => 'handoff',
+        state: createMockTherapyState({ discipline: 'PT' }),
+      } as React.ComponentProps<typeof PreviewPanel>;
 
-    const { container } = render(<PreviewPanel {...props} />);
-    expect(screen.getByTitle(/copy to clipboard/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /finalize & start next session/i })).toBeInTheDocument();
-    const results = await axe(container);
-    const actionable = results.violations.filter((violation) => violation.id !== 'button-name');
-    expect(actionable).toHaveLength(0);
-  });
+      const { container } = render(<PreviewPanel {...props} />);
+      expect(screen.getByTitle(/copy to clipboard/i)).toBeInTheDocument();
+      expect(
+        screen.getByRole('button', { name: /finalize & start next session/i })
+      ).toBeInTheDocument();
+      const results = await axe(container);
+      const actionable = results.violations.filter((violation) => violation.id !== 'button-name');
+      expect(actionable).toHaveLength(0);
+    }
+  );
 
   it('Header buttons expose accessible names', () => {
     render(
@@ -92,10 +103,3 @@ describe('Accessibility smoke tests', () => {
     expect(screen.getByRole('button', { name: /sanitize data/i })).toBeInTheDocument();
   });
 });
-
-
-
-
-
-
-

@@ -234,7 +234,11 @@ export class PerformanceMonitor {
    * Flush metrics to endpoint
    */
   async flush(): Promise<void> {
-    if (this.metrics.length === 0 && this.apiMetrics.length === 0 && this.errorMetrics.length === 0) {
+    if (
+      this.metrics.length === 0 &&
+      this.apiMetrics.length === 0 &&
+      this.errorMetrics.length === 0
+    ) {
       return;
     }
 

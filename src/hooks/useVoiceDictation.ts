@@ -5,7 +5,8 @@ export function useVoiceDictation(onTranscript: (transcript: string) => void) {
   const recognition = useRef<any>(null);
 
   useEffect(() => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognition =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (SpeechRecognition) {
       recognition.current = new SpeechRecognition();
       recognition.current.continuous = true;

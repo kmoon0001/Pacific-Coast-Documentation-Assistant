@@ -1,6 +1,6 @@
 /**
  * SHAP-Inspired Fact-Checking Service
- * 
+ *
  * Provides interpretable AI explanations using SHAP (SHapley Additive exPlanations) concepts:
  * - Feature Attribution: Which input features most influenced the output
  * - Counterfactual Analysis: What would need to change for different results
@@ -17,7 +17,7 @@ const FEATURE_WEIGHTS: Record<string, number> = {
   cptCode: 0.18,
   mode: 0.08,
   activity: 0.15,
-  details: 0.20,
+  details: 0.2,
   reasonForReferral: 0.05,
   clinicalImpressions: 0.04,
   gapAnswers: 0.03,
@@ -61,7 +61,7 @@ export interface CounterfactualAnalysis {
  */
 function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[] {
   const attributions: FeatureAttribution[] = [];
-  
+
   // Discipline attribution
   if (state.discipline) {
     const importance = FEATURE_WEIGHTS.discipline * 100;
@@ -72,7 +72,7 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: state.discipline,
     });
   }
-  
+
   // Document Type attribution
   if (state.documentType) {
     const importance = FEATURE_WEIGHTS.documentType * 100;
@@ -83,7 +83,7 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: state.documentType,
     });
   }
-  
+
   // CPT Code attribution (most important for billing)
   if (state.cptCode) {
     const importance = FEATURE_WEIGHTS.cptCode * 100;
@@ -94,7 +94,7 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: state.cptCode,
     });
   }
-  
+
   // Activity attribution
   if (state.activity) {
     const importance = FEATURE_WEIGHTS.activity * 100;
@@ -105,7 +105,7 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: state.activity,
     });
   }
-  
+
   // Details attribution
   if (state.details && Object.keys(state.details).length > 0) {
     const importance = FEATURE_WEIGHTS.details * 100;
@@ -117,7 +117,7 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: `${Object.keys(state.details).length} fields`,
     });
   }
-  
+
   // Mode attribution
   if (state.mode) {
     const importance = FEATURE_WEIGHTS.mode * 100;
@@ -128,7 +128,7 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: state.mode,
     });
   }
-  
+
   // Gap answers attribution
   if (state.gapAnswers && state.gapAnswers.length > 0) {
     const importance = FEATURE_WEIGHTS.gapAnswers * 100;
@@ -139,39 +139,51 @@ function calculateFeatureAttributions(state: TherapyState): FeatureAttribution[]
       value: `${state.gapAnswers.length} responses`,
     });
   }
-  
+
   return attributions.sort((a, b) => b.importance - a.importance);
 }
 
 /**
  * Perform consistency checks between input state and generated content
  */
-function performConsistencyChecks(state: TherapyState, generatedContent: string): ConsistencyCheck[] {
+function performConsistencyChecks(
+  state: TherapyState,
+  generatedContent: string
+): ConsistencyCheck[] {
   const checks: ConsistencyCheck[] = [];
   const content = generatedContent.toLowerCase();
-  
+
   // Check 1: Discipline consistency
   if (state.discipline) {
     const disciplineTerms: Record<string, string[]> = {
-      'PT': ['mobility', 'gait', 'therapeutic exercise', 'transfer', 'balance', 'range of motion', 'strength'],
-      'OT': ['adl', 'adls', 'self-care', 'occupation', 'functional', 'cognitive', 'adapting'],
-      'ST': ['speech', 'language', 'swallow', 'communication', 'cognitive-linguistic'],
+      PT: [
+        'mobility',
+        'gait',
+        'therapeutic exercise',
+        'transfer',
+        'balance',
+        'range of motion',
+        'strength',
+      ],
+      OT: ['adl', 'adls', 'self-care', 'occupation', 'functional', 'cognitive', 'adapting'],
+      ST: ['speech', 'language', 'swallow', 'communication', 'cognitive-linguistic'],
     };
-    
+
     const terms = disciplineTerms[state.discipline] || [];
-    const foundTerms = terms.filter(term => content.includes(term));
-    
+    const foundTerms = terms.filter((term) => content.includes(term));
+
     checks.push({
       id: 'discipline_consistency',
       passed: foundTerms.length > 0,
       description: `Discipline-specific terminology present (${state.discipline})`,
       severity: foundTerms.length > 0 ? 'info' : 'critical',
-      details: foundTerms.length > 0 
-        ? `Found: ${foundTerms.join(', ')}`
-        : `Expected ${state.discipline} terminology not found in generated note`,
+      details:
+        foundTerms.length > 0
+          ? `Found: ${foundTerms.join(', ')}`
+          : `Expected ${state.discipline} terminology not found in generated note`,
     });
   }
-  
+
   // Check 2: CPT Code mention
   if (state.cptCode) {
     const cptMentioned = content.includes(state.cptCode);
@@ -180,40 +192,43 @@ function performConsistencyChecks(state: TherapyState, generatedContent: string)
       passed: cptMentioned,
       description: `CPT Code ${state.cptCode} referenced in note`,
       severity: cptMentioned ? 'info' : 'warning',
-      details: cptMentioned 
+      details: cptMentioned
         ? 'CPT code properly included in documentation'
         : 'CPT code not found in generated note - may need manual addition',
     });
   }
-  
+
   // Check 3: Activity alignment
   if (state.activity) {
     const activityKeywords = state.activity.toLowerCase().split(' ');
-    const hasActivityRef = activityKeywords.some(kw => kw.length > 3 && content.includes(kw));
+    const hasActivityRef = activityKeywords.some((kw) => kw.length > 3 && content.includes(kw));
     checks.push({
       id: 'activity_alignment',
       passed: hasActivityRef,
       description: 'Activity/Intervention mentioned in note',
       severity: hasActivityRef ? 'info' : 'warning',
-      details: hasActivityRef 
+      details: hasActivityRef
         ? 'Generated note includes activity details'
         : 'Activity from input not clearly reflected in output',
     });
   }
-  
+
   // Check 4: Document type structure
   if (state.documentType) {
-    const structureChecks: Record<string, { required: string[]; severity: 'critical' | 'warning' }> = {
-      'Daily': { required: ['intervention', 'response'], severity: 'warning' },
-      'Progress': { required: ['progress', 'goal'], severity: 'warning' },
-      'Assessment': { required: ['assessment', 'finding'], severity: 'critical' },
-      'Discharge': { required: ['discharge', 'recommendation'], severity: 'critical' },
-      'Recertification': { required: ['continued', 'plan'], severity: 'critical' },
+    const structureChecks: Record<
+      string,
+      { required: string[]; severity: 'critical' | 'warning' }
+    > = {
+      Daily: { required: ['intervention', 'response'], severity: 'warning' },
+      Progress: { required: ['progress', 'goal'], severity: 'warning' },
+      Assessment: { required: ['assessment', 'finding'], severity: 'critical' },
+      Discharge: { required: ['discharge', 'recommendation'], severity: 'critical' },
+      Recertification: { required: ['continued', 'plan'], severity: 'critical' },
     };
-    
+
     const required = structureChecks[state.documentType]?.required || [];
-    const found = required.filter(term => content.includes(term));
-    
+    const found = required.filter((term) => content.includes(term));
+
     checks.push({
       id: 'document_structure',
       passed: found.length >= required.length / 2,
@@ -222,12 +237,12 @@ function performConsistencyChecks(state: TherapyState, generatedContent: string)
       details: `Found ${found.length}/${required.length} expected sections`,
     });
   }
-  
+
   // Check 5: Details completeness
-  const detailCount = Object.keys(state.details || {}).filter(k => 
-    state.details[k] !== undefined && state.details[k] !== ''
+  const detailCount = Object.keys(state.details || {}).filter(
+    (k) => state.details[k] !== undefined && state.details[k] !== ''
   ).length;
-  
+
   checks.push({
     id: 'detail_completeness',
     passed: detailCount >= 3,
@@ -235,7 +250,7 @@ function performConsistencyChecks(state: TherapyState, generatedContent: string)
     severity: detailCount >= 3 ? 'info' : 'warning',
     details: `${detailCount} detail fields filled (recommended: 3+)`,
   });
-  
+
   return checks;
 }
 
@@ -244,24 +259,24 @@ function performConsistencyChecks(state: TherapyState, generatedContent: string)
  */
 function calculateConfidenceScore(state: TherapyState, checks: ConsistencyCheck[]): number {
   let score = 50; // Base score
-  
+
   // Add points for filled fields
   if (state.discipline) score += 10;
   if (state.documentType) score += 8;
   if (state.cptCode) score += 12;
   if (state.activity) score += 10;
   if (state.mode) score += 5;
-  
-  const detailCount = Object.keys(state.details || {}).filter(k => 
-    state.details[k] !== undefined && state.details[k] !== ''
+
+  const detailCount = Object.keys(state.details || {}).filter(
+    (k) => state.details[k] !== undefined && state.details[k] !== ''
   ).length;
   score += Math.min(detailCount * 3, 15); // Up to 15 points for details
-  
+
   // Consistency check bonus/penalty
-  const passedChecks = checks.filter(c => c.passed).length;
+  const passedChecks = checks.filter((c) => c.passed).length;
   const checkScore = (passedChecks / checks.length) * 20;
   score += checkScore;
-  
+
   return Math.min(Math.round(score), 100);
 }
 
@@ -270,14 +285,14 @@ function calculateConfidenceScore(state: TherapyState, checks: ConsistencyCheck[
  */
 function generateCounterfactualAnalysis(state: TherapyState): CounterfactualAnalysis | undefined {
   const missingFields: string[] = [];
-  
+
   if (!state.cptCode) missingFields.push('CPT Code');
   if (!state.activity) missingFields.push('Activity');
   if (!state.mode) missingFields.push('Treatment Mode');
   if (Object.keys(state.details || {}).length < 3) missingFields.push('Additional Details');
-  
+
   if (missingFields.length === 0) return undefined;
-  
+
   return {
     whatIf: `Add missing: ${missingFields.join(', ')}`,
     currentValue: 'Current input has gaps',
@@ -290,12 +305,12 @@ function generateCounterfactualAnalysis(state: TherapyState): CounterfactualAnal
  * Generate recommendations based on analysis
  */
 function generateRecommendations(
-  state: TherapyState, 
-  checks: ConsistencyCheck[], 
+  state: TherapyState,
+  checks: ConsistencyCheck[],
   confidenceScore: number
 ): string[] {
   const recommendations: string[] = [];
-  
+
   // Based on confidence score
   if (confidenceScore < 60) {
     recommendations.push('Add more clinical details to improve note accuracy');
@@ -303,13 +318,13 @@ function generateRecommendations(
   if (confidenceScore < 80) {
     recommendations.push('Consider adding gap analysis responses for Medicare compliance');
   }
-  
+
   // Based on failed checks
-  const failedCritical = checks.filter(c => !c.passed && c.severity === 'critical');
+  const failedCritical = checks.filter((c) => !c.passed && c.severity === 'critical');
   if (failedCritical.length > 0) {
     recommendations.push(`Address ${failedCritical.length} critical issue(s) before finalizing`);
   }
-  
+
   // Based on missing fields
   if (!state.cptCode) {
     recommendations.push('Select a CPT code to ensure proper billing');
@@ -317,50 +332,45 @@ function generateRecommendations(
   if (!state.activity) {
     recommendations.push('Specify the therapeutic activity performed');
   }
-  
+
   // Positive reinforcement
   if (confidenceScore >= 85 && failedCritical.length === 0) {
     recommendations.push('Note is well-supported with high confidence');
   }
-  
+
   return recommendations;
 }
 
 /**
  * Main fact-checking function - validates generated content against input state
  */
-export function factCheckNote(
-  state: TherapyState, 
-  generatedContent: string
-): FactCheckResult {
+export function factCheckNote(state: TherapyState, generatedContent: string): FactCheckResult {
   // Calculate feature attributions
   const featureAttributions = calculateFeatureAttributions(state);
-  
+
   // Perform consistency checks
   const consistencyChecks = performConsistencyChecks(state, generatedContent);
-  
+
   // Calculate confidence score
   const confidenceScore = calculateConfidenceScore(state, consistencyChecks);
-  
+
   // Generate counterfactual analysis
   const counterfactualAnalysis = generateCounterfactualAnalysis(state);
-  
+
   // Generate recommendations
   const recommendations = generateRecommendations(state, consistencyChecks, confidenceScore);
-  
+
   // Determine overall validity
-  const criticalFailures = consistencyChecks.filter(
-    c => !c.passed && c.severity === 'critical'
-  );
-  
+  const criticalFailures = consistencyChecks.filter((c) => !c.passed && c.severity === 'critical');
+
   return {
     isValid: criticalFailures.length === 0,
     confidenceScore,
     featureAttributions,
     consistencyChecks,
     warnings: consistencyChecks
-      .filter(c => !c.passed && c.severity === 'warning')
-      .map(c => c.description),
+      .filter((c) => !c.passed && c.severity === 'warning')
+      .map((c) => c.description),
     recommendations,
     counterfactualAnalysis,
   };
@@ -376,7 +386,7 @@ export function validateInputState(state: TherapyState): {
 } {
   const missingFields: string[] = [];
   const warnings: string[] = [];
-  
+
   if (!state.discipline) missingFields.push('Discipline');
   if (!state.documentType) missingFields.push('Document Type');
   if (!state.cptCode) {
@@ -388,11 +398,11 @@ export function validateInputState(state: TherapyState): {
     }
   }
   if (!state.activity) missingFields.push('Activity');
-  
+
   if (Object.keys(state.details || {}).length < 2) {
     warnings.push('Consider adding more clinical details');
   }
-  
+
   return {
     isValid: missingFields.length === 0,
     missingFields,
@@ -407,12 +417,14 @@ export function enhanceAuditWithSHAP(
   auditResult: AuditResult,
   state: TherapyState
 ): AuditResult & { shapAnalysis: FactCheckResult } {
-  const mockContent = auditResult.checklist 
-    ? Object.entries(auditResult.checklist).map(([k, v]) => `${k}: ${v}`).join(' ')
+  const mockContent = auditResult.checklist
+    ? Object.entries(auditResult.checklist)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(' ')
     : '';
-    
+
   const shapAnalysis = factCheckNote(state, mockContent);
-  
+
   return {
     ...auditResult,
     shapAnalysis,
@@ -424,5 +436,5 @@ export function enhanceAuditWithSHAP(
  */
 export function getFeatureImportanceSummary(attributions: FeatureAttribution[]): string {
   const top3 = attributions.slice(0, 3);
-  return top3.map(a => `${a.feature} (${Math.round(a.importance)}%)`).join(' → ');
+  return top3.map((a) => `${a.feature} (${Math.round(a.importance)}%)`).join(' → ');
 }

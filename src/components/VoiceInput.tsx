@@ -10,7 +10,8 @@ export const VoiceInput: React.FC<VoiceInputProps> = ({ onResult }) => {
   const [recognition, setRecognition] = useState<any>(null);
 
   useEffect(() => {
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const SpeechRecognition =
+      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (SpeechRecognition) {
       const rec = new SpeechRecognition();
       rec.continuous = false;

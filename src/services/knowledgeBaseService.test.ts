@@ -47,7 +47,10 @@ describe('KnowledgeBaseService', () => {
         { name: 'test.txt', type: 'text/plain' },
         { name: 'test.md', type: 'text/markdown' },
         { name: 'test.pdf', type: 'application/pdf' },
-        { name: 'test.docx', type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' },
+        {
+          name: 'test.docx',
+          type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        },
       ];
 
       for (const format of formats) {
@@ -58,11 +61,7 @@ describe('KnowledgeBaseService', () => {
           category: 'Policy',
         };
 
-        const document = await knowledgeBaseService.uploadDocument(
-          file,
-          metadata,
-          userId
-        );
+        const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
         expect(document.fileType).toBe(format.name.split('.').pop());
       }
@@ -77,11 +76,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       expect(document.content).toBe(content);
       expect(document.fileSize).toBe(file.size);
@@ -95,11 +90,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       expect(document.contentHash).toBeDefined();
       expect(document.contentHash).toMatch(/^[a-f0-9]{64}$/); // SHA256 hex
@@ -118,11 +109,7 @@ describe('KnowledgeBaseService', () => {
         expiryDate,
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       expect(document.effectiveDate).toEqual(effectiveDate);
       expect(document.expiryDate).toEqual(expiryDate);
@@ -136,9 +123,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      await expect(
-        knowledgeBaseService.uploadDocument(file, metadata, userId)
-      ).rejects.toThrow();
+      await expect(knowledgeBaseService.uploadDocument(file, metadata, userId)).rejects.toThrow();
     });
   });
 
@@ -151,11 +136,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       await knowledgeBaseService.deleteDocument(document.id, userId);
 
@@ -177,11 +158,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       await expect(
         knowledgeBaseService.deleteDocument(document.id, 'different-user')
@@ -198,11 +175,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const uploaded = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const uploaded = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       const retrieved = await knowledgeBaseService.getDocument(uploaded.id, userId);
 
@@ -226,21 +199,13 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
-      const updated = await knowledgeBaseService.updateDocumentMetadata(
-        document.id,
-        userId,
-        {
-          title: 'Updated Title',
-          description: 'Updated Description',
-          tags: ['updated', 'tag'],
-        }
-      );
+      const updated = await knowledgeBaseService.updateDocumentMetadata(document.id, userId, {
+        title: 'Updated Title',
+        description: 'Updated Description',
+        tags: ['updated', 'tag'],
+      });
 
       expect(updated.title).toBe('Updated Title');
       expect(updated.description).toBe('Updated Description');
@@ -256,18 +221,12 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       await expect(
-        knowledgeBaseService.updateDocumentMetadata(
-          document.id,
-          'different-user',
-          { title: 'New Title' }
-        )
+        knowledgeBaseService.updateDocumentMetadata(document.id, 'different-user', {
+          title: 'New Title',
+        })
       ).rejects.toThrow('Unauthorized');
     });
 
@@ -279,26 +238,18 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       expect(document.version).toBe(1);
 
-      const updated1 = await knowledgeBaseService.updateDocumentMetadata(
-        document.id,
-        userId,
-        { title: 'Updated 1' }
-      );
+      const updated1 = await knowledgeBaseService.updateDocumentMetadata(document.id, userId, {
+        title: 'Updated 1',
+      });
       expect(updated1.version).toBe(2);
 
-      const updated2 = await knowledgeBaseService.updateDocumentMetadata(
-        document.id,
-        userId,
-        { title: 'Updated 2' }
-      );
+      const updated2 = await knowledgeBaseService.updateDocumentMetadata(document.id, userId, {
+        title: 'Updated 2',
+      });
       expect(updated2.version).toBe(3);
     });
   });
@@ -339,7 +290,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       });
 
-      expect(result.documents.every(doc => doc.category === 'Policy')).toBe(true);
+      expect(result.documents.every((doc) => doc.category === 'Policy')).toBe(true);
     });
 
     it('should filter documents by tags', async () => {
@@ -347,7 +298,7 @@ describe('KnowledgeBaseService', () => {
         tags: ['tag1'],
       });
 
-      expect(result.documents.every(doc => doc.tags.includes('tag1'))).toBe(true);
+      expect(result.documents.every((doc) => doc.tags.includes('tag1'))).toBe(true);
     });
 
     it('should paginate results', async () => {
@@ -416,14 +367,14 @@ describe('KnowledgeBaseService', () => {
       const result = await knowledgeBaseService.searchDocuments(userId, 'Privacy');
 
       expect(result.documents.length).toBeGreaterThan(0);
-      expect(result.documents.some(doc => doc.title.includes('Privacy'))).toBe(true);
+      expect(result.documents.some((doc) => doc.title.includes('Privacy'))).toBe(true);
     });
 
     it('should search in title and description', async () => {
       const result = await knowledgeBaseService.searchDocuments(userId, 'HIPAA');
 
       expect(result.documents.length).toBeGreaterThan(0);
-      expect(result.documents.some(doc => doc.description.includes('HIPAA'))).toBe(true);
+      expect(result.documents.some((doc) => doc.description.includes('HIPAA'))).toBe(true);
     });
 
     it('should return empty results for non-matching query', async () => {
@@ -462,18 +413,12 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
-      await knowledgeBaseService.trackDocumentUsage(
-        document.id,
-        'note-123',
-        userId,
-        { discipline: 'PT', documentType: 'Daily' }
-      );
+      await knowledgeBaseService.trackDocumentUsage(document.id, 'note-123', userId, {
+        discipline: 'PT',
+        documentType: 'Daily',
+      });
 
       const stats = await knowledgeBaseService.getDocumentUsageStats(document.id);
 
@@ -491,25 +436,17 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
-      await knowledgeBaseService.trackDocumentUsage(
-        document.id,
-        'note-1',
-        userId,
-        { discipline: 'PT', documentType: 'Daily' }
-      );
+      await knowledgeBaseService.trackDocumentUsage(document.id, 'note-1', userId, {
+        discipline: 'PT',
+        documentType: 'Daily',
+      });
 
-      await knowledgeBaseService.trackDocumentUsage(
-        document.id,
-        'note-2',
-        userId,
-        { discipline: 'OT', documentType: 'Progress' }
-      );
+      await knowledgeBaseService.trackDocumentUsage(document.id, 'note-2', userId, {
+        discipline: 'OT',
+        documentType: 'Progress',
+      });
 
       const stats = await knowledgeBaseService.getDocumentUsageStats(document.id);
 
@@ -528,11 +465,7 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
       const auditLog = await knowledgeBaseService.getDocumentAuditLog(document.id);
 
@@ -549,26 +482,18 @@ describe('KnowledgeBaseService', () => {
         category: 'Policy',
       };
 
-      const document = await knowledgeBaseService.uploadDocument(
-        file,
-        metadata,
-        userId
-      );
+      const document = await knowledgeBaseService.uploadDocument(file, metadata, userId);
 
-      await knowledgeBaseService.updateDocumentMetadata(
-        document.id,
-        userId,
-        { title: 'Updated' }
-      );
+      await knowledgeBaseService.updateDocumentMetadata(document.id, userId, { title: 'Updated' });
 
       await knowledgeBaseService.getDocument(document.id, userId);
 
       const auditLog = await knowledgeBaseService.getDocumentAuditLog(document.id);
 
       expect(auditLog.length).toBeGreaterThanOrEqual(3);
-      expect(auditLog.map(entry => entry.action)).toContain('upload');
-      expect(auditLog.map(entry => entry.action)).toContain('update');
-      expect(auditLog.map(entry => entry.action)).toContain('view');
+      expect(auditLog.map((entry) => entry.action)).toContain('upload');
+      expect(auditLog.map((entry) => entry.action)).toContain('update');
+      expect(auditLog.map((entry) => entry.action)).toContain('view');
     });
   });
 

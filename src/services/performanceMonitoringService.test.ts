@@ -222,17 +222,21 @@ describe('PerformanceMonitoringService', () => {
       const startTime = new Date();
       performanceMonitoringService.recordMetric('test_metric', 100);
 
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 100));
 
       const midTime = new Date();
 
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 100));
 
       performanceMonitoringService.recordMetric('test_metric', 200);
 
       const endTime = new Date();
 
-      const metrics = performanceMonitoringService.getMetricsInRange('test_metric', startTime, midTime);
+      const metrics = performanceMonitoringService.getMetricsInRange(
+        'test_metric',
+        startTime,
+        midTime
+      );
 
       expect(metrics.length).toBeGreaterThan(0);
     });

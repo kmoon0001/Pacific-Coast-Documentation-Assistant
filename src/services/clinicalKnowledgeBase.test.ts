@@ -124,7 +124,8 @@ describe('ClinicalKnowledgeBase', () => {
     it('should pass OT ADL when independence is mentioned', () => {
       const state = createMockTherapyState({
         discipline: 'OT',
-        customNote: 'Patient demonstrated improved independence in dressing with adaptive equipment',
+        customNote:
+          'Patient demonstrated improved independence in dressing with adaptive equipment',
       });
 
       const result = ClinicalKnowledgeBase.rules[6].validate(state);

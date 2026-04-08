@@ -41,7 +41,7 @@ describe('UserService', () => {
     it('should support all user roles', () => {
       const roles = ['admin', 'manager', 'therapist', 'viewer', 'auditor'] as const;
 
-      roles.forEach(role => {
+      roles.forEach((role) => {
         const input: CreateUserInput = {
           email: `${role}@example.com`,
           name: `${role} User`,
@@ -256,7 +256,7 @@ describe('UserService', () => {
 
       const therapists = service.listUsersByRole('therapist');
       expect(therapists).toHaveLength(2);
-      expect(therapists.every(u => u.role === 'therapist')).toBe(true);
+      expect(therapists.every((u) => u.role === 'therapist')).toBe(true);
     });
 
     it('should return empty array for role with no users', () => {

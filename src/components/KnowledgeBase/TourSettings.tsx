@@ -164,9 +164,7 @@ export const TourSettings: React.FC<TourSettingsProps> = ({ onStartTour, onClose
           <div className="tour-settings-tips">
             <div className="tour-tip">
               <span className="tour-tip-icon">💡</span>
-              <p>
-                You can click on any progress dot to jump to that step in the tour.
-              </p>
+              <p>You can click on any progress dot to jump to that step in the tour.</p>
             </div>
 
             <div className="tour-tip">
@@ -178,26 +176,19 @@ export const TourSettings: React.FC<TourSettingsProps> = ({ onStartTour, onClose
 
             <div className="tour-tip">
               <span className="tour-tip-icon">💡</span>
-              <p>
-                You can restart the tour anytime from the settings menu.
-              </p>
+              <p>You can restart the tour anytime from the settings menu.</p>
             </div>
 
             <div className="tour-tip">
               <span className="tour-tip-icon">💡</span>
-              <p>
-                The tour is responsive and works on mobile devices too.
-              </p>
+              <p>The tour is responsive and works on mobile devices too.</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="tour-settings-footer">
-        <button
-          className="tour-settings-btn tour-settings-btn-primary"
-          onClick={onClose}
-        >
+        <button className="tour-settings-btn tour-settings-btn-primary" onClick={onClose}>
           Close Settings
         </button>
       </div>

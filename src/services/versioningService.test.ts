@@ -34,11 +34,7 @@ describe('VersioningService', () => {
 
   describe('createVersion', () => {
     it('should create a new version of a document', async () => {
-      const version = await service.createVersion(
-        mockDocument,
-        'user-1',
-        'Initial version'
-      );
+      const version = await service.createVersion(mockDocument, 'user-1', 'Initial version');
 
       expect(version).toBeDefined();
       expect(version.versionNumber).toBe(1);
@@ -60,11 +56,7 @@ describe('VersioningService', () => {
     });
 
     it('should store version metadata correctly', async () => {
-      const version = await service.createVersion(
-        mockDocument,
-        'user-1',
-        'Test version'
-      );
+      const version = await service.createVersion(mockDocument, 'user-1', 'Test version');
 
       expect(version.title).toBe(mockDocument.title);
       expect(version.description).toBe(mockDocument.description);

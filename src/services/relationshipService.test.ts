@@ -38,24 +38,9 @@ describe('RelationshipService', () => {
     });
 
     it('should support different relationship types', async () => {
-      const supersedes = await service.addRelationship(
-        'doc-1',
-        'doc-2',
-        'supersedes',
-        'user-1'
-      );
-      const relatedTo = await service.addRelationship(
-        'doc-1',
-        'doc-3',
-        'related_to',
-        'user-1'
-      );
-      const dependsOn = await service.addRelationship(
-        'doc-1',
-        'doc-4',
-        'depends_on',
-        'user-1'
-      );
+      const supersedes = await service.addRelationship('doc-1', 'doc-2', 'supersedes', 'user-1');
+      const relatedTo = await service.addRelationship('doc-1', 'doc-3', 'related_to', 'user-1');
+      const dependsOn = await service.addRelationship('doc-1', 'doc-4', 'depends_on', 'user-1');
 
       expect(supersedes.type).toBe('supersedes');
       expect(relatedTo.type).toBe('related_to');
@@ -80,7 +65,7 @@ describe('RelationshipService', () => {
     it('should get outgoing relationships', async () => {
       const rels = await service.getDocumentRelationships('doc-1', 'outgoing');
       expect(rels.length).toBe(2);
-      expect(rels.every(r => r.sourceDocumentId === 'doc-1')).toBe(true);
+      expect(rels.every((r) => r.sourceDocumentId === 'doc-1')).toBe(true);
     });
 
     it('should get incoming relationships', async () => {
@@ -142,7 +127,7 @@ describe('RelationshipService', () => {
 
       const conflicts = await service.detectConflicts('doc-1', 'doc-2');
       expect(conflicts.length).toBeGreaterThan(0);
-      expect(conflicts.some(c => c.type === 'conflicting_supersedes')).toBe(true);
+      expect(conflicts.some((c) => c.type === 'conflicting_supersedes')).toBe(true);
     });
 
     it('should detect multiple supersedes relationships', async () => {
@@ -151,7 +136,7 @@ describe('RelationshipService', () => {
 
       const conflicts = await service.detectConflicts('doc-1', 'doc-4');
       expect(conflicts.length).toBeGreaterThan(0);
-      expect(conflicts.some(c => c.type === 'multiple_supersedes')).toBe(true);
+      expect(conflicts.some((c) => c.type === 'multiple_supersedes')).toBe(true);
     });
 
     it('should return empty array for no conflicts', async () => {
@@ -195,7 +180,7 @@ describe('RelationshipService', () => {
 
     it('should include all connected documents', async () => {
       const graph = await service.getRelationshipGraph('doc-1');
-      const nodeIds = graph.nodes.map(n => n.id);
+      const nodeIds = graph.nodes.map((n) => n.id);
 
       expect(nodeIds).toContain('doc-1');
       expect(nodeIds).toContain('doc-2');
@@ -206,9 +191,9 @@ describe('RelationshipService', () => {
     it('should include all relationships as edges', async () => {
       const graph = await service.getRelationshipGraph('doc-1');
 
-      expect(graph.edges.some(e => e.source === 'doc-1' && e.target === 'doc-2')).toBe(true);
-      expect(graph.edges.some(e => e.source === 'doc-2' && e.target === 'doc-3')).toBe(true);
-      expect(graph.edges.some(e => e.source === 'doc-1' && e.target === 'doc-4')).toBe(true);
+      expect(graph.edges.some((e) => e.source === 'doc-1' && e.target === 'doc-2')).toBe(true);
+      expect(graph.edges.some((e) => e.source === 'doc-2' && e.target === 'doc-3')).toBe(true);
+      expect(graph.edges.some((e) => e.source === 'doc-1' && e.target === 'doc-4')).toBe(true);
     });
   });
 

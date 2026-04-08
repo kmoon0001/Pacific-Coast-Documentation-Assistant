@@ -8,11 +8,7 @@ interface PolicyPanelProps {
   onPolicySelect: (policy: Document) => void;
 }
 
-export function PolicyPanel({
-  discipline,
-  documentType,
-  onPolicySelect,
-}: PolicyPanelProps) {
+export function PolicyPanel({ discipline, documentType, onPolicySelect }: PolicyPanelProps) {
   const [policies, setPolicies] = useState<Document[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [expandedPolicy, setExpandedPolicy] = useState<string | null>(null);
@@ -74,9 +70,7 @@ export function PolicyPanel({
                 onClick={() => setExpandedPolicy(expandedPolicy === policy.id ? null : policy.id)}
               >
                 <div className="policy-title-section">
-                  <span className="expand-icon">
-                    {expandedPolicy === policy.id ? '▼' : '▶'}
-                  </span>
+                  <span className="expand-icon">{expandedPolicy === policy.id ? '▼' : '▶'}</span>
                   <h4>{policy.title}</h4>
                   <span className="category-badge">{policy.category}</span>
                 </div>

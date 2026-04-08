@@ -6,7 +6,8 @@ import { cn } from '../../../lib/utils';
 
 export const ActivityStep: React.FC = () => {
   const { state, setState, handleNext } = useSession();
-  const therapyCatalog = state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA;
+  const therapyCatalog =
+    state.discipline === 'ST' ? ST_DATA : state.discipline === 'OT' ? OT_DATA : PT_DATA;
   const currentCpt = therapyCatalog.find((code) => code.code === state.cptCode);
   const availableModes = currentCpt?.modes ?? [];
   const resolvedMode = availableModes.find((mode) => mode.name === state.mode) ?? availableModes[0];
@@ -17,7 +18,9 @@ export const ActivityStep: React.FC = () => {
       <h2 className="text-4xl font-black tracking-tight text-zinc-950 uppercase italic">
         Clinical <span className="text-zinc-300 not-italic">Activity</span>
       </h2>
-      <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">Specific intervention focus</p>
+      <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">
+        Specific intervention focus
+      </p>
     </div>
   );
 
@@ -26,7 +29,9 @@ export const ActivityStep: React.FC = () => {
       <div className="space-y-12">
         {header}
         <div className="p-8 rounded-[2rem] border-2 border-dashed border-zinc-200 text-center bg-white">
-          <p className="text-sm font-bold text-zinc-500">Select a CPT code before choosing an activity.</p>
+          <p className="text-sm font-bold text-zinc-500">
+            Select a CPT code before choosing an activity.
+          </p>
           <p className="text-[10px] uppercase tracking-widest text-zinc-400 mt-2">
             Your CPT choice unlocks the appropriate clinical activities.
           </p>
@@ -40,8 +45,12 @@ export const ActivityStep: React.FC = () => {
       <div className="space-y-12">
         {header}
         <div className="p-8 rounded-[2rem] border-2 border-dashed border-amber-200 bg-amber-50">
-          <p className="text-sm font-bold text-amber-700">No activities available for {resolvedMode?.name ?? 'this mode'}.</p>
-          <p className="text-[10px] uppercase tracking-widest text-amber-600 mt-2">Update your therapy data catalog to continue.</p>
+          <p className="text-sm font-bold text-amber-700">
+            No activities available for {resolvedMode?.name ?? 'this mode'}.
+          </p>
+          <p className="text-[10px] uppercase tracking-widest text-amber-600 mt-2">
+            Update your therapy data catalog to continue.
+          </p>
         </div>
       </div>
     );
@@ -77,7 +86,9 @@ export const ActivityStep: React.FC = () => {
               <div
                 className={cn(
                   'w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500',
-                  isSelected ? 'bg-white/10 text-white' : 'bg-zinc-50 text-zinc-950 group-hover:bg-zinc-950 group-hover:text-white'
+                  isSelected
+                    ? 'bg-white/10 text-white'
+                    : 'bg-zinc-50 text-zinc-950 group-hover:bg-zinc-950 group-hover:text-white'
                 )}
               >
                 <Activity className="w-6 h-6" />

@@ -1,5 +1,11 @@
 import { logger } from '../lib/logger';
-import { Document, PolicyContext, PromptEnhancement, ComplianceValidation, Discipline } from '../types';
+import {
+  Document,
+  PolicyContext,
+  PromptEnhancement,
+  ComplianceValidation,
+  Discipline,
+} from '../types';
 import { documentProcessingService } from './documentProcessingService';
 
 /**
@@ -93,7 +99,8 @@ class PolicyIntegrationService {
         let score = 0;
 
         // Match query terms
-        const searchText = `${policy.title} ${policy.description} ${policy.tags.join(' ')}`.toLowerCase();
+        const searchText =
+          `${policy.title} ${policy.description} ${policy.tags.join(' ')}`.toLowerCase();
         for (const term of queryTerms) {
           if (searchText.includes(term)) {
             score += 10;
@@ -123,7 +130,7 @@ class PolicyIntegrationService {
       return scored
         .sort((a, b) => b.score - a.score)
         .slice(0, 10)
-        .map(item => item.policy);
+        .map((item) => item.policy);
     } catch (error) {
       logger.error({
         message: 'Failed to get relevant policies',
@@ -149,19 +156,21 @@ class PolicyIntegrationService {
       let policySection = '';
       if (policies.length > 0) {
         policySection = '\n\n## ORGANIZATIONAL POLICIES TO FOLLOW:\n';
-        
+
         for (const policy of policies) {
           policySection += `\n### ${policy.title}\n`;
           policySection += `Category: ${policy.category}\n`;
           policySection += `${policy.description}\n`;
-          
+
           // Extract key requirements
-          const requirements = await documentProcessingService.identifyKeyRequirements(policy.content);
+          const requirements = await documentProcessingService.identifyKeyRequirements(
+            policy.content
+          );
           for (const req of requirements.slice(0, 3)) {
             policySection += `- ${req}\n`;
             injectedRequirements.push(req);
           }
-          
+
           injectedPolicies.push(policy.id);
         }
       }
@@ -204,17 +213,19 @@ class PolicyIntegrationService {
       let policySection = '';
       if (policies.length > 0) {
         policySection = '\n\n## POLICIES TO VALIDATE AGAINST:\n';
-        
+
         for (const policy of policies) {
           policySection += `\n### ${policy.title}\n`;
-          
+
           // Extract compliance items
-          const compliance = await documentProcessingService.extractComplianceContent(policy.content);
+          const compliance = await documentProcessingService.extractComplianceContent(
+            policy.content
+          );
           for (const item of compliance.complianceItems.slice(0, 3)) {
             policySection += `- ${item}\n`;
             injectedRequirements.push(item);
           }
-          
+
           injectedPolicies.push(policy.id);
         }
 
@@ -255,9 +266,11 @@ class PolicyIntegrationService {
       let policySection = '';
       if (policies.length > 0) {
         policySection = '\n\n## POLICY-BASED REQUIREMENTS:\n';
-        
+
         for (const policy of policies) {
-          const requirements = await documentProcessingService.identifyKeyRequirements(policy.content);
+          const requirements = await documentProcessingService.identifyKeyRequirements(
+            policy.content
+          );
           for (const req of requirements.slice(0, 5)) {
             policySection += `- ${req}\n`;
             injectedRequirements.push(req);
@@ -305,14 +318,17 @@ class PolicyIntegrationService {
       for (const policy of policies) {
         // Extract compliance requirements
         const compliance = await documentProcessingService.extractComplianceContent(policy.content);
-        
+
         // Check for compliance items in note
         let policyApplied = false;
         for (const item of compliance.complianceItems) {
-          const itemTerms = item.toLowerCase().split(/\s+/).filter(t => t.length > 3);
+          const itemTerms = item
+            .toLowerCase()
+            .split(/\s+/)
+            .filter((t) => t.length > 3);
           const noteText = note.toLowerCase();
-          
-          if (itemTerms.some(term => noteText.includes(term))) {
+
+          if (itemTerms.some((term) => noteText.includes(term))) {
             policyApplied = true;
           } else {
             violations.push(`Missing compliance item from ${policy.title}: ${item}`);
@@ -350,15 +366,15 @@ class PolicyIntegrationService {
    */
   private determinePriority(requirement: string): 'high' | 'medium' | 'low' {
     const text = requirement.toLowerCase();
-    
+
     if (/must|shall|required|critical|mandatory/i.test(text)) {
       return 'high';
     }
-    
+
     if (/should|recommended|important/i.test(text)) {
       return 'medium';
     }
-    
+
     return 'low';
   }
 
@@ -381,7 +397,7 @@ class PolicyIntegrationService {
       if (styleLines.length > 0) {
         return styleLines.join('\n');
       }
-      
+
       return document.description || '';
     } catch (error) {
       logger.error({

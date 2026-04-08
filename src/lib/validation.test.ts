@@ -7,7 +7,11 @@ import {
   DisciplineSchema,
   DocumentTypeSchema,
 } from './validation';
-import { createMockTherapyState, createMockGeneratedNote, createMockClipboardItem } from '../__tests__/fixtures';
+import {
+  createMockTherapyState,
+  createMockGeneratedNote,
+  createMockClipboardItem,
+} from '../__tests__/fixtures';
 
 describe('Validation Module', () => {
   describe('DisciplineSchema', () => {

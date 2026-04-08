@@ -12,8 +12,8 @@ export const VoiceInput = ({ onTranscript }: { onTranscript: (t: string) => void
         toggleListening();
       }}
       className={cn(
-        "p-2 rounded-full transition-all",
-        isListening ? "bg-red-500 text-white" : "bg-zinc-100 text-zinc-400 hover:bg-zinc-200"
+        'p-2 rounded-full transition-all',
+        isListening ? 'bg-red-500 text-white' : 'bg-zinc-100 text-zinc-400 hover:bg-zinc-200'
       )}
     >
       <Mic className="w-4 h-4" />

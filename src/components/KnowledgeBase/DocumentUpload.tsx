@@ -8,11 +8,7 @@ interface DocumentUploadProps {
   category?: DocumentCategory;
 }
 
-export function DocumentUpload({
-  onUploadComplete,
-  onError,
-  category,
-}: DocumentUploadProps) {
+export function DocumentUpload({ onUploadComplete, onError, category }: DocumentUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -53,7 +49,12 @@ export function DocumentUpload({
   const handleFileSelect = async (file: File) => {
     try {
       // Validate file type
-      const validTypes = ['text/plain', 'text/markdown', 'application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      const validTypes = [
+        'text/plain',
+        'text/markdown',
+        'application/pdf',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      ];
       if (!validTypes.includes(file.type)) {
         throw new Error('Invalid file type. Supported: TXT, MD, PDF, DOCX');
       }
@@ -77,7 +78,7 @@ export function DocumentUpload({
 
       // Simulate progress
       const progressInterval = setInterval(() => {
-        setUploadProgress(prev => Math.min(prev + 10, 90));
+        setUploadProgress((prev) => Math.min(prev + 10, 90));
       }, 100);
 
       // Read file as base64
@@ -90,7 +91,7 @@ export function DocumentUpload({
             title: formData.title,
             description: formData.description,
             category: formData.category,
-            tags: formData.tags ? formData.tags.split(',').map(t => t.trim()) : [],
+            tags: formData.tags ? formData.tags.split(',').map((t) => t.trim()) : [],
             effectiveDate: formData.effectiveDate ? new Date(formData.effectiveDate) : undefined,
             expiryDate: formData.expiryDate ? new Date(formData.expiryDate) : undefined,
           };
@@ -236,7 +237,9 @@ export function DocumentUpload({
             <select
               id="category"
               value={formData.category}
-              onChange={(e) => setFormData({ ...formData, category: e.target.value as DocumentCategory })}
+              onChange={(e) =>
+                setFormData({ ...formData, category: e.target.value as DocumentCategory })
+              }
               disabled={isUploading}
               required
             >

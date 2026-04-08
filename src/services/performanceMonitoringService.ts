@@ -53,7 +53,7 @@ class PerformanceMonitoringService {
       return null;
     }
 
-    const values = metricsList.map(m => m.value).sort((a, b) => a - b);
+    const values = metricsList.map((m) => m.value).sort((a, b) => a - b);
     const count = values.length;
 
     return {
@@ -163,7 +163,7 @@ class PerformanceMonitoringService {
       return [];
     }
 
-    return metricsList.filter(m => m.timestamp >= startTime && m.timestamp <= endTime);
+    return metricsList.filter((m) => m.timestamp >= startTime && m.timestamp <= endTime);
   }
 
   /**
@@ -195,8 +195,8 @@ class PerformanceMonitoringService {
       return 'stable';
     }
 
-    const recentValues = metricsList.slice(-windowSize).map(m => m.value);
-    const olderValues = metricsList.slice(-windowSize * 2, -windowSize).map(m => m.value);
+    const recentValues = metricsList.slice(-windowSize).map((m) => m.value);
+    const olderValues = metricsList.slice(-windowSize * 2, -windowSize).map((m) => m.value);
 
     const recentAvg = recentValues.reduce((a, b) => a + b, 0) / recentValues.length;
     const olderAvg = olderValues.reduce((a, b) => a + b, 0) / olderValues.length;

@@ -11,12 +11,12 @@ class DocumentProcessingService {
    */
   async parseDocumentStructure(content: string): Promise<DocumentStructure> {
     try {
-      const lines = content.split('\n').filter(line => line.trim());
-      
+      const lines = content.split('\n').filter((line) => line.trim());
+
       // Extract title (first non-empty line or first heading)
       let title = '';
       let contentStart = 0;
-      
+
       for (let i = 0; i < lines.length; i++) {
         if (lines[i].startsWith('#')) {
           title = lines[i].replace(/^#+\s*/, '').trim();
@@ -24,17 +24,17 @@ class DocumentProcessingService {
           break;
         }
       }
-      
+
       if (!title && lines.length > 0) {
         title = lines[0].substring(0, 100);
       }
 
       // Parse sections
       const sections = this.parseSections(lines.slice(contentStart));
-      
+
       // Extract key points
       const keyPoints = this.extractKeyPoints(content);
-      
+
       // Generate summary
       const summary = this.generateSummary(content);
 
@@ -63,7 +63,7 @@ class DocumentProcessingService {
 
     for (const line of lines) {
       const headingMatch = line.match(/^(#+)\s+(.+)$/);
-      
+
       if (headingMatch) {
         const level = headingMatch[1].length;
         const heading = headingMatch[2].trim();
@@ -106,7 +106,7 @@ class DocumentProcessingService {
     }
 
     // Extract key points for each section
-    sections.forEach(section => {
+    sections.forEach((section) => {
       section.keyPoints = this.extractKeyPointsFromText(section.content);
     });
 
@@ -128,7 +128,7 @@ class DocumentProcessingService {
           keyPoints.push(point);
         }
       }
-      
+
       // Look for emphasized text (bold or italic)
       const boldMatch = line.match(/\*\*(.+?)\*\*/);
       if (boldMatch && boldMatch[1].length > 10 && boldMatch[1].length < 200) {
@@ -144,7 +144,7 @@ class DocumentProcessingService {
    */
   private extractKeyPointsFromText(text: string): string[] {
     const keyPoints: string[] = [];
-    const sentences = text.split(/[.!?]+/).filter(s => s.trim());
+    const sentences = text.split(/[.!?]+/).filter((s) => s.trim());
 
     for (const sentence of sentences) {
       const trimmed = sentence.trim();
@@ -160,13 +160,13 @@ class DocumentProcessingService {
    * Generate summary from content
    */
   private generateSummary(content: string): string {
-    const sentences = content.split(/[.!?]+/).filter(s => s.trim());
-    
+    const sentences = content.split(/[.!?]+/).filter((s) => s.trim());
+
     // Take first 3 sentences as summary
     const summary = sentences
       .slice(0, 3)
-      .map(s => s.trim())
-      .filter(s => s.length > 0)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0)
       .join('. ');
 
     return summary.substring(0, 500) + (summary.length > 500 ? '...' : '');
@@ -235,7 +235,7 @@ class DocumentProcessingService {
       }
 
       // Check for content organization
-      const paragraphs = content.split('\n\n').filter(p => p.trim());
+      const paragraphs = content.split('\n\n').filter((p) => p.trim());
       if (paragraphs.length < 2) {
         issues.push('Document lacks clear organization (too few paragraphs)');
         score -= 10;
@@ -277,17 +277,16 @@ class DocumentProcessingService {
 
       for (const doc of existingDocuments) {
         const existingTerms = this.extractKeyTerms(doc.content);
-        
+
         // Calculate overlap
-        const overlap = newTerms.filter(term => 
-          existingTerms.some(eTerm => 
-            eTerm.toLowerCase() === term.toLowerCase()
-          )
+        const overlap = newTerms.filter((term) =>
+          existingTerms.some((eTerm) => eTerm.toLowerCase() === term.toLowerCase())
         );
 
         if (overlap.length > 0) {
-          const conflictScore = (overlap.length / Math.max(newTerms.length, existingTerms.length)) * 100;
-          
+          const conflictScore =
+            (overlap.length / Math.max(newTerms.length, existingTerms.length)) * 100;
+
           if (conflictScore > 30) {
             conflicts.push({
               documentId: doc.id,
@@ -315,7 +314,7 @@ class DocumentProcessingService {
     // Extract words that are likely important (longer words, capitalized, etc.)
     const words = content.match(/\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b/g) || [];
     const longWords = content.match(/\b\w{6,}\b/g) || [];
-    
+
     return [...new Set([...words, ...longWords])].slice(0, 50);
   }
 

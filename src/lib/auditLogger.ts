@@ -9,8 +9,31 @@ export interface AuditEvent {
   id: string;
   timestamp: Date;
   userId?: string;
-  action: 'note_generated' | 'note_modified' | 'note_deleted' | 'user_login' | 'user_logout' | 'audit_run' | 'export' | 'access' | 'BULK_UPLOAD' | 'BULK_DELETE' | 'BULK_UPDATE_TAGS' | 'BULK_UPDATE_CATEGORY' | 'CREATE_RELATIONSHIP' | 'DELETE_RELATIONSHIP' | 'UPDATE_RELATIONSHIP' | 'CREATE_VERSION' | 'RESTORE_VERSION';
-  resourceType: 'note' | 'user' | 'system' | 'Document' | 'DocumentRelationship' | 'DocumentVersion';
+  action:
+    | 'note_generated'
+    | 'note_modified'
+    | 'note_deleted'
+    | 'user_login'
+    | 'user_logout'
+    | 'audit_run'
+    | 'export'
+    | 'access'
+    | 'BULK_UPLOAD'
+    | 'BULK_DELETE'
+    | 'BULK_UPDATE_TAGS'
+    | 'BULK_UPDATE_CATEGORY'
+    | 'CREATE_RELATIONSHIP'
+    | 'DELETE_RELATIONSHIP'
+    | 'UPDATE_RELATIONSHIP'
+    | 'CREATE_VERSION'
+    | 'RESTORE_VERSION';
+  resourceType:
+    | 'note'
+    | 'user'
+    | 'system'
+    | 'Document'
+    | 'DocumentRelationship'
+    | 'DocumentVersion';
   resourceId: string;
   details: Record<string, any>;
   ipAddress?: string;
@@ -206,7 +229,7 @@ class AuditLogger {
    */
   getUserEvents(userId: string, limit: number = 100): AuditEvent[] {
     return this.events
-      .filter(event => event.userId === userId)
+      .filter((event) => event.userId === userId)
       .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
       .slice(0, limit);
   }
@@ -216,7 +239,7 @@ class AuditLogger {
    */
   getNoteEvents(noteId: string): AuditEvent[] {
     return this.events
-      .filter(event => event.resourceId === noteId)
+      .filter((event) => event.resourceId === noteId)
       .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
   }
 
@@ -225,7 +248,7 @@ class AuditLogger {
    */
   generateReport(startDate: Date, endDate: Date): AuditReport {
     const periodEvents = this.events.filter(
-      event => event.timestamp >= startDate && event.timestamp <= endDate
+      (event) => event.timestamp >= startDate && event.timestamp <= endDate
     );
 
     const eventsByAction: Record<string, number> = {};
@@ -235,7 +258,7 @@ class AuditLogger {
     let auditsPassed = 0;
     let auditsFailed = 0;
 
-    periodEvents.forEach(event => {
+    periodEvents.forEach((event) => {
       // Count by action
       eventsByAction[event.action] = (eventsByAction[event.action] || 0) + 1;
 
@@ -281,7 +304,7 @@ class AuditLogger {
     cutoffDate.setDate(cutoffDate.getDate() - this.maxRetentionDays);
 
     const initialLength = this.events.length;
-    this.events = this.events.filter(event => event.timestamp > cutoffDate);
+    this.events = this.events.filter((event) => event.timestamp > cutoffDate);
 
     const deletedCount = initialLength - this.events.length;
     if (deletedCount > 0) {
@@ -302,8 +325,16 @@ class AuditLogger {
     }
 
     // CSV format
-    const headers = ['ID', 'Timestamp', 'User ID', 'Action', 'Resource Type', 'Resource ID', 'Status'];
-    const rows = this.events.map(event => [
+    const headers = [
+      'ID',
+      'Timestamp',
+      'User ID',
+      'Action',
+      'Resource Type',
+      'Resource ID',
+      'Status',
+    ];
+    const rows = this.events.map((event) => [
       event.id,
       event.timestamp.toISOString(),
       event.userId || '',
@@ -314,7 +345,7 @@ class AuditLogger {
     ]);
 
     const csv = [headers, ...rows]
-      .map(row => row.map(cell => `"${cell}"`).join(','))
+      .map((row) => row.map((cell) => `"${cell}"`).join(','))
       .join('\n');
 
     return csv;

@@ -24,66 +24,66 @@ describe('useVoiceDictation Hook', () => {
 
   it('should initialize with default state', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     expect(result.current.isListening).toBe(false);
     expect(result.current.toggleListening).toBeDefined();
   });
 
   it('should toggle listening', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
   });
 
   it('should toggle listening off', () => {
     const { result, rerender } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(false);
   });
 
   it('should call onTranscript callback', () => {
     const onTranscript = vi.fn();
     const { result } = renderHook(() => useVoiceDictation(onTranscript));
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
   });
 
   it('should handle multiple toggle cycles', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     act(() => {
       result.current.toggleListening();
     });
     expect(result.current.isListening).toBe(true);
-    
+
     act(() => {
       result.current.toggleListening();
     });
     expect(result.current.isListening).toBe(false);
-    
+
     act(() => {
       result.current.toggleListening();
     });
     expect(result.current.isListening).toBe(true);
-    
+
     act(() => {
       result.current.toggleListening();
     });
@@ -92,13 +92,13 @@ describe('useVoiceDictation Hook', () => {
 
   it('should track listening state', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     expect(result.current.isListening).toBe(false);
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
   });
 
@@ -106,48 +106,48 @@ describe('useVoiceDictation Hook', () => {
     const originalSpeechRecognition = global.SpeechRecognition;
     delete (global as any).SpeechRecognition;
     delete (global as any).webkitSpeechRecognition;
-    
+
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     expect(result.current.isListening).toBe(false);
-    
+
     global.SpeechRecognition = originalSpeechRecognition;
   });
 
   it('should provide toggleListening function', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     expect(typeof result.current.toggleListening).toBe('function');
   });
 
   it('should handle continuous listening', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
   });
 
   it('should handle interim results', () => {
     const { result } = renderHook(() => useVoiceDictation(() => {}));
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
   });
 
   it('should call onTranscript with transcript data', () => {
     const onTranscript = vi.fn();
     const { result } = renderHook(() => useVoiceDictation(onTranscript));
-    
+
     act(() => {
       result.current.toggleListening();
     });
-    
+
     expect(result.current.isListening).toBe(true);
   });
 });

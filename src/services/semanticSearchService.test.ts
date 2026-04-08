@@ -15,7 +15,8 @@ describe('SemanticSearchService', () => {
         title: 'Physical Therapy Guidelines',
         description: 'Guidelines for physical therapy treatment',
         category: 'Guidance',
-        content: 'Physical therapy involves therapeutic exercises and manual techniques to improve mobility and function.',
+        content:
+          'Physical therapy involves therapeutic exercises and manual techniques to improve mobility and function.',
         contentHash: 'hash-1',
         fileType: 'pdf',
         fileSize: 1024,
@@ -32,7 +33,8 @@ describe('SemanticSearchService', () => {
         title: 'Occupational Therapy Standards',
         description: 'Standards for occupational therapy practice',
         category: 'Procedure',
-        content: 'Occupational therapy focuses on helping patients develop skills for daily living and work activities.',
+        content:
+          'Occupational therapy focuses on helping patients develop skills for daily living and work activities.',
         contentHash: 'hash-2',
         fileType: 'pdf',
         fileSize: 2048,
@@ -49,7 +51,8 @@ describe('SemanticSearchService', () => {
         title: 'Speech Therapy Protocols',
         description: 'Protocols for speech and language therapy',
         category: 'Procedure',
-        content: 'Speech therapy addresses communication disorders and helps patients improve speech clarity and language skills.',
+        content:
+          'Speech therapy addresses communication disorders and helps patients improve speech clarity and language skills.',
         contentHash: 'hash-3',
         fileType: 'pdf',
         fileSize: 1536,
@@ -112,7 +115,10 @@ describe('SemanticSearchService', () => {
     });
 
     it('should perform semantic search', async () => {
-      const results = await semanticSearchService.semanticSearch('therapy treatment', testDocuments);
+      const results = await semanticSearchService.semanticSearch(
+        'therapy treatment',
+        testDocuments
+      );
 
       expect(results).toBeDefined();
       expect(results.length).toBeGreaterThan(0);
@@ -220,7 +226,9 @@ describe('SemanticSearchService', () => {
 
       expect(results.results.length).toBeGreaterThan(0);
       for (let i = 1; i < results.results.length; i++) {
-        expect(results.results[i - 1].similarityScore).toBeGreaterThanOrEqual(results.results[i].similarityScore);
+        expect(results.results[i - 1].similarityScore).toBeGreaterThanOrEqual(
+          results.results[i].similarityScore
+        );
       }
     });
 

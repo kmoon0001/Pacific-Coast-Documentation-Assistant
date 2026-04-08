@@ -38,11 +38,7 @@ vi.mock('../../components/TherapyApp/steps/GenerateStep', () => ({
 }));
 
 const renderWithProvider = (component: React.ReactElement) => {
-  return render(
-    <TherapySessionProvider>
-      {component}
-    </TherapySessionProvider>
-  );
+  return render(<TherapySessionProvider>{component}</TherapySessionProvider>);
 };
 
 describe('StepContent Component', () => {
@@ -52,13 +48,13 @@ describe('StepContent Component', () => {
 
   it('should render discipline step on step 0', () => {
     renderWithProvider(<StepContent />);
-    
+
     expect(screen.getByTestId('discipline-step')).toBeInTheDocument();
   });
 
   it('should render document type step on step 1', async () => {
     renderWithProvider(<StepContent />);
-    
+
     // This would require navigation to step 1
     // Implementation depends on context setup
     expect(screen.getByTestId('discipline-step')).toBeInTheDocument();
@@ -66,33 +62,33 @@ describe('StepContent Component', () => {
 
   it('should render correct step based on current step index', () => {
     renderWithProvider(<StepContent />);
-    
+
     // Verify initial step renders
     expect(screen.getByTestId('discipline-step')).toBeInTheDocument();
   });
 
   it('should pass state and setState to step components', () => {
     renderWithProvider(<StepContent />);
-    
+
     expect(screen.getByTestId('discipline-step')).toBeInTheDocument();
   });
 
   it('should handle step transitions', async () => {
     renderWithProvider(<StepContent />);
-    
+
     expect(screen.getByTestId('discipline-step')).toBeInTheDocument();
   });
 
   it('should render with proper animation', () => {
     const { container } = renderWithProvider(<StepContent />);
-    
+
     const animatedDiv = container.querySelector('[class*="motion"]');
     expect(animatedDiv || screen.getByTestId('discipline-step')).toBeInTheDocument();
   });
 
   it('should handle all step types', () => {
     renderWithProvider(<StepContent />);
-    
+
     expect(screen.getByTestId('discipline-step')).toBeInTheDocument();
   });
 });

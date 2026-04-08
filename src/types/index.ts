@@ -216,11 +216,26 @@ export interface GeneratedNote {
   type: string;
 }
 
+export interface ClipboardItem {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: string;
+}
+
+export interface CustomTemplate {
+  name: string;
+  state: TherapyState;
+  createdAt: string;
+}
+
 export interface StepContentProps {
   step: number;
   state: TherapyState;
-  setState: (state: any) => void;
-  currentData: any;
+  setState: (state: Partial<TherapyState>) => void;
+  currentData: {
+    cptCodes: Array<{ code: string; description: string; modes: Array<{ name: string; activities: Array<any> }> }>;
+  };
   currentSteps: string[];
   handleNext: () => void;
   handleBack: () => void;
@@ -236,19 +251,21 @@ export interface StepContentProps {
   isAuditing: boolean;
   auditResult: AuditResult | undefined;
   handleAudit: () => void;
-  previousNote: any;
-  setPreviousNote: (note: any) => void;
+  previousNote: string | null;
+  setPreviousNote: (note: string | null) => void;
   history: GeneratedNote[];
-  clipboard: any[];
-  setClipboard: (clipboard: any[]) => void;
+  clipboard: ClipboardItem[];
+  setClipboard: (clipboard: ClipboardItem[]) => void;
   brainDump: string;
   setBrainDump: (dump: string) => void;
   brainDumpMode: 'Daily' | 'Assessment' | 'Progress' | 'Recertification' | 'Discharge';
-  setBrainDumpMode: (mode: 'Daily' | 'Assessment' | 'Progress' | 'Recertification' | 'Discharge') => void;
+  setBrainDumpMode: (
+    mode: 'Daily' | 'Assessment' | 'Progress' | 'Recertification' | 'Discharge'
+  ) => void;
   isParsingBrainDump: boolean;
   handleBrainDump: () => void;
-  customTemplates: any[];
-  setCustomTemplates: (templates: any[]) => void;
+  customTemplates: CustomTemplate[];
+  setCustomTemplates: (templates: CustomTemplate[]) => void;
   finalizeSession: () => void;
   sanitizeHistory: () => void;
   isLocalMode: boolean;

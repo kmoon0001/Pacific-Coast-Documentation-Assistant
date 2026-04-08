@@ -27,9 +27,7 @@ const createProps = (overrides: Partial<PreviewPanelProps> = {}): PreviewPanelPr
   onToggleTumbleOptions: vi.fn(),
   error: null,
   groundingMetadata: undefined,
-  SNFTemplates: [
-    { id: 'template-1', name: 'Safety', content: 'Add fall-prevention cues.' },
-  ],
+  SNFTemplates: [{ id: 'template-1', name: 'Safety', content: 'Add fall-prevention cues.' }],
   generateNursingHandOff: vi.fn(() => 'Handoff summary'),
   state: createMockTherapyState({
     discipline: 'PT',
@@ -87,7 +85,10 @@ describe('PreviewPanel Component', () => {
     expect(props.onSaveTemplate).toHaveBeenCalled();
 
     await user.click(screen.getByTitle(/nursing hand-off/i));
-    expect(props.generateNursingHandOff).toHaveBeenCalledWith(expect.any(String), expect.any(Object));
+    expect(props.generateNursingHandOff).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.any(Object)
+    );
     expect(clipboardSpy).toHaveBeenCalledWith('Handoff summary');
     clipboardSpy.mockRestore();
     expect(globalThis.alert).toHaveBeenCalled();
@@ -107,7 +108,9 @@ describe('PreviewPanel Component', () => {
     expect(props.onToggleTumbleOptions).toHaveBeenCalledWith(true);
 
     await user.click(screen.getByText('Safety'));
-    expect(props.onEditedNoteChange).toHaveBeenCalledWith(expect.stringContaining('Add fall-prevention cues.'));
+    expect(props.onEditedNoteChange).toHaveBeenCalledWith(
+      expect.stringContaining('Add fall-prevention cues.')
+    );
 
     await user.click(screen.getByText(/edit text/i));
     expect(props.onEdit).toHaveBeenCalledWith(true);
@@ -123,5 +126,3 @@ describe('PreviewPanel Component', () => {
     expect(screen.getByRole('button', { name: /dismiss alert/i })).toBeInTheDocument();
   });
 });
-
-

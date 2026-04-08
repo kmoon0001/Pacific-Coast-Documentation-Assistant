@@ -13,7 +13,8 @@ describe('generateNursingHandOff', () => {
   });
 
   it('includes the beginning of the generated note in the Assessment section', () => {
-    const longNote = 'Patient tolerated therapy without pain. Plan to progress ambulation and balance goals tomorrow.';
+    const longNote =
+      'Patient tolerated therapy without pain. Plan to progress ambulation and balance goals tomorrow.';
     const state = createMockTherapyState({ discipline: 'OT', activity: 'therapeutic activities' });
     const summary = generateNursingHandOff(longNote, state);
 

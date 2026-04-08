@@ -24,7 +24,9 @@ describe('ActivityStep Component', () => {
     renderActivityStep({ activity: undefined });
 
     expect(screen.getByRole('heading', { name: /clinical activity/i })).toBeInTheDocument();
-    expect(screen.getByText(/showing activities for lower extremity strengthening/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/showing activities for lower extremity strengthening/i)
+    ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /closed kinetic chain/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /open kinetic chain/i })).toBeInTheDocument();
   });

@@ -67,7 +67,7 @@ export class VersioningService {
     const versions = this.versions.get(documentId);
     if (!versions) return null;
 
-    return versions.find(v => v.versionNumber === versionNumber) || null;
+    return versions.find((v) => v.versionNumber === versionNumber) || null;
   }
 
   /**
@@ -285,7 +285,7 @@ export class VersioningService {
     let hash = 0;
     for (let i = 0; i < content.length; i++) {
       const char = content.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
+      hash = (hash << 5) - hash + char;
       hash = hash & hash; // Convert to 32bit integer
     }
     return hash.toString(16);

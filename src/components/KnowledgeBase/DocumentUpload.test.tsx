@@ -12,9 +12,12 @@ class MockFileReader {
 
   readAsDataURL(file: File) {
     this.result = 'data:' + file.type + ';base64,ZmFrZUJhc2U2NA==';
-    this.onload?.call(this as unknown as FileReader, {
-      target: { result: this.result },
-    } as ProgressEvent<FileReader>);
+    this.onload?.call(
+      this as unknown as FileReader,
+      {
+        target: { result: this.result },
+      } as ProgressEvent<FileReader>
+    );
   }
 }
 
@@ -34,9 +37,7 @@ describe('DocumentUpload', () => {
 
   it('rejects unsupported file types before hitting the network', () => {
     const onError = vi.fn();
-    const { container } = render(
-      <DocumentUpload onUploadComplete={vi.fn()} onError={onError} />
-    );
+    const { container } = render(<DocumentUpload onUploadComplete={vi.fn()} onError={onError} />);
 
     const fileInput = container.querySelector('input[type="file"]') as HTMLInputElement;
     const invalidFile = new File(['data'], 'malware.exe', { type: 'application/octet-stream' });
@@ -66,9 +67,7 @@ describe('DocumentUpload', () => {
     fireEvent.change(fileInput, { target: { files: [validFile] } });
 
     await waitFor(() => expect(fetchMock).toHaveBeenCalled());
-    expect(onUploadComplete).toHaveBeenCalledWith(
-      expect.objectContaining({ id: 'doc-25' })
-    );
+    expect(onUploadComplete).toHaveBeenCalledWith(expect.objectContaining({ id: 'doc-25' }));
     expect((screen.getByLabelText(/title/i) as HTMLInputElement).value).toBe('');
   });
 });

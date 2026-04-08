@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Sparkles, 
-  RefreshCw, 
-  Copy, 
-  CheckCircle2, 
-  AlertCircle, 
-  ShieldCheck, 
-  Save, 
-  Clock, 
-  Trash2
+import {
+  Sparkles,
+  RefreshCw,
+  Copy,
+  CheckCircle2,
+  AlertCircle,
+  ShieldCheck,
+  Save,
+  Clock,
+  Trash2,
 } from 'lucide-react';
 import { useSession } from '../../../contexts/TherapySessionContext';
 import { cn } from '../../../lib/utils';
@@ -32,14 +32,18 @@ export const GenerateStep: React.FC = () => {
     clipboard,
     setClipboard,
     finalizeSession,
-    sanitizeHistory
+    sanitizeHistory,
   } = useSession();
   return (
     <div className="space-y-12">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="space-y-4">
-          <h2 className="text-4xl font-black tracking-tight text-zinc-950 uppercase italic">Clinical <span className="text-zinc-300 not-italic">Note</span></h2>
-          <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">AI-generated documentation</p>
+          <h2 className="text-4xl font-black tracking-tight text-zinc-950 uppercase italic">
+            Clinical <span className="text-zinc-300 not-italic">Note</span>
+          </h2>
+          <p className="text-sm font-bold text-zinc-400 uppercase tracking-widest">
+            AI-generated documentation
+          </p>
         </div>
         {!generatedNote && !isGenerating && (
           <button
@@ -59,8 +63,12 @@ export const GenerateStep: React.FC = () => {
             <Sparkles className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-zinc-950 animate-pulse" />
           </div>
           <div className="text-center space-y-3">
-            <p className="text-lg font-black uppercase tracking-widest text-zinc-950">Synthesizing Clinical Data</p>
-            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.3em] animate-pulse">Applying Medicare Compliance Rules...</p>
+            <p className="text-lg font-black uppercase tracking-widest text-zinc-950">
+              Synthesizing Clinical Data
+            </p>
+            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.3em] animate-pulse">
+              Applying Medicare Compliance Rules...
+            </p>
           </div>
         </div>
       ) : generatedNote ? (
@@ -68,7 +76,7 @@ export const GenerateStep: React.FC = () => {
           <div className="xl:col-span-8 space-y-8">
             <div className="bg-zinc-50 rounded-[2.5rem] p-10 border-2 border-zinc-100 relative group">
               <div className="absolute top-6 right-6 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-all">
-                <button 
+                <button
                   onClick={() => {
                     navigator.clipboard.writeText(editedNote || generatedNote);
                   }}
@@ -77,13 +85,13 @@ export const GenerateStep: React.FC = () => {
                 >
                   <Copy className="w-4 h-4" />
                 </button>
-                <button 
+                <button
                   onClick={() => {
                     const newNote = {
                       id: Date.now().toString(),
                       title: `${state.discipline} ${state.documentType} Note`,
                       content: editedNote || generatedNote,
-                      date: new Date().toLocaleDateString()
+                      date: new Date().toLocaleDateString(),
                     };
                     const updated = [newNote, ...clipboard];
                     setClipboard(updated);
@@ -113,7 +121,12 @@ export const GenerateStep: React.FC = () => {
                 disabled={isTumbling}
                 className="px-8 py-4 bg-white border-2 border-zinc-950 text-zinc-950 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-zinc-950 hover:text-white transition-all flex items-center gap-3 group disabled:opacity-50"
               >
-                <RefreshCw className={cn("w-4 h-4 group-hover:rotate-180 transition-transform duration-700", isTumbling && "animate-spin")} />
+                <RefreshCw
+                  className={cn(
+                    'w-4 h-4 group-hover:rotate-180 transition-transform duration-700',
+                    isTumbling && 'animate-spin'
+                  )}
+                />
                 {isTumbling ? 'Tumbling...' : 'Tumble Style'}
               </button>
               <button
@@ -121,7 +134,9 @@ export const GenerateStep: React.FC = () => {
                 disabled={isAuditing}
                 className="px-8 py-4 bg-zinc-100 hover:bg-zinc-200 text-zinc-950 rounded-2xl font-black text-xs uppercase tracking-widest transition-all flex items-center gap-3 group disabled:opacity-50"
               >
-                <ShieldCheck className={cn("w-4 h-4", isAuditing && "animate-pulse text-emerald-500")} />
+                <ShieldCheck
+                  className={cn('w-4 h-4', isAuditing && 'animate-pulse text-emerald-500')}
+                />
                 {isAuditing ? 'Auditing...' : 'AI Compliance Audit'}
               </button>
               <button
@@ -138,13 +153,15 @@ export const GenerateStep: React.FC = () => {
             {/* Audit Results */}
             <AnimatePresence>
               {auditResult && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="bg-zinc-950 text-white rounded-[2rem] p-8 space-y-6 shadow-2xl shadow-zinc-950/20"
                 >
                   <div className="flex items-center justify-between">
-                    <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Compliance Audit</h3>
+                    <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                      Compliance Audit
+                    </h3>
                     <div className="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-[10px] font-black uppercase tracking-widest">
                       Score: {auditResult.complianceScore}%
                     </div>
@@ -166,8 +183,10 @@ export const GenerateStep: React.FC = () => {
             {/* Recent Sessions */}
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Recent Sessions</h3>
-                <button 
+                <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">
+                  Recent Sessions
+                </h3>
+                <button
                   onClick={sanitizeHistory}
                   className="p-2 hover:bg-red-50 text-zinc-300 hover:text-red-500 rounded-lg transition-all group"
                   title="Sanitize History (HIPAA)"
@@ -179,7 +198,9 @@ export const GenerateStep: React.FC = () => {
                 {history.length === 0 ? (
                   <div className="p-8 rounded-3xl border-2 border-dashed border-zinc-100 text-center">
                     <Clock className="w-8 h-8 text-zinc-100 mx-auto mb-3" />
-                    <p className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest">No history yet</p>
+                    <p className="text-[10px] font-bold text-zinc-300 uppercase tracking-widest">
+                      No history yet
+                    </p>
                   </div>
                 ) : (
                   history.slice(0, 3).map((h, i) => (
@@ -192,10 +213,16 @@ export const GenerateStep: React.FC = () => {
                       className="w-full p-6 bg-white border border-zinc-100 rounded-3xl text-left hover:border-zinc-950 transition-all group"
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-[9px] font-black uppercase tracking-widest text-zinc-400">{h.timestamp}</span>
-                        <span className="text-[9px] font-black uppercase tracking-widest text-zinc-400">{h.type}</span>
+                        <span className="text-[9px] font-black uppercase tracking-widest text-zinc-400">
+                          {h.timestamp}
+                        </span>
+                        <span className="text-[9px] font-black uppercase tracking-widest text-zinc-400">
+                          {h.type}
+                        </span>
                       </div>
-                      <p className="text-xs font-bold text-zinc-950 line-clamp-2 group-hover:text-zinc-950 transition-colors">{h.content}</p>
+                      <p className="text-xs font-bold text-zinc-950 line-clamp-2 group-hover:text-zinc-950 transition-colors">
+                        {h.content}
+                      </p>
                     </button>
                   ))
                 )}
@@ -209,8 +236,12 @@ export const GenerateStep: React.FC = () => {
             <Sparkles className="w-10 h-10 text-zinc-200" />
           </div>
           <div className="text-center space-y-3">
-            <p className="text-lg font-black uppercase tracking-widest text-zinc-300">Ready for Synthesis</p>
-            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.3em]">Click Generate to build clinical note</p>
+            <p className="text-lg font-black uppercase tracking-widest text-zinc-300">
+              Ready for Synthesis
+            </p>
+            <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.3em]">
+              Click Generate to build clinical note
+            </p>
           </div>
         </div>
       )}

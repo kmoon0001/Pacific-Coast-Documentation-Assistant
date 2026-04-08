@@ -106,7 +106,7 @@ export class UserService {
   }
 
   listUsersByRole(role: UserRole): User[] {
-    return Array.from(this.users.values()).filter(u => u.role === role);
+    return Array.from(this.users.values()).filter((u) => u.role === role);
   }
 
   deactivateUser(id: string): User {

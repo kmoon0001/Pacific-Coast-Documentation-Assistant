@@ -13,7 +13,7 @@ interface State {
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
-    error: null
+    error: null,
   };
 
   public static getDerivedStateFromError(error: Error): State {
@@ -21,7 +21,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("Uncaught error:", error, errorInfo);
+    console.error('Uncaught error:', error, errorInfo);
   }
 
   public render() {
@@ -32,13 +32,18 @@ class ErrorBoundary extends Component<Props, State> {
             <div className="w-20 h-20 bg-red-50 rounded-3xl flex items-center justify-center mb-8 mx-auto">
               <AlertCircle className="w-10 h-10 text-red-600" />
             </div>
-            <h1 className="text-3xl font-black tracking-tighter text-zinc-950 mb-4">Application Error</h1>
+            <h1 className="text-3xl font-black tracking-tighter text-zinc-950 mb-4">
+              Application Error
+            </h1>
             <p className="text-zinc-500 text-sm font-medium mb-8 leading-relaxed">
-              An unexpected error occurred. This might be due to a temporary connection issue or a state conflict.
+              An unexpected error occurred. This might be due to a temporary connection issue or a
+              state conflict.
             </p>
-            
+
             <div className="bg-zinc-50 p-6 rounded-2xl text-[10px] font-mono text-zinc-600 overflow-auto max-h-48 mb-8 border border-zinc-100 text-left leading-normal">
-              <div className="font-black uppercase tracking-widest mb-2 text-zinc-400">Error Details</div>
+              <div className="font-black uppercase tracking-widest mb-2 text-zinc-400">
+                Error Details
+              </div>
               {this.state.error?.stack || this.state.error?.message || 'Unknown Error'}
             </div>
 
@@ -59,7 +64,7 @@ class ErrorBoundary extends Component<Props, State> {
                 Reset Session & Clear Data
               </button>
             </div>
-            
+
             <p className="mt-8 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">
               TheraDoc Clinical AI • v1.2.0
             </p>

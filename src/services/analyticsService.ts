@@ -38,19 +38,18 @@ export class AnalyticsService {
 
   recordCompliance(metric: ComplianceMetric): void {
     this.complianceMetrics.push(metric);
-    logger.info({ date: metric.date, complianceRate: metric.complianceRate }, 'Compliance metric recorded');
+    logger.info(
+      { date: metric.date, complianceRate: metric.complianceRate },
+      'Compliance metric recorded'
+    );
   }
 
   getUsageMetrics(startDate: Date, endDate: Date): UsageMetric[] {
-    return this.usageMetrics.filter(
-      m => m.date >= startDate && m.date <= endDate
-    );
+    return this.usageMetrics.filter((m) => m.date >= startDate && m.date <= endDate);
   }
 
   getComplianceMetrics(startDate: Date, endDate: Date): ComplianceMetric[] {
-    return this.complianceMetrics.filter(
-      m => m.date >= startDate && m.date <= endDate
-    );
+    return this.complianceMetrics.filter((m) => m.date >= startDate && m.date <= endDate);
   }
 
   calculateAverageComplianceRate(startDate: Date, endDate: Date): number {
@@ -69,7 +68,7 @@ export class AnalyticsService {
   calculateActiveUsers(startDate: Date, endDate: Date): number {
     const metrics = this.getUsageMetrics(startDate, endDate);
     const uniqueUsers = new Set<number>();
-    metrics.forEach(m => uniqueUsers.add(m.activeUsers));
+    metrics.forEach((m) => uniqueUsers.add(m.activeUsers));
     return uniqueUsers.size;
   }
 
@@ -91,7 +90,10 @@ export class AnalyticsService {
     return report;
   }
 
-  getTrendAnalysis(startDate: Date, endDate: Date): {
+  getTrendAnalysis(
+    startDate: Date,
+    endDate: Date
+  ): {
     usageTrend: 'increasing' | 'decreasing' | 'stable';
     complianceTrend: 'improving' | 'declining' | 'stable';
   } {
@@ -117,7 +119,8 @@ export class AnalyticsService {
       const secondHalf = complianceMetrics.slice(Math.floor(complianceMetrics.length / 2));
 
       const firstAvg = firstHalf.reduce((sum, m) => sum + m.complianceRate, 0) / firstHalf.length;
-      const secondAvg = secondHalf.reduce((sum, m) => sum + m.complianceRate, 0) / secondHalf.length;
+      const secondAvg =
+        secondHalf.reduce((sum, m) => sum + m.complianceRate, 0) / secondHalf.length;
 
       if (secondAvg > firstAvg * 1.05) complianceTrend = 'improving';
       else if (secondAvg < firstAvg * 0.95) complianceTrend = 'declining';

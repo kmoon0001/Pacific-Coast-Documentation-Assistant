@@ -102,15 +102,12 @@ describe('Backend Persistence Layer', () => {
     });
 
     it('should create a note', async () => {
-      const response = await app
-        .post('/api/notes')
-        .set('Authorization', `Bearer ${token}`)
-        .send({
-          content: 'Test note content',
-          type: 'PT Daily',
-          discipline: 'PT',
-          documentType: 'Daily',
-        });
+      const response = await app.post('/api/notes').set('Authorization', `Bearer ${token}`).send({
+        content: 'Test note content',
+        type: 'PT Daily',
+        discipline: 'PT',
+        documentType: 'Daily',
+      });
 
       expect(response.status).toBe(200);
       expect(response.body.success).toBe(true);
@@ -197,29 +194,21 @@ describe('Backend Persistence Layer', () => {
 
     it('should list user notes', async () => {
       // Create multiple notes
-      await app
-        .post('/api/notes')
-        .set('Authorization', `Bearer ${token}`)
-        .send({
-          content: 'Note 1',
-          type: 'PT Daily',
-          discipline: 'PT',
-          documentType: 'Daily',
-        });
+      await app.post('/api/notes').set('Authorization', `Bearer ${token}`).send({
+        content: 'Note 1',
+        type: 'PT Daily',
+        discipline: 'PT',
+        documentType: 'Daily',
+      });
 
-      await app
-        .post('/api/notes')
-        .set('Authorization', `Bearer ${token}`)
-        .send({
-          content: 'Note 2',
-          type: 'OT Daily',
-          discipline: 'OT',
-          documentType: 'Daily',
-        });
+      await app.post('/api/notes').set('Authorization', `Bearer ${token}`).send({
+        content: 'Note 2',
+        type: 'OT Daily',
+        discipline: 'OT',
+        documentType: 'Daily',
+      });
 
-      const listResponse = await app
-        .get('/api/notes')
-        .set('Authorization', `Bearer ${token}`);
+      const listResponse = await app.get('/api/notes').set('Authorization', `Bearer ${token}`);
 
       expect(listResponse.status).toBe(200);
       expect(listResponse.body.notes).toBeDefined();
@@ -227,15 +216,12 @@ describe('Backend Persistence Layer', () => {
     });
 
     it('should validate note data', async () => {
-      const response = await app
-        .post('/api/notes')
-        .set('Authorization', `Bearer ${token}`)
-        .send({
-          content: 'Test note content',
-          type: 'PT Daily',
-          discipline: 'INVALID',
-          documentType: 'Daily',
-        });
+      const response = await app.post('/api/notes').set('Authorization', `Bearer ${token}`).send({
+        content: 'Test note content',
+        type: 'PT Daily',
+        discipline: 'INVALID',
+        documentType: 'Daily',
+      });
 
       expect(response.status).toBe(400);
     });
@@ -253,9 +239,7 @@ describe('Backend Persistence Layer', () => {
     });
 
     it('should retrieve audit logs', async () => {
-      const response = await app
-        .get('/api/audit-logs')
-        .set('Authorization', `Bearer ${token}`);
+      const response = await app.get('/api/audit-logs').set('Authorization', `Bearer ${token}`);
 
       expect(response.status).toBe(200);
       expect(response.body.logs).toBeDefined();
@@ -338,15 +322,12 @@ describe('Backend Persistence Layer', () => {
     });
 
     it('should encrypt note content', async () => {
-      const response = await app
-        .post('/api/notes')
-        .set('Authorization', `Bearer ${token}`)
-        .send({
-          content: 'Sensitive patient information',
-          type: 'PT Daily',
-          discipline: 'PT',
-          documentType: 'Daily',
-        });
+      const response = await app.post('/api/notes').set('Authorization', `Bearer ${token}`).send({
+        content: 'Sensitive patient information',
+        type: 'PT Daily',
+        discipline: 'PT',
+        documentType: 'Daily',
+      });
 
       expect(response.status).toBe(200);
       // Content should be encrypted in storage
@@ -546,7 +527,12 @@ describe('Backend Persistence Layer', () => {
         .set('Authorization', `Bearer ${token}`)
         .send({
           files: [toFilePayload('Bulk PT protocol', 'bulk-policy.txt')],
-          metadata: { title: 'Bulk Policy', description: 'Bulk import', category: 'Policy', tags: ['PT'] },
+          metadata: {
+            title: 'Bulk Policy',
+            description: 'Bulk import',
+            category: 'Policy',
+            tags: ['PT'],
+          },
         });
       expect(bulkUploadResponse.body.successful.length).toBe(1);
 
@@ -597,11 +583,9 @@ describe('Backend Persistence Layer', () => {
       }
 
       const responses = await Promise.all(requests);
-      responses.forEach(response => {
+      responses.forEach((response) => {
         expect(response.status).toBeGreaterThanOrEqual(200);
       });
     });
   });
 });
-
-

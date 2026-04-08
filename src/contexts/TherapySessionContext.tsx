@@ -6,12 +6,16 @@ export type TherapySessionContextType = ReturnType<typeof useTherapySession>;
 
 export const TherapySessionContext = createContext<TherapySessionContextType | null>(null);
 
-export function TherapySessionProvider({ children, initialState }: { children: ReactNode; initialState?: TherapyState }) {
+export function TherapySessionProvider({
+  children,
+  initialState,
+}: {
+  children: ReactNode;
+  initialState?: TherapyState;
+}) {
   const session = useTherapySession(initialState);
   return (
-    <TherapySessionContext.Provider value={session}>
-      {children}
-    </TherapySessionContext.Provider>
+    <TherapySessionContext.Provider value={session}>{children}</TherapySessionContext.Provider>
   );
 }
 

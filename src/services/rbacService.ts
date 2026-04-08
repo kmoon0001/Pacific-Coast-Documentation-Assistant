@@ -1,7 +1,7 @@
 import { logger } from '../lib/logger';
 import { UserRole } from './userService';
 
-export type Permission = 
+export type Permission =
   | 'read:notes'
   | 'create:notes'
   | 'edit:notes'
@@ -47,10 +47,7 @@ export class RBACService {
         'view:audit',
       ],
     ],
-    [
-      'therapist',
-      ['read:notes', 'create:notes', 'edit:notes', 'export:notes'],
-    ],
+    ['therapist', ['read:notes', 'create:notes', 'edit:notes', 'export:notes']],
     ['viewer', ['read:notes', 'view:analytics']],
     ['auditor', ['read:notes', 'view:audit', 'view:analytics']],
   ]);

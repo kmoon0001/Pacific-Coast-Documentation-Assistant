@@ -46,10 +46,7 @@ describe('BulkOperationsService', () => {
 
       vi.mocked(knowledgeBaseService.uploadDocument).mockResolvedValue(mockDoc);
 
-      const files = [
-        new File(['content1'], 'file1.md'),
-        new File(['content2'], 'file2.md'),
-      ];
+      const files = [new File(['content1'], 'file1.md'), new File(['content2'], 'file2.md')];
 
       const result = await service.bulkUpload(files, {}, 'user-1');
 
@@ -81,10 +78,7 @@ describe('BulkOperationsService', () => {
         })
         .mockRejectedValueOnce(new Error('Upload failed'));
 
-      const files = [
-        new File(['content1'], 'file1.md'),
-        new File(['content2'], 'file2.md'),
-      ];
+      const files = [new File(['content1'], 'file1.md'), new File(['content2'], 'file2.md')];
 
       const result = await service.bulkUpload(files, {}, 'user-1');
 
@@ -120,10 +114,7 @@ describe('BulkOperationsService', () => {
         progressUpdates.push([current, total]);
       };
 
-      const files = [
-        new File(['content1'], 'file1.md'),
-        new File(['content2'], 'file2.md'),
-      ];
+      const files = [new File(['content1'], 'file1.md'), new File(['content2'], 'file2.md')];
 
       await service.bulkUpload(files, {}, 'user-1', onProgress);
 
@@ -315,4 +306,3 @@ describe('BulkOperationsService', () => {
     });
   });
 });
-

@@ -69,21 +69,27 @@ const buildMockBedrockResponse = (request?: any) => {
 };
 
 // Create a global mock store for generateContent
-let mockGenerateContentFn = vi.fn((request?: any) => Promise.resolve(buildMockBedrockResponse(request)));
+let mockGenerateContentFn = vi.fn((request?: any) =>
+  Promise.resolve(buildMockBedrockResponse(request))
+);
 
 // Mock AWS Bedrock fetch
-vi.stubGlobal('fetch', vi.fn((url: string, options: any) => {
-  if (url.includes('bedrock-runtime')) {
-    return Promise.resolve({
-      ok: true,
-      json: () => Promise.resolve({
-        content: [{ text: 'Mock AWS Bedrock response' }],
-        completion: 'Mock AWS Bedrock response'
-      })
-    });
-  }
-  return Promise.reject(new Error('Unexpected fetch call'));
-}));
+vi.stubGlobal(
+  'fetch',
+  vi.fn((url: string, options: any) => {
+    if (url.includes('bedrock-runtime')) {
+      return Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            content: [{ text: 'Mock AWS Bedrock response' }],
+            completion: 'Mock AWS Bedrock response',
+          }),
+      });
+    }
+    return Promise.reject(new Error('Unexpected fetch call'));
+  })
+);
 
 // Export function to update mock in tests
 export function setMockGenerateContent(fn: any) {
@@ -109,7 +115,9 @@ afterEach(() => {
   cleanup();
   server.resetHandlers();
   vi.clearAllMocks();
-  mockGenerateContentFn = vi.fn((request?: any) => Promise.resolve(buildMockBedrockResponse(request)));
+  mockGenerateContentFn = vi.fn((request?: any) =>
+    Promise.resolve(buildMockBedrockResponse(request))
+  );
   (globalThis as any).localStorage?.clear();
   (globalThis as any).sessionStorage?.clear();
 });

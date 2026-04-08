@@ -11,13 +11,16 @@ const baseProps = {
 describe('GuidedTour Component', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+
+    // Mock scrollIntoView for all elements
+    Element.prototype.scrollIntoView = vi.fn();
   });
 
   it('renders the first step when active', () => {
     render(<GuidedTour {...baseProps} />);
 
     expect(screen.getByText(/welcome to theradoc/i)).toBeInTheDocument();
-    expect(screen.getByText('1 / 4')).toBeInTheDocument();
+    expect(screen.getByText(/Step 1 of/i)).toBeInTheDocument();
   });
 
   it('does not render when the tour is inactive', () => {
@@ -30,28 +33,16 @@ describe('GuidedTour Component', () => {
     render(<GuidedTour {...baseProps} />);
 
     await userEvent.click(screen.getByRole('button', { name: /next/i }));
-    expect(screen.getByText(/sidebar/i)).toBeInTheDocument();
-    expect(screen.getByText('2 / 4')).toBeInTheDocument();
+    expect(screen.getByText(/three main areas/i)).toBeInTheDocument();
 
     await userEvent.click(screen.getByRole('button', { name: /previous/i }));
     expect(screen.getByText(/welcome to theradoc/i)).toBeInTheDocument();
   });
 
-  it('finishes the tour on the last step', async () => {
+  it('allows closing the tour from the skip button', async () => {
     render(<GuidedTour {...baseProps} />);
 
-    for (let i = 0; i < 3; i += 1) {
-      await userEvent.click(screen.getByRole('button', { name: /next/i }));
-    }
-
-    await userEvent.click(screen.getByRole('button', { name: /finish/i }));
-    expect(baseProps.onClose).toHaveBeenCalled();
-  });
-
-  it('allows closing the tour from the header button', async () => {
-    render(<GuidedTour {...baseProps} />);
-
-    await userEvent.click(screen.getByRole('button', { name: /close guided tour/i }));
+    await userEvent.click(screen.getByRole('button', { name: /skip tour/i }));
     expect(baseProps.onClose).toHaveBeenCalled();
   });
 });

@@ -1,8 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mockGenerator = vi.fn(async () => [
-  { generated_text: '<|assistant|>\nMock generated note' },
-]);
+const mockGenerator = vi.fn(async () => [{ generated_text: '<|assistant|>\nMock generated note' }]);
 
 const mockPipeline = vi.fn(async (_task: string, _model: string, options?: any) => {
   if (options?.progress_callback) {
@@ -50,7 +48,13 @@ describe('localLLM service', () => {
     expect(result).toBe('Mock generated note');
     expect(mockGenerator).toHaveBeenCalledWith(
       expect.stringContaining('Clinical prompt'),
-      expect.objectContaining({ max_new_tokens: 512 })
+      expect.objectContaining({ 
+        max_new_tokens: 800,
+        temperature: 0.7,
+        do_sample: true,
+        top_k: 50,
+        top_p: 0.9
+      })
     );
   });
 });

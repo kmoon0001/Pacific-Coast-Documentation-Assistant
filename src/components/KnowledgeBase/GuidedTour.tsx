@@ -21,97 +21,111 @@ const TOUR_STEPS: TourStep[] = [
   {
     id: 'welcome',
     title: 'Welcome to Knowledge Base',
-    description: 'This guided tour will show you how to use the Knowledge Base feature. You can upload, manage, and search clinical policies and procedures.',
+    description:
+      'This guided tour will show you how to use the Knowledge Base feature. You can upload, manage, and search clinical policies and procedures.',
     position: 'bottom',
   },
   {
     id: 'upload-section',
     title: 'Upload Documents',
-    description: 'Click here to upload new documents (PDF, DOCX, TXT, MD). You can add metadata like title, description, category, and tags.',
+    description:
+      'Click here to upload new documents (PDF, DOCX, TXT, MD). You can add metadata like title, description, category, and tags.',
     target: '[data-tour="upload-section"]',
     position: 'bottom',
   },
   {
     id: 'document-list',
     title: 'Document Library',
-    description: 'View all your uploaded documents here. You can search, filter by category, sort, and manage documents.',
+    description:
+      'View all your uploaded documents here. You can search, filter by category, sort, and manage documents.',
     target: '[data-tour="document-list"]',
     position: 'left',
   },
   {
     id: 'search-bar',
     title: 'Search Documents',
-    description: 'Use the search bar to find documents by title, description, or content. Supports both keyword and semantic search.',
+    description:
+      'Use the search bar to find documents by title, description, or content. Supports both keyword and semantic search.',
     target: '[data-tour="search-bar"]',
     position: 'bottom',
   },
   {
     id: 'filter-options',
     title: 'Filter & Sort',
-    description: 'Filter documents by category (Policy, Procedure, Guidance, Regulation) and sort by name, date, or relevance.',
+    description:
+      'Filter documents by category (Policy, Procedure, Guidance, Regulation) and sort by name, date, or relevance.',
     target: '[data-tour="filter-options"]',
     position: 'bottom',
   },
   {
     id: 'document-preview',
     title: 'Preview Documents',
-    description: 'Click on any document to preview its content, metadata, usage statistics, and audit history.',
+    description:
+      'Click on any document to preview its content, metadata, usage statistics, and audit history.',
     target: '[data-tour="document-preview"]',
     position: 'left',
   },
   {
     id: 'policy-panel',
     title: 'Policy Integration',
-    description: 'View applicable policies for your current context. These policies are automatically injected into AI-generated notes.',
+    description:
+      'View applicable policies for your current context. These policies are automatically injected into AI-generated notes.',
     target: '[data-tour="policy-panel"]',
     position: 'left',
   },
   {
     id: 'versioning',
     title: 'Document Versioning',
-    description: 'Track document versions, compare changes, and restore previous versions. Each change is automatically recorded.',
+    description:
+      'Track document versions, compare changes, and restore previous versions. Each change is automatically recorded.',
     target: '[data-tour="versioning"]',
     position: 'bottom',
   },
   {
     id: 'relationships',
     title: 'Document Relationships',
-    description: 'Link related documents (supersedes, related_to, depends_on). The system detects circular dependencies and conflicts.',
+    description:
+      'Link related documents (supersedes, related_to, depends_on). The system detects circular dependencies and conflicts.',
     target: '[data-tour="relationships"]',
     position: 'bottom',
   },
   {
     id: 'bulk-operations',
     title: 'Bulk Operations',
-    description: 'Upload multiple documents, batch delete, or update tags and categories for multiple documents at once.',
+    description:
+      'Upload multiple documents, batch delete, or update tags and categories for multiple documents at once.',
     target: '[data-tour="bulk-operations"]',
     position: 'bottom',
   },
   {
     id: 'analytics',
     title: 'Analytics & Reporting',
-    description: 'View usage statistics, policy adoption metrics, compliance scores, and trends over time.',
+    description:
+      'View usage statistics, policy adoption metrics, compliance scores, and trends over time.',
     target: '[data-tour="analytics"]',
     position: 'left',
   },
   {
     id: 'semantic-search',
     title: 'Semantic Search',
-    description: 'Search using natural language. The system understands meaning, not just keywords, for better results.',
+    description:
+      'Search using natural language. The system understands meaning, not just keywords, for better results.',
     target: '[data-tour="semantic-search"]',
     position: 'bottom',
   },
   {
     id: 'settings',
     title: 'Settings & Preferences',
-    description: 'Configure cache settings, performance monitoring, security options, and restart this tour anytime.',
+    description:
+      'Configure cache settings, performance monitoring, security options, and restart this tour anytime.',
     target: '[data-tour="settings"]',
     position: 'left',
   },
   {
     id: 'completion',
-    title: 'You\'re All Set!',
-    description: 'You now understand the Knowledge Base features. Start by uploading your first document or exploring existing ones.',
+    title: "You're All Set!",
+    description:
+      'You now understand the Knowledge Base features. Start by uploading your first document or exploring existing ones.',
     position: 'bottom',
   },
 ];
@@ -232,17 +246,11 @@ export const GuidedTour: React.FC<GuidedTourProps> = ({ isActive, onComplete, on
               ← Previous
             </button>
 
-            <button
-              className="tour-btn tour-btn-secondary"
-              onClick={handleSkip}
-            >
+            <button className="tour-btn tour-btn-secondary" onClick={handleSkip}>
               Skip Tour
             </button>
 
-            <button
-              className="tour-btn tour-btn-primary"
-              onClick={handleNext}
-            >
+            <button className="tour-btn tour-btn-primary" onClick={handleNext}>
               {currentStep === TOUR_STEPS.length - 1 ? 'Finish' : 'Next →'}
             </button>
           </div>

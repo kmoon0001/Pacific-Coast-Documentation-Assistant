@@ -31,12 +31,16 @@ class SecurityHardeningService {
 
     // Check file type
     if (!this.ALLOWED_FILE_TYPES.includes(fileType)) {
-      errors.push(`File type '${fileType}' is not allowed. Allowed types: ${this.ALLOWED_FILE_TYPES.join(', ')}`);
+      errors.push(
+        `File type '${fileType}' is not allowed. Allowed types: ${this.ALLOWED_FILE_TYPES.join(', ')}`
+      );
     }
 
     // Check file size
     if (file.size > this.MAX_FILE_SIZE) {
-      errors.push(`File size (${file.size} bytes) exceeds maximum allowed size (${this.MAX_FILE_SIZE} bytes)`);
+      errors.push(
+        `File size (${file.size} bytes) exceeds maximum allowed size (${this.MAX_FILE_SIZE} bytes)`
+      );
     }
 
     // Check file size minimum
@@ -63,18 +67,23 @@ class SecurityHardeningService {
   /**
    * Validate file content
    */
-  async validateFileContent(file: File, fileType: string): Promise<{ valid: boolean; errors: string[] }> {
+  async validateFileContent(
+    file: File,
+    fileType: string
+  ): Promise<{ valid: boolean; errors: string[] }> {
     const errors: string[] = [];
 
     try {
       // Read first few bytes to check file signature
       const buffer = await file.slice(0, 4).arrayBuffer();
       const view = new Uint8Array(buffer);
-      const signature = Array.from(view).map(b => b.toString(16).padStart(2, '0')).join('');
+      const signature = Array.from(view)
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
 
       const expectedSignatures = this.FILE_SIGNATURES[fileType];
       if (expectedSignatures && expectedSignatures.length > 0) {
-        const isValidSignature = expectedSignatures.some(sig => signature.startsWith(sig));
+        const isValidSignature = expectedSignatures.some((sig) => signature.startsWith(sig));
         if (!isValidSignature) {
           errors.push(`File signature does not match expected ${fileType} format`);
         }
@@ -86,7 +95,9 @@ class SecurityHardeningService {
         errors.push('File contains suspicious content patterns');
       }
     } catch (error) {
-      errors.push(`Failed to validate file content: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      errors.push(
+        `Failed to validate file content: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
 
     return {
@@ -119,7 +130,12 @@ class SecurityHardeningService {
   /**
    * Check rate limit for user
    */
-  checkRateLimit(userId: string, action: string, limit: number = 100, windowMs: number = 60000): boolean {
+  checkRateLimit(
+    userId: string,
+    action: string,
+    limit: number = 100,
+    windowMs: number = 60000
+  ): boolean {
     const key = `${userId}:${action}`;
     const now = Date.now();
 
@@ -138,7 +154,12 @@ class SecurityHardeningService {
     entry.count++;
 
     if (entry.count > limit) {
-      this.logSecurityEvent(userId, 'rate_limit_exceeded', { action, limit, count: entry.count }, 'medium');
+      this.logSecurityEvent(
+        userId,
+        'rate_limit_exceeded',
+        { action, limit, count: entry.count },
+        'medium'
+      );
       return false;
     }
 
@@ -148,7 +169,11 @@ class SecurityHardeningService {
   /**
    * Get rate limit status
    */
-  getRateLimitStatus(userId: string, action: string, limit: number = 100): { remaining: number; resetTime: Date } {
+  getRateLimitStatus(
+    userId: string,
+    action: string,
+    limit: number = 100
+  ): { remaining: number; resetTime: Date } {
     const key = `${userId}:${action}`;
     const entry = this.rateLimitMap.get(key);
 
@@ -190,7 +215,9 @@ class SecurityHardeningService {
       }
       return decrypted;
     } catch (error) {
-      throw new Error(`Failed to decrypt data: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Failed to decrypt data: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
@@ -229,11 +256,11 @@ class SecurityHardeningService {
     let events = this.securityEvents;
 
     if (userId) {
-      events = events.filter(e => e.userId === userId);
+      events = events.filter((e) => e.userId === userId);
     }
 
     if (severity) {
-      events = events.filter(e => e.severity === severity);
+      events = events.filter((e) => e.severity === severity);
     }
 
     return events;
@@ -249,9 +276,9 @@ class SecurityHardeningService {
     lowSeverityEvents: number;
     recentEvents: Array<any>;
   } {
-    const highSeverity = this.securityEvents.filter(e => e.severity === 'high').length;
-    const mediumSeverity = this.securityEvents.filter(e => e.severity === 'medium').length;
-    const lowSeverity = this.securityEvents.filter(e => e.severity === 'low').length;
+    const highSeverity = this.securityEvents.filter((e) => e.severity === 'high').length;
+    const mediumSeverity = this.securityEvents.filter((e) => e.severity === 'medium').length;
+    const lowSeverity = this.securityEvents.filter((e) => e.severity === 'low').length;
 
     return {
       totalEvents: this.securityEvents.length,

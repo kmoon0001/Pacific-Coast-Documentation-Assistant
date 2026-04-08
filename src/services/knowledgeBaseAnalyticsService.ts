@@ -62,7 +62,7 @@ export class KnowledgeBaseAnalyticsService {
   }> {
     const allStats = Array.from(this.usageData.values());
     const totalPolicies = allStats.length;
-    const activePolicies = allStats.filter(s => s.totalUsages > 0).length;
+    const activePolicies = allStats.filter((s) => s.totalUsages > 0).length;
     const adoptionRate = totalPolicies > 0 ? (activePolicies / totalPolicies) * 100 : 0;
     const totalUsages = allStats.reduce((sum, s) => sum + s.totalUsages, 0);
     const averageUsagePerPolicy = totalPolicies > 0 ? totalUsages / totalPolicies : 0;
@@ -70,11 +70,9 @@ export class KnowledgeBaseAnalyticsService {
     const topPolicies = allStats
       .sort((a, b) => b.totalUsages - a.totalUsages)
       .slice(0, 10)
-      .map(s => ({ documentId: s.documentId, usages: s.totalUsages }));
+      .map((s) => ({ documentId: s.documentId, usages: s.totalUsages }));
 
-    const unusedPolicies = allStats
-      .filter(s => s.totalUsages === 0)
-      .map(s => s.documentId);
+    const unusedPolicies = allStats.filter((s) => s.totalUsages === 0).map((s) => s.documentId);
 
     return {
       totalPolicies,
@@ -97,9 +95,10 @@ export class KnowledgeBaseAnalyticsService {
     criticalIssues: number;
   }> {
     const scores = Array.from(this.complianceData.values());
-    const averageComplianceScore = scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
-    const documentsWithHighCompliance = scores.filter(s => s >= 80).length;
-    const documentsWithLowCompliance = scores.filter(s => s < 60).length;
+    const averageComplianceScore =
+      scores.length > 0 ? scores.reduce((a, b) => a + b, 0) / scores.length : 0;
+    const documentsWithHighCompliance = scores.filter((s) => s >= 80).length;
+    const documentsWithLowCompliance = scores.filter((s) => s < 60).length;
 
     return {
       averageComplianceScore,
@@ -189,21 +188,25 @@ export class KnowledgeBaseAnalyticsService {
   /**
    * Get most used documents
    */
-  async getMostUsedDocuments(limit: number = 10): Promise<Array<{ documentId: string; usages: number }>> {
+  async getMostUsedDocuments(
+    limit: number = 10
+  ): Promise<Array<{ documentId: string; usages: number }>> {
     return Array.from(this.usageData.values())
       .sort((a, b) => b.totalUsages - a.totalUsages)
       .slice(0, limit)
-      .map(s => ({ documentId: s.documentId, usages: s.totalUsages }));
+      .map((s) => ({ documentId: s.documentId, usages: s.totalUsages }));
   }
 
   /**
    * Get least used documents
    */
-  async getLeastUsedDocuments(limit: number = 10): Promise<Array<{ documentId: string; usages: number }>> {
+  async getLeastUsedDocuments(
+    limit: number = 10
+  ): Promise<Array<{ documentId: string; usages: number }>> {
     return Array.from(this.usageData.values())
       .sort((a, b) => a.totalUsages - b.totalUsages)
       .slice(0, limit)
-      .map(s => ({ documentId: s.documentId, usages: s.totalUsages }));
+      .map((s) => ({ documentId: s.documentId, usages: s.totalUsages }));
   }
 
   /**
